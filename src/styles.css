@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    /* evitamos scroll global */
+}
+
+.scroll-container {
+    height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+.section {
+    height: 100vh;
+    scroll-snap-align: start;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+h1 {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-size: 4em;
+    line-height: 80px;
+    letter-spacing: 0.05em;
+
+    background: linear-gradient(90deg, #daa032, #926717);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+    color: transparent;
+}
+
+h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    letter-spacing: 0.05em;
+    padding: 10px 0;
+
+    background: linear-gradient(90deg, #e9eeef, #868889);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+    color: transparent;
+}
+
+p {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+    color: #e9eeef;
+}
