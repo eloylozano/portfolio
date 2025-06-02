@@ -1,0 +1,36 @@
+---
+import Title from "../components/Title.astro";
+import Subtitle from "../components/Subtitle.astro";
+import Paragraph from "../components/Text.astro";
+---
+
+<section
+  id="home"
+  class="hero relative flex items-center justify-end h-screen px-24"
+>
+  <div class="right z-10 w-[60%] max-w-[700px] text-white text-right">
+    <Title text="El arte también se programa." />
+    <Subtitle text="Desarrollador Web y Fotógrafo" />
+    <Paragraph
+      text="Soy Eloy Lozano, desarrollador web y fotógrafo de retrato. Combino líneas de código con sensibilidad visual para crear experiencias digitales únicas."
+    />
+
+    <div class="socials flex justify-end gap-4 text-2xl mt-6">
+      <a href="#" aria-label="GitHub"><i class="icon-github"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="icon-linkedin"></i></a>
+      <a href="#" aria-label="Instagram"><i class="icon-instagram"></i></a>
+      <a href="#" aria-label="TikTok"><i class="icon-tiktok"></i></a>
+    </div>
+  </div>
+
+  <div
+    class="background absolute inset-0 -z-10 bg-cover bg-center"
+  >
+  </div>
+</section>
+
+<style>
+  .background {
+    background-image: url("/images/main.jpg");
+  }
+</style>
