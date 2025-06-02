@@ -16,10 +16,16 @@ import Navbar from "../components/Navbar.astro";
       rel="stylesheet"
     />
   </head>
-  <body class="overflow-hidden bg-[#161512]">
+  <body class="bg-[#161512]">
     <Navbar />
-    <main class="">
+    <main
+      class="scroll-container snap-y snap-mandatory h-screen overflow-y-scroll"
+    >
       <slot />
     </main>
   </body>
 </html>
+
+<style>
+  @import "../styles/global.css";
+</style>
