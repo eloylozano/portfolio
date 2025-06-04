@@ -7,12 +7,20 @@ import Paragraph from "../components/Text.astro";
 <section
   id="home"
   data-section="home"
-  class="line hero relative lg:items-end lg:h-screen lg:px-26 flex flex-col justify-center"
+  class="hero relative min-h-screen flex flex-col justify-center px-4 sm:px-8 md:px-12 lg:px-26"
   aria-label="Home section"
 >
-  <img class="lg:hidden -z-40 block" src="/images/main.jpg" alt="Fondo" />
+  <!-- Imagen de fondo para móviles -->
+  <img 
+    class="lg:hidden absolute inset-0 w-full h-full object-cover -z-40" 
+    src="/images/main.jpg" 
+    alt="Fondo" 
+    loading="eager"
+  />
+
+  <!-- Contenido principal -->
   <div
-    class="lg:right z-10 lg:w-[50%] lg:max-w-[800px] text-white text-center lg:text-right xs:bg-[#161512] pt-16 lg:pt-0 px-26 lg:px-6"
+    class="z-10 w-full lg:w-[50%] lg:max-w-[800px] xs:mx-auto lg:ml-auto text-white text-center lg:text-right bg-[#161512]/90 lg:bg-transparent py-16 lg:py-0 px-4 sm:px-8 lg:px-6 rounded-lg lg:rounded-none"
   >
     <Title text="El arte también se programa" />
     <Subtitle text="Desarrollador Web y Fotógrafo" />
@@ -21,12 +29,15 @@ import Paragraph from "../components/Text.astro";
       text="Soy Eloy Lozano, desarrollador web y fotógrafo de retrato. Combino líneas de código con sensibilidad visual para crear experiencias digitales únicas"
     />
 
-    <div class="flex items-end justify-between h-min">
-      <div class="flex justify-start items-center mt-6 ps-6 gap-2 text-2xl">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mt-8">
+      <!-- Redes sociales -->
+      <div class="flex justify-center items-center gap-3 sm:gap-2 text-2xl">
         <a
           href="https://github.com/eloylozano"
           aria-label="GitHub"
           class="transform transition-transform duration-200 hover:scale-105"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -40,12 +51,14 @@ import Paragraph from "../components/Text.astro";
           </svg>
         </a>
 
-        <div class="w-px h-4 bg-white mx-2 transform rotate-12"></div>
+        <div class="w-px h-4 bg-white mx-1 transform rotate-12"></div>
 
         <a
           href="https://www.linkedin.com/in/eloylozano/"
           aria-label="LinkedIn"
           class="transform transition-transform duration-200 hover:scale-[1.01]"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -59,12 +72,14 @@ import Paragraph from "../components/Text.astro";
           </svg>
         </a>
 
-        <div class="w-px h-4 bg-white mx-2 transform rotate-12"></div>
+        <div class="w-px h-4 bg-white mx-1 transform rotate-12"></div>
 
         <a
           href="https://www.tiktok.com/@eloyloozano"
           aria-label="TikTok"
           class="transform transition-transform duration-200 hover:scale-[1.01]"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,12 +93,14 @@ import Paragraph from "../components/Text.astro";
           </svg>
         </a>
 
-        <div class="w-px h-4 bg-white mx-2 transform rotate-12"></div>
+        <div class="w-px h-4 bg-white mx-1 transform rotate-12"></div>
 
         <a
           href="https://www.instagram.com/eloyloozano/"
           aria-label="Instagram"
           class="transform transition-transform duration-200 hover:scale-[1.01]"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -98,12 +115,12 @@ import Paragraph from "../components/Text.astro";
         </a>
       </div>
 
-      <div class="group flex items-center cursor-pointer me-6 relative">
-        <!-- Ícono triangular -->
+      <!-- Botón de proyectos -->
+      <div class="group flex items-center cursor-pointer relative w-full sm:w-auto justify-center sm:justify-end">
         <span class="relative inline-block">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-7 w-7 me-3 transition-transform duration-500 ease-in-out group-hover:translate-x-40 hover:fill-[#daa032] -translate-x-7 absolute top-1/2 -translate-y-1/2 left-0 z-10"
+            class="h-6 w-6 sm:h-7 sm:w-7 me-3 transition-transform duration-500 ease-in-out group-hover:translate-x-8 sm:group-hover:translate-x-40 hover:fill-[#daa032] -translate-x-7 absolute top-1/2 -translate-y-1/2 left-0 z-10"
             viewBox="0 0 24 24"
           >
             <rect width="24" height="24" fill="none"></rect>
@@ -114,8 +131,7 @@ import Paragraph from "../components/Text.astro";
           </svg>
         </span>
 
-        <!-- Texto animado letra a letra -->
-        <a href="#" class="flex space-x-0.5 z-0 text-[#e9eeef]">
+        <a href="#projects" class="flex space-x-0.5 z-0 text-[#e9eeef] text-sm sm:text-base">
           {
             "Ver mis proyectos"
               .split("")
@@ -132,15 +148,31 @@ import Paragraph from "../components/Text.astro";
     </div>
   </div>
 
+  <!-- Imagen de fondo para desktop -->
   <div
     class="background hidden lg:block absolute inset-0 -z-10 bg-cover bg-center"
-  >
-  </div>
+    style="background-image: url('/images/main.jpg'); background-position: left;"
+  ></div>
 </section>
 
 <style>
-  .background {
-    background-image: url("/images/main.jpg");
-    background-position: left;
+  /* Ajustes específicos para mejorar la responsividad */
+  @media (max-width: 1023px) {
+    .hero {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .hero {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    
+    .hero > div {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
   }
 </style>

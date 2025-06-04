@@ -4,34 +4,33 @@ import Paragraph from "../components/Text.astro";
 ---
 
 <div class="relative lg:flex items-center">
-  <div class="max-w-[800px] text-white">
-    <div class="bg-[#0B0B0B]/60 ps-32 pe-24 py-10">
+  <div class="max-w-[800px] text-white px-0">
+    <div class="lg:bg-[#0B0B0B]/60 ps-6 pe-6 py-6 px-4 lg:ps-32 lg:pe-24 lg:py-10">
       <Title text="Sobre mí" />
       <Paragraph
         class="text-justify"
         text={`Mi curiosidad por la tecnología se complementa con mi pasión por la fotografía, lo que me permite aportar un enfoque detallado y creativo a mis proyectos. La fotografía me da la oportunidad de tomar distancia y observar el mundo desde diferentes ángulos, perfeccionando mi capacidad para capturar detalles intrincados que a menudo pasan desapercibidos. 
-  
-  Cuando no estoy programando, exploro el mundo a través de mi cámara, capturando momentos que cuentan una historia, ya sea una escena callejera espontánea o la impresionante belleza de los paisajes naturales. 
-  
-  Estas experiencias impulsan mis diseños, brindándome nuevas perspectivas e inspiración para aplicarlas a mi trabajo en tecnología. La disciplina y la creatividad que he desarrollado en la fotografía mejoran mis habilidades para resolver problemas, convirtiéndome en un desarrollador más reflexivo y adaptable.`}
+
+Cuando no estoy programando, exploro el mundo a través de mi cámara, capturando momentos que cuentan una historia, ya sea una escena callejera espontánea o la impresionante belleza de los paisajes naturales. 
+
+Estas experiencias impulsan mis diseños, brindándome nuevas perspectivas e inspiración para aplicarlas a mi trabajo en tecnología. La disciplina y la creatividad que he desarrollado en la fotografía mejoran mis habilidades para resolver problemas, convirtiéndome en un desarrollador más reflexivo y adaptable.`}
       />
     </div>
   </div>
 
-  <div class="w-full flex justify-center mt-50 lg:mt-0">
+  <div class="w-full flex justify-center mt-32 lg:mt-0 xs:relative">
     <div
-      class="neon-box border rounded-xs border-[#daa032] h-[400px] w-[300px] absolute z-2 -translate-x-[100px] -translate-y-[50px]"
-    >
-    </div>
+      class="neon-box border rounded-xs border-[#daa032] h-[250px] w-[190px] absolute z-2 -translate-x-12 -translate-y-8 lg:h-[400px] lg:w-[300px] lg:-translate-x-[100px] lg:-translate-y-[50px]"
+    ></div>
 
     <div
-      class="bg-[#0B0B0B]/60 h-[400px] w-[300px] absolute z-2 translate-x-[100px]"
-    >
-    </div>
+      class="bg-[#0B0B0B]/60 h-[250px] w-[190px] absolute z-2 translate-x-12 lg:h-[400px] lg:w-[300px] lg:translate-x-[100px]"
+    ></div>
+    
     <img
       src="/images/aboutme.png"
       alt="Eloy Lozano retrato"
-      class="shadow-lg max-h-[400px] object-cover z-10 translate-y-[50px]"
+      class="shadow-lg max-h-[250px] object-cover z-10 translate-y-12 lg:max-h-[400px] lg:translate-y-[50px]"
       loading="lazy"
     />
   </div>
@@ -39,8 +38,7 @@ import Paragraph from "../components/Text.astro";
 
 <style>
   @keyframes neonPulse {
-    0%,
-    100% {
+    0%, 100% {
       box-shadow:
         0 0 6px #daa032,
         0 0 30px #daa032,
