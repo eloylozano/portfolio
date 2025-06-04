@@ -1,0 +1,78 @@
+---
+import StackCard from "./StackCard.astro";
+import Title from "./Title.astro";
+---
+
+<article class="text-white  ">
+  <Title text="Mi stack tecnológico" class="text-center" />
+  <div class="flex md:flex-wrap justify-center  mt-12">
+    <div class="w-1/2 sm:w-1/4">
+      <StackCard
+        title="BackEnd"
+        icons={[
+          { src: "/images/icons/java.png", alt: "Java" },
+          { src: "/images/icons/php.png", alt: "Php" },
+          { src: "/images/icons/spring.png", alt: "Spring" },
+          { src: "/images/icons/symfony.png", alt: "Symfony" },
+          { src: "/images/icons/node.png", alt: "Node" },
+          { src: "/images/icons/git.png", alt: "Git" },
+        ]}
+      />
+    </div>
+    <div class="w-1/2 sm:w-1/4">
+      <StackCard
+        title="FrontEnd"
+        icons={[
+          { src: "/images/icons/react.png", alt: "React" },
+          { src: "/images/icons/angular.png", alt: "Angular" },
+          { src: "/images/icons/svelte.png", alt: "Svelte" },
+          { src: "/images/icons/astro.png", alt: "Astro" },
+          { src: "/images/icons/next.png", alt: "Next" },
+          { src: "/images/icons/vite.png", alt: "Vite" },
+        ]}
+      />
+    </div>
+    <div class="w-1/2 sm:w-1/4">
+      <StackCard
+        title="Data"
+        icons={[
+          { src: "/images/icons/mongo.png", alt: "MongoDB" },
+          { src: "/images/icons/mySQL.png", alt: "MySQL" },
+          { src: "/images/icons/postgreSQL.png", alt: "PostgreSQL" },
+          { src: "/images/icons/python.png", alt: "Python" },
+          { src: "/images/icons/numpy.png", alt: "Numpy" },
+          { src: "/images/icons/pandas.png", alt: "Pandas" },
+        ]}
+      />
+    </div>
+    <div class="w-1/2 sm:w-1/4">
+      <StackCard
+        title="Diseño"
+        icons={[
+          { src: "/images/icons/Photoshop.png", alt: "Photoshop" },
+          { src: "/images/icons/Lightroom.png", alt: "Lightroom" },
+          { src: "/images/icons/Premiere.png", alt: "Premiere" },
+          { src: "/images/icons/Figma.png", alt: "Figma" },
+          { src: "/images/icons/Canva.png", alt: "Canva" },
+          { src: "/images/icons/Penpot.png", alt: "Penpot" },
+        ]}
+      />
+    </div>
+  </div>
+  <hr class="neon-hr hidden lg:block" />
+</article>
+
+
+
+<style>
+  .neon-hr {
+    height: 2px;
+    border: none;
+    background: #daa032;
+    box-shadow:
+      0 0 10px #daa032,
+      0 0 20px #daa032,
+      0 0 30px #daa032;
+    margin: 4rem 0;
+  }
+</style>

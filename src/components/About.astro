@@ -1,25 +1,33 @@
 ---
-import Title from "../components/Title.astro";
-import Paragraph from "../components/Text.astro";
+import Experience from "./Experience.astro";
+import AboutMe from "./AboutMe.astro";
 ---
 
 <section
   id="about"
-  class="section hero relative flex items-center justify-end snap-start h-screen px-32"
+  data-section="about"
+  aria-label="About section"
+  class="bg-[#161512] py-24"
 >
-  <div class="w-[50%] max-w-[600px] text-white">
-    <Title text="Sobre mí" />
-    <Paragraph
-      text="Mi curiosidad por la tecnología se complementa con mi pasión por la fotografía, lo que me permite aportar un enfoque detallado y creativo a mis proyectos. La fotografía me da la oportunidad de tomar distancia y observar el mundo desde diferentes ángulos, perfeccionando mi capacidad para capturar detalles intrincados que a menudo pasan desapercibidos. Cuando no estoy programando, exploro el mundo a través de mi cámara, capturando momentos que cuentan una historia, ya sea una escena callejera espontánea o la impresionante belleza de los paisajes naturales. Estas experiencias impulsan mis diseños, brindándome nuevas perspectivas e inspiración para aplicarlas a mi trabajo en tecnología. La disciplina y la creatividad que he desarrollado en la fotografía mejoran mis habilidades para resolver problemas, convirtiéndome en un desarrollador más reflexivo y adaptable."
-    />
-  </div>
-
-  <div class="right w-[40%] flex justify-center">
-    <img
-      src="/images/ferrari.png"
-      alt="Eloy Lozano retrato"
-      class="shadow-lg max-h-[500px] object-cover"
-      loading="lazy"
-    />
-  </div>
+  <AboutMe />
 </section>
+
+<section
+  id="experience"
+  data-section="experience"
+  aria-label="Experience section"
+  class="section min-h-screen bg-[#161512] py-16"
+>
+  <Experience />
+</section>
+
+<style>
+  section {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
+  }
+
+  section::-webkit-scrollbar {
+    display: none; /* Chrome, Safari y Opera */
+  }
+</style>

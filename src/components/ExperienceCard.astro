@@ -1,0 +1,53 @@
+---
+import SmallTitle from "./SmallTitle.astro";
+const {
+  position,
+  company,
+  date,
+  description,
+  responsibilities = [],
+  imgPath,
+  alt,
+  right = false,
+} = Astro.props;
+
+const imagePositionClass = right ? "ml-6" : "mr-6";
+const directionClass = right ? "flex-row" : "flex-row-reverse";
+---
+
+<article
+  class={`flex ${directionClass} bg-[#0B0B0B]/60 text-white p-6 w-135 justify-between rounded-xs duration-500 transition ease-in-out hover:shadow-xs hover-brillo-yellow`}
+>
+  <div class="w-full">
+    <SmallTitle text={position} />
+    <div class="flex justify-between mt-2">
+      <p class="text-white/60 text-sm font-medium">{company}</p>
+      <p class="text-white/60 text-sm">{date}</p>
+    </div>
+    <div class="mt-4 text-xs text-justify">
+      <p>{description}</p>
+      <ul class="list-disc pl-4 mt-2 marker:text-[#e9eeef] marker:text-sm">
+        {responsibilities.map((item: string) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </div>
+  <div class={` flex-shrink-0 flex items-center ${imagePositionClass}`}>
+    <img src={imgPath} alt={alt} class="w-40 h-40 object-cover rounded-md" />
+  </div>
+</article>
+
+<style>
+  article {
+    transition: 0.5s ease;
+  }
+
+  article:hover {
+    transform: scale(1.01);
+  }
+
+  .hover-brillo-yellow:hover {
+    box-shadow:
+      0 0 8px 3px rgba(218, 160, 50, 0.8),
+      0 0 15px 6px rgba(218, 160, 50, 0.5);
+  }
+</style>

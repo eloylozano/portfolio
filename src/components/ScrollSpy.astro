@@ -1,0 +1,97 @@
+---
+
+---
+
+<nav class="scroll-nav">
+  <a href="#home" data-section="home" class="line" aria-label="Home section"
+  ></a>
+  <a href="#about" data-section="about" class="line" aria-label="About section"
+  ></a>
+  <a
+    href="#projects"
+    data-section="projects"
+    class="line"
+    aria-label="Projects section"></a>
+  <a
+    href="#recommendations"
+    data-section="recommendations"
+    class="line"
+    aria-label="recommendations section"></a>
+  <a
+    href="#contact"
+    data-section="contact"
+    class="line"
+    aria-label="Contact section"></a>
+</nav>
+
+<style>
+  .scroll-nav {
+    position: fixed;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 30;
+  }
+
+  .scroll-nav .line {
+    width: 3px;
+    height: 30px;
+    border-radius: 4px;
+    background: #666;
+    transform: scaleY(0.15);
+    transform-origin: center;
+    transition:
+      transform 0.3s ease,
+      background 0.3s,
+      box-shadow 0.3s;
+    cursor: pointer;
+  }
+
+  .scroll-nav .line.active {
+    transform: scaleY(1);
+    background: #e9eeef;
+    box-shadow:
+      0 0 8px #e9eeef,
+      0 0 20px #e9eeef,
+      0 0 30px #ffffffaa;
+  }
+</style>
+
+<script>
+  // Esperamos que el DOM esté listo para seleccionar el scroll-container
+  window.addEventListener("DOMContentLoaded", () => {
+    const scrollContainer = document.querySelector(".scroll-container");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute("id");
+          const line = document.querySelector(
+            `.scroll-nav [data-section="${id}"]`
+          );
+
+          if (entry.isIntersecting) {
+            document
+              .querySelectorAll(".scroll-nav .line")
+              .forEach((el) => el.classList.remove("active"));
+            line?.classList.add("active");
+          }
+        });
+      },
+      {
+        threshold: 0.4,
+        root: scrollContainer || null,
+      }
+    );
+
+    ["home", "about", "projects", "recommendations", "contact"].forEach(
+      (id) => {
+        const section = document.getElementById(id);
+        if (section) observer.observe(section);
+      }
+    );
+  });
+</script>

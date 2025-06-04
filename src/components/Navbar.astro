@@ -1,21 +1,195 @@
 ---
-// src/components/Navbar.astro
+import Dropdown from "./Dropdown.astro";
+import Subtitle from "./Subtitle.astro";
+import Switch from "./Switch.astro";
+
 const navItems = [
-  { label: 'Home', link: 'home' },
-  { label: 'Sobre mí', link: 'about' },
-  { label: 'Proyectos', link: 'projects' },
-  { label: 'Contacto', link: 'contact' }
+  { label: "Home", link: "home" },
+  { label: "Sobre mí", link: "about" },
+  { label: "Proyectos", link: "projects" },
+  { label: "Más", link: "recommendations" },
+  { label: "Contacto", link: "contact" },
 ];
 ---
 
-<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-gray-400/10 backdrop-blur-md border border-white/20 rounded-full flex shadow-xl p-0.5 items-center justify-center">
-  {navItems.map((item) => (
-    <a
-      href={`#${item.link}`}
-      class="relative text-sm text-white rounded-full transition-all py-1.5 px-6 cursor-pointer select-none group"
-    >
-      {item.label}
-      <span class="absolute left-1/2 -bottom-1.5 -translate-x-1/2 w-8 h-1.5 bg-white rounded-full opacity-0 transition-all group-hover:opacity-100 group-hover:w-6 group-[.active]:opacity-100 group-[.active]:w-6"></span>
-    </a>
-  ))}
-</nav>
+<header
+  class="fixed top-6 left-0 w-full flex items-center justify-between px-12 z-50"
+>
+  <a href="/">
+    <img
+      src="/logo.svg"
+      alt="Eloy Lozano logo"
+      class="h-10 w-auto hover:scale-110 duration-100 transform-gpu"
+    />
+  </a>
+
+  <nav
+    id="navbar"
+    class="absolute left-1/2 -translate-x-1/2 bg-gray-400/10 backdrop-blur-md border border-white/20 rounded-full flex shadow-xl items-center justify-center"
+  >
+    <!-- Indicador animado -->
+    <span
+      id="indicator"
+      class="absolute h-full rounded-full bg-white/10 transition-all duration-300 ease-in-out pointer-events-none"
+    ></span>
+
+    {
+      navItems.map((item) => (
+        <a
+          href={`#${item.link}`}
+          class="relative text-sm text-white rounded-full transition-all py-1.5 px-6 cursor-pointer select-none group"
+          data-link={item.link}
+        >
+          {item.label}
+          <span class="absolute left-1/2 -bottom-1.5 -translate-x-1/2 w-8 h-1.5 bg-white rounded-full opacity-0 transition-all " />
+        </a>
+      ))
+    }
+  </nav>
+
+  <!-- Botón hamburguesa -->
+  <button
+    id="menu-toggle"
+    class="relative w-5 h-5 flex flex-col justify-between items-center z-50 cursor-pointer"
+    aria-label="Toggle menu"
+  >
+    <span
+      class="block h-1 w-full bg-white transition-transform duration-300 origin-center"
+    ></span>
+    <span
+      class="block ms-2 h-1 w-full bg-white transition-opacity duration-300 origin-center"
+    ></span>
+    <span
+      class="block h-1 w-full bg-white transition-transform duration-300 origin-center"
+    ></span>
+  </button>
+
+  <!-- Desplegable -->
+  <div
+    id="dropdown"
+    class="hidden absolute z-1 h-full w-full bg-[#0b0b0b]/90 text-white rounded-md shadow-lg p-4"
+  >
+    <Dropdown />
+  </div>
+</header>
+
+<style>
+  a.active {
+    z-index: 10;
+  }
+
+  a.active span {
+    opacity: 1 !important;
+    width: 1.5rem !important;
+    box-shadow: 0 -4px 12px 6px rgba(255, 255, 255, 0.4);
+  }
+
+  #indicator {
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+    width: fit-content;
+    z-index: 0;
+    transition:
+      transform 0.3s ease,
+      width 0.3s ease;
+  }
+
+  #menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translateY(11px);
+  }
+
+  #menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-11px);
+  }
+  #dropdown {
+    /* Cambiamos posición absoluta por fija para centrarlo en viewport */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    z-index: 10;
+
+    /* por defecto hidden */
+    display: none;
+  }
+
+  #dropdown.show {
+    display: block;
+  }
+</style>
+
+<script>
+  const navbar = document.getElementById("navbar") as HTMLElement | null;
+  const indicator = document.getElementById("indicator") as HTMLElement | null;
+  const toggleBtn = document.getElementById(
+    "menu-toggle"
+  ) as HTMLElement | null;
+  const dropdown = document.getElementById("dropdown") as HTMLElement | null;
+
+  if (navbar && indicator) {
+    const links = navbar.querySelectorAll<HTMLAnchorElement>("a");
+
+    function moveIndicator(target: HTMLAnchorElement) {
+      const linkRect = target.getBoundingClientRect();
+      const navRect = navbar.getBoundingClientRect();
+
+      const width = linkRect.width;
+      const offset = linkRect.left - navRect.left;
+
+      indicator.style.width = `${width}px`;
+      indicator.style.transform = `translateX(${offset}px)`;
+    }
+
+    function setActiveLink(clickedLink: HTMLAnchorElement) {
+      links.forEach((link) => link.classList.remove("active"));
+      clickedLink.classList.add("active");
+      moveIndicator(clickedLink);
+    }
+
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href"); // Ej: "#contact"
+        const section = document.querySelector<HTMLElement>(targetId!);
+        const scrollContainer = document.querySelector(".scroll-container");
+
+        if (section && scrollContainer) {
+          const offsetTop = section.offsetTop;
+          scrollContainer.scrollTo({
+            top: offsetTop,
+            behavior: "smooth",
+          });
+          setActiveLink(link);
+        }
+      });
+    });
+
+    window.addEventListener("load", () => {
+      if (links.length > 0) setActiveLink(links[0]);
+    });
+
+    window.addEventListener("resize", () => {
+      const active = document.querySelector<HTMLAnchorElement>("a.active");
+      if (active) moveIndicator(active);
+    });
+  }
+
+  if (toggleBtn && dropdown) {
+    toggleBtn.addEventListener("click", () => {
+      toggleBtn.classList.toggle("open");
+      dropdown.classList.toggle("show");
+    });
+  }
+</script>

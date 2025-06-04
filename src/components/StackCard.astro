@@ -1,0 +1,35 @@
+---
+import Subtitle from "./Subtitle.astro";
+const { title, icons = [], class: additionalClass = "" } = Astro.props;
+---
+
+<div
+  class={`bg-[#0b0b0b]/60 h-60 w-75 py-2 px-4 rounded-sm flex transition duration-500 flex-col  items-center card ${additionalClass}
+    `}
+>
+  <Subtitle text={title} class="text-center" />
+
+  <ul class="grid grid-cols-3 grid-rows-2 gap-6 mt-4">
+    {
+      icons.slice(0, 6).map((icon: any) => (
+        <li class="flex justify-center items-center">
+          <img
+            src={icon.src}
+            alt={icon.alt || "language icon"}
+            class="h-12 w-12 object-contain"
+          />
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow:
+      0 0 8px 3px rgba(218, 160, 50, 0.8),
+      0 0 15px 6px rgba(218, 160, 50, 0.5);
+    
+  }
+</style>

@@ -1,7 +1,9 @@
 ---
-const { text } = Astro.props;
+const { text, class: additionalClass = "" } = Astro.props;
 ---
 
-<h2 class="text-3xl tracking-wide py-2 font-['Lato'] font-normal bg-gradient-to-r from-[#e9eeef] to-[#868889] bg-clip-text text-transparent">
+<h2
+  class={`text-3xl tracking-wide py-2 font-['Lato']  bg-gradient-to-r from-[#e9eeef] to-[#868889] bg-clip-text text-transparent     ${additionalClass} `}
+>
   {text}
 </h2>

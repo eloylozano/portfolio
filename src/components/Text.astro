@@ -1,11 +1,19 @@
 ---
-const { text, size = "md" } = Astro.props;
+const { text, size = "md", class: additionalClass = "" } = Astro.props;
+
+// Divide el texto por doble salto de línea o simple
+const paragraphs = text.split(/\n{1,2}/);
 ---
 
-<p
-  class={`tracking-wide leading-6 text-[#e9eeef] font-['Lato'] mt-4
-    ${size === "lg" ? "text-lg md:text-xl leading-8" : "text-md leading-6"}
-  `}
->
-  {text}
-</p>
+{
+  paragraphs.map((para: string) => (
+    <p
+      class={`tracking-wide text-[#e9eeef] font-['Lato'] mt-4
+      ${size === "lg" ? "text-lg md:text-xl leading-8" : "text-md leading-6"}
+      ${additionalClass}`
+    }
+    >
+      {para}
+    </p>
+  ))
+}

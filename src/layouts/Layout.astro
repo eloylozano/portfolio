@@ -1,5 +1,7 @@
 ---
+import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
+import ScrollSpy from "../components/ScrollSpy.astro";
 ---
 
 <!doctype html>
@@ -18,11 +20,12 @@ import Navbar from "../components/Navbar.astro";
   </head>
   <body class="bg-[#161512]">
     <Navbar />
-    <main
-      class="scroll-container snap-y snap-mandatory h-screen overflow-y-scroll"
-    >
+    <ScrollSpy />
+    <main class="scroll-container  scroll-smooth h-screen overflow-y-scroll">
       <slot />
     </main>
+
+    <script src="/script.js" defer></script>
   </body>
 </html>
 

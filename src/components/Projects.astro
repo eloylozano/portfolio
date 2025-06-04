@@ -1,8 +1,33 @@
 ---
-
+import ProjectsGrid from "./ProjectsGrid.astro";
+import Stack from "./Stack.astro";
 ---
 
-
-<section>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum eum voluptatem aspernatur maiores at dolorum, est quidem voluptate enim ducimus magni, facere perspiciatis! Atque excepturi labore voluptate odit distinctio obcaecati.</p>
+<section
+  id="projects"
+  data-section="projects"
+  aria-label="Projects section"
+  class="py-26 bg-[#161512]"
+>
+  <ProjectsGrid />
 </section>
+
+<section
+  id="stack"
+  data-section="stack"
+  aria-label="Stack section"
+  class="bg-[#161512] py-24 lg:px-26"
+>
+  <Stack />
+</section>
+
+<style>
+  section {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
+  }
+
+  section::-webkit-scrollbar {
+    display: none; /* Chrome, Safari y Opera */
+  }
+</style>

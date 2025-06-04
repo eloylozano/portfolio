@@ -1,0 +1,47 @@
+---
+const { text, author, relationship } = Astro.props;
+---
+
+<article class="relative w-fit group">
+  <!-- Neon box detrás -->
+  <div
+    class="neon-box border border-[#daa032] rounded-xs absolute z-0 w-65 h-70 translate-x-[20px] -translate-y-[30px]"
+  ></div>
+
+  <!-- Contenido con efecto en hover -->
+  <div
+    class="testimonial-card bg-[#0b0b0b]/60 text-white italic relative z-10 w-65 h-70 border-sm p-6 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:rotate-[1deg] group-hover:-rotate-y-[2deg] group-hover:scale-[1.03]"
+  >
+    <q>{text}</q>
+    <p class="text-right mt-4">
+      - {author}
+      <br />
+      ({relationship})
+    </p>
+  </div>
+</article>
+
+<style>
+  @keyframes neonPulse {
+    0%, 100% {
+      box-shadow:
+        0 0 6px #daa032,
+        0 0 30px #daa032,
+        inset 0 0 12px #daa032;
+    }
+    50% {
+      box-shadow:
+        0 0 6px #daa032,
+        0 0 15px #daa032,
+        inset 0 0 12px #daa032;
+    }
+  }
+
+  .neon-box {
+    animation: neonPulse 3s ease-in-out infinite;
+    box-shadow:
+      0 0 6px #daa032,
+      0 0 30px #daa032,
+      inset 0 0 8px #daa032;
+  }
+</style>

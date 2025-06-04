@@ -1,0 +1,189 @@
+---
+import Title from "./Title.astro";
+import Text from "./Text.astro";
+import ExperienceCard from "./ExperienceCard.astro";
+---
+
+<section class="px-26 pb-16 relative">
+  <Title class="text-center mb-8" text="Mi historia" />
+  <Text
+    class="text-center italic mb-20"
+    text="De cada experiencia, una lección. De cada proyecto, una nueva visión. Esta es mi evolución."
+  />
+
+  <!-- Línea central vertical -->
+  <div class="line-vertical neon"></div>
+
+  <div class="flex flex-col gap-22 relative">
+    <div class="experience-node right flex justify-end relative w-full">
+      <ExperienceCard
+        position="Peajista"
+        company="Audasa"
+        date="Julio - Septiembre 2025"
+        description="Cobrador de peaje en la autopista AP-9"
+        responsibilities={[
+          "Gestión de efectivo",
+          "Supervisión de estaciones",
+          "Atención al cliente",
+        ]}
+        imgPath="/images/experience/audasa.jpg"
+      />
+    </div>
+
+    <div class="experience-node left flex justify-start relative w-full">
+      <ExperienceCard
+        position="SAP Integration Developer"
+        company="Deloitte"
+        date="Abril 2025 - Junio 2025"
+        description="Participación en proyectos de integración entre sistemas utilizando SAP Integration Suite (CPI). Diseño de iFlows, trabajo con APIs REST/SOAP, formato JSON/XML y scripting con Groovy."
+        imgPath="/images/experience/deloitte.png"
+        right
+      />
+    </div>
+
+    <div class="experience-node right flex justify-end relative w-full">
+      <ExperienceCard
+        position="Peajista"
+        company="Audasa"
+        date="Abril 2025"
+        description="Cobrador de peaje en la autopista AP-9"
+        responsibilities={[
+          "Gestión de efectivo",
+          "Supervisión de estaciones",
+          "Atención al cliente",
+        ]}
+        imgPath="/images/experience/audasa.jpg"
+      />
+    </div>
+
+    <div class="experience-node left flex justify-start relative w-full">
+      <ExperienceCard
+        position="Desarrollo de Aplicaciones Web"
+        company="Liceo La Paz"
+        date="Septiembre 2023 - Marzo 2025"
+        responsibilities={[
+          "Desarrollo Full Stack con Spring, Symfony y React",
+          "Manejo de bases de datos SQL y noSQL",
+          "Experiencia en control de versiones con Git",
+          "Conocimientos en UI/UX, accesibilidad y SEO",
+          " Uso de Docker para entornos de desarrollo",
+        ]}
+        imgPath="/images/experience/liceolapaz.jpg"
+        right
+      />
+    </div>
+
+    <div class="flex flex-col gap-22 relative">
+      <div class="experience-node right flex justify-end relative w-full">
+        <ExperienceCard
+          position="Peajista"
+          company="Audasa"
+          date="Junio - Agosto 2024"
+          description="Cobrador de peaje en la autopista AP-9"
+          responsibilities={[
+            "Gestión de efectivo",
+            "Supervisión de estaciones",
+            "Atención al cliente",
+          ]}
+          imgPath="/images/experience/audasa.jpg"
+        />
+      </div>
+    </div>
+
+    <div class="experience-node left flex justify-start relative w-full">
+      <ExperienceCard
+        position="Ayudante de Producción"
+        company="Bambú Producciones"
+        date="Junio - Septiembre 2024"
+        description=`Ayudante de producción para la serie documental de Netflix: "El caso Asunta"`
+        imgPath="/images/experience/bambu.webp"
+        right
+      />
+    </div>
+
+    <div class="flex flex-col gap-22 relative">
+      <div class="experience-node right flex justify-end relative w-full">
+        <ExperienceCard
+          position="Peajista"
+          company="Audasa"
+          date="Julio - Septiembre 2023"
+          description="Cobrador de peaje en la autopista AP-9"
+          responsibilities={[
+            "Gestión de efectivo",
+            "Supervisión de estaciones",
+            "Atención al cliente",
+          ]}
+          imgPath="/images/experience/audasa.jpg"
+        />
+      </div>
+    </div>
+
+    <div class="experience-node left flex justify-start relative w-full">
+      <ExperienceCard
+        position="Sistemas Microinformáticos y Redes"
+        company="Liceo La Paz"
+        date="Septiembre 2021 - Marzo 2023"
+        responsibilities={[
+          "Instalación y administración de sistemas informáticos",
+          "Configurar diferentes CMS como Joomla!, WordPress, PrestaShop y Moodle",
+          "Habilidades en gestión y configuración de servidores",
+        ]}
+        imgPath="/images/experience/liceolapaz.jpg"
+        right
+      />
+    </div>
+  </div>
+</section>
+<style>
+  .line-vertical {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 18rem;
+    bottom: 2rem;
+    width: 2px;
+    background-color: #daa032;
+    border-radius: 1px;
+    box-shadow:
+      0 0 6px #daa032,
+      0 0 20px #daa032,
+      inset 0 0 8px #daa032;
+  }
+
+  .neon {
+    box-shadow:
+      0 0 6px #daa032,
+      0 0 30px #daa032,
+      inset 0 0 8px #daa032;
+  }
+  @media (max-width: 767px) {
+    .experience-node {
+      position: relative;
+      width: 100%;
+      display: none;
+    }
+  }
+
+  .experience-node.right::before,
+  .experience-node.left::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 3rem;
+    height: 2px;
+    background: #daa032;
+    transform: translateY(-50%);
+    box-shadow:
+      0 0 6px #daa032,
+      0 0 10px #daa032;
+    z-index: 10;
+  }
+
+  .experience-node.right::before {
+    left: calc(50% + 1px);
+  }
+
+  .experience-node.left::before {
+    right: calc(50% + 1px);
+  }
+</style>
