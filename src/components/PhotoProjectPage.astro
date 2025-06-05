@@ -1,0 +1,83 @@
+---
+import Subtitle from "./Subtitle.astro";
+import Text from "./Text.astro";
+import Title from "./Title.astro";
+
+const { title, description, coverImage, photos } = Astro.props;
+---
+
+<!-- Banner -->
+<section class="w-full h-[30vh] overflow-hidden">
+  <img src={coverImage} alt={title} class="object-cover w-full h-full" />
+</section>
+
+<!-- Title + Description -->
+<section class="text-center my-12 max-w-6xl mx-auto px-4 scroll-container" id="projects">
+  <Title text={title} />
+  <Text text={description} size="md" />
+</section>
+
+<!-- Photos list -->
+<section class="space-y-16 p-6 mb-12 lg:px-26 w-full mx-auto  ">
+  {
+    photos.map((photo: any, index: any) => (
+      <div
+        class={`flex flex-col md:flex-row ${index % 2 !== 0 ? "md:flex-row-reverse" : ""} items-center lg:gap-28 justify/between xs:bg-[#0b0b0b]/60`}
+      >
+        <div class="relative group w-full md:w-[24rem]  ">
+          <div class="absolute inset-0 blur-xl rounded-xl z-0" />
+          <a href={photo.image} target="_blank">
+            <img
+              src={photo.image}
+              alt={photo.title}
+              class="rounded-sm relative z-10 w-full transition duration-300 hover:scale-102 cursor-pointer lg:p-0 p-4"
+            />
+          </a>
+        </div>
+
+        <article class="relative w-full md:w-2/3 group">
+          <div class="neon-box border border-[#daa032] rounded-xs absolute inset-0 translate-x-[20px] -translate-y-[30px] z-0 hidden lg:block" />
+
+          <div class="testimonial-card lg:bg-[#0b0b0b]/60 text-white relative z-10 border-sm p-4 lg:p-10 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ">
+            <Subtitle text={photo.title} gold/>
+            <Text text={photo.description} class="text-justify" />
+            <Text text="Especificaciones Técnicas" />
+            <ul class="text-xs text-[#e9eeef] italic">
+              <li>Distancia focal: {photo.tech.focal}</li>
+              <li>Apertura: {photo.tech.aperture}</li>
+              <li>ISO: {photo.tech.iso}</li>
+              <li>Cámara: {photo.tech.camera}</li>
+              <li>Lente: {photo.tech.lens}</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  @keyframes neonPulse {
+    0%,
+    100% {
+      box-shadow:
+        0 0 6px #daa032,
+        0 0 30px #daa032,
+        inset 0 0 12px #daa032;
+    }
+    50% {
+      box-shadow:
+        0 0 6px #daa032,
+        0 0 15px #daa032,
+        inset 0 0 12px #daa032;
+    }
+  }
+
+  .neon-box {
+    animation: neonPulse 3s ease-in-out infinite;
+    box-shadow:
+      0 0 6px #daa032,
+      0 0 30px #daa032,
+      inset 0 0 8px #daa032;
+  }
+</style>

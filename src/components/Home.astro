@@ -7,20 +7,20 @@ import Paragraph from "../components/Text.astro";
 <section
   id="home"
   data-section="home"
-  class="hero relative min-h-screen flex flex-col justify-center px-4 sm:px-8 md:px-12 lg:px-26"
+  class="hero relative min-h-screen flex flex-col justify-end lg:justify-center px-4 sm:px-8 md:px-12 lg:px-26"
   aria-label="Home section"
 >
   <!-- Imagen de fondo para móviles -->
-  <img 
-    class="lg:hidden absolute inset-0 w-full h-full object-cover -z-40" 
-    src="/images/main.jpg" 
-    alt="Fondo" 
+  <img
+    class="lg:hidden absolute inset-0 w-full h-full object-cover -z-40"
+    src="/images/phoneWallpaper.jpg"
+    alt="Fondo"
     loading="eager"
   />
 
   <!-- Contenido principal -->
   <div
-    class="z-10 w-full lg:w-[50%] lg:max-w-[800px] xs:mx-auto lg:ml-auto text-white text-center lg:text-right bg-[#161512]/90 lg:bg-transparent py-16 lg:py-0 px-4 sm:px-8 lg:px-6 rounded-lg lg:rounded-none"
+    class="z-10 w-full lg:w-[50%] lg:max-w-[800px] xs:mx-auto lg:ml-auto text-white text-left lg:text-right bg-[#161512]/90 lg:bg-transparent py-16 lg:py-0 px-4 sm:px-8 lg:px-6 rounded-lg lg:rounded-none"
   >
     <Title text="El arte también se programa" />
     <Subtitle text="Desarrollador Web y Fotógrafo" />
@@ -29,7 +29,9 @@ import Paragraph from "../components/Text.astro";
       text="Soy Eloy Lozano, desarrollador web y fotógrafo de retrato. Combino líneas de código con sensibilidad visual para crear experiencias digitales únicas"
     />
 
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mt-8">
+    <div
+      class="flex flex-col sm:flex-row items-center justify-between gap-6 mt-8"
+    >
       <!-- Redes sociales -->
       <div class="flex justify-center items-center gap-3 sm:gap-2 text-2xl">
         <a
@@ -116,7 +118,9 @@ import Paragraph from "../components/Text.astro";
       </div>
 
       <!-- Botón de proyectos -->
-      <div class="group flex items-center cursor-pointer relative w-full sm:w-auto justify-center sm:justify-end">
+      <div
+        class="group flex items-center cursor-pointer relative w-full sm:w-auto justify-center sm:justify-end"
+      >
         <span class="relative inline-block">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +135,10 @@ import Paragraph from "../components/Text.astro";
           </svg>
         </span>
 
-        <a href="#projects" class="flex space-x-0.5 z-0 text-[#e9eeef] text-sm sm:text-base">
+        <a
+          href="#projects"
+          class="flex space-x-0.5 z-0 text-[#e9eeef] text-sm sm:text-base"
+        >
           {
             "Ver mis proyectos"
               .split("")
@@ -150,9 +157,10 @@ import Paragraph from "../components/Text.astro";
 
   <!-- Imagen de fondo para desktop -->
   <div
-    class="background hidden lg:block absolute inset-0 -z-10 bg-cover bg-center"
+    class="background hidden lg:block absolute inset-0 -z-10 bg-cover lg:bg-center"
     style="background-image: url('/images/main.jpg'); background-position: left;"
-  ></div>
+  >
+  </div>
 </section>
 
 <style>
@@ -169,7 +177,7 @@ import Paragraph from "../components/Text.astro";
       padding-top: 3rem;
       padding-bottom: 3rem;
     }
-    
+
     .hero > div {
       padding-top: 2rem;
       padding-bottom: 2rem;

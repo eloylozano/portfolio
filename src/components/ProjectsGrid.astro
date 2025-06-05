@@ -1,147 +1,10 @@
 ---
 import Title from "./Title.astro";
-const projects = [
-  {
-    title: "Appfluence",
-    category: "app",
-    img: "/images/projects/app_appfluence.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Bitten Apol",
-    category: "app",
-    img: "/images/projects/app_bitten-apol.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Deskify",
-    category: "app",
-    img: "/images/projects/app_deskify.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Playa",
-    category: "photo",
-    img: "/images/projects/photo_beach.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Cañón",
-    category: "photo",
-    img: "/images/projects/photo_canyon.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Ciudad de la Cultura",
-    category: "photo",
-    img: "/images/projects/photo_CiudadCultura.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Al filo del Atlántico",
-    category: "photo",
-    img: "/images/projects/photo_cliff.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Escuela",
-    category: "photo",
-    img: "/images/projects/photo_escuela.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Bosque",
-    category: "photo",
-    img: "/images/projects/photo_forest.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Moto",
-    category: "photo",
-    img: "/images/projects/photo_moto.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Avión",
-    category: "photo",
-    img: "/images/projects/photo_plane.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Atardecer",
-    category: "photo",
-    img: "/images/projects/photo_sunset.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Ventana",
-    category: "photo",
-    img: "/images/projects/photo_ventana.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Café Para Dos",
-    category: "web",
-    img: "/images/projects/web_cafeparados.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "EcoVibe",
-    category: "web",
-    img: "/images/projects/web_EcoVibe.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Flight Simulator UI",
-    category: "web",
-    img: "/images/projects/web_flightSimulator.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-  {
-    title: "Honda Motorsport",
-    category: "web",
-    img: "/images/projects/web_hondamotorsport.jpg",
-    projectLink: "#",
-    demoLink: "#",
-    gitLink: "#",
-  },
-];
+import { projects } from "../data/projects.js"; 
 ---
 
 
-<article class="py-8 sm:py-12 lg:py-16 text-white px-4 sm:px-8 lg:px-26 h-full">
+<article class="py-8 sm:py-12 lg:py-16 text-white px-4 sm:px-8 lg:px-26 scroll-container">
   <Title class="text-center mb-6 sm:mb-8" text="Mis proyectos hasta ahora" />
 
   <!-- Filtros responsive -->
@@ -164,7 +27,7 @@ const projects = [
       class="filter-btn relative text-[#e9eeef] hover:text-white transition duration-200 whitespace-nowrap px-2 sm:px-0"
       data-filter="app"
     >
-      Apps Web
+      Aplicaciones Web
       <span class="active-indicator absolute left-1/2 -bottom-2 -translate-x-1/2 h-0.5 bg-white opacity-0 transition-all w-0"></span>
     </button>
     <button
@@ -260,8 +123,7 @@ const projects = [
 
 nav {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  width: 100%;
-  max-width: 800px;
+  width: fit-content;
 }
 
 /* Scroll horizontal para móviles */

@@ -13,7 +13,7 @@ const navItems = [
 ---
 
 <header
-  class="fixed top-6 left-0 w-full flex items-center justify-between px-12 z-50"
+  class="fixed top-6 left-0 w-full flex items-center justify-between px-2 lg:px-12 z-50"
 >
   <a href="/">
     <img
@@ -22,10 +22,9 @@ const navItems = [
       class="h-10 w-auto hover:scale-110 duration-100 transform-gpu"
     />
   </a>
-
   <nav
     id="navbar"
-    class="absolute left-1/2 -translate-x-1/2 bg-gray-400/10 backdrop-blur-md border border-white/20 rounded-full flex shadow-xl items-center justify-center"
+    class="hidden lg:flex absolute left-1/2 -translate-x-1/2 bg-gray-400/10 backdrop-blur-md border border-white/20 rounded-full shadow-xl items-center justify-center"
   >
     <!-- Indicador animado -->
     <span
@@ -36,7 +35,7 @@ const navItems = [
     {
       navItems.map((item) => (
         <a
-          href={`#${item.link}`}
+          href={`/#${item.link}`}
           class="relative text-sm text-white rounded-full transition-all py-1.5 px-6 cursor-pointer select-none group"
           data-link={item.link}
         >
@@ -47,30 +46,99 @@ const navItems = [
     }
   </nav>
 
-  <!-- Botón hamburguesa -->
-  <button
-    id="menu-toggle"
-    class="relative w-5 h-5 flex flex-col justify-between items-center z-50 cursor-pointer"
-    aria-label="Toggle menu"
-  >
-    <span
-      class="block h-1 w-full bg-white transition-transform duration-300 origin-center"
-    ></span>
-    <span
-      class="block ms-2 h-1 w-full bg-white transition-opacity duration-300 origin-center"
-    ></span>
-    <span
-      class="block h-1 w-full bg-white transition-transform duration-300 origin-center"
-    ></span>
-  </button>
+  <div class="flex flex-row-reverse gap-2">
+    <!-- Botón ajustes -->
+    <button
+      id="settings-btn"
+      class="transition-transform duration-300 cursor-pointer hover:scale-110 hover:rotate-45"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="25"
+        height="25"
+        viewBox="0 0 24 24"
+        class="transition duration-300 hover:drop-shadow-[0_0_6px_#e9eeef66]"
+      >
+        <rect width="24" height="24" fill="none"></rect>
+        <path
+          fill="#E9EEEF"
+          d="M19.5 12c0-.23-.01-.45-.03-.68l1.86-1.41c.4-.3.51-.86.26-1.3l-1.87-3.23a.987.987 0 0 0-1.25-.42l-2.15.91c-.37-.26-.76-.49-1.17-.68l-.29-2.31c-.06-.5-.49-.88-.99-.88h-3.73c-.51 0-.94.38-1 .88l-.29 2.31c-.41.19-.8.42-1.17.68l-2.15-.91c-.46-.2-1-.02-1.25.42L2.41 8.62c-.25.44-.14.99.26 1.3l1.86 1.41a7.3 7.3 0 0 0 0 1.35l-1.86 1.41c-.4.3-.51.86-.26 1.3l1.87 3.23c.25.44.79.62 1.25.42l2.15-.91c.37.26.76.49 1.17.68l.29 2.31c.06.5.49.88.99.88h3.73c.5 0 .93-.38.99-.88l.29-2.31c.41-.19.8-.42 1.17-.68l2.15.91c.46.2 1 .02 1.25-.42l1.87-3.23c.25-.44.14-.99-.26-1.3l-1.86-1.41c.03-.23.04-.45.04-.68m-7.46 3.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5s3.5 1.57 3.5 3.5s-1.57 3.5-3.5 3.5"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Boton hamburguesa -->
+    <button id="hamburger-btn" class="block lg:hidden">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="25"
+        height="25"
+        viewBox="0 0 16 16"
+      >
+        <rect width="16" height="16" fill="none"></rect>
+        <path fill="#E9EEEF" d="M15 4H1V2h14zm0 5H1V7h14zM1 14h14v-2H1z"></path>
+      </svg>
+    </button>
+  </div>
 
   <!-- Desplegable -->
   <div
     id="dropdown"
-    class="hidden absolute z-1 h-full w-full bg-[#0b0b0b]/90 text-white rounded-md shadow-lg p-4"
+    class="hidden absolute z-50 h-full w-full bg-[#0b0b0b]/90 text-white p-4"
   >
+    <button
+      id="dropdown-close-btn"
+      aria-label="Cerrar menú de ajustes"
+      class="absolute top-6 right-2 lg:right-12 text-white text-3xl font-bold hover:text-red-400 transition duration-300 cursor-pointer hover:scale-110 hover:drop-shadow-[0_0_6px_#ff0000]"
+    >
+      &times;
+    </button>
+
     <Dropdown />
   </div>
+  <!-- Menú móvil -->
+  <nav
+    id="mobile-nav"
+    class="hidden fixed inset-0 z-50 flex"
+    aria-label="Menú móvil"
+  >
+    <!-- Overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm">
+    </div>
+
+    <!-- Drawer -->
+    <div class="relative bg-[#121212] w-72 max-w-full h-full p-6 flex flex-col">
+      <button
+        id="mobile-close-btn"
+        aria-label="Cerrar menú móvil"
+        class="self-end mb-6 text-white text-4xl font-bold hover:text-gray-400 transition"
+      >
+        &times;
+      </button>
+
+      <a href="/" class="mb-6 flex gap-4">
+        <img src="/logo.svg" alt="Eloy Lozano logo" class="h-12 w-auto" />
+        <h2 class="text-2xl tracking-wide py-2 font-semibold text-[#e9eeef]">
+          Eloy Lozano
+        </h2>
+      </a>
+
+      <div class="flex flex-col">
+        {
+          navItems.map((item) => (
+            <a
+              href={`/#${item.link}`}
+              class="relative text-sm text-white rounded-full transition-all py-1.5 px-6 cursor-pointer select-none group"
+              data-link={item.link}
+            >
+              {item.label}
+              <span class="absolute left-1/2 -bottom-1.5 -translate-x-1/2 w-8 h-1.5 bg-white rounded-full opacity-0 transition-all " />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </nav>
 </header>
 
 <style>
@@ -81,7 +149,7 @@ const navItems = [
   a.active span {
     opacity: 1 !important;
     width: 1.5rem !important;
-    box-shadow: 0 -4px 12px 6px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 -4px 12px 6px #ffffff66;
   }
 
   #indicator {
@@ -127,68 +195,136 @@ const navItems = [
   #dropdown.show {
     display: block;
   }
+
+  #mobile-nav {
+    transition: all 0.3s ease;
+  }
+
+  #dropdown-close-btn,
+  #mobile-close-btn {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    line-height: 1;
+    padding: 0;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
 </style>
 
 <script>
-  const navbar = document.getElementById("navbar") as HTMLElement | null;
-  const indicator = document.getElementById("indicator") as HTMLElement | null;
-  const toggleBtn = document.getElementById(
-    "menu-toggle"
-  ) as HTMLElement | null;
-  const dropdown = document.getElementById("dropdown") as HTMLElement | null;
+  const navbar = document.getElementById("navbar");
+  const mobileNav = document.getElementById("mobile-nav");
+  const indicator = document.getElementById("indicator");
+  const dropdown = document.getElementById("dropdown");
 
+  const settingsBtn = document.getElementById("settings-btn");
+  const hamburgerBtn = document.getElementById("hamburger-btn");
+
+  // Indicador en navbar de escritorio
   if (navbar && indicator) {
-    const links = navbar.querySelectorAll<HTMLAnchorElement>("a");
+    const links = navbar.querySelectorAll("a");
 
-    function moveIndicator(target: HTMLAnchorElement) {
+    /**
+     * @param {HTMLElement} target
+     */
+    function moveIndicator(target) {
       const linkRect = target.getBoundingClientRect();
       const navRect = navbar.getBoundingClientRect();
-
-      const width = linkRect.width;
-      const offset = linkRect.left - navRect.left;
-
-      indicator.style.width = `${width}px`;
-      indicator.style.transform = `translateX(${offset}px)`;
+      indicator.style.width = `${linkRect.width}px`;
+      indicator.style.transform = `translateX(${linkRect.left - navRect.left}px)`;
     }
 
-    function setActiveLink(clickedLink: HTMLAnchorElement) {
+    /**
+     * @param {HTMLElement} clickedLink
+     */
+    function setActiveLink(clickedLink) {
       links.forEach((link) => link.classList.remove("active"));
       clickedLink.classList.add("active");
       moveIndicator(clickedLink);
     }
 
+    // No preventDefault, dejamos que el scroll nativo funcione
     links.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute("href"); // Ej: "#contact"
-        const section = document.querySelector<HTMLElement>(targetId!);
-        const scrollContainer = document.querySelector(".scroll-container");
-
-        if (section && scrollContainer) {
-          const offsetTop = section.offsetTop;
-          scrollContainer.scrollTo({
-            top: offsetTop,
-            behavior: "smooth",
-          });
+      link.addEventListener("click", () => {
+        // El scroll nativo ya hace el scroll, aquí sólo actualizamos el indicador
+        setTimeout(() => {
           setActiveLink(link);
-        }
+        }, 100); // Pequeña espera para que el scroll empiece
       });
     });
 
     window.addEventListener("load", () => {
-      if (links.length > 0) setActiveLink(links[0]);
+      let hash = window.location.hash || links[0].getAttribute("href");
+      const activeLink = Array.from(links).find(link => link.getAttribute("href") === hash) || links[0];
+      setActiveLink(activeLink);
+    });
+
+    // Cuando cambia el hash (por click o navegación manual), actualiza el indicador
+    window.addEventListener("hashchange", () => {
+      let hash = window.location.hash;
+      const activeLink = Array.from(links).find(link => link.getAttribute("href") === hash);
+      if (activeLink) {
+        setActiveLink(activeLink);
+      }
     });
 
     window.addEventListener("resize", () => {
-      const active = document.querySelector<HTMLAnchorElement>("a.active");
-      if (active) moveIndicator(active);
+      const active = document.querySelector("a.active");
+      if (active instanceof HTMLElement) moveIndicator(active);
     });
   }
 
-  if (toggleBtn && dropdown) {
-    toggleBtn.addEventListener("click", () => {
-      toggleBtn.classList.toggle("open");
+  // Mostrar/ocultar dropdown (ajustes)
+  if (settingsBtn && dropdown) {
+    settingsBtn.addEventListener("click", () => {
       dropdown.classList.toggle("show");
     });
   }
+
+  // Mostrar/ocultar menú móvil
+  if (hamburgerBtn && mobileNav) {
+    hamburgerBtn.addEventListener("click", () => {
+      mobileNav.classList.toggle("hidden");
+      // Bloqueo scroll al abrir menú móvil
+      if (!mobileNav.classList.contains("hidden")) {
+        document.body.classList.add("menu-open");
+      } else {
+        document.body.classList.remove("menu-open");
+      }
+    });
+  }
+  // Cerrar menú móvil al pulsar un enlace del menú
+  if (mobileNav) {
+    const mobileLinks = mobileNav.querySelectorAll("a");
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileNav.classList.add("hidden");
+        document.body.classList.remove("menu-open");
+      });
+    });
+  }
+
+  /** @type {HTMLElement | null} */
+  const dropdownCloseBtn = document.getElementById("dropdown-close-btn");
+  /** @type {HTMLElement | null} */
+  const mobileCloseBtn = document.getElementById("mobile-close-btn");
+
+  // Cerrar dropdown al pulsar la X
+  if (dropdownCloseBtn && dropdown) {
+    dropdownCloseBtn.addEventListener("click", () => {
+      dropdown.classList.remove("show");
+    });
+  }
+
+  // Cerrar menú móvil al pulsar la X
+  if (mobileCloseBtn && mobileNav) {
+    mobileCloseBtn.addEventListener("click", () => {
+      mobileNav.classList.add("hidden");
+      document.body.classList.remove("menu-open");
+    });
+  }
 </script>
+

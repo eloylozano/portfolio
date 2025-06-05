@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PhotoProjectPage from "../../components/PhotoProjectPage.astro";
+import photoProjects from "../../data/photoProjects.js";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  return photoProjects.map((project) => ({
+    params: { slug: project.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+const project = photoProjects.find((p) => p.slug === slug);
+
+if (!project) {
+  throw new Error(`No se encontró el proyecto para el slug: ${slug}`);
+}
+---
+
+<Layout>
+  <PhotoProjectPage {...project} />
+  <Footer />
+</Layout>

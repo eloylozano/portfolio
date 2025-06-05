@@ -1,54 +1,56 @@
 ---
-// Importa aquí solo lo que usa el dropdown
 import Subtitle from "./Subtitle.astro";
 import Switch from "./Switch.astro";
 ---
 
 <div
-  class="w-120 h-90 mx-auto mt-20 rounded-2xl p-6 bg-[#2D2D2D]/80 border-2 border-white/20"
+  class="max-w-[30rem] w-full mx-auto mt-10 md:mt-20 rounded-2xl p-4 sm:p-6 bg-[#2D2D2D]/80 border-2 border-white/20"
 >
   <Subtitle text="Ajustes" class="text-center" />
   <div
-    class="w-full h-[80%] px-16 py-12 flex flex-col items-center justify-center"
+    class="w-full px-4 sm:px-8 py-6 sm:py-10 flex flex-col items-center justify-center"
   >
-    <table class="mx-auto text-left">
-      <tr>
+    <table class="w-full max-w-md text-left text-sm">
+      <tr class="flex  mb-4 sm:mb-0">
         <td
-          class="bg-gradient-to-r from-[#e9eeef] to-[#868889] bg-clip-text text-transparent"
-          >Idiomas</td
+          class="bg-gradient-to-r from-[#e9eeef] to-[#868889] bg-clip-text text-transparent flex items-center font-medium"
         >
-        <td class="flex gap-4 text-xs font-bold">
+          Idiomas
+        </td>
+        <td class="flex gap-4 text-xs font-bold sm:mt-0 narrow">
           <button class="text-white/60">EN</button>
-          <button class="texte-white">ES</button>
+          <button class="text-white">ES</button>
           <button class="text-white/60">DE</button>
         </td>
       </tr>
-      <tr>
+      <tr class="flex  mb-4 sm:mb-0">
         <td
-          class="bg-gradient-to-r from-[#e9eeef] to-[#868889] bg-clip-text text-transparent"
-          >Tema Oscuro</td
+          class="bg-gradient-to-r from-[#e9eeef] to-[#868889] bg-clip-text text-transparent flex items-center font-medium"
         >
-        <td class="cursor-pointer"><Switch /></td>
+          Tema Oscuro
+        </td>
+        <td class="sm:mt-0 cursor-pointer narrow"><Switch /></td>
       </tr>
-      <tr>
+      <tr class="flex ">
         <td
-          class="bg-gradient-to-r from-[#e9eeef] to-[#868889] bg-clip-text text-transparent"
-          >Descargar CV</td
+          class="bg-gradient-to-r from-[#e9eeef] to-[#868889] bg-clip-text text-transparent flex items-center font-medium"
         >
-        <td>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
-            viewBox="0 0 24 24"
-            class="cursor-pointer transition duration-300"
-          >
-            <rect width="24" height="24" fill="none"></rect>
-            <path
-              class="fill-[#e9eeef] transition duration-300"
-              d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"
-            ></path>
-          </svg>
+          Descargar CV
+          <td class="sm:mt-0 cursor-pointer narrow">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              viewBox="0 0 24 24"
+              class="cursor-pointer transition duration-300"
+            >
+              <rect width="24" height="24" fill="none"></rect>
+              <path
+                class="fill-[#e9eeef] transition duration-300"
+                d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"
+              ></path>
+            </svg>
+          </td>
         </td>
       </tr>
     </table>
@@ -123,19 +125,24 @@ import Switch from "./Switch.astro";
       </a>
     </div>
   </div>
+
+  <style>
+    td.narrow {
+      width: 5rem;
+      flex-shrink: 0;
+    }
+
+    td {
+      height: 50px;
+      align-items: center;
+    }
+
+    tr {
+      justify-content: space-between;
+    }
+
+    svg.cursor-pointer:hover path {
+      fill: #daa032;
+    }
+  </style>
 </div>
-
-<style>
-  td:first-child {
-    width: 14rem;
-    font-weight: 500;
-  }
-
-  td {
-    height: 50px;
-  }
-  
-  svg.cursor-pointer:hover path {
-    fill: #daa032;
-  }
-</style>

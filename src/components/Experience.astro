@@ -4,7 +4,7 @@ import Text from "./Text.astro";
 import ExperienceCard from "./ExperienceCard.astro";
 ---
 
-<section class="px-26 pb-16 relative">
+<section class="lg:max-w-7xl mx-auto px-6 pb-16 relative">
   <Title class="text-center mb-8" text="Mi historia" />
   <Text
     class="text-center italic mb-20"
@@ -14,7 +14,7 @@ import ExperienceCard from "./ExperienceCard.astro";
   <!-- Línea central vertical -->
   <div class="line-vertical neon"></div>
 
-  <div class="flex flex-col gap-22 relative">
+  <div class="flex flex-col gap-12 lg:gap-22 relative">
     <div class="experience-node right flex justify-end relative w-full">
       <ExperienceCard
         position="Peajista"
@@ -135,55 +135,73 @@ import ExperienceCard from "./ExperienceCard.astro";
   </div>
 </section>
 <style>
-  .line-vertical {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 18rem;
-    bottom: 2rem;
-    width: 2px;
-    background-color: #daa032;
-    border-radius: 1px;
-    box-shadow:
-      0 0 6px #daa032,
-      0 0 20px #daa032,
-      inset 0 0 8px #daa032;
-  }
+.line-vertical {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 18rem;
+  bottom: 2rem;
+  width: 2px;
+  background-color: #daa032;
+  border-radius: 1px;
+  box-shadow:
+    0 0 6px #daa032,
+    0 0 20px #daa032,
+    inset 0 0 8px #daa032;
+  z-index: 0;
+}
 
-  .neon {
-    box-shadow:
-      0 0 6px #daa032,
-      0 0 30px #daa032,
-      inset 0 0 8px #daa032;
-  }
-  @media (max-width: 767px) {
-    .experience-node {
-      position: relative;
-      width: 100%;
-      display: none;
-    }
+.neon {
+  box-shadow:
+    0 0 6px #daa032,
+    0 0 30px #daa032,
+    inset 0 0 8px #daa032;
+}
+
+.experience-node {
+  position: relative;
+  width: 100%;
+}
+
+/* Línea y ramas solo en desktop */
+@media (max-width: 767px) {
+  .line-vertical {
+    display: none;
   }
 
   .experience-node.right::before,
   .experience-node.left::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 3rem;
-    height: 2px;
-    background: #daa032;
-    transform: translateY(-50%);
-    box-shadow:
-      0 0 6px #daa032,
-      0 0 10px #daa032;
-    z-index: 10;
+    display: none;
   }
 
-  .experience-node.right::before {
-    left: calc(50% + 1px);
+  .experience-node {
+    flex-direction: column !important;
+    align-items: center !important;
   }
+}
 
-  .experience-node.left::before {
-    right: calc(50% + 1px);
-  }
+/* Decorativas ramas laterales */
+.experience-node.right::before,
+.experience-node.left::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 2px;
+  background: #daa032;
+  transform: translateY(-50%);
+  box-shadow:
+    0 0 6px #daa032,
+    0 0 10px #daa032;
+  z-index: 10;
+}
+
+.experience-node.right::before {
+  left: calc(50% + 1px);
+}
+
+.experience-node.left::before {
+  right: calc(50% + 1px);
+}
+
 </style>
