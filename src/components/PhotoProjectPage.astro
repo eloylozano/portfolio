@@ -2,7 +2,7 @@
 import Subtitle from "./Subtitle.astro";
 import Text from "./Text.astro";
 import Title from "./Title.astro";
-import Lightbox from "./Lightbox.astro";
+// import Lightbox from "./PopUp.astro";
 
 const { title, description, coverImage, photos } = Astro.props;
 ---
@@ -24,10 +24,7 @@ const { title, description, coverImage, photos } = Astro.props;
 <!-- Galería con columns (masonry) -->
 <section class="w-full p-6 lg:px-26 mb-12">
   <h2 class="text-xl font-semibold text-[#daa032] mb-4">Galería</h2>
-  <div
-    id="gallery"
-    class="columns-1 sm:columns-2 md:columns-4 gap-6 space-y-6"
-  >
+  <div id="gallery" class="columns-1 sm:columns-2 md:columns-4 gap-6 space-y-6">
     {
       photos.map((photo: any) => (
         <div class="break-inside-avoid overflow-hidden rounded-md shadow-md">
@@ -50,7 +47,38 @@ const { title, description, coverImage, photos } = Astro.props;
 </section>
 
 <!-- Lightbox -->
-<Lightbox client:load />
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" id="lightbox-close">&times;</span>
+  <img alt="Imagen ampliada" />
+</div>
+
+<style>
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+  .lightbox.visible {
+    display: flex;
+  }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+  }
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+</style>
 
 <script>
   let lightbox = null;
