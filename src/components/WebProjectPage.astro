@@ -1,0 +1,147 @@
+---
+import { webProjects } from "../data/webProjects";
+import SmallTitle from "./SmallTitle.astro";
+import Text from "./Text.astro";
+import Title from "./Title.astro";
+import Lightbox from "./Lightbox.astro";
+
+const slug = Astro.params.slug;
+
+const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
+---
+
+<section class="space-y-20 mt-12 p-6 lg:px-32 mx-auto">
+  <header class="text-center space-y-4">
+    <Title text={project.title} />
+    <Text text={project.description} />
+  </header>
+
+  <div class="grid md:grid-cols-2 gap-10 items-start">
+    <!-- Imagen: aparece primero en móvil, segundo en desktop -->
+    <div class="w-full rounded overflow-hidden shadow-md order-1 md:order-2">
+      <img
+        src={project.coverImage}
+        alt={project.title}
+        class="rounded-md w-full object-cover"
+      />
+    </div>
+
+    <!-- Contenido textual: aparece después en móvil, primero en desktop -->
+    <div class="order-2 md:order-1">
+      <SmallTitle text="Resumen del proyecto" />
+      <Text text={project.summary} />
+      <div class="mt-4 text-xs text-gray-400 italic">
+        <Text text={`Cliente: ${project.client}`} noMargin />
+        <Text text={`Herramientas: ${project.tools.join(", ")}`} noMargin />
+        <Text text={`Rol: ${project.role}`} noMargin />
+      </div>
+
+      {
+        project.collaborators && project.collaborators.length > 0 && (
+          <div class="mt-6 w-2/3">
+            <SmallTitle text="Colaboradores" />
+            <ul class="space-y-2 pl-2 text-sm p-4 text-gray-300 flex justify-between">
+              {project.collaborators.map((person) => (
+                <li>
+                  <a
+                    href={person.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[#e9eeef] hover:underline"
+                  >
+                    {person.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+
+      {
+        project.liveUrl && (
+          <div class="text-center mt-10">
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              class="flex w-fit mx-auto gap-5 px-6 py-3 bg-[#daa032] text-black rounded-md font-semibold hover:scale-105 transition"
+            >
+              Ver sitio en vivo
+              <img
+                src={project.logo}
+                class="w-7 h-auto"
+                alt="Logo del proyecto"
+              />
+            </a>
+          </div>
+        )
+      }
+    </div>
+  </div>
+
+  <div>
+    <SmallTitle text="Proceso del diseño " class="mb-4" />
+    <ul class="list-disc pl-6 space-y-2 text-gray-300 text-sm">
+      {project.steps.map((step) => <li>{step}</li>)}
+    </ul>
+  </div>
+
+  <div>
+    <h2 class="text-xl font-semibold text-[#daa032] mb-4">Galería</h2>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+      id="gallery"
+    >
+      {
+        project.images.map((img) => (
+          <div class="aspect-[4/3] overflow-hidden rounded-md">
+            <img
+              src={img}
+              alt="Screenshot"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <Lightbox client:load />
+</section>
+
+<script>
+  let lightbox: HTMLElement | null = null;
+  let lightboxImg: HTMLImageElement | null = null;
+
+  window.addEventListener("load", () => {
+    lightbox = document.getElementById("lightbox");
+    lightboxImg = lightbox?.querySelector("img") ?? null;
+    const closeBtn = document.getElementById("lightbox-close");
+    const gallery = document.getElementById("gallery");
+
+    if (!lightbox || !lightboxImg || !closeBtn || !gallery) {
+      console.error("Elementos necesarios no encontrados");
+      return;
+    }
+
+    gallery.addEventListener("click", (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === "IMG") {
+        const imgTarget = target as HTMLImageElement;
+        lightboxImg!.src = imgTarget.src;
+        lightbox.classList.add("visible");
+      }
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox!.classList.remove("visible");
+      lightboxImg!.src = "";
+    });
+
+    lightbox.addEventListener("click", (e: MouseEvent) => {
+      if (e.target === lightbox) {
+        lightbox!.classList.remove("visible");
+        lightboxImg!.src = "";
+      }
+    });
+  });
+</script>

@@ -53,7 +53,7 @@ export default [
           aperture: "f/4",
           iso: "320",
           camera: "Canon EOS 200D",
-          lens: "RF 35mm f/1.8 Macro IS STM",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
         },
       },
       {
@@ -92,7 +92,7 @@ export default [
           aperture: "f/4",
           iso: "200",
           camera: "Canon EOS 200D",
-          lens: "RF 35mm f/1.8 Macro IS STM",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
         },
       },
       {
@@ -192,7 +192,7 @@ export default [
           aperture: "f/4",
           iso: "320",
           camera: "Canon EOS 200D",
-          lens: "RF 35mm f/1.8 Macro IS STM",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
         },
       },
     ],
@@ -214,7 +214,7 @@ export default [
           aperture: "f/2.8",
           iso: "200",
           camera: "Canon EOS 200D",
-          lens: "RF 35mm f/1.8 Macro IS STM",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
         },
       },
       {
@@ -275,11 +275,11 @@ export default [
           "La expresión firme y la iluminación suave hacen de esta imagen un estudio del rostro como territorio emocional. Cada pliegue, cada sombra, revela un matiz de identidad. La camisa blanca y el fondo neutro refuerzan la atemporalidad del retrato.",
         image: "/images/projects/myself/photo_me04.jpg",
         tech: {
-          focal: "85mm",
+          focal: "50mm",
           aperture: "f/2.8",
           iso: "100",
           camera: "Canon EOS 200D",
-          lens: "RF 85mm f/2 Macro IS STM",
+          lens: "EF 50mm f/1.8 STM",
         },
       },
       {
@@ -308,14 +308,13 @@ export default [
         title: "Despegue mojado",
         description:
           "Un avión de Ryanair se impulsa con fuerza sobre una pista empapada, mientras las turbinas levantan una densa neblina de agua a su paso. El contraste entre la potencia del despegue y la superficie húmeda crea una escena dinámica, casi cinematográfica, donde el movimiento se hace visible en cada gota dispersa.",
-
         image: "/images/projects/planes/photo_plane00.jpg",
         tech: {
           focal: "250mm",
           aperture: "f/6.3",
           iso: "400",
           camera: "Canon EOS 200D",
-          lens: "EF-S 55-250mm f/4-5.6 IS STM",
+          lens: "Canon EF 70-200mm f/4.5-5.6",
         },
       },
       {
@@ -328,7 +327,7 @@ export default [
           aperture: "f/5.6",
           iso: "320",
           camera: "Canon EOS 200D",
-          lens: "EF-S 55-250mm f/4-5.6 IS STM",
+          lens: "Canon EF 70-200mm f/4.5-5.6",
         },
       },
       {
@@ -341,7 +340,7 @@ export default [
           aperture: "f/7.1",
           iso: "200",
           camera: "Canon EOS 200D",
-          lens: "EF-S 55-250mm f/4-5.6 IS STM",
+          lens: "Canon EF 70-200mm f/4.5-5.6",
         },
       },
       {
@@ -354,7 +353,7 @@ export default [
           aperture: "f/5",
           iso: "250",
           camera: "Canon EOS 200D",
-          lens: "EF-S 55-250mm f/4-5.6 IS STM",
+          lens: "Canon EF 70-200mm f/4.5-5.6",
         },
       },
       {
@@ -367,7 +366,7 @@ export default [
           aperture: "f/8",
           iso: "100",
           camera: "Canon EOS 200D",
-          lens: "EF-S 55-250mm f/4-5.6 IS STM",
+          lens: "Canon EF 70-200mm f/4.5-5.6",
         },
       },
       {
@@ -380,9 +379,226 @@ export default [
           aperture: "f/8",
           iso: "100",
           camera: "Canon EOS 200D",
-          lens: "EF-S 55-250mm f/4-5.6 IS STM",
+          lens: "Canon EF 70-200mm f/4.5-5.6",
+        },
+      },
+      {
+        title: "A la espera del rugido",
+        description:
+          "El avión descansa en la pista como una bestia contenida, rodeado de un ambiente húmedo y silencioso. La luz suave del amanecer acaricia el fuselaje, reflejando tonos cálidos y metálicos. Es un momento suspendido entre la calma y la inminente acción.",
+        image: "/images/projects/planes/photo_plane07.jpg",
+        tech: {
+          focal: "150mm",
+          aperture: "f/5.6",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "Canon EF 70-200mm f/4.5-5.6",
+        },
+      },
+      {
+        title: "Perfil de ascenso",
+        description:
+          "Capturado desde un ángulo bajo, el avión gana altitud sobre un fondo limpio, revelando su silueta perfecta contra el cielo. El enfoque nítido y la apertura abierta aportan un efecto de aislamiento visual que hace que la aeronave destaque con elegancia.",
+        image: "/images/projects/planes/photo_plane08.jpg",
+        tech: {
+          focal: "180mm",
+          aperture: "f/5",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "Canon EF 70-200mm f/4.5-5.6",
+        },
+      }
+    ],
+  },  
+  {
+    slug: "motor",
+    title: "Motociclismo",
+    description:
+      '"Motociclismo" es una declaración de libertad en dos ruedas, un proyecto visual que nace del impulso de moverse, de explorar sin mapas y de sentir el asfalto como una extensión del alma. Cada fotografía captura ese instante en el que la máquina y el paisaje se funden en un mismo latido: curvas que abrazan montañas, motores que rugen contra el viento, miradas perdidas en horizontes que prometen más. Aquí no hay meta, solo trayecto. Es el arte de viajar sin prisa, de dejar que la carretera dicte el ritmo y que el silencio entre casco y pensamiento hable más que cualquier palabra.',
+    coverImage: "/images/projects/motor/banner.jpg",
+    photos: [
+      {
+        title: "Ruta sin destino",
+        description: "",
+        image: "/images/projects/motor/photo_moto.jpg",
+        tech: {
+          focal: "35mm",
+          aperture: "f/2",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
+        },
+      },
+      {
+        title: "Entre montañas y motores",
+        description: "",
+        image: "/images/projects/motor/photo_moto00.jpg",
+        tech: {
+          focal: "35mm",
+          aperture: "f/1.8",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
+        },
+      },
+      {
+        title: "Asfalto ardiente",
+        description: "",
+        image: "/images/projects/motor/photo_moto01.jpg",
+        tech: {
+          focal: "35mm",
+          aperture: "f/2.2",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
+        },
+      },
+      {
+        title: "Mirada al horizonte",
+        description: "",
+        image: "/images/projects/motor/photo_moto03.jpg",
+        tech: {
+          focal: "50mm",
+          aperture: "f/2",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "EF 50mm f/1.8 STM",
+        },
+      },
+      {
+        title: "Luz dorada sobre dos ruedas",
+        description: "",
+        image: "/images/projects/motor/photo_moto04.jpg",
+        tech: {
+          focal: "35mm",
+          aperture: "f/2.5",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
+        },
+      },
+      {
+        title: "Viento en la cara",
+        description: "",
+        image: "/images/projects/motor/photo_moto05.jpg",
+        tech: {
+          focal: "50mm",
+          aperture: "f/2.2",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "EF 50mm f/1.8 STM",
+        },
+      },
+      {
+        title: "Curvas infinitas",
+        description: "",
+        image: "/images/projects/motor/photo_moto06.jpg",
+        tech: {
+          focal: "35mm",
+          aperture: "f/2.2",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
+        },
+      },
+      {
+        title: "La pausa del camino",
+        description: "",
+        image: "/images/projects/motor/photo_moto08.jpg",
+        tech: {
+          focal: "50mm",
+          aperture: "f/2.8",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "EF 50mm f/1.8 STM",
+        },
+      },
+      {
+        title: "Latido del motor",
+        description: "",
+        image: "/images/projects/motor/photo_moto09.jpg",
+        tech: {
+          focal: "35mm",
+          aperture: "f/2",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
+        },
+      },
+      {
+        title: "La línea del horizonte",
+        description: "",
+        image: "/images/projects/motor/photo_moto10.jpg",
+        tech: {
+          focal: "50mm",
+          aperture: "f/2.5",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "EF 50mm f/1.8 STM",
+        },
+      },
+      {
+        title: "Mecánica y polvo",
+        description: "",
+        image: "/images/projects/motor/photo_moto12.jpg",
+        tech: {
+          focal: "35mm",
+          aperture: "f/2.2",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
+        },
+      },
+      {
+        title: "Silueta al atardecer",
+        description: "",
+        image: "/images/projects/motor/photo_moto13.jpg",
+        tech: {
+          focal: "50mm",
+          aperture: "f/1.8",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "EF 50mm f/1.8 STM",
+        },
+      },
+      {
+        title: "Ruta costera",
+        description: "",
+        image: "/images/projects/motor/photo_moto14.jpg",
+        tech: {
+          focal: "35mm",
+          aperture: "f/2.5",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
+        },
+      },
+      {
+        title: "Ecos de velocidad",
+        description: "",
+        image: "/images/projects/motor/photo_moto15.jpg",
+        tech: {
+          focal: "50mm",
+          aperture: "f/2",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "EF 50mm f/1.8 STM",
+        },
+      },
+      {
+        title: "Fin de trayecto",
+        description: "",
+        image: "/images/projects/motor/photo_moto16.jpg",
+        tech: {
+          focal: "35mm",
+          aperture: "f/2",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
         },
       },
     ],
-  },
+  }
+
+
 ];

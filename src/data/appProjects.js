@@ -65,7 +65,6 @@ export default [
     coverImage: "/images/projects/app_deskify.jpg",
     gallery: [
       "/images/projects/app_bitten-apol.jpg",
-      "/images/projects/app/bittenapol/Picture3.jpg",
       "/images/projects/app/bittenapol/Picture1.png",
       "/images/projects/app/bittenapol/Picture2.png",
     ],
@@ -92,7 +91,7 @@ export default [
         "Login con Google integrado para mayor comodidad.",
         "Flujo de checkout (en desarrollo).",
       ],
-      image: "/images/projects/app_bitten-apol.jpg",
+      image: "/images/projects/app/deskify/mockup.png",
     },
 
     logo: "/images/projects/app/bittenapol/logo.png",

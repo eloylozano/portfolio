@@ -2,6 +2,7 @@
 import Subtitle from "./Subtitle.astro";
 import Text from "./Text.astro";
 import Title from "./Title.astro";
+import Lightbox from "./Lightbox.astro";
 
 const { title, description, coverImage, photos } = Astro.props;
 ---
@@ -12,72 +13,78 @@ const { title, description, coverImage, photos } = Astro.props;
 </section>
 
 <!-- Title + Description -->
-<section class="text-center my-12 max-w-6xl mx-auto px-4 scroll-container" id="projects">
+<section
+  class="text-center my-12 max-w-6xl mx-auto px-4 scroll-container"
+  id="projects"
+>
   <Title text={title} />
   <Text text={description} size="md" />
 </section>
 
-<!-- Photos list -->
-<section class="space-y-16 p-6 mb-12 lg:px-26 w-full mx-auto  ">
-  {
-    photos.map((photo: any, index: any) => (
-      <div
-        class={`flex flex-col md:flex-row ${index % 2 !== 0 ? "md:flex-row-reverse" : ""} items-center lg:gap-28 justify/between xs:bg-[#0b0b0b]/60`}
-      >
-        <div class="relative group w-full md:w-[24rem]  ">
-          <div class="absolute inset-0 blur-xl rounded-xl z-0" />
-          <a href={photo.image} target="_blank">
-            <img
-              src={photo.image}
-              alt={photo.title}
-              class="rounded-sm relative z-10 w-full transition duration-300 hover:scale-102 cursor-pointer lg:p-0 p-4"
-            />
-          </a>
-        </div>
-
-        <article class="relative w-full md:w-2/3 group">
-          <div class="neon-box border border-[#daa032] rounded-xs absolute inset-0 translate-x-[20px] -translate-y-[30px] z-0 hidden lg:block" />
-
-          <div class="testimonial-card lg:bg-[#0b0b0b]/60 text-white relative z-10 border-sm p-4 lg:p-10 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ">
-            <Subtitle text={photo.title} gold/>
-            <Text text={photo.description} class="text-justify" />
-            <Text text="Especificaciones Técnicas" />
-            <ul class="text-xs text-[#e9eeef] italic">
-              <li>Distancia focal: {photo.tech.focal}</li>
-              <li>Apertura: {photo.tech.aperture}</li>
-              <li>ISO: {photo.tech.iso}</li>
-              <li>Cámara: {photo.tech.camera}</li>
-              <li>Lente: {photo.tech.lens}</li>
-            </ul>
+<!-- Galería con columns (masonry) -->
+<section class="w-full p-6 lg:px-26 mb-12">
+  <h2 class="text-xl font-semibold text-[#daa032] mb-4">Galería</h2>
+  <div
+    id="gallery"
+    class="columns-1 sm:columns-2 md:columns-4 gap-6 space-y-6"
+  >
+    {
+      photos.map((photo: any) => (
+        <div class="break-inside-avoid overflow-hidden rounded-md shadow-md">
+          <img
+            src={photo.image}
+            alt={photo.title}
+            class="w-full h-auto rounded-md cursor-pointer transition-transform duration-300 hover:scale-105"
+          />
+          <div class="bg-[#0b0b0b]/70 text-white p-4 text-xs italic space-y-1 mt-2 rounded-sm">
+            <p class="text-[#e9eeef]">Distancia focal: {photo.tech.focal}</p>
+            <p class="text-[#e9eeef]">Apertura: {photo.tech.aperture}</p>
+            <p class="text-[#e9eeef]">ISO: {photo.tech.iso}</p>
+            <p class="text-[#e9eeef]">Cámara: {photo.tech.camera}</p>
+            <p class="text-[#e9eeef]">Lente: {photo.tech.lens}</p>
           </div>
-        </article>
-      </div>
-    ))
-  }
+        </div>
+      ))
+    }
+  </div>
 </section>
 
-<style>
-  @keyframes neonPulse {
-    0%,
-    100% {
-      box-shadow:
-        0 0 6px #daa032,
-        0 0 30px #daa032,
-        inset 0 0 12px #daa032;
-    }
-    50% {
-      box-shadow:
-        0 0 6px #daa032,
-        0 0 15px #daa032,
-        inset 0 0 12px #daa032;
-    }
-  }
+<!-- Lightbox -->
+<Lightbox client:load />
 
-  .neon-box {
-    animation: neonPulse 3s ease-in-out infinite;
-    box-shadow:
-      0 0 6px #daa032,
-      0 0 30px #daa032,
-      inset 0 0 8px #daa032;
-  }
-</style>
+<script>
+  let lightbox = null;
+  let lightboxImg = null;
+
+  window.addEventListener("load", () => {
+    lightbox = document.getElementById("lightbox");
+    lightboxImg = lightbox?.querySelector("img") ?? null;
+    const closeBtn = document.getElementById("lightbox-close");
+    const gallery = document.getElementById("gallery");
+
+    if (!lightbox || !lightboxImg || !closeBtn || !gallery) {
+      console.error("Elementos necesarios no encontrados");
+      return;
+    }
+
+    gallery.addEventListener("click", (e) => {
+      const target = e.target;
+      if (target.tagName === "IMG") {
+        lightboxImg.src = target.src;
+        lightbox.classList.add("visible");
+      }
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.classList.remove("visible");
+      lightboxImg.src = "";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("visible");
+        lightboxImg.src = "";
+      }
+    });
+  });
+</script>

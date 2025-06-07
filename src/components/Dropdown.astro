@@ -11,45 +11,48 @@ import Switch from "./Switch.astro";
     class="w-full px-4 sm:px-8 py-6 sm:py-10 flex flex-col items-center justify-center"
   >
     <table class="w-full max-w-md text-left text-sm">
-      <tr class="flex  mb-4 sm:mb-0">
+      <tr class="flex mb-4 sm:mb-0">
         <td
           class="bg-gradient-to-r from-[#e9eeef] to-[#868889] bg-clip-text text-transparent flex items-center font-medium"
         >
           Idiomas
         </td>
         <td class="flex gap-4 text-xs font-bold sm:mt-0 narrow">
-          <button class="text-white/60">EN</button>
-          <button class="text-white">ES</button>
-          <button class="text-white/60">DE</button>
+          <button data-lang="en" class="text-white/60">EN</button>
+          <button data-lang="es" class="text-white">ES</button>
+          <button data-lang="de" class="text-white/60">DE</button>
         </td>
       </tr>
-      <tr class="flex  mb-4 sm:mb-0">
+
+      <!-- <tr class="flex mb-4 sm:mb-0">
         <td
           class="bg-gradient-to-r from-[#e9eeef] to-[#868889] bg-clip-text text-transparent flex items-center font-medium"
         >
           Tema Oscuro
         </td>
         <td class="sm:mt-0 cursor-pointer narrow"><Switch /></td>
-      </tr>
-      <tr class="flex ">
+      </tr> -->
+      <tr class="flex">
         <td
           class="bg-gradient-to-r from-[#e9eeef] to-[#868889] bg-clip-text text-transparent flex items-center font-medium"
         >
           Descargar CV
           <td class="sm:mt-0 cursor-pointer narrow">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              viewBox="0 0 24 24"
-              class="cursor-pointer transition duration-300"
-            >
-              <rect width="24" height="24" fill="none"></rect>
-              <path
-                class="fill-[#e9eeef] transition duration-300"
-                d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"
-              ></path>
-            </svg>
+            <a href="/LozanoEloy.pdf" download="/LozanoEloy.pdf">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                viewBox="0 0 24 24"
+                class="cursor-pointer transition duration-300"
+              >
+                <rect width="24" height="24" fill="none"></rect>
+                <path
+                  class="fill-[#e9eeef] transition duration-300"
+                  d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"
+                ></path>
+              </svg>
+            </a>
           </td>
         </td>
       </tr>
@@ -125,24 +128,53 @@ import Switch from "./Switch.astro";
       </a>
     </div>
   </div>
-
-  <style>
-    td.narrow {
-      width: 5rem;
-      flex-shrink: 0;
-    }
-
-    td {
-      height: 50px;
-      align-items: center;
-    }
-
-    tr {
-      justify-content: space-between;
-    }
-
-    svg.cursor-pointer:hover path {
-      fill: #daa032;
-    }
-  </style>
 </div>
+<style>
+  td.narrow {
+    width: 5rem;
+    flex-shrink: 0;
+  }
+
+  td {
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  tr {
+    justify-content: space-between;
+  }
+</style>
+
+<script>
+  // Al cargar la página
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll("button[data-lang]");
+    const savedLang = localStorage.getItem("lang") || "es"; // idioma por defecto
+
+    // Resalta el botón activo
+    buttons.forEach((btn) => {
+      btn.classList.toggle("text-white", btn.dataset.lang === savedLang);
+      btn.classList.toggle("text-white/60", btn.dataset.lang !== savedLang);
+    });
+
+    // Al click en un botón, cambia idioma
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const selectedLang = btn.dataset.lang;
+        localStorage.setItem("lang", selectedLang);
+
+        // Actualiza estilos botones
+        buttons.forEach((b) => {
+          b.classList.toggle("text-white", b.dataset.lang === selectedLang);
+          b.classList.toggle("text-white/60", b.dataset.lang !== selectedLang);
+        });
+
+        // Aquí puedes hacer algo más, como recargar o cambiar contenido:
+        // location.reload(); // si usas archivos distintos por idioma
+
+        // O disparar un evento para que tu app reaccione al cambio de idioma
+      });
+    });
+  });
+</script>
