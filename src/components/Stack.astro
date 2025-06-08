@@ -1,17 +1,22 @@
 ---
 import StackCard from "./StackCard.astro";
 import Title from "./Title.astro";
+import { t } from "../i18n";
+
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
 ---
 
 <article class="text-white">
-  <Title text="Mi stack tecnológico" class="text-center" />
+  <Title text={t(lang, "pages.stack.title")} class="text-center" />
 
   <div
     class="container mx-auto max-w-full flex flex-wrap justify-between mt-12 gap-y-8 gap-x-6 px-4"
   >
     <div class="w-fit sm:w-1/2 lg:w-fit mx-auto">
       <StackCard
-        title="BackEnd"
+        title={t(lang, "pages.stack.backend")}
         icons={[
           { src: "/images/icons/java.png", alt: "Java" },
           { src: "/images/icons/php.png", alt: "Php" },
@@ -25,7 +30,7 @@ import Title from "./Title.astro";
 
     <div class="w-fit sm:w-1/2 lg:w-fit mx-auto">
       <StackCard
-        title="FrontEnd"
+        title={t(lang, "pages.stack.frontend")}
         icons={[
           { src: "/images/icons/react.png", alt: "React" },
           { src: "/images/icons/angular.png", alt: "Angular" },
@@ -39,7 +44,7 @@ import Title from "./Title.astro";
 
     <div class="w-fit sm:w-1/2 lg:w-fit mx-auto">
       <StackCard
-        title="Data"
+        title={t(lang, "pages.stack.backend")}
         icons={[
           { src: "/images/icons/mongo.png", alt: "MongoDB" },
           { src: "/images/icons/mySQL.png", alt: "MySQL" },
@@ -53,7 +58,7 @@ import Title from "./Title.astro";
 
     <div class="w-fit sm:w-1/2 lg:w-fit mx-auto">
       <StackCard
-        title="Diseño"
+        title={t(lang, "pages.stack.design")}
         icons={[
           { src: "/images/icons/Photoshop.png", alt: "Photoshop" },
           { src: "/images/icons/Lightroom.png", alt: "Lightroom" },

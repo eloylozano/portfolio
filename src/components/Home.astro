@@ -2,6 +2,11 @@
 import Title from "../components/Title.astro";
 import Subtitle from "../components/Subtitle.astro";
 import Paragraph from "../components/Text.astro";
+import { t } from "../i18n";
+
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
 ---
 
 <section
@@ -22,11 +27,11 @@ import Paragraph from "../components/Text.astro";
   <div
     class="z-10 w-full lg:w-[50%] lg:max-w-[800px] xs:mx-auto lg:ml-auto text-white text-left lg:text-right bg-[#161512]/90 lg:bg-transparent py-16 lg:py-0 px-4 sm:px-8 lg:px-6 rounded-lg lg:rounded-none"
   >
-    <Title text="El arte también se programa" />
-    <Subtitle text="Desarrollador Web y Fotógrafo" />
+    <Title text={t(lang, "pages.home.title")} />
+    <Subtitle text={t(lang, "pages.home.work")}  />
     <Paragraph
       size="lg"
-      text="Soy Eloy Lozano, desarrollador web y fotógrafo de retrato. Combino líneas de código con sensibilidad visual para crear experiencias digitales únicas"
+      text={t(lang, "pages.home.description")} 
     />
 
     <div

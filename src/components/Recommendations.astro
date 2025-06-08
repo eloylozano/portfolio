@@ -1,6 +1,11 @@
 ---
 import RecommendationCard from "./RecommendationCard.astro";
 import Title from "./Title.astro";
+import { t } from "../i18n";
+
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
 ---
 
 <section
@@ -9,26 +14,26 @@ import Title from "./Title.astro";
   aria-label="Recommendations section"
   class="scroll-container bg-[#161512] py-36 px-6 sm:px-12 md:px-24 lg:px-26 text-white"
 >
-  <Title class="text-center mb-10" text="Recomendaciones" />
+  <Title class="text-center mb-10" text={t(lang, "pages.recomendations.title")} />
   <div
     class="flex flex-wrap justify-center gap-30 lg:gap:10 xs:max-w-4xl mx-auto mt-32"
   >
     <RecommendationCard
-      text="Destaca por su curiosidad técnica, capacidad de adaptación a nuevas tecnologías y compromiso en cada proyecto. Tiene perfil claramente profesional."
+      text={t(lang, "pages.recomendations.monica.text")}
       author="Mónica P. Sueiro"
-      relationship="Docente"
+      relationship={t(lang, "pages.recomendations.monica.relationship")}
       class="w-[45%]"
     />
     <RecommendationCard
-      text="Trabajar con Eloy fue siempre una experiencia fluida. Es alguien de confianza, con quien conecté desde el principio y que sabe hacer fácil lo difícil."
+      text={t(lang, "pages.recomendations.dani.text")}
       author="Dani Sánchez"
-      relationship="Compañero"
+      relationship={t(lang, "pages.recomendations.dani.relationship")}
       class="w-[45%]"
     />
     <RecommendationCard
-      text="Es un desarrollador con iniciativa, resolutivo y buen comunicador. Sabe combinar bien la parte técnica con el diseño."
+      text={t(lang, "pages.recomendations.miguel.text")}
       author="Miguel Iglesias"
-      relationship="Compañero"
+      relationship={t(lang, "pages.recomendations.miguel.relationship")}
       class="w-[90%] mx-auto"
     />
   </div>

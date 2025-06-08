@@ -1,6 +1,11 @@
 ---
 import Title from "./Title.astro";
 import Text from "./Text.astro";
+import { t } from "../i18n";
+
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
 ---
 
 <section
@@ -13,22 +18,25 @@ import Text from "./Text.astro";
     class="p-6 sm:p-10 md:p-16 lg:p-26 flex flex-col lg:flex-row gap-8 items-start lg:items-end justify-between bg-[#0b0b0b]/60"
   >
     <div class="w-full lg:w-[52%]">
-      <Title class="text-center lg:text-left" text="Contacto" />
+      <Title
+        class="text-center lg:text-left"
+        text={t(lang, "pages.contact.title")}
+      />
       <p class="mb-8 text-md text-justify">
-        Contáctame en cualquier momento en
+        {t(lang, "pages.contact.description.text01")}
         <a
           class="text-[#e9eeef]/60 underline hover:text-[#daa032] transition duration-300"
           href="mailto:lozanobarrioseloy@gmail.com?subject=Contacto%20a%20través%20del%20portfolio&body=Buenas%20Eloy,%0A%0AMe%20gustaría%20hablar%20contigo%20sobre%20...%0A%0AUn%20saludo,%0A%22Tu%20nombre%22"
         >
-          lozanobarrioseloy@gmail.com
-        </a>
-        o encuéntrame en
+          lozanobarrioseloy@gmail.com</a
+        >
+        {t(lang, "pages.contact.description.text02")}
         <a
           href="https://www.linkedin.com/in/eloylozano"
           class="text-[#e9eeef]/60 underline hover:text-[#daa032] transition duration-300"
         >
-          LinkedIn
-        </a>. ¡Estoy listo para colaborar contigo!
+          LinkedIn</a
+        >. <br />{t(lang, "pages.contact.description.text03")}
       </p>
       <img
         src="/images/mockup.jpg"
@@ -40,32 +48,38 @@ import Text from "./Text.astro";
     <div class="w-full lg:w-[45%]">
       <form id="contact-form" class="rounded-md space-y-5" method="post">
         <div>
-          <label for="name" class="block mb-2 text-sm">Nombre</label>
+          <label for="name" class="block mb-2 text-sm"
+            >{t(lang, "pages.contact.form.name.label")}</label
+          >
           <input
             type="text"
             id="name"
-            placeholder="Tu Nombre"
+            placeholder={t(lang, "pages.contact.form.name.placeholder")}
             required
             class="w-full rounded border-2 border-[#daa032] bg-[#161512] px-3 py-2 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#daa032] focus:shadow-[0_0_10px_2px_#daa032]"
           />
         </div>
 
         <div>
-          <label for="email" class="block mb-2 text-sm">Mail</label>
+          <label for="email" class="block mb-2 text-sm"
+            >{t(lang, "pages.contact.form.email.label")}</label
+          >
           <input
             type="email"
             id="email"
-            placeholder="Escribe tu email"
+            placeholder={t(lang, "pages.contact.form.email.placeholder")}
             required
             class="w-full rounded border-2 border-[#daa032] bg-[#161512] px-3 py-2 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#daa032] focus:shadow-[0_0_10px_2px_#daa032]"
           />
         </div>
 
         <div>
-          <label for="message" class="block mb-2 text-sm">Mensaje</label>
+          <label for="message" class="block mb-2 text-sm"
+            >{t(lang, "pages.contact.form.message.label")}</label
+          >
           <textarea
             id="message"
-            placeholder="Escribe tu mensaje..."
+            placeholder={t(lang, "pages.contact.form.message.placeholder")}
             required
             class="w-full h-40 resize-none rounded border-2 border-[#daa032] bg-[#161512] px-3 py-2 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#daa032] focus:shadow-[0_0_10px_2px_#daa032]"
           ></textarea>
@@ -78,7 +92,7 @@ import Text from "./Text.astro";
           <span
             class="w-full h-full rounded-[6px] bg-[#0b0b0b] px-4 py-2 text-white text-base font-medium transition-all duration-300"
           >
-            Enviar
+            {t(lang, "pages.contact.form.button")}
           </span>
         </button>
       </form>

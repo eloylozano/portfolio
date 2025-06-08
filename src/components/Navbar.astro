@@ -2,13 +2,18 @@
 import Dropdown from "./Dropdown.astro";
 import Subtitle from "./Subtitle.astro";
 import Switch from "./Switch.astro";
+import { t } from "../i18n";
+
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
 
 const navItems = [
-  { label: "Home", link: "home" },
-  { label: "Sobre mí", link: "about" },
-  { label: "Proyectos", link: "projects" },
-  { label: "Más", link: "recommendations" },
-  { label: "Contacto", link: "contact" },
+  { label: t(lang, "nav.home"), link: "home" },
+  { label: t(lang, "nav.about"), link: "about" },
+  { label: t(lang, "nav.projects"), link: "projects" },
+  { label: t(lang, "nav.recommendations"), link: "recommendations" },
+  { label: t(lang, "nav.contact"), link: "contact" },
 ];
 ---
 
@@ -258,14 +263,18 @@ const navItems = [
 
     window.addEventListener("load", () => {
       let hash = window.location.hash || links[0].getAttribute("href");
-      const activeLink = Array.from(links).find(link => link.getAttribute("href") === hash) || links[0];
+      const activeLink =
+        Array.from(links).find((link) => link.getAttribute("href") === hash) ||
+        links[0];
       setActiveLink(activeLink);
     });
 
     // Cuando cambia el hash (por click o navegación manual), actualiza el indicador
     window.addEventListener("hashchange", () => {
       let hash = window.location.hash;
-      const activeLink = Array.from(links).find(link => link.getAttribute("href") === hash);
+      const activeLink = Array.from(links).find(
+        (link) => link.getAttribute("href") === hash
+      );
       if (activeLink) {
         setActiveLink(activeLink);
       }
@@ -327,4 +336,3 @@ const navItems = [
     });
   }
 </script>
-

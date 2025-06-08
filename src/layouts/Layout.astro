@@ -4,10 +4,11 @@ import Navbar from "../components/Navbar.astro";
 import ScrollSpy from "../components/ScrollSpy.astro";
 
 const path = Astro.url.pathname;
+const lang = Astro.cookies.get("preferredLang")?.value || "es"; 
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <title>Eloy Lozano</title>

@@ -1,19 +1,22 @@
 ---
 import Title from "../components/Title.astro";
 import Paragraph from "../components/Text.astro";
+import { t } from "../i18n";
+
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
 ---
 
 <div class="relative lg:flex items-center">
   <div class="max-w-[800px] text-white px-0">
-    <div class="lg:bg-[#0B0B0B]/60 ps-6 pe-6 py-6 px-4 lg:ps-32 lg:pe-24 lg:py-10">
-      <Title text="Sobre mí" />
+    <div
+      class="lg:bg-[#0B0B0B]/60 ps-6 pe-6 py-6 px-4 lg:ps-32 lg:pe-24 lg:py-10"
+    >
+      <Title text={t(lang, "pages.about.title")} />
       <Paragraph
         class="text-justify"
-        text={`Mi curiosidad por la tecnología se complementa con mi pasión por la fotografía, lo que me permite aportar un enfoque detallado y creativo a mis proyectos. La fotografía me da la oportunidad de tomar distancia y observar el mundo desde diferentes ángulos, perfeccionando mi capacidad para capturar detalles intrincados que a menudo pasan desapercibidos. 
-
-Cuando no estoy programando, exploro el mundo a través de mi cámara, capturando momentos que cuentan una historia, ya sea una escena callejera espontánea o la impresionante belleza de los paisajes naturales. 
-
-Estas experiencias impulsan mis diseños, brindándome nuevas perspectivas e inspiración para aplicarlas a mi trabajo en tecnología. La disciplina y la creatividad que he desarrollado en la fotografía mejoran mis habilidades para resolver problemas, convirtiéndome en un desarrollador más reflexivo y adaptable.`}
+        text={t(lang, "pages.about.description")}
       />
     </div>
   </div>
@@ -21,12 +24,14 @@ Estas experiencias impulsan mis diseños, brindándome nuevas perspectivas e ins
   <div class="w-full flex justify-center mt-32 lg:mt-0 xs:relative">
     <div
       class="neon-box border rounded-xs border-[#daa032] h-[250px] w-[190px] absolute z-2 -translate-x-12 -translate-y-8 lg:h-[400px] lg:w-[300px] lg:-translate-x-[100px] lg:-translate-y-[50px]"
-    ></div>
+    >
+    </div>
 
     <div
       class="bg-[#0B0B0B]/60 h-[250px] w-[190px] absolute z-2 translate-x-12 lg:h-[400px] lg:w-[300px] lg:translate-x-[100px]"
-    ></div>
-    
+    >
+    </div>
+
     <img
       src="/images/aboutme.png"
       alt="Eloy Lozano retrato"
@@ -38,7 +43,8 @@ Estas experiencias impulsan mis diseños, brindándome nuevas perspectivas e ins
 
 <style>
   @keyframes neonPulse {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow:
         0 0 6px #daa032,
         0 0 30px #daa032,
