@@ -3,6 +3,7 @@ export default {
   nav: {
     home: "Startseite",
     about: "Über mich",
+    seeProjects: "Siehe meine Projekte",
     projects: "Projekte",
     recommendations: "Mehr",
     contact: "Kontakt",

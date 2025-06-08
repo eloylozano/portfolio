@@ -4,6 +4,7 @@ export default {
     home: "Home",
     about: "About Me",
     projects: "Projects",
+    seeProjects: "See my projects",
     recommendations: "More",
     contact: "Contact",
   },
