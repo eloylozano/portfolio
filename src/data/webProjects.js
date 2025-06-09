@@ -4,23 +4,23 @@ export const webProjects = [
     title: "Pawtopia",
     logo: "/images/projects/web/pawtopia/logo.png",
     description:
-      "Plataforma solidaria para fomentar la adopción responsable y conectar a animales con nuevos hogares.",
+      "A solidarity platform to promote responsible adoption and connect animals with new homes.",
     collaborators: [
       { name: "Dani Sánchez", github: "https://github.com/DaniSanchezDev" },
       { name: "Sabela Cobelo", github: "https://github.com/SabelaCobelo" },
       { name: "Manuel Loira", github: "https://github.com/Manuelloira" },
     ],
     summary:
-      "Pawtopia es una iniciativa nacida en un pequeño refugio local que evolucionó hasta convertirse en una comunidad referente en adopciones responsables. El sitio permite visibilizar animales en adopción, facilitar la conexión con casas de acogida y promover campañas educativas y solidarias.",
-    client: "Asociación sin ánimo de lucro",
+      "Pawtopia is an initiative born in a small local shelter that has evolved into a leading community for responsible adoptions. The site provides visibility to animals up for adoption, facilitates connections with foster homes, and promotes educational and charitable campaigns.",
+    client: "Non-profit association",
     tools: ["HTML", "JavaScript", "TailwindCSS", "Figma", "Vercel"],
     role: "Diseño UX/UI + desarrollo frontend",
     steps: [
-      "Definición de objetivos sociales y funcionales",
-      "Investigación de plataformas similares",
-      "Diseño de wireframes y arquitectura de la información",
-      "Prototipado en Figma centrado en usabilidad y accesibilidad",
-      "Desarrollo frontend en Next.js con despliegue en Vercel",
+      "Defining social and functional objectives",
+      "Researching similar platforms",
+      "Wireframe and information architecture design",
+      "Prototyping in Figma with a focus on usability and accessibility",
+      "Frontend development in Next.js with deployment in Vercel",
     ],
     coverImage: "/images/projects/web/pawtopia/web_pawtopia.jpg",
     images: [
@@ -35,20 +35,20 @@ export const webProjects = [
     title: "EcoVibe",
     logo: "/images/projects/web/ecovibe/logo.png",
     description:
-      "La Esencia Verde: creando conciencia ecológica a través de productos reciclados y sostenibles.",
+      "The Green Essence: creating ecological awareness through recycled and sustainable products.",
     collaborators: [
       { name: "Dani Sánchez", github: "https://github.com/DaniSanchezDev" },
     ],
     summary:
-      "EcoVibe es una organización dedicada a la reutilización de materiales y la promoción de hábitos sostenibles. Construye una comunidad global comprometida con el cuidado del planeta, mediante la concienciación, el reciclaje y la innovación ambiental.",
-    client: "Proyecto independiente",
+      "EcoVibe is an organization dedicated to the reuse of materials and the promotion of sustainable habits. It builds a global community committed to caring for the planet through awareness, recycling and environmental innovation.",
+    client: "Personal project",
     tools: ["HTML", "CSS", "JavaScript", "TailwindCSS", "Figma"],
     role: "UI/UX",
     steps: [
-      "Definición de identidad ecológica y mensaje central",
-      "Desarrollo de contenido para concienciación y filosofía de marca",
-      "Diseño responsivo en Figma y estructura basada en componentes",
-      "Implementación web accesible con prácticas sostenibles",
+      "Definition of ecological identity and core message",
+      "Content development for awareness and brand philosophy",
+      "Responsive design in Figma and component based structure",
+      "Accessible web implementation with sustainable practices",
     ],
     coverImage: "/images/projects/web_EcoVibe.jpg",
     images: [
@@ -63,21 +63,21 @@ export const webProjects = [
     title: "AppFluence",
     logo: "/images/projects/web/appfluence/logo.png",
     description:
-      "AppFluence es un podcast dedicado a potenciar el desarrollo front-end con contenido actualizado, entrevistas y recursos esenciales para desarrolladores web.",
+      "AppFluence is a podcast dedicated to empowering front-end development with up-to-date content, interviews and essential resources for web developers.",
     collaborators: [
       { name: "Dani Sánchez", github: "https://github.com/DaniSanchezDev" },
     ],
     summary:
-      "AppFluence ofrece episodios sobre herramientas, frameworks, diseño responsivo, accesibilidad y UX/UI, con notas y enlaces para facilitar el aprendizaje de desarrolladores web.",
-    client: "Proyecto independiente",
+      "AppFluence offers episodes on tools, frameworks, responsive design, accessibility and UX/UI, with notes and links to facilitate learning for web developers.",
+    client: "Personal project",
     tools: ["HTML5", "CSS3", "JavaScript", "Google Fonts", "Spotify Embed"],
-    role: "Diseño y desarrollo frontend, integración de contenido multimedia",
+    role: "Frontend design and development, multimedia content integration",
     steps: [
-      "Planificación del contenido y estructura del podcast",
-      "Diseño responsive con foco en accesibilidad",
-      "Integración nativa con Spotify para reproducción directa",
-      "Implementación de navegación sencilla con anclas y formulario de contacto",
-      "Desarrollo de galería de episodios anteriores para fácil acceso",
+      "Content planning and podcast structure",
+      "Responsive design with focus on accessibility",
+      "Native integration with Spotify for direct playback",
+      "Implementation of simple navigation with anchors and contact form",
+      "Development of gallery of previous episodes for easy access",
     ],
     coverImage: "/images/projects/web/appfluence/cover.png",
     images: [
@@ -92,20 +92,19 @@ export const webProjects = [
     title: "LensLegacy",
     logo: "/images/projects/web/lenslegacy/logo.png",
     description:
-      "LensLegacy es una plataforma de fotografía de stock que permite descargar imágenes en distintos tamaños y licencias. Está diseñada con HTML, CSS y JavaScript, enfocada en una experiencia visual clara y accesible.",
-    collaborators: [
-    ],
+      "LensLegacy is a stock photography platform that allows you to download images in different sizes and licenses. It is designed with HTML, CSS and JavaScript, focusing on a clear and accessible visual experience.",
+    collaborators: [],
     summary:
-      "LensLegacy ofrece una galería moderna de fotografías de stock donde los usuarios pueden explorar, filtrar y descargar imágenes según tamaño y licencia. El diseño está optimizado para velocidad, usabilidad y estética.",
-    client: "Proyecto independiente",
+      "LensLegacy offers a modern stock photo gallery where users can browse, filter and download images by size and license. The design is optimized for speed, usability and aesthetics.",
+    client: "Personal project",
     tools: ["HTML5", "CSS3", "JavaScript"],
-    role: "Diseño y desarrollo frontend completo",
+    role: "Complete frontend design and development",
     steps: [
-      "Definición de estructura y flujo de descarga por licencia",
-      "Diseño visual centrado en la presentación fotográfica",
-      "Desarrollo responsive adaptado a múltiples dispositivos",
-      "Implementación de filtros por categoría y resolución",
-      "Optimización de carga de imágenes y experiencia de usuario",
+      "Definition of structure and download flow by license",
+      "Visual design focused on photographic presentation",
+      "Responsive development adapted to multiple devices",
+      "Implementation of filters by category and resolution",
+      "Image loading optimization and user experience",
     ],
     coverImage: "/images/projects/web/lenslegacy/cover.jpg",
     images: [
@@ -120,21 +119,21 @@ export const webProjects = [
     title: "FlightSimulator",
     logo: "/images/projects/web/fs2020/logo.png",
     description:
-      "FlightSimulator es una landing page dedicada al videojuego FS2020, que incluye galería de fotos, reseñas y requisitos del sistema, diseñada con HTML, CSS y JavaScript.",
+      "FlightSimulator es una página de aterrizaje dedicada al videojuego FS2020, que incluye galería de fotos, reseñas y requisitos del sistema, diseñada con HTML, CSS y JavaScript.",
     collaborators: [
       { name: "Dani Sánchez", github: "https://github.com/DaniSanchezDev" },
     ],
     summary:
-      "Una página informativa y visualmente atractiva que muestra imágenes del juego, opiniones y los requisitos técnicos para jugar FS2020, enfocada en brindar información clara y rápida.",
-    client: "Proyecto independiente",
+      "An informative and visually appealing page showing game images, reviews and the technical requirements to play FS2020, focused on providing clear and quick information.",
+    client: "Personal project",
     tools: ["HTML5", "CSS3", "JavaScript"],
-    role: "Diseño y desarrollo frontend completo",
+    role: "Complete frontend design and development",
     steps: [
-      "Planificación de la estructura y contenidos clave (galería, reseñas, requisitos)",
-      "Diseño responsive para dispositivos móviles y desktop",
-      "Integración de galería de imágenes con efectos visuales",
-      "Optimización de carga para mejor rendimiento",
-      "Testeo de usabilidad y corrección de detalles visuales",
+      "Structure and key content planning (gallery, reviews, requirements).",
+      "Responsive design for mobile and desktop devices",
+      "Image gallery integration with visual effects",
+      "Load optimization for better performance",
+      "Usability testing and correction of visual details",
     ],
     coverImage: "/images/projects/web/fs2020/cover.png",
     images: [
@@ -149,20 +148,20 @@ export const webProjects = [
     title: "Café para Dos",
     logo: "/images/projects/web/cafeparados/logo.png",
     description:
-      "Café para Dos es un diseño UI para una página de podcast, sin episodios añadidos aún, centrada en una interfaz limpia y atractiva para futuros contenidos de audio.",
+      "Coffee for Two is a UI design for a podcast page, with no episodes added yet, focused on a clean and attractive interface for future audio content.",
     collaborators: [
       { name: "Dani Sánchez", github: "https://github.com/DaniSanchezDev" },
     ],
     summary:
-      "Una interfaz visualmente cuidada y moderna pensada para alojar podcasts, con énfasis en usabilidad y diseño responsive, lista para integrar contenido en el futuro.",
-    client: "Proyecto independiente",
+      "A visually neat and modern interface designed to host podcasts, with emphasis on usability and responsive design, ready to integrate content in the future.",
+    client: "Independent project",
     tools: ["HTML5", "CSS3", "JavaScript"],
-    role: "Diseño y desarrollo frontend completo (UI)",
+    role: "Complete frontend design and development (UI)",
     steps: [
-      "Diseño de la estructura visual de la página sin contenido funcional",
-      "Creación de estilos responsive para diferentes dispositivos",
-      "Implementación de elementos UI como listas, botones y reproductores simulados",
-      "Optimización visual y pruebas de accesibilidad",
+      "Design of the visual structure of the page without functional content",
+      "Creation of responsive styles for different devices",
+      "Implementation of UI elements such as lists, buttons and mock players",
+      "Visual optimization and accessibility testing",
     ],
     coverImage: "/images/projects/web/cafeparados/cover.jpg",
     images: [
@@ -177,21 +176,21 @@ export const webProjects = [
     title: "Concesionario Online",
     logo: "/images/projects/web/concesionario/logo.png",
     description:
-      "Concesionario Online es una página UI inspirada en la web de Lamborghini, pero dedicada a motos Honda. Este proyecto no es responsive y cuenta con bastante contenido y animaciones, desarrollado con HTML, CSS y JavaScript.",
+      "Concesionario Online is a UI page inspired by the Lamborghini website, but dedicated to Honda motorcycles. This project is not responsive and features quite a lot of content and animations, developed with HTML, CSS and JavaScript.",
     collaborators: [
       { name: "Dani Sánchez", github: "https://github.com/DaniSanchezDev" },
     ],
     summary:
-      "Primer proyecto grande de UI que simula un concesionario de motos Honda, con una experiencia visual rica en contenido y animaciones, aunque sin diseño responsive.",
-    client: "Proyecto independiente",
+      "First large UI project that simulates a Honda motorcycle dealership, with a visual experience rich in content and animations, although without responsive design.",
+    client: "Personal project",
     tools: ["HTML5", "CSS3", "JavaScript"],
-    role: "Diseño y desarrollo frontend completo (UI)",
+    role: "Complete frontend design and development (UI)",
     steps: [
-      "Análisis y diseño basado en la web de Lamborghini",
-      "Implementación de estructura y contenido detallado",
-      "Creación de animaciones personalizadas con CSS y JS",
-      "Optimización de experiencia en escritorio",
-      "Pruebas y ajustes visuales sin enfoque responsive",
+      "Analysis and design based on Lamborghini's website",
+      "Implementation of detailed structure and content",
+      "Creation of custom animations with CSS and JS",
+      "Desktop experience optimization",
+      "Testing and visual adjustments without responsive approach",
     ],
     coverImage: "/images/projects/web_hondamotorsport.jpg",
     images: [

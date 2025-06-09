@@ -15,7 +15,7 @@ export function t(lang: string, key: string): string {
 
   if (!result) {
     // fallback a español
-    result = translations['es'];
+    result = translations['en'];
     for (const k of keys) {
       if (!result) break;
       result = result[k];

@@ -28,7 +28,7 @@ const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
 
     <!-- Contenido textual: aparece después en móvil, primero en desktop -->
     <div class="order-2 md:order-1">
-      <SmallTitle text="Resumen del proyecto" />
+      <SmallTitle text="Project summary" />
       <Text text={project.summary} />
       <div class="mt-4 text-xs text-gray-400 italic">
         <Text text={`Cliente: ${project.client}`} noMargin />
@@ -39,7 +39,7 @@ const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
       {
         project.collaborators && project.collaborators.length > 0 && (
           <div class="mt-6 w-2/3">
-            <SmallTitle text="Colaboradores" />
+            <SmallTitle text="Collaborators" />
             <ul class="space-y-2 pl-2 text-sm p-4 text-gray-300 flex justify-between">
               {project.collaborators.map((person) => (
                 <li>
@@ -70,7 +70,7 @@ const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
               <img
                 src={project.logo}
                 class="w-7 h-auto"
-                alt="Logo del proyecto"
+                alt="Logo"
               />
             </a>
           </div>
@@ -80,14 +80,14 @@ const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
   </div>
 
   <div>
-    <SmallTitle text="Proceso del diseño " class="mb-4" />
+    <SmallTitle text="Design Process " class="mb-4" />
     <ul class="list-disc pl-6 space-y-2 text-gray-300 text-sm">
       {project.steps.map((step) => <li>{step}</li>)}
     </ul>
   </div>
 
   <div>
-    <h2 class="text-xl font-semibold text-[#daa032] mb-4">Galería</h2>
+    <h2 class="text-xl font-semibold text-[#daa032] mb-4">Gallery</h2>
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
       id="gallery"

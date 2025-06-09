@@ -32,7 +32,7 @@ export const projects = [
     gitLink: "https://github.com/eloylozano/LensLegacy",
   },
   {
-    title: "Arquitectura",
+    title: "Architecture",
     category: "photo",
     img: "/images/projects/architecture/photo_architecture01.jpg",
     projectLink: "/photography/architecture",
@@ -40,7 +40,7 @@ export const projects = [
     gitLink: "#",
   },
   {
-    title: "Naturaleza",
+    title: "Nature",
     category: "photo",
     img: "/images/projects/nature/forest.jpg",
     projectLink: "/photography/nature",
@@ -48,7 +48,7 @@ export const projects = [
     gitLink: "#",
   },
   {
-    title: "Motos",
+    title: "Motorbike",
     category: "photo",
     img: "/images/projects/motor/photo_moto.jpg",
     projectLink: "/photography/motor",
@@ -80,7 +80,7 @@ export const projects = [
     gitLink: "#",
   },
   {
-    title: "Atardecer",
+    title: "Sunset",
     category: "photo",
     img: "/images/projects/sunsets/photo_sunset.jpg",
     projectLink: "/photography/sunsets",
