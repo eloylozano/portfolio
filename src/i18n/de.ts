@@ -29,18 +29,18 @@ export default {
       title: "Meine Laufbahn",
       description: "Aus jeder Erfahrung eine Lektion. Aus jedem Projekt eine neue Sichtweise. Das ist meine Entwicklung.",
       cards: [
-        {
-          position: "Mautkassierer",
-          company: "Audasa",
-          date: "Juli – September 2025",
-          description: "Mautkassierer auf der Autobahn AP-9",
-          responsibilities: [
-            "Kassenführung",
-            "Stationsaufsicht",
-            "Kundenbetreuung",
-          ],
-          imgPath: "/images/experience/audasa.jpg",
-        },
+        // {
+        //   position: "Mautkassierer",
+        //   company: "Audasa",
+        //   date: "Juli – September 2025",
+        //   description: "Mautkassierer auf der Autobahn AP-9",
+        //   responsibilities: [
+        //     "Kassenführung",
+        //     "Stationsaufsicht",
+        //     "Kundenbetreuung",
+        //   ],
+        //   imgPath: "/images/experience/audasa.jpg",
+        // },
         {
           position: "SAP-Integrationsentwickler",
           company: "Deloitte",

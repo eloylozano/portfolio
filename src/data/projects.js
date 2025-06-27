@@ -24,6 +24,14 @@ export const projects = [
     gitLink: "https://github.com/eloylozano/deskify",
   },
   {
+    title: "Eventura",
+    category: "app",
+    img: "/images/projects/app_eventura.jpg",
+    projectLink: "",
+    demoLink: "",
+    gitLink: "",
+  },
+  {
     title: "Lens Legacy",
     category: "web",
     img: "/images/projects/web_lenslegacy.jpg",

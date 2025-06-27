@@ -29,18 +29,18 @@ export default {
       title: "My Story",
       description: "From every experience, a lesson. From every project, a new vision. This is my evolution.",
       cards: [
-        {
-          position: "Toll Collector",
-          company: "Audasa",
-          date: "July - September 2025",
-          description: "Toll collector on the AP-9 highway",
-          responsibilities: [
-            "Cash management",
-            "Station supervision",
-            "Customer service",
-          ],
-          imgPath: "/images/experience/audasa.jpg",
-        },
+        // {
+        //   position: "Toll Collector",
+        //   company: "Audasa",
+        //   date: "July - September 2025",
+        //   description: "Toll collector on the AP-9 highway",
+        //   responsibilities: [
+        //     "Cash management",
+        //     "Station supervision",
+        //     "Customer service",
+        //   ],
+        //   imgPath: "/images/experience/audasa.jpg",
+        // },
         {
           position: "SAP Integration Developer",
           company: "Deloitte",
