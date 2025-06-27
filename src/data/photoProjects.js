@@ -3,13 +3,13 @@
 export default [
   {
     slug: "sunsets",
-    title: "Atardeceres",
+    title: "Sunsets",
     description:
-      '"Atardeceres" es un proyecto visual que nace de la necesidad de detener el tiempo en ese momento exacto en que el sol roza el horizonte y el cielo se convierte en lienzo. Cada fotografía es un intento de capturar la calma, el fuego y la nostalgia que solo los atardeceres saben transmitir. No hay filtros, ni excesos, solo luz natural, colores sinceros y la belleza efímera de un instante que nunca se repite igual.',
+      '“Sunsets” is a visual project born from the need to stop time at that exact moment when the sun brushes the horizon and the sky becomes a canvas. Each photograph is an attempt to capture the calm, the fire and the nostalgia that only sunsets know how to transmit. There are no filters, no excesses, only natural light, sincere colors and the ephemeral beauty of an instant that never repeats itself.',
     coverImage: "/images/projects/sunsets/banner.png",
     photos: [
       {
-        title: "Ventana Al Atlántico",
+        title: "Window to the Atlantic",
         description:
           'Frente a la Ventana del Atlántico, el sol se rindió lentamente al mar, encajando con una precisión casi divina justo en el centro del horizonte. No era solo una puesta de sol, era un suspiro dorado suspendido entre el hierro forjado y la eternidad salada del océano. El viento olía a despedida y las sombras se estiraban como si quisieran agarrar el último hilo de luz. En ese instante, todo encajó: la calma, el fuego y la certeza de que algunos finales son, en realidad, la forma más hermosa que tiene el día de decirnos "hasta mañana".',
         image: "/images/projects/sunsets/ventanaAtlantico.png",
@@ -38,9 +38,9 @@ export default [
   },
   {
     slug: "nature",
-    title: "Naturaleza",
+    title: "Nature",
     description:
-      '"Naturaleza" es un proyecto visual que surge del deseo de conectar con lo esencial, de mirar más allá del ruido y encontrar belleza en lo simple. Cada imagen es un encuentro íntimo con la tierra: hojas que respiran, ramas que se estiran al cielo, texturas que hablan en silencio. No hay artificios, ni puestas en escena, solo la luz que cae como cae, los colores que son como son, y el pulso sereno de un mundo que florece sin pedir permiso.',
+      '“Nature” is a visual project that arises from the desire to connect with the essential, to look beyond the noise and find beauty in the simple. Each image is an intimate encounter with the earth: leaves that breathe, branches that stretch to the sky, textures that speak in silence. There is no artifice, no staging, only the light that falls as it falls, the colors that are as they are, and the serene pulse of a world that blooms without asking permission.',
     coverImage: "/images/projects/nature/banner.png",
     photos: [
       {
@@ -138,9 +138,9 @@ export default [
   },
   {
     slug: "architecture",
-    title: "Arquitectura",
+    title: "Architecture",
     description:
-      '"Arquitectura" es una exploración visual del espacio construido. Más allá de muros y formas, este proyecto busca capturar la relación entre el ser humano y las estructuras que habita, transita o contempla. Cada imagen no solo documenta un lugar, sino que también revela una atmósfera: la geometría, la luz, las texturas, el vacío y la escala que nos confronta o nos envuelve. Es un homenaje a los espacios que, sin decir palabra, definen nuestras trayectorias.',
+      '“Architecture” is a visual exploration of the built space. Beyond walls and forms, this project seeks to capture the relationship between human beings and the structures they inhabit, pass through or contemplate. Each image not only documents a place, but also reveals an atmosphere: the geometry, the light, the textures, the emptiness and the scale that confronts or envelops us. It is a tribute to the spaces that, without saying a word, define our trajectories.',
     coverImage: "/images/projects/architecture/banner.jpg",
     photos: [
       {
@@ -199,9 +199,9 @@ export default [
   },
   {
     slug: "me",
-    title: "Modelo",
+    title: "Myself",
     description:
-      '"Modelo" es un proyecto introspectivo donde el cuerpo y la expresión se convierten en lenguaje visual. Aquí, no se trata solo de posar, sino de habitar la escena, de contar sin hablar. Cada imagen es un reflejo de identidad, actitud y presencia; un diálogo entre el entorno y el yo que lo atraviesa. Desde la luz natural del bosque hasta el dramatismo del blanco y negro, esta serie explora lo humano como materia estética y emocional.',
+      '"Myself" is an introspective project where the body and expression become visual language. Here, it is not only about posing, but about inhabiting the scene, telling without speaking. Each image is a reflection of identity, attitude and presence; a dialogue between the environment and the self that passes through it. From the natural light of the forest to the drama of black and white, this series explores the human as aesthetic and emotional matter.',
     coverImage: "/images/projects/myself/banner.png",
     photos: [
       {
@@ -301,7 +301,7 @@ export default [
     slug: "planes",
     title: "Plane Spotting",
     description:
-      '"Plane Spotting" es una colección dedicada a la observación paciente y apasionada de aeronaves. Es un tributo al cruce entre la ingeniería y el cielo, al rugido que rompe las nubes y a la elegancia de estructuras que parecen desafiar la gravedad con absoluta precisión. Cada fotografía captura un instante efímero: el despegue, la aproximación, el giro en el aire. Aquí, el cielo no es solo fondo, es escenario, y cada avión es protagonista de un ballet mecánico y celestial.',
+      '“Plane Spotting” is a collection dedicated to the patient and passionate observation of aircraft. It is a tribute to the crossover between engineering and the sky, to the roar that breaks the clouds and to the elegance of structures that seem to defy gravity with absolute precision. Each photograph captures an ephemeral instant: the takeoff, the approach, the turn in the air. Here, the sky is not only background, it is stage, and each plane is the protagonist of a mechanical and celestial ballet.',
     coverImage: "/images/projects/planes/photo_plane06.jpg",
     photos: [
       {
@@ -412,9 +412,9 @@ export default [
   },  
   {
     slug: "motor",
-    title: "Motociclismo",
+    title: "Motor",
     description:
-      '"Motociclismo" es una declaración de libertad en dos ruedas, un proyecto visual que nace del impulso de moverse, de explorar sin mapas y de sentir el asfalto como una extensión del alma. Cada fotografía captura ese instante en el que la máquina y el paisaje se funden en un mismo latido: curvas que abrazan montañas, motores que rugen contra el viento, miradas perdidas en horizontes que prometen más. Aquí no hay meta, solo trayecto. Es el arte de viajar sin prisa, de dejar que la carretera dicte el ritmo y que el silencio entre casco y pensamiento hable más que cualquier palabra.',
+      '“Motor” is a declaration of freedom on two wheels, a visual project born from the impulse to move, to explore without maps and to feel the asphalt as an extension of the soul. Each photograph captures that instant in which the machine and the landscape merge in the same heartbeat: curves that embrace mountains, engines that roar against the wind, looks lost in horizons that promise more. Here there is no goal, only a journey. It is the art of traveling without haste, of letting the road dictate the rhythm and letting the silence between helmet and thought speak louder than any words.',
     coverImage: "/images/projects/motor/banner.jpg",
     photos: [
       {
