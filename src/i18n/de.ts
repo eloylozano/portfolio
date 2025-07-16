@@ -131,6 +131,7 @@ export default {
         webApp: "Webanwendungen",
         photos: "Fotografie",
       },
+      comingSoon: "Bald",
       buttons: {
         live: "Live-Demo",
         github: "Github",

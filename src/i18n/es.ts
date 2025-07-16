@@ -135,6 +135,7 @@ export default {
         github: "Github",
         view: "Ver proyecto",
       },
+      comingSoon: "Próximamente",
     },
     stack: {
       title: "Mi stack",

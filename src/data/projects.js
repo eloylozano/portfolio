@@ -30,6 +30,7 @@ export const projects = [
     projectLink: "",
     demoLink: "",
     gitLink: "",
+    soon: true,
   },
   {
     title: "Lens Legacy",

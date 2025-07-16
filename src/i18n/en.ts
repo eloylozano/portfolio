@@ -130,6 +130,7 @@ export default {
         webApp: "Web Apps",
         photos: "Photography",
       },
+      comingSoon: "Soon",
       buttons: {
         live: "Live Demo",
         github: "Github",
@@ -160,10 +161,10 @@ export default {
     },
     contact: {
       title: "Contact",
-      description:{
-        text01:"Contact me at any time at", 
-        text02:"or find me at", 
-        text03:"I am ready to collaborate with you!", 
+      description: {
+        text01: "Contact me at any time at",
+        text02: "or find me at",
+        text03: "I am ready to collaborate with you!",
       },
       form: {
         name: {
