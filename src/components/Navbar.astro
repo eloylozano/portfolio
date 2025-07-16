@@ -6,7 +6,7 @@ import { t } from "../i18n";
 
 const lang =
   Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
-  "en";
+  "es";
 
 const navItems = [
   { label: t(lang, "nav.home"), link: "home" },

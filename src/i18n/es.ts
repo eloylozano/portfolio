@@ -147,16 +147,16 @@ export default {
     recomendations: {
       title: "Recomendaciones",
       monica: {
-        text: "Destaca por su curiosidad técnica, capacidad de adaptación a nuevas tecnologías y compromiso con cada proyecto. Tienes un perfil claramente profesional.",
-        relationship: "Profesora",
+        text: "Destaca por su participación activa, interés y curiosidad por los temas tratados, así como por su creatividad y capacidad de liderazgo en proyectos grupales.",
+        relationship: "Docente - Liceo La Paz",
       },
       dani: {
         text: "Trabajar con Eloy siempre fue una experiencia fluida. Es alguien en quien confío, con quien conecté desde el principio y que sabe hacer fácil lo difícil.",
-        relationship: "Compañero",
+        relationship: "Compañero - DAW",
       },
       miguel: {
         text: "Es un desarrollador con iniciativa, resolutivo y buen comunicador. Sabe combinar el lado técnico con el diseño.",
-        relationship: "Compañero",
+        relationship: "Compañero - DAW",
       },
     },
     contact: {

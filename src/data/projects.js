@@ -57,7 +57,7 @@ export const projects = [
     gitLink: "#",
   },
   {
-    title: "Motorbike",
+    title: "Motos",
     category: "photo",
     img: "/images/projects/motor/photo_moto.jpg",
     projectLink: "/photography/motor",

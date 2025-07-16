@@ -7,7 +7,7 @@ export default [
     demoLink: "https://deskify-web.vercel.app",
     gitLink: "https://github.com/eloylozano/deskify",
     description:
-      "Deskify was born from a simple question: what if the digital space could feel as comfortable as the physical one? It is an idea that grew between lines of code and long coffees, between tests, errors and obsession for detail. A project that does not seek to dazzle with complexity, but with balance. With each click, Deskify tries to make the everyday simpler, the functional more beautiful and that corner where we spend so many hours more yours: the desktop. This is not just design or just development. It's a way of ordering chaos.",
+      "Deskify nació de una simple pregunta: ¿y si el espacio digital pudiera sentirse tan cómodo como el físico? Es una idea que creció entre líneas de código y largos cafés, entre pruebas, errores y obsesión por el detalle. Un proyecto que no busca deslumbrar con la complejidad, sino con el equilibrio. Con cada clic, Deskify intenta hacer más sencillo lo cotidiano, más bello lo funcional y más tuyo ese rincón donde pasamos tantas horas: el escritorio. Esto no es sólo diseño o sólo desarrollo. Es una forma de ordenar el caos.",
     coverImage: "/images/projects/app_deskify.jpg",
     gallery: [
       "/images/projects/app/deskify/Picture5.png",
@@ -18,23 +18,23 @@ export default [
     tech: ["Astro", "Svelte", "Spring", "MySQL"],
 
     mainFeatures: {
-      text: "Deskify is a web application developed to optimize technical support management in enterprise environments. Through an intuitive and customizable ticketing system, it improves communication between users and agents, centralizes incident resolution and provides more efficient workflow control. It is designed to scale easily, adapt to different roles within an organization and provide useful tools at both the operational and analytical levels. Deskify's main features:",
+      text: "Deskify es una aplicación web desarrollada para optimizar la gestión del soporte técnico en entornos empresariales. A través de un sistema de tickets intuitivo y personalizable, mejora la comunicación entre usuarios y agentes, centraliza la resolución de incidencias y proporciona un control más eficiente del flujo de trabajo. Está diseñada para escalar fácilmente, adaptarse a diferentes roles dentro de una organización y proporcionar herramientas útiles tanto a nivel operativo como analítico. Principales características de Deskify:",
       functions: [
-        "Ticket management: Creation, edition, follow-up and closing of incidents.",
-        "Roles and permissions system: Access control according to profile (admin, agent, manager, supervisor, user).",
-        "Comments and answers: Direct communication between users and agents within the ticket.",
-        "Status and priorities: Classification of tickets according to urgency and progress.",
-        "Real-time Dashboard: Visualization of key statistics such as number of open tickets, average resolution time or performance per agent.",
-        "API REST: Integration with external platforms and process automation.",
-        "Responsive and intuitive interface: Adapted for easy use from any device.",
-        "User management: Simple user registration, deletion and modification of profiles.",
+        "Gestión de tickets: Creación, edición, seguimiento y cierre de incidencias.",
+        "Sistema de roles y permisos: Control de acceso según perfil (admin, agente, gestor, supervisor, usuario).",
+        "Comentarios y respuestas: Comunicación directa entre usuarios y agentes dentro del ticket.",
+        "Estado y prioridades: Clasificación de tickets según urgencia y progreso.",
+        "Dashboard en tiempo real: Visualización de estadísticas clave como número de tickets abiertos, tiempo medio de resolución o rendimiento por agente.",
+        "API REST: Integración con plataformas externas y automatización de procesos.",
+        "Interfaz responsiva e intuitiva: Adaptada para facilitar su uso desde cualquier dispositivo.",
+        "Gestión de usuarios: Alta, baja y modificación de perfiles de usuarios de forma sencilla.",
       ],
       image: "/images/projects/app/deskify/mockup.png",
     },
     logo: "/images/projects/app/deskify/logo.png",
 
     app: {
-      text: "Deskify is a Single Page Application developed with Svelte, TypeScript and Vite, designed to offer a fluid and minimalist experience in managing personal digital space. It integrates TailwindCSS for a clean and responsive design, and uses React Router for instant navigation without reloads. Features include widget customization, shortcut organization and integrated productivity tools, all designed to transform the desktop into a functional, aesthetic and user-centric environment. Deskify not only organizes, it reinterprets the way we interact with our daily digital space.",
+      text: "Deskify es una Single Page Application desarrollada con Svelte, TypeScript y Vite, diseñada para ofrecer una experiencia fluida y minimalista en la gestión del espacio digital personal. Integra TailwindCSS para un diseño limpio y responsive, y utiliza React Router para una navegación instantánea sin recargas. Sus características incluyen personalización de widgets, organización de accesos directos y herramientas de productividad integradas, todo ello diseñado para transformar el escritorio en un entorno funcional, estético y centrado en el usuario. Deskify no solo organiza, sino que reinterpreta la forma en que interactuamos con nuestro espacio digital diario.",
       tech: [
         "Svelte",
         "Vite",
@@ -46,12 +46,12 @@ export default [
     },
 
     front: {
-      text: "Deskify's landing page is developed with Astro, taking advantage of its speed-oriented architecture and web optimization. Thanks to Astro, the page loads ultra-fast and generates static content with SEO optimized from the first render, ideal for engaging users without sacrificing experience. The integration with React components allows to maintain a modern and dynamic aesthetic, while TailwindCSS provides a clean and responsive design. This landing page is the perfect gateway to introduce Deskify, combining performance, style and accessibility in a light and engaging experience.",
+      text: "La landing page de Deskify está desarrollada con Astro, aprovechando su arquitectura orientada a la velocidad y la optimización web. Gracias a Astro, la página carga ultrarrápida y genera contenido estático con SEO optimizado desde la primera renderización, ideal para enganchar a los usuarios sin sacrificar la experiencia. La integración con componentes React permite mantener una estética moderna y dinámica, mientras que TailwindCSS proporciona un diseño limpio y responsive. Esta landing page es la puerta de entrada perfecta para presentar Deskify, combinando rendimiento, estilo y accesibilidad en una experiencia ligera y atractiva.",
       tech: ["Node", "Astro", "TypeScript", "Tailwind"],
     },
 
     back: {
-      text: "Deskify's backend is built with Spring Boot, following a modular and secure architecture. It implements JWT (JSON Web Tokens) for user authentication and authorization, ensuring secure and stateless sessions. The RESTful API manages functionalities such as registration, login, and desktop customization, maintaining seamless communication with the frontend. Data persistence is handled with JPA and a PostgreSQL database, ensuring integrity and scalability. The entire system is designed to be robust, efficient and easily extendable, allowing for future integrations or enhancements without compromising stability.",
+      text: "El backend de Deskify está construido con Spring Boot, siguiendo una arquitectura modular y segura. Implementa JWT (JSON Web Tokens) para la autenticación y autorización de usuarios, garantizando sesiones seguras y sin estado. La API RESTful gestiona funcionalidades como el registro, el inicio de sesión y la personalización del escritorio, manteniendo una comunicación fluida con el frontend. La persistencia de datos se gestiona con JPA y una base de datos PostgreSQL, garantizando la integridad y la escalabilidad. Todo el sistema está diseñado para ser robusto, eficiente y fácilmente ampliable, permitiendo futuras integraciones o mejoras sin comprometer la estabilidad.",
       tech: ["MySQL", "Spring JPA", "Spring Security", "SpringMVC", "Vercel"],
     },
   },
@@ -61,7 +61,7 @@ export default [
     demoLink: "https://bitten-apol-gamma.vercel.app/",
     gitLink: "https://github.com/eloylozano/bitten-apol-Web",
     description:
-      "BittenApol is an e-commerce platform with a robust administrative panel and an intuitive web client. The admin panel allows you to manage products, users, roles and orders, with protected paths and a clean and responsive interface. The web client makes it easy for users to browse products, manage the cart, complete the purchase and integrate Google login.",
+      "BittenApol es una plataforma de comercio electrónico con un sólido panel de administración y un cliente web intuitivo. El panel de administración permite gestionar productos, usuarios, roles y pedidos, con rutas protegidas y una interfaz limpia y responsive. El cliente web facilita a los usuarios la navegación por los productos, la gestión del carrito, la finalización de la compra y la integración del inicio de sesión de Google.",
     coverImage: "/images/projects/app_deskify.jpg",
     gallery: [
       "/images/projects/app_bitten-apol.jpg",
@@ -79,17 +79,17 @@ export default [
     ],
 
     mainFeatures: {
-      text: "BittenApol offers a complete solution for e-commerce management, with integrated administrative panel and web client. Some outstanding functionalities include:",
+      text: "BittenApol ofrece una solución completa para la gestión del comercio electrónico, con panel administrativo y cliente web integrados. Algunas funcionalidades destacadas incluyen:",
       functions: [
-        "Product management: create, edit and delete products.",
-        "User and role management with permission-based access.",
-        "Order tracking and status updates.",
-        "Protected administrative routes with authentication and roles.",
-        "Clean, responsive and easy to use interface in both admin and client.",
-        "Shopping cart with add and remove products.",
-        "Auto-completed sending address based on user data.",
-        "Integrated Google login for added convenience.",
-        "Checkout flow (under development).",
+        "Gestión de productos: crear, editar y eliminar productos.",
+        "Gestión de usuarios y roles con acceso basado en permisos.",
+        "Seguimiento de pedidos y actualizaciones de estado.",
+        "Rutas administrativas protegidas con autenticación y roles.",
+        "Interfaz limpia, receptiva y fácil de usar tanto en el administrador como en el cliente.",
+        "Carrito de la compra con añadir y eliminar productos.",
+        "Dirección de envío autocompletada basada en los datos del usuario.",
+        "Inicio de sesión de Google integrado para mayor comodidad.",
+        "Flujo de pago (en desarrollo).",
       ],
       image: "/images/projects/app/deskify/mockup.png",
     },
@@ -98,9 +98,9 @@ export default [
 
     app: {
       text: `
-      BittenApol's web client is built with Next.js and React using TypeScript for a fast and smooth experience. It integrates MongoDB for user and data management, authentication via Google OAuth, and uses React Context API for cart and user state management. The design is based on Tailwind CSS to maintain a modern and responsive interface.
+      El cliente web de BittenApol está construido con Next.js y React usando TypeScript para una experiencia rápida y fluida. Integra MongoDB para la gestión de usuarios y datos, autenticación vía Google OAuth, y utiliza React Context API para la gestión de carritos y estados de usuario. El diseño se basa en Tailwind CSS para mantener una interfaz moderna y responsive.
     `,
-    
+
       tech: [
         "Next.js",
         "React",
@@ -115,7 +115,7 @@ export default [
 
     back: {
       text: `
-      The administrative panel is powered by Next.js API Routes for the backend, using MongoDB with Mongoose as database. Authentication is handled with JWT or sessions (NextAuth), ensuring protected routes with roles and permissions.  It allows complete management of products, users, orders and roles in a secure and efficient interface.
+      El panel administrativo es alimentado por Next.js API Routes para el backend, usando MongoDB con Mongoose como base de datos. La autenticación se maneja con JWT o sesiones (NextAuth), asegurando rutas protegidas con roles y permisos.  Permite la gestión completa de productos, usuarios, pedidos y roles en una interfaz segura y eficiente.
     `,
       tech: [
         "Next.js",

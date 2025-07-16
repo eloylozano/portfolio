@@ -10,7 +10,7 @@ const { text, author, relationship } = Astro.props;
 
   <!-- Contenido con efecto en hover -->
   <div
-    class="testimonial-card bg-[#0b0b0b]/60 text-white italic relative z-10 w-65 h-70 border-sm p-6 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:rotate-[1deg] group-hover:-rotate-y-[2deg] group-hover:scale-[1.03]"
+    class="testimonial-card bg-[#0b0b0b]/60 text-white italic relative z-10 w-65 h-70 border-sm p-6 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:rotate-[1deg] flex flex-col justify-between group-hover:-rotate-y-[2deg] group-hover:scale-[1.03]"
   >
     <q>{text}</q>
     <p class="text-right mt-4">

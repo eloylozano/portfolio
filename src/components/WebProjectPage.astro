@@ -28,7 +28,7 @@ const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
 
     <!-- Contenido textual: aparece después en móvil, primero en desktop -->
     <div class="order-2 md:order-1">
-      <SmallTitle text="Project summary" />
+      <SmallTitle text="Descripción del projecto" />
       <Text text={project.summary} />
       <div class="mt-4 text-xs text-gray-400 italic">
         <Text text={`Cliente: ${project.client}`} noMargin />
