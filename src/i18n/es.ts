@@ -29,18 +29,18 @@ export default {
       title: "Mi trayectoria",
       description: "De cada experiencia, una lección. De cada proyecto, una nueva visión. Esta es mi evolución.",
       cards: [
-        // {
-        //   position: "Cobrador de peaje",
-        //   company: "Audasa",
-        //   date: "Julio - Septiembre 2025",
-        //   description: "Cobrador de peaje en la autopista AP-9",
-        //   responsibilities: [
-        //     "Gestión de caja",
-        //     "Supervisión de estación",
-        //     "Atención al cliente",
-        //   ],
-        //   imgPath: "/images/experience/audasa.jpg",
-        // },
+        {
+          position: "Cobrador de peaje",
+          company: "Audasa",
+          date: "Julio - Septiembre 2025",
+          description: "Cobrador de peaje en la autopista AP-9",
+          responsibilities: [
+            "Gestión de caja",
+            "Supervisión de estación",
+            "Atención al cliente",
+          ],
+          imgPath: "/images/experience/audasa.jpg",
+        },
         {
           position: "Desarrollador de Integración SAP",
           company: "Deloitte",
