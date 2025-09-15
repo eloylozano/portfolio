@@ -85,7 +85,7 @@ export const webProjects = [
       "/images/projects/web/appfluence/spotify.png",
       "/images/projects/web/appfluence/form.png",
     ],
-    liveUrl: "https://appfluence.vercel.app/",
+    liveUrl: "https://danisanchezdev.github.io/P5_Podcast/html/index.html",
   },
   {
     slug: "lenslegacy",

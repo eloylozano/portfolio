@@ -30,6 +30,20 @@ export default {
       description: "Aus jeder Erfahrung eine Lektion. Aus jedem Projekt eine neue Sichtweise. Das ist meine Entwicklung.",
       cards: [
         {
+          position: "Big Data & IA",
+          company: "IES San Clemente",
+          date: "September 2025 - Juni 2026",
+          description: "",
+          responsibilities: [
+            "KI-Modelle, Algorithmen und Programmierung",
+            "Big-Data-Systeme",
+            "Management und Administration automatisierter Systeme",
+            "Praktische Anwendungen von KI und Big Data in Unternehmen",
+            "Digitale Transformation und strategische Datennutzung",
+          ],
+          imgPath: "/images/experience/logoxunta.png",
+        },
+        {
           position: "Mautkassierer",
           company: "Audasa",
           date: "Juli – September 2025",

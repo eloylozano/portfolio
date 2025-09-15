@@ -30,6 +30,20 @@ export default {
       description: "De cada experiencia, una lección. De cada proyecto, una nueva visión. Esta es mi evolución.",
       cards: [
         {
+          position: "Big Data & IA",
+          company: "IES San Clemente",
+          date: "Septiembre 2025 - Junio 2026",
+          description: "",
+          responsibilities: [
+            "Modelos, algoritmos y programación de IA",
+            "Sistemas de Big Data",
+            "Gestión y administración de sistemas automatizados",
+            "Aplicaciones prácticas de IA y Big Data en empresas",
+            "Transformación digital y uso estratégico de datos",
+          ],
+          imgPath: "/images/experience/logoxunta.png",
+        },
+        {
           position: "Cobrador de peaje",
           company: "Audasa",
           date: "Julio - Septiembre 2025",

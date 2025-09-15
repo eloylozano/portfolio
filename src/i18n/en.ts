@@ -30,6 +30,20 @@ export default {
       description: "From every experience, a lesson. From every project, a new vision. This is my evolution.",
       cards: [
         {
+          position: "Big Data & IA",
+          company: "IES San Clemente",
+          date: "September 2025 - June 2026",
+          description: "",
+          responsibilities: [
+            "AI models, algorithms and programming",
+            "Big Data systems",
+            "Management and administration of automated systems",
+            "Practical applications of AI and Big Data in companies",
+            "Digital transformation and strategic use of data",
+          ],
+          imgPath: "/images/experience/logoxunta.png",
+        },
+        {
           position: "Toll Collector",
           company: "Audasa",
           date: "July - September 2025",
