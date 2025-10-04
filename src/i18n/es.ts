@@ -102,14 +102,14 @@ export default {
           ],
           imgPath: "/images/experience/audasa.jpg",
         },
-        {
-          position: "Asistente de producción",
-          company: "Bambú Producciones",
-          date: "Junio - Septiembre 2024",
-          description: 'Asistente de producción en la serie documental de Netflix: "El caso Asunta"',
-          responsibilities: [],
-          imgPath: "/images/experience/bambu.webp",
-        },
+        // {
+        //   position: "Asistente de producción",
+        //   company: "Bambú Producciones",
+        //   date: "Junio - Septiembre 2024",
+        //   description: 'Asistente de producción en la serie documental de Netflix: "El caso Asunta"',
+        //   responsibilities: [],
+        //   imgPath: "/images/experience/bambu.webp",
+        // },
         {
           position: "Cobrador de peaje",
           company: "Audasa",
@@ -121,6 +121,18 @@ export default {
             "Atención al cliente",
           ],
           imgPath: "/images/experience/audasa.jpg",
+        },
+        {
+          position: "Técnico de Soporte N1",
+          company: "Infonet",
+          date: "Marzo 2023 - Junio 2023",
+          description: "",
+          responsibilities: [
+            "Resolución de incidencias con Freshdesk",
+            "Gestión de recursos con NextCloud",
+            "Creación de informes y paneles en PowerBI",
+          ],
+          imgPath: "/images/experience/infonet.png",
         },
         {
           position: "Sistemas Microinformáticos y Redes",

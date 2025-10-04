@@ -102,14 +102,14 @@ export default {
           ],
           imgPath: "/images/experience/audasa.jpg",
         },
-        {
-          position: "Production Assistant",
-          company: "Bambú Producciones",
-          date: "June - September 2024",
-          description: 'Production assistant for the Netflix documentary series: "The Asunta Case"',
-          responsibilities: [],
-          imgPath: "/images/experience/bambu.webp",
-        },
+        // {
+        //   position: "Production Assistant",
+        //   company: "Bambú Producciones",
+        //   date: "June - September 2024",
+        //   description: 'Production assistant for the Netflix documentary series: "The Asunta Case"',
+        //   responsibilities: [],
+        //   imgPath: "/images/experience/bambu.webp",
+        // },
         {
           position: "Toll Collector",
           company: "Audasa",
@@ -121,6 +121,18 @@ export default {
             "Customer service",
           ],
           imgPath: "/images/experience/audasa.jpg",
+        },
+        {
+          position: "Support Technician ",
+          company: "Infonet",
+          date: "March 2023 - June 2023",
+          description: "",
+          responsibilities: [
+            "Incident resolution with Freshdesk",
+            "Resource management with NextCloud",
+            "Creating reports and dashboards in PowerBI",
+          ],
+          imgPath: "/images/experience/infonet.png",
         },
         {
           position: "Microcomputer Systems and Networks",
