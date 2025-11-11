@@ -44,12 +44,12 @@ export default {
           imgPath: "/images/experience/logoxunta.png",
         },
         {
-          position: "Cobrador de peaje",
+          position: "Técnico de CAU",
           company: "Audasa",
           date: "Julio - Septiembre 2025",
-          description: "Cobrador de peaje en la autopista AP-9",
+          description: "Técnico de CAU en la AP-9",
           responsibilities: [
-            "Gestión de caja",
+            "Control de incidencias",
             "Supervisión de estación",
             "Atención al cliente",
           ],
@@ -65,12 +65,12 @@ export default {
           imgPath: "/images/experience/deloitte.png",
         },
         {
-          position: "Cobrador de peaje",
+          position: "Técnico de CAU",
           company: "Audasa",
           date: "Abril 2025",
-          description: "Cobrador de peaje en la autopista AP-9",
+          description: "Técnico de CAU en la AP-9",
           responsibilities: [
-            "Gestión de caja",
+            "Control de incidencias",
             "Supervisión de estación",
             "Atención al cliente",
           ],
@@ -91,12 +91,12 @@ export default {
           imgPath: "/images/experience/liceolapaz.jpg",
         },
         {
-          position: "Cobrador de peaje",
+          position: "Técnico de CAU",
           company: "Audasa",
           date: "Junio - Agosto 2024",
-          description: "Cobrador de peaje en la autopista AP-9",
+          description: "Técnico de CAU en la AP-9",
           responsibilities: [
-            "Gestión de caja",
+            "Control de incidencias",
             "Supervisión de estación",
             "Atención al cliente",
           ],

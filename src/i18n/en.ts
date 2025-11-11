@@ -44,12 +44,12 @@ export default {
           imgPath: "/images/experience/logoxunta.png",
         },
         {
-          position: "Toll Collector",
+          position: "CAU Technician",
           company: "Audasa",
           date: "July - September 2025",
-          description: "Toll collector on the AP-9 highway",
+          description: "CAU Technician on the AP-9 highway",
           responsibilities: [
-            "Cash management",
+            "Incident management",
             "Station supervision",
             "Customer service",
           ],
@@ -65,12 +65,12 @@ export default {
           imgPath: "/images/experience/deloitte.png",
         },
         {
-          position: "Toll Collector",
+          position: "CAU Technician",
           company: "Audasa",
           date: "April 2025",
-          description: "Toll collector on the AP-9 highway",
+          description: "CAU Technician on the AP-9 highway",
           responsibilities: [
-            "Cash management",
+            "Incident management",
             "Station supervision",
             "Customer service",
           ],
@@ -91,12 +91,12 @@ export default {
           imgPath: "/images/experience/liceolapaz.jpg",
         },
         {
-          position: "Toll Collector",
+          position: "CAU Technician",
           company: "Audasa",
           date: "June - August 2024",
-          description: "Toll collector on the AP-9 highway",
+          description: "CAU Technician on the AP-9 highway",
           responsibilities: [
-            "Cash management",
+            "Incident management",
             "Station supervision",
             "Customer service",
           ],
