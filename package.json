@@ -11,14 +11,15 @@
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.8",
-    "@tailwindcss/vite": "^4.1.8",
+    "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.6.1",
-    "sharp": "^0.32.5"
+    "sharp": "^0.32.5",
+    "vercel": "^48.10.5"
   },
   "devDependencies": {
     "@astrojs/vercel": "^8.0.4",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.4",
-    "tailwindcss": "^4.1.8"
+    "tailwindcss": "^4.1.18"
   }
 }

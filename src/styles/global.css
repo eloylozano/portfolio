@@ -1,26 +1,26 @@
-html, body {
-  overflow: hidden; /* ✅ Previene scroll del navegador */
-}
+@import "tailwindcss";
 
-
-.scroll-container {
-  height: 100vh;
-  overflow-y: scroll;
+html {
   scroll-behavior: smooth;
-  scrollbar-width: none;
 }
 
-
-.scroll-container::-webkit-scrollbar {
-  display: none;
+body {
+  background-color: #161512;
+  color: white;
+  /* Eliminamos overflow: hidden para permitir el scroll natural */
 }
 
+/* Si quieres ocultar la scrollbar pero que siga funcionando */
+.scroll-container {
+  min-height: 100vh;
+}
 
-section {
+/* Ocultar scrollbar en toda la página de forma limpia */
+* {
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE y Edge */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
-section::-webkit-scrollbar {
-  display: none; /* Chrome, Safari y Opera */
+*::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }

@@ -16,9 +16,9 @@ const directionClass = right ? "lg:flex-row" : "lg:flex-row-reverse";
 ---
 
 <article
-  class={`flex flex-col md:${directionClass} bg-[#0B0B0B]/60 text-white p-6 w-full md:w-135 justify-between rounded-xs duration-500 transition ease-in-out hover:shadow-xs hover-brillo-yellow`}
+  class={`flex flex-col md:flex-row ${right ? 'md:flex-row-reverse' : ''} bg-[#0B0B0B]/60 text-white p-6 w-full md:w-150 justify-between rounded-xs duration-500 transition ease-in-out hover:shadow-xs hover-brillo-yellow gap-6`}
 >
-  <div class="w-full mt-4 md:mt-0">
+  <div class="flex-1 mt-4 md:mt-0">
     <SmallTitle text={position} />
     <div class="flex justify-between mt-2">
       <p class="text-white/60 text-sm font-medium">{company}</p>
@@ -31,10 +31,17 @@ const directionClass = right ? "lg:flex-row" : "lg:flex-row-reverse";
       </ul>
     </div>
   </div>
+
   <div
-    class={`mt-4 md:mt-0 flex-shrink-0 flex items-center ${right ? "md:ml-6" : "md:mr-6"} justify-center`}
+    class="shrink-0 flex items-center justify-center"
   >
-    <img src={imgPath} alt={alt} class="w-40 h-40 object-cover rounded-md hidden lg:block" />
+    <img 
+      src={imgPath} 
+      alt={alt} 
+      width="160" 
+      height="160"
+      class="w-40 h-40 object-cover rounded-md hidden lg:block" 
+    />
   </div>
 </article>
 

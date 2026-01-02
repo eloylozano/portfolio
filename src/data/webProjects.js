@@ -22,7 +22,7 @@ export const webProjects = [
       "Prototipado en Figma con foco en usabilidad y accesibilidad",
       "Desarrollo frontend en Next.js con despliegue en Vercel",
     ],
-    coverImage: "/images/projects/web/pawtopia/web_pawtopia.jpg",
+    coverImage: "/images/projects/web/pawtopia/web_pawtopia.webp",
     images: [
       "/images/projects/web/pawtopia/guide.png",
       "/images/projects/web/pawtopia/Index.png",
@@ -106,7 +106,7 @@ export const webProjects = [
       "Implementación de filtros por categoría y resolución",
       "Optimización de carga de imágenes y experiencia de usuario",
     ],
-    coverImage: "/images/projects/web/lenslegacy/cover.jpg",
+    coverImage: "/images/projects/web/lenslegacy/cover.webp",
     images: [
       "/images/projects/web/lenslegacy/images.jpg",
       "/images/projects/web/lenslegacy/login.jpg",
@@ -137,7 +137,7 @@ export const webProjects = [
     ],
     coverImage: "/images/projects/web/fs2020/cover.png",
     images: [
-      "/images/projects/web/fs2020/main.jpg",
+      "/images/projects/web/fs2020/main.webp",
       "/images/projects/web/fs2020/gallery.jpg",
       "/images/projects/web/fs2020/about.png",
     ],
@@ -163,9 +163,9 @@ export const webProjects = [
       "Implementación de elementos de interfaz de usuario como listas, botones y reproductores simulados",
       "Optimización visual y pruebas de accesibilidad",
     ],
-    coverImage: "/images/projects/web/cafeparados/cover.jpg",
+    coverImage: "/images/projects/web/cafeparados/cover.webp",
     images: [
-      "/images/projects/web/cafeparados/main.jpg",
+      "/images/projects/web/cafeparados/main.webp",
       "/images/projects/web/cafeparados/forum.jpg",
       "/images/projects/web/cafeparados/formations.jpg",
     ],

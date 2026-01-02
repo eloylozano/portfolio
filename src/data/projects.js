@@ -2,7 +2,7 @@ export const projects = [
   {
     title: "Appfluence",
     category: "web",
-    img: "/images/projects/web_appfluence.jpg",
+    img: "/images/projects/web_appfluence.webp",
     projectLink: "/web/appfluence",
     demoLink: "https://danisanchezdev.github.io/P5_Podcast/html/index.html",
     gitLink: "https://github.com/eloylozano/AppFluence",
@@ -10,7 +10,7 @@ export const projects = [
   {
     title: "Bitten Apol",
     category: "app",
-    img: "/images/projects/app_bitten-apol.jpg",
+    img: "/images/projects/app_bitten-apol.webp",
     projectLink: "/app/bitten-apol",
     demoLink: "https://bitten-apol-gamma.vercel.app/",
     gitLink: "https://github.com/eloylozano/bitten-apol-Web",
@@ -18,7 +18,7 @@ export const projects = [
   {
     title: "Deskify",
     category: "app",
-    img: "/images/projects/app_deskify.jpg",
+    img: "/images/projects/app_deskify.webp",
     projectLink: "/app/deskify",
     demoLink: "https://deskify-web.vercel.app",
     gitLink: "https://github.com/eloylozano/deskify",
@@ -26,7 +26,7 @@ export const projects = [
   {
     title: "Eventura",
     category: "app",
-    img: "/images/projects/app_eventura.jpg",
+    img: "/images/projects/app_eventura.webp",
     projectLink: "",
     demoLink: "",
     gitLink: "",
@@ -35,7 +35,7 @@ export const projects = [
   {
     title: "Lens Legacy",
     category: "web",
-    img: "/images/projects/web_lenslegacy.jpg",
+    img: "/images/projects/web_lenslegacy.webp",
     projectLink: "/web/lenslegacy",
     demoLink: "https://lenslegacy.vercel.app/",
     gitLink: "https://github.com/eloylozano/LensLegacy",
@@ -43,7 +43,7 @@ export const projects = [
   {
     title: "Architecture",
     category: "photo",
-    img: "/images/projects/architecture/photo_architecture01.jpg",
+    img: "/images/projects/architecture/photo_architecture01.webp",
     projectLink: "/photography/architecture",
     demoLink: "#",
     gitLink: "#",
@@ -51,7 +51,7 @@ export const projects = [
   {
     title: "Nature",
     category: "photo",
-    img: "/images/projects/nature/forest.jpg",
+    img: "/images/projects/nature/forest.webp",
     projectLink: "/photography/nature",
     demoLink: "/photography/nature",
     gitLink: "#",
@@ -59,7 +59,7 @@ export const projects = [
   {
     title: "Motos",
     category: "photo",
-    img: "/images/projects/motor/photo_moto.jpg",
+    img: "/images/projects/motor/photo_moto.webp",
     projectLink: "/photography/motor",
     demoLink: "#",
     gitLink: "#",
@@ -67,7 +67,7 @@ export const projects = [
   {
     title: "Myself",
     category: "photo",
-    img: "/images/ferrari.png",
+    img: "/images/ferrari.webp",
     projectLink: "/photography/me",
     demoLink: "#",
     gitLink: "#",
@@ -75,7 +75,7 @@ export const projects = [
   {
     title: "Pawtopia",
     category: "web",
-    img: "/images/projects/web_pawtopia.jpg",
+    img: "/images/projects/web_pawtopia.webp",
     projectLink: "/web/pawtopia",
     demoLink: "https://pawtopia-nine.vercel.app/",
     gitLink: "https://github.com/eloylozano/PawTopia",
@@ -83,7 +83,7 @@ export const projects = [
   {
     title: "Plane Spotting",
     category: "photo",
-    img: "/images/projects/planes/photo_plane.jpg",
+    img: "/images/projects/planes/photo_plane.webp",
     projectLink: "/photography/planes",
     demoLink: "#",
     gitLink: "#",
@@ -91,7 +91,7 @@ export const projects = [
   {
     title: "Sunset",
     category: "photo",
-    img: "/images/projects/sunsets/photo_sunset.jpg",
+    img: "/images/projects/sunsets/photo_sunset.webp",
     projectLink: "/photography/sunsets",
     demoLink: "#",
     gitLink: "#",
@@ -99,7 +99,7 @@ export const projects = [
   {
     title: "Café Para Dos",
     category: "web",
-    img: "/images/projects/web_cafeparados.jpg",
+    img: "/images/projects/web_cafeparados.webp",
     projectLink: "/web/cafeparados",
     demoLink: "https://cafeparados.vercel.app/",
     gitLink: "https://github.com/eloylozano/CafeParaDos",
@@ -107,7 +107,7 @@ export const projects = [
   {
     title: "EcoVibe",
     category: "web",
-    img: "/images/projects/web_EcoVibe.jpg",
+    img: "/images/projects/web_EcoVibe.webp",
     projectLink: "/web/ecovibe",
     demoLink: "https://eco-vibe.vercel.app/",
     gitLink: "https://github.com/eloylozano/eco-vibe",
@@ -123,7 +123,7 @@ export const projects = [
   {
     title: "Honda Motorsport",
     category: "web",
-    img: "/images/projects/web_hondamotorsport.jpg",
+    img: "/images/projects/web_hondamotorsport.webp",
     projectLink: "/web/concesionario",
     demoLink: "https://concesionario-theta.vercel.app/",
     gitLink: "https://github.com/eloylozano/ConcesionarioVehiculos",

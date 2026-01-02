@@ -65,37 +65,31 @@
 </style>
 
 <script>
-  // Esperamos que el DOM esté listo para seleccionar el scroll-container
   window.addEventListener("DOMContentLoaded", () => {
-    const scrollContainer = document.querySelector(".scroll-container");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
           const id = entry.target.getAttribute("id");
-          const line = document.querySelector(
-            `.scroll-nav [data-section="${id}"]`
+          const line = document.querySelector(`.scroll-nav [data-section="${id}"]`);
+          
+          document.querySelectorAll(".scroll-nav .line").forEach((el) => 
+            el.classList.remove("active")
           );
+          line?.classList.add("active");
+        }
+      });
+    },
+    {
+      threshold: 0.5, // 0.5 es más estable para secciones grandes
+      root: null,     // 'null' significa que observa el viewport global (el navegador)
+    }
+  );
 
-          if (entry.isIntersecting) {
-            document
-              .querySelectorAll(".scroll-nav .line")
-              .forEach((el) => el.classList.remove("active"));
-            line?.classList.add("active");
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-        root: scrollContainer || null,
-      }
-    );
-
-    ["home", "about", "projects", "recommendations", "contact"].forEach(
-      (id) => {
-        const section = document.getElementById(id);
-        if (section) observer.observe(section);
-      }
-    );
+  // Asegúrate de que los IDs coincidan exactamente con los de tus secciones
+  ["home", "about", "projects", "recommendations", "contact"].forEach((id) => {
+    const section = document.getElementById(id);
+    if (section) observer.observe(section);
   });
+});
 </script>

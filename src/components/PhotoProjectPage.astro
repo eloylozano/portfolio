@@ -13,12 +13,11 @@ const { title, description, coverImage, photos } = Astro.props;
 </section>
 
 <!-- Title + Description -->
-<section
-  class="text-center my-12 max-w-6xl mx-auto px-4 scroll-container"
-  id="projects"
->
+<section class="text-center my-12 max-w-6xl mx-auto px-4" id="projects">
   <Title text={title} />
-  <Text text={description} size="md" />
+  <div class="max-w-6xl mx-auto mt-4">
+    <Text text={description} size="md" />
+  </div>
 </section>
 
 <!-- Galería con columns (masonry) -->

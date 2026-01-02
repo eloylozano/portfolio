@@ -72,7 +72,12 @@ const cards = t(lang, "pages.exp.cards") || [];
     width: 100%;
   }
 
-  /* Línea y ramas solo en desktop */
+  @media (max-width: 1550px) {
+    .experience-node.right::before,
+    .experience-node.left::before {
+      display: none;
+    }
+  }
   @media (max-width: 767px) {
     .line-vertical {
       display: none;
