@@ -50,13 +50,13 @@ export const webProjects = [
       "Diseño responsivo en Figma y estructura basada en componentes",
       "Implementación web accesible con prácticas sostenibles",
     ],
-    coverImage: "/images/projects/web_EcoVibe.jpg",
+    coverImage: "/images/projects/web_EcoVibe.webp",
     images: [
       "/images/projects/web/ecovibe/guide.png",
       "/images/projects/web/ecovibe/product.png",
       "/images/projects/web/ecovibe/login.png",
     ],
-    liveUrl: "https://ecovibe.vercel.app/",
+    liveUrl: "https://eco-vibe.vercel.app/",
   },
   {
     slug: "appfluence",
@@ -106,7 +106,7 @@ export const webProjects = [
       "Implementación de filtros por categoría y resolución",
       "Optimización de carga de imágenes y experiencia de usuario",
     ],
-    coverImage: "/images/projects/web/lenslegacy/cover.webp",
+    coverImage: "/images/projects/web_lenslegacy.webp",
     images: [
       "/images/projects/web/lenslegacy/images.jpg",
       "/images/projects/web/lenslegacy/login.jpg",
@@ -137,7 +137,7 @@ export const webProjects = [
     ],
     coverImage: "/images/projects/web/fs2020/cover.png",
     images: [
-      "/images/projects/web/fs2020/main.webp",
+      "/images/projects/web/fs2020/main.jpg",
       "/images/projects/web/fs2020/gallery.jpg",
       "/images/projects/web/fs2020/about.png",
     ],
@@ -163,9 +163,9 @@ export const webProjects = [
       "Implementación de elementos de interfaz de usuario como listas, botones y reproductores simulados",
       "Optimización visual y pruebas de accesibilidad",
     ],
-    coverImage: "/images/projects/web/cafeparados/cover.webp",
+    coverImage: "/images/projects/web_cafeparados.webp",
     images: [
-      "/images/projects/web/cafeparados/main.webp",
+      "/images/projects/web/cafeparados/main.jpg",
       "/images/projects/web/cafeparados/forum.jpg",
       "/images/projects/web/cafeparados/formations.jpg",
     ],
@@ -192,7 +192,7 @@ export const webProjects = [
       "Optimización de la experiencia de escritorio",
       "Pruebas y ajustes visuales sin enfoque responsivo",
     ],
-    coverImage: "/images/projects/web_hondamotorsport.jpg",
+    coverImage: "/images/projects/web_hondamotorsport.webp",
     images: [
       "/images/projects/web/concesionario/home.png",
       "/images/projects/web/concesionario/text.png",

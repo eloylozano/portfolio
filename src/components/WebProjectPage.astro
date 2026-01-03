@@ -22,7 +22,7 @@ const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
       <img
         src={project.coverImage}
         alt={project.title}
-        class="rounded-md w-full object-cover"
+        class="rounded-md object-cover h-100 w-full"
       />
     </div>
 
@@ -62,17 +62,18 @@ const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
         project.liveUrl && (
           <div class="text-center mt-10">
             <a
-              href={project.liveUrl}
-              target="_blank"
-              class="flex w-fit mx-auto gap-5 px-6 py-3 bg-[#daa032] text-white rounded-md font-semibold hover:scale-105 transition "
-            >
-              GO LIVE 
-              {/* <img
-                src={project.logo}
-                class="w-7 h-auto"
-                alt="Logo"
-              /> */}
-            </a>
+  href={project.liveUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="relative inline-flex items-center justify-center w-fit mx-auto rounded border-2 border-[#daa032] bg-[#161512] p-1 transition duration-300 group hover:scale-101 active:shadow-[0_0_10px_2px_#daa032]"
+>
+  <span
+    class="w-full h-full rounded-[6px] bg-[#0b0b0b] px-6 py-3 text-white text-base font-medium transition-all duration-300 group-hover:bg-[#111]"
+  >
+    IR A LA WEB
+  </span>
+</a>
+
           </div>
         )
       }

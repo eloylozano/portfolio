@@ -127,7 +127,21 @@ const {
         )
       }
     </div>
+    <a
+    href={demoLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="relative inline-flex items-center justify-center w-fit mx-auto rounded border-2 border-[#daa032] bg-[#161512] p-1 transition duration-300 group hover:scale-101 active:shadow-[0_0_10px_2px_#daa032]"
+  >
+    <span
+      class="w-full h-full rounded-[6px] bg-[#0b0b0b] px-6 py-3 text-white text-base font-medium transition-all duration-300 group-hover:bg-[#111]"
+    >
+      Ver proyecto
+    </span>
+  </a>
   </div>
+
+  
 </section>
 
 <section
@@ -137,7 +151,7 @@ const {
     <Subtitle text="Main functions" gold />
     <Text text={mainFeatures.text} class="mb-4" />
     <ul class="list-disc list-inside text-white/80 text-sm">
-      {mainFeatures.functions.map((fn:any) => <li>{fn}</li>)}
+      {mainFeatures.functions.map((fn: any) => <li>{fn}</li>)}
     </ul>
   </div>
   <img

@@ -115,7 +115,7 @@ export const projects = [
   {
     title: "Flight Simulator UI",
     category: "web",
-    img: "/images/projects/web_flightSimulator.png",
+    img: "/images/projects/web_flightSimulator.webp",
     projectLink: "/web/flightsim",
     demoLink: "https://flight-simulator2020.vercel.app/",
     gitLink: "https://github.com/eloylozano/FlightSimulator02",

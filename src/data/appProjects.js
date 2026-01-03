@@ -62,9 +62,9 @@ export default [
     gitLink: "https://github.com/eloylozano/bitten-apol-Web",
     description:
       "BittenApol es una plataforma de comercio electrónico con un sólido panel de administración y un cliente web intuitivo. El panel de administración permite gestionar productos, usuarios, roles y pedidos, con rutas protegidas y una interfaz limpia y responsive. El cliente web facilita a los usuarios la navegación por los productos, la gestión del carrito, la finalización de la compra y la integración del inicio de sesión de Google.",
-    coverImage: "/images/projects/app_deskify.jpg",
+    coverImage: "/images/projects/app_deskify.webp",
     gallery: [
-      "/images/projects/app_bitten-apol.jpg",
+      "/images/projects/app_bitten-apol.webp",
       "/images/projects/app/bittenapol/Picture1.png",
       "/images/projects/app/bittenapol/Picture2.png",
     ],

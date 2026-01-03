@@ -49,14 +49,14 @@ const lang =
     <div id="project-grid" class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-4 space-y-3 sm:space-y-4">
       {projects.map(({ title, category, img, projectLink, demoLink, gitLink }) => (
         <div
-          class="project-item break-inside-avoid group relative h-full overflow-hidden rounded-xl sm:rounded-2xl shadow-lg transition-all duration-500 animate-fade-in"
+          class="project-item break-inside-avoid group relative h-full overflow-hidden  shadow-lg transition-all duration-500 animate-fade-in"
           data-category={category}
         >
           <a href={projectLink} class="">
             <img
             src={img}
             alt={title}
-            class="w-full h-auto max-h-[280px] sm:max-h-[320px] md:max-h-[360px] lg:max-h-[420px] object-cover transition-transform duration-300 group-hover:scale-105"
+            class="w-full h-auto max-h-70 sm:max-h-80 md:max-h-90 lg:max-h-105 object-cover transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
           />
           </a>
@@ -72,7 +72,7 @@ const lang =
                 <>
                   <a
                     href={demoLink}
-                    class="flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#e9eeef] text-black text-center rounded-full text-xs sm:text-sm hover:bg-[#ffffffaa] transition-colors duration-200"
+                    class="flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#e9eeef] text-black text-center rounded-xs text-xs sm:text-sm hover:bg-[#ffffffaa] transition-colors duration-200"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -83,7 +83,7 @@ const lang =
                   </a>
                   <a
                     href={gitLink}
-                    class="flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#333333] text-white text-center rounded-full text-xs sm:text-sm hover:bg-[#444444] transition-colors duration-200"
+                    class="flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#333333] text-white text-center rounded-xs text-xs sm:text-sm hover:bg-[#444444] transition-colors duration-200"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -97,7 +97,7 @@ const lang =
 
               <a
                 href={projectLink}
-                class="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#daa032] text-[#0b0b0b] text-center rounded-full text-xs sm:text-sm hover:bg-[#e0b044] transition-colors duration-200"
+                class="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#daa032] text-[#0b0b0b] text-center rounded-xs text-xs sm:text-sm hover:bg-[#e0b044] transition-colors duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
               >

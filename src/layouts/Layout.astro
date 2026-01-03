@@ -2,7 +2,12 @@
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import ScrollSpy from "../components/ScrollSpy.astro";
-
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/lato/400.css';
+import '@fontsource/pt-serif/400.css';
+import '@fontsource/pt-serif/700.css';
+import '@fontsource/lato/700.css';
 import "../styles/global.css";
 const path = Astro.url.pathname;
 const lang = Astro.cookies.get("preferredLang")?.value || "es";
@@ -14,8 +19,12 @@ const lang = Astro.cookies.get("preferredLang")?.value || "es";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Eloy Lozano Barrios</title>
-
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.eloylozano.es/" />
     <meta name="description" content="Portfolio web de Eloy Lozano Barrios" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content="/images/aboutme.webp" />
     <link rel="icon" type="image/x-icon" href="/images/logo.ico" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,6 +45,19 @@ const lang = Astro.cookies.get("preferredLang")?.value || "es";
       is:inline
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-NP56HSBSPJ"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Eloy Lozano Barrios",
+        "url": "https://tu-dominio.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/eloylozano",
+          "https://www.instagram.com/eloyloozano"
+        ],
+        "jobTitle": "Desarrollador y Fotógrafo"
+      }
+    </script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
