@@ -32,6 +32,10 @@ const { title, description, coverImage, photos } = Astro.props;
             alt={photo.title}
             class="w-full h-auto rounded-md cursor-pointer transition-transform duration-300 hover:scale-105"
           />
+
+          <meta itemprop="author" content="Eloy Lozano Barrios" />
+          <meta itemprop="caption" content={photo.description} />
+
           <div class="bg-[#0b0b0b]/70 text-white p-4 text-xs italic space-y-1 mt-2 rounded-sm">
             <p class="text-[#e9eeef]">Distancia focal: {photo.tech.focal}</p>
             <p class="text-[#e9eeef]">Apertura: {photo.tech.aperture}</p>
@@ -80,38 +84,61 @@ const { title, description, coverImage, photos } = Astro.props;
 </style>
 
 <script>
-  let lightbox = null;
-  let lightboxImg = null;
+  function initLightbox() {
+    // Tipamos los elementos para que TS sepa que tienen propiedades como .src o .classList
+    const lightbox = document.getElementById(
+      "lightbox"
+    ) as HTMLDivElement | null;
+    const lightboxImg = lightbox?.querySelector(
+      "img"
+    ) as HTMLImageElement | null;
+    const closeBtn = document.getElementById(
+      "lightbox-close"
+    ) as HTMLSpanElement | null;
+    const gallery = document.getElementById("gallery") as HTMLDivElement | null;
 
-  window.addEventListener("load", () => {
-    lightbox = document.getElementById("lightbox");
-    lightboxImg = lightbox?.querySelector("img") ?? null;
-    const closeBtn = document.getElementById("lightbox-close");
-    const gallery = document.getElementById("gallery");
+    // Validación de seguridad
+    if (!lightbox || !lightboxImg || !closeBtn || !gallery) return;
 
-    if (!lightbox || !lightboxImg || !closeBtn || !gallery) {
-      console.error("Elementos necesarios no encontrados");
-      return;
-    }
+    gallery.addEventListener("click", (e: MouseEvent) => {
+      // Forzamos a TS a entender que el click fue en una imagen
+      const target = e.target as HTMLImageElement;
 
-    gallery.addEventListener("click", (e) => {
-      const target = e.target;
       if (target.tagName === "IMG") {
         lightboxImg.src = target.src;
+        lightboxImg.alt = target.alt;
         lightbox.classList.add("visible");
+
+        // Bloqueamos el scroll del body al abrir el lightbox
+        document.body.style.overflow = "hidden";
       }
     });
 
-    closeBtn.addEventListener("click", () => {
+    const close = () => {
       lightbox.classList.remove("visible");
       lightboxImg.src = "";
+      // Restauramos el scroll
+      document.body.style.overflow = "auto";
+    };
+
+    closeBtn.addEventListener("click", close);
+
+    // Cerrar al hacer click fuera de la imagen
+    lightbox.addEventListener("click", (e: MouseEvent) => {
+      if (e.target === lightbox) close();
     });
 
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.remove("visible");
-        lightboxImg.src = "";
-      }
+    // Cerrar con la tecla Escape (muy bueno para UX)
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Escape" && lightbox.classList.contains("visible")) close();
     });
-  });
+  }
+
+  // Soporte para Astro View Transitions y carga normal
+  document.addEventListener("astro:page-load", initLightbox);
+
+  // Si no usas View Transitions, este evento asegura que funcione en el primer arranque
+  if (!window.hasOwnProperty("astro")) {
+    window.addEventListener("load", initLightbox);
+  }
 </script>

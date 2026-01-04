@@ -194,7 +194,7 @@ export default [
           camera: "Canon EOS 200D",
           lens: "Sigma 35mm f/1.4 DSM DG DN ART",
         },
-      }, 
+      },
       {
         title: "Escaleras suspendidas",
         description:
@@ -207,7 +207,7 @@ export default [
           camera: "Canon EOS 200D",
           lens: "Sigma 35mm f/1.4 DSM DG DN ART",
         },
-      }, 
+      },
       {
         title: "Escaleras suspendidas",
         description:
@@ -343,6 +343,19 @@ export default [
           focal: "35mm",
           aperture: "f/3.2",
           iso: "300",
+          camera: "Canon EOS 200D",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
+        },
+      },
+      {
+        title: "Minimalismo dramático",
+        description:
+          "Una perla en la oscuridad. La cadena brilla como único punto de luz sobre un fondo completamente negro. El rostro, apenas visible, insinúa más de lo que revela. Es una imagen contenida, de tensión estética, donde cada sombra tiene voz.",
+        image: "/images/projects/myself/photo_me08.webp",
+        tech: {
+          focal: "35mm",
+          aperture: "f/2.8",
+          iso: "400",
           camera: "Canon EOS 200D",
           lens: "Sigma 35mm f/1.4 DSM DG DN ART",
         },
