@@ -234,7 +234,7 @@ export default [
         title: "Equilibrio en lo natural",
         description:
           "Rodeado de árboles, el cuerpo se convierte en una extensión del bosque. La postura tranquila contrasta con la densidad del entorno, y la luz que se filtra entre las ramas aporta un toque de serenidad. Es una escena donde la humanidad no irrumpe, sino que se funde con la naturaleza.",
-        image: "/images/projects/myself/photo_me.webp",
+        image: "/images/projects/myself/eloy-lozano-barrios-estilo-minimalista.webp",
         tech: {
           focal: "35mm",
           aperture: "f/2.8",
@@ -247,7 +247,7 @@ export default [
         title: "Mirada urbana",
         description:
           "Sobre el fondo cálido de una estructura moderna, el vestuario elegante y la pose introspectiva crean un contraste fuerte. Aquí, la ciudad se convierte en un marco para la expresión personal, donde el silencio del modelo dice más que las palabras.",
-        image: "/images/projects/myself/photo_me00.webp",
+        image: "/images/projects/myself/eloy-lozano-barrios-desarrollador-web.webp",
         tech: {
           focal: "50mm",
           aperture: "f/2.2",
@@ -260,7 +260,7 @@ export default [
         title: "Movimiento entre líneas",
         description:
           "Bajo una estructura arquitectónica limpia, el cuerpo juega con las líneas y las sombras. Una escena que captura la relación entre lo dinámico y lo estático, entre el movimiento humano y la geometría del concreto.",
-        image: "/images/projects/myself/photo_me01.webp",
+        image: "/images/projects/myself/eloy-lozano-fotografo-exterior.webp",
         tech: {
           focal: "35mm",
           aperture: "f/3.5",
@@ -273,7 +273,7 @@ export default [
         title: "Otoño interior",
         description:
           "La chaqueta oversize, la mirada de espaldas y el suelo cubierto de hojas configuran una escena melancólica. Todo parece detenido en un instante otoñal, donde el modelo se convierte en parte de un paisaje emocional más que físico.",
-        image: "/images/projects/myself/photo_me02.webp",
+        image: "/images/projects/myself/eloy-lozano-sesion-fotografia-bosque.webp",
         tech: {
           focal: "50mm",
           aperture: "f/2",
@@ -286,7 +286,7 @@ export default [
         title: "Reflejos de identidad",
         description:
           "Una imagen que juega con el espejo y las sombras. Las múltiples versiones del rostro crean un diálogo entre lo visible y lo oculto, lo proyectado y lo interior. Es un retrato que interpela más de lo que muestra.",
-        image: "/images/projects/myself/photo_me03.webp",
+        image: "/images/projects/myself/eloy-lozano-barrios-perfil-creativo.webp",
         tech: {
           focal: "50mm",
           aperture: "f/1.8",
@@ -299,7 +299,7 @@ export default [
         title: "Retrato de carácter",
         description:
           "La expresión firme y la iluminación suave hacen de esta imagen un estudio del rostro como territorio emocional. Cada pliegue, cada sombra, revela un matiz de identidad. La camisa blanca y el fondo neutro refuerzan la atemporalidad del retrato.",
-        image: "/images/projects/myself/photo_me04.webp",
+        image: "/images/projects/myself/eloy-lozano-barrios-retrato-profesional.webp",
         tech: {
           focal: "50mm",
           aperture: "f/2.8",
@@ -312,7 +312,7 @@ export default [
         title: "Minimalismo dramático",
         description:
           "Una perla en la oscuridad. La cadena brilla como único punto de luz sobre un fondo completamente negro. El rostro, apenas visible, insinúa más de lo que revela. Es una imagen contenida, de tensión estética, donde cada sombra tiene voz.",
-        image: "/images/projects/myself/photo_me05.webp",
+        image: "/images/projects/myself/eloy-lozano-barrios-identidad-visual.webp",
         tech: {
           focal: "50mm",
           aperture: "f/1.8",
@@ -325,7 +325,7 @@ export default [
         title: "Minimalismo dramático",
         description:
           "Una perla en la oscuridad. La cadena brilla como único punto de luz sobre un fondo completamente negro. El rostro, apenas visible, insinúa más de lo que revela. Es una imagen contenida, de tensión estética, donde cada sombra tiene voz.",
-        image: "/images/projects/myself/photo_me06.webp",
+        image: "/images/projects/myself/eloy-lozano-fotografo-mirada-urbana.webp",
         tech: {
           focal: "35mm",
           aperture: "f/2.8",
@@ -338,7 +338,7 @@ export default [
         title: "Minimalismo dramático",
         description:
           "Una perla en la oscuridad. La cadena brilla como único punto de luz sobre un fondo completamente negro. El rostro, apenas visible, insinúa más de lo que revela. Es una imagen contenida, de tensión estética, donde cada sombra tiene voz.",
-        image: "/images/projects/myself/photo_me07.webp",
+        image: "/images/projects/myself/eloy-lozano-primer-plano-caracter.webp",
         tech: {
           focal: "35mm",
           aperture: "f/3.2",
@@ -351,7 +351,7 @@ export default [
         title: "Minimalismo dramático",
         description:
           "Una perla en la oscuridad. La cadena brilla como único punto de luz sobre un fondo completamente negro. El rostro, apenas visible, insinúa más de lo que revela. Es una imagen contenida, de tensión estética, donde cada sombra tiene voz.",
-        image: "/images/projects/myself/photo_me08.webp",
+        image: "/images/projects/myself/eloy-lozano-retrato-blanco-y-negro.webp",
         tech: {
           focal: "35mm",
           aperture: "f/2.8",

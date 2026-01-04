@@ -67,7 +67,7 @@ export const projects = [
   {
     title: "Myself",
     category: "photo",
-    img: "/images/ferrari.webp",
+    img: "/images/aboutme.png",
     projectLink: "/photography/me",
     demoLink: "#",
     gitLink: "#",
