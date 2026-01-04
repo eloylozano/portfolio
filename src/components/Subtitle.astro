@@ -1,13 +1,13 @@
 ---
-const { text, class: additionalClass = "", gold = false } = Astro.props;
+const { text, class: additionalClass = "", gold = false, as: Tag = "h3"  } = Astro.props;
 ---
 
-<h2
-  class={`text-3xl tracking-wide py-2 font-lato bg-gradient-to-r ${
+<Tag
+  class={`text-3xl tracking-wide py-2 font-lato bg-linear-to-r ${
     gold
       ? "from-[#daa032] via-[#e6bb44] to-[#f0d770]"
       : "from-[#e9eeef] to-[#868889]"
   } bg-clip-text text-transparent ${additionalClass}`}
 >
   {text}
-</h2>
+</Tag>

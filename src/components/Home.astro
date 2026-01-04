@@ -27,10 +27,10 @@ const text = t(lang, "nav.seeProjects");
 
   <!-- Contenido principal -->
   <div
-    class="z-10 w-full lg:w-[50%] lg:max-w-[800px] xs:mx-auto lg:ml-auto text-white text-left lg:text-right bg-[#161512]/90 lg:bg-transparent py-16 lg:py-0 px-4 sm:px-8 lg:px-6 rounded-lg lg:rounded-none"
+    class="z-10 w-full lg:w-[50%] lg:max-w-200 xs:mx-auto lg:ml-auto text-white text-left lg:text-right bg-[#161512]/90 lg:bg-transparent py-16 lg:py-0 px-4 sm:px-8 lg:px-6 rounded-lg lg:rounded-none"
   >
-    <Title text={t(lang, "pages.home.title")} />
-    <Subtitle text={t(lang, "pages.home.work")} />
+    <Title as="div" text={t(lang, "pages.home.title")} />
+    <Subtitle as="h1" text={t(lang, "pages.home.work")} />
     <Paragraph size="lg" text={t(lang, "pages.home.description")} />
 
     <div

@@ -16,9 +16,9 @@ export default {
   pages: {
     home: {
       title: "Art is also programmed",
-      work: "Web Developer and Photographer",
+      work: "Eloy Lozano web Developer and Photographer",
       description:
-        "I’m Eloy Lozano, a web developer and portrait photographer. I combine lines of code with visual sensitivity to create unique digital experiences.",
+        "I combine lines of code with visual sensitivity to create unique digital experiences.",
     },
     about: {
       title: "About Me",

@@ -2,62 +2,60 @@
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import ScrollSpy from "../components/ScrollSpy.astro";
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/700.css';
-import '@fontsource/lato/400.css';
-import '@fontsource/pt-serif/400.css';
-import '@fontsource/pt-serif/700.css';
-import '@fontsource/lato/700.css';
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/lato/400.css";
+import "@fontsource/lato/700.css";
+import "@fontsource/pt-serif/400.css";
+import "@fontsource/pt-serif/700.css";
 import "../styles/global.css";
+
 const path = Astro.url.pathname;
 const lang = Astro.cookies.get("preferredLang")?.value || "es";
+
+const siteUrl = "https://www.eloylozano.es";
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const socialImageURL = new URL("/images/aboutme.webp", siteUrl);
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Eloy Lozano Barrios</title>
+
+    <title>Eloy Lozano Barrios | Desarrollador Web y Fotógrafo</title>
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.eloylozano.es/" />
-    <meta name="description" content="Portfolio web de Eloy Lozano Barrios" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta
+      name="description"
+      content="Portfolio profesional de Eloy Lozano Barrios. Especialista en desarrollo web moderno y fotografía con sensibilidad visual."
+    />
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content="/images/aboutme.webp" />
-    <link rel="icon" type="image/x-icon" href="/images/logo.ico" />
+    <meta property="og:title" content="Eloy Lozano Barrios | Portfolio" />
+    <meta
+      property="og:description"
+      content="Desarrollador web y fotógrafo. El arte también se programa."
+    />
+    <meta property="og:image" content={socialImageURL} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content="Eloy Lozano Barrios | Portfolio" />
+    <meta
+      property="twitter:description"
+      content="Desarrollador web y fotógrafo. El arte también se programa."
     />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
+    <meta property="twitter:image" content={socialImageURL} />
+
+    <link rel="icon" type="image/x-icon" href="/images/logo.ico" />
 
     <script
       is:inline
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-NP56HSBSPJ"></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Eloy Lozano Barrios",
-        "url": "https://tu-dominio.com",
-        "sameAs": [
-          "https://www.linkedin.com/in/eloylozano",
-          "https://www.instagram.com/eloyloozano"
-        ],
-        "jobTitle": "Desarrollador y Fotógrafo"
-      }
-    </script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -66,11 +64,35 @@ const lang = Astro.cookies.get("preferredLang")?.value || "es";
       gtag("js", new Date());
       gtag("config", "G-NP56HSBSPJ");
     </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Eloy Lozano Barrios",
+        "url": "https://www.eloylozano.es",
+        "sameAs": [
+          "https://www.linkedin.com/in/eloylozano",
+          "https://www.instagram.com/eloyloozano",
+          "https://github.com/eloylozano"
+        ],
+        "jobTitle": "Desarrollador Web y Fotógrafo",
+        "description": "Especialista en crear experiencias digitales únicas combinando código y sensibilidad visual."
+      }
+    </script>
   </head>
-  <body class="bg-[#161512] text-white">
+  <body
+    class="bg-[#161512] text-white selection:bg-[#daa032] selection:text-black"
+  >
     <Navbar />
     {path === "/" && <ScrollSpy />}
-    <main><slot /></main>
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+
     <script src="/script.js" defer></script>
   </body>
 </html>

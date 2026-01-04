@@ -16,9 +16,9 @@ export default {
   pages: {
     home: {
       title: "El arte también se programa",
-      work: "Desarrollador web y fotógrafo",
+      work: "Eloy Lozano desarrollador web y fotógrafo",
       description:
-        "Soy Eloy Lozano, desarrollador web y fotógrafo de retrato. Combino líneas de código con sensibilidad visual para crear experiencias digitales únicas.",
+        "Combino líneas de código con sensibilidad visual para crear experiencias digitales únicas.",
     },
     about: {
       title: "Sobre mí",

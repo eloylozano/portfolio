@@ -16,9 +16,9 @@ export default {
   pages: {
     home: {
       title: "Auch Kunst wird programmiert",
-      work: "Webentwickler und Fotograf",
+      work: "Eloy Lozano Webentwickler und Fotograf",
       description:
-        "Ich bin Eloy Lozano, Webentwickler und Porträtfotograf. Ich kombiniere Codezeilen mit visueller Sensibilität, um einzigartige digitale Erlebnisse zu schaffen.",
+        "Ich kombiniere Codezeilen mit visueller Sensibilität, um einzigartige digitale Erlebnisse zu schaffen.",
     },
     about: {
       title: "Über mich",
