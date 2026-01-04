@@ -14,27 +14,28 @@ const lang =
   aria-label="Recommendations section"
   class="scroll-container bg-[#161512] py-28 px-6 sm:px-12 md:px-24 lg:px-26 text-white"
 >
-  <Title class="text-center mb-32" text={t(lang, "pages.recomendations.title")} />
+  <Title class="text-center mb-16 md:mb-32" text={t(lang, "pages.recomendations.title")} />
+  
   <div
-    class="flex flex-wrap justify-evenly lg:gap:10 xs:max-w-4xl mx-auto mt-32"
+    class="flex flex-wrap justify-center gap-y-20 gap-x-6 lg:gap-10 max-w-6xl mx-auto mt-12 md:mt-32"
   >
     <RecommendationCard
       text={t(lang, "pages.recomendations.monica.text")}
       author="Mónica P. Sueiro"
       relationship={t(lang, "pages.recomendations.monica.relationship")}
-      class="w-[45%]"
+      class="w-full md:w-[45%]"
     />
     <RecommendationCard
       text={t(lang, "pages.recomendations.dani.text")}
       author="Dani Sánchez"
       relationship={t(lang, "pages.recomendations.dani.relationship")}
-      class="w-[45%]"
+      class="w-full md:w-[45%]"
     />
     <RecommendationCard
       text={t(lang, "pages.recomendations.miguel.text")}
       author="Miguel Iglesias"
       relationship={t(lang, "pages.recomendations.miguel.relationship")}
-      class="w-[90%] mx-auto"
+      class="w-full md:w-[90%] mx-auto"
     />
   </div>
 </section>
