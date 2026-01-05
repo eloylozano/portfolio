@@ -2,12 +2,12 @@
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import ScrollSpy from "../components/ScrollSpy.astro";
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/700.css';
-import '@fontsource/lato/400.css';
-import '@fontsource/lato/700.css';
-import '@fontsource/pt-serif/400.css';
-import '@fontsource/pt-serif/700.css';
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/lato/400.css";
+import "@fontsource/lato/700.css";
+import "@fontsource/pt-serif/400.css";
+import "@fontsource/pt-serif/700.css";
 import "../styles/global.css";
 
 const path = Astro.url.pathname;
@@ -16,7 +16,7 @@ const lang = Astro.cookies.get("preferredLang")?.value || "es";
 // Configuración de URLs absolutas
 const siteUrl = "https://www.eloylozano.es";
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
-const socialImageURL = new URL("/images/aboutme.webp", siteUrl); 
+const socialImageURL = new URL("/images/aboutme.webp", siteUrl);
 ---
 
 <!doctype html>
@@ -24,30 +24,42 @@ const socialImageURL = new URL("/images/aboutme.webp", siteUrl);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <title>Eloy Lozano Barrios | Desarrollador Web y Fotógrafo</title>
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalURL} />
-    <meta name="description" content="Portfolio profesional de Eloy Lozano Barrios. Especialista en desarrollo web moderno y fotografía con sensibilidad visual." />
-    
+    <meta
+      name="description"
+      content="Portfolio profesional de Eloy Lozano Barrios. Especialista en desarrollo web moderno y fotografía con sensibilidad visual."
+    />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
+
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content="Eloy Lozano Barrios | Portfolio" />
-    <meta property="og:description" content="Desarrollador web y fotógrafo. El arte también se programa." />
+    <meta property="og:title" content="Eloy Lozano | Portfolio" />
+    <meta
+      property="og:description"
+      content="Desarrollador web y fotógrafo. El arte también se programa."
+    />
     <meta property="og:image" content={socialImageURL} />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content="Eloy Lozano Barrios | Portfolio" />
-    <meta property="twitter:description" content="Desarrollador web y fotógrafo. El arte también se programa." />
+    <meta property="twitter:title" content="Eloy Lozano  | Portfolio" />
+    <meta
+      property="twitter:description"
+      content="Desarrollador web y fotógrafo. El arte también se programa."
+    />
     <meta property="twitter:image" content={socialImageURL} />
 
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-NP56HSBSPJ"></script>
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NP56HSBSPJ"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -61,7 +73,9 @@ const socialImageURL = new URL("/images/aboutme.webp", siteUrl);
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Eloy Lozano Barrios",
+        "givenName": "Eloy",
+        "familyName": "Lozano",
+        "name": "Eloy Lozano",
         "url": "https://www.eloylozano.es",
         "sameAs": [
           "https://www.linkedin.com/in/eloylozano",
@@ -69,14 +83,28 @@ const socialImageURL = new URL("/images/aboutme.webp", siteUrl);
           "https://github.com/eloylozano"
         ],
         "jobTitle": "Desarrollador Web y Fotógrafo",
-        "description": "Especialista en crear experiencias digitales únicas combinando código y sensibilidad visual."
+        "description": "Especialista en crear experiencias digitales únicas combinando código y sensibilidad visual.",
+        "knowsAbout": [
+          "Desarrollo Web",
+          "Frontend",
+          "Astro",
+          "JavaScript",
+          "Diseño Web",
+          "Fotografía"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        }
       }
     </script>
   </head>
-  <body class="bg-[#161512] text-white selection:bg-[#daa032] selection:text-black">
+  <body
+    class="bg-[#161512] text-white selection:bg-[#daa032] selection:text-black"
+  >
     <Navbar />
     {path === "/" && <ScrollSpy />}
-    
+
     <main>
       <slot />
     </main>
