@@ -89,6 +89,22 @@ export const projects = [
     gitLink: "#",
   },
   {
+    title: "Savia Club",
+    category: "web",
+    img: "/images/projects/web_savia.png",
+    projectLink: "/web/saviaclub",
+    demoLink: "https://comercioslocales02.vercel.app/",
+    gitLink: "#",
+  },
+  {
+    title: "Restaurante",
+    category: "web",
+    img: "/images/projects/web_gastronomia.png",
+    projectLink: "/web/gastronomia",
+    demoLink: "https://comercioslocales.vercel.app/",
+    gitLink: "#",
+  },
+  {
     title: "Sunset",
     category: "photo",
     img: "/images/projects/sunsets/photo_sunset.webp",

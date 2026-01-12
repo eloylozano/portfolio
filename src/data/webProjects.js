@@ -200,4 +200,58 @@ export const webProjects = [
     ],
     liveUrl: "https://concesionario-theta.vercel.app/",
   },
+  
+  {
+    slug: "saviaclub",
+    title: "SaviaClub",
+    logo: "/images/projects/web/savia/logo.png",
+    description:
+      "SaviaClub es una plataforma web diseñada para digitalizar y dar visibilidad a los negocios de proximidad.",
+    summary:
+      "Una solución digital informativa y visualmente atractiva que conecta a los vecinos con los comercios locales, destacando sus servicios, horarios y promociones con un enfoque en la rapidez y la facilidad de uso.",
+    client: "Proyecto Profesional / Local",
+    tools: ["HTML5", "CSS3", "TypeScript", "Responsive Design"],
+    role: "Diseño y desarrollo frontend integral",
+    steps: [
+      "Definición de arquitectura centrada en el usuario local y SEO de proximidad",
+      "Diseño de interfaz responsiva optimizada para consultas rápidas desde móviles",
+      "Implementación de catálogo visual de comercios y servicios",
+      "Optimización de rendimiento para garantizar una navegación fluida en redes móviles",
+      "Integración de canales de contacto directo (WhatsApp, mapas y llamadas)",
+    ],
+    coverImage: "/images/projects/web/savia/fondo.png",
+    images: [
+      "/images/projects/web/savia/main.png",
+      "/images/projects/web/savia/gallery.png",
+      "/images/projects/web/savia/about.png",
+    ],
+    liveUrl: "https://comercioslocales02.vercel.app/",
+  },
+
+  {
+    slug: "gastronomia",
+    title: "Restaurante Gastronomía",
+    logo: "/images/projects/web/gastronomia/logo.png",
+    description:
+      "Diseño premium para un establecimiento gastronómico de alta gama, con una estética elegante en azul profundo y detalles dorados.",
+    summary:
+      "Una experiencia digital inmersiva que presenta la carta, el ambiente y la propuesta culinaria del restaurante, enfocada en atraer comensales mediante un diseño visual sofisticado y una navegación intuitiva.",
+    client: "Proyecto de Hostelería",
+    tools: ["HTML5", "CSS3", "JavaScript", "UI/UX Design"],
+    role: "Diseño visual y desarrollo frontend",
+    steps: [
+      "Conceptualización visual basada en una paleta de colores azul y dorado (Luxury Design)",
+      "Maquetación de la carta digital y secciones de platos estrella",
+      "Diseño de galería fotográfica optimizada para alta resolución",
+      "Implementación de sistema de reservas y formularios de contacto",
+      "Optimización de fluidez visual y efectos de scroll suave",
+    ],
+    coverImage: "/images/projects/web/gastronomia/fondo.png",
+    images: [
+      "/images/projects/web/gastronomia/cover.png",
+      "/images/projects/web/gastronomia/gallery.png",
+      "/images/projects/web/gastronomia/about.png",
+    ],
+    liveUrl: "https://comercioslocales.vercel.app/",
+  },
 ];
