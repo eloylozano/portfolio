@@ -204,7 +204,7 @@ export const webProjects = [
   {
     slug: "saviaclub",
     title: "SaviaClub",
-    logo: "/images/projects/web/savia/logo.png",
+    logo: "/images/projects/web/savia/logo.webp",
     description:
       "SaviaClub es una plataforma web diseñada para digitalizar y dar visibilidad a los negocios de proximidad.",
     summary:
@@ -219,11 +219,11 @@ export const webProjects = [
       "Optimización de rendimiento para garantizar una navegación fluida en redes móviles",
       "Integración de canales de contacto directo (WhatsApp, mapas y llamadas)",
     ],
-    coverImage: "/images/projects/web/savia/fondo.png",
+    coverImage: "/images/projects/web/savia/fondo.webp",
     images: [
-      "/images/projects/web/savia/main.png",
-      "/images/projects/web/savia/gallery.png",
-      "/images/projects/web/savia/about.png",
+      "/images/projects/web/savia/main.webp",
+      "/images/projects/web/savia/gallery.webp",
+      "/images/projects/web/savia/about.webp",
     ],
     liveUrl: "https://comercioslocales02.vercel.app/",
   },
@@ -231,7 +231,7 @@ export const webProjects = [
   {
     slug: "gastronomia",
     title: "Restaurante Gastronomía",
-    logo: "/images/projects/web/gastronomia/logo.png",
+    logo: "/images/projects/web/gastronomia/logo.webp",
     description:
       "Diseño premium para un establecimiento gastronómico de alta gama, con una estética elegante en azul profundo y detalles dorados.",
     summary:
@@ -246,11 +246,11 @@ export const webProjects = [
       "Implementación de sistema de reservas y formularios de contacto",
       "Optimización de fluidez visual y efectos de scroll suave",
     ],
-    coverImage: "/images/projects/web/gastronomia/fondo.png",
+    coverImage: "/images/projects/web/gastronomia/fondo.webp",
     images: [
-      "/images/projects/web/gastronomia/cover.png",
-      "/images/projects/web/gastronomia/gallery.png",
-      "/images/projects/web/gastronomia/about.png",
+      "/images/projects/web/gastronomia/cover.webp",
+      "/images/projects/web/gastronomia/gallery.webp",
+      "/images/projects/web/gastronomia/about.webp",
     ],
     liveUrl: "https://comercioslocales.vercel.app/",
   },

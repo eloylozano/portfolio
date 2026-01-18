@@ -10,10 +10,15 @@ import "@fontsource/pt-serif/400.css";
 import "@fontsource/pt-serif/700.css";
 import "../styles/global.css";
 
+const {
+  noindex = false,
+  title = "Eloy Lozano | Desarrollador Web y Fotógrafo",
+  description = "Portfolio profesional de Eloy Lozano Barrios. Especialista en desarrollo web moderno y fotografía con sensibilidad visual.",
+} = Astro.props;
+
 const path = Astro.url.pathname;
 const lang = Astro.cookies.get("preferredLang")?.value || "es";
 
-// Configuración de URLs absolutas
 const siteUrl = "https://www.eloylozano.es";
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const socialImageURL = new URL("/images/aboutme.webp", siteUrl);
@@ -25,8 +30,13 @@ const socialImageURL = new URL("/images/aboutme.webp", siteUrl);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Eloy Lozano | Desarrollador Web y Fotógrafo</title>
-    <meta name="robots" content="index, follow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={noindex ? "noindex, follow" : "index, follow"}
+    />
+
     <link rel="canonical" href={canonicalURL} />
     <meta
       name="description"

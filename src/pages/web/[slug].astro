@@ -1,7 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import WebProjectPage from "../../components/WebProjectPage.astro";
-import Footer from "../../components/Footer.astro";
 import { webProjects } from "../../data/webProjects";
 
 export async function getStaticPaths() {
@@ -16,8 +15,17 @@ const webProject = webProjects.find((p) => p.slug === slug);
 if (!webProject) {
   throw new Error(`No se encontró el proyecto para el slug: ${slug}`);
 }
+
+// Decide aquí
+const featuredProjects = ["saviaclub", "gastronomia", "pawtopia"];
+const noindex = !featuredProjects.includes(slug);
 ---
 
-<Layout>
+
+<Layout
+  noindex={noindex}
+  title={`${webProject.title} | Proyecto Web – Eloy Lozano`}
+  description={webProject.description}
+>
   <WebProjectPage {...webProject} />
 </Layout>

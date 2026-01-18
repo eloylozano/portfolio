@@ -54,6 +54,7 @@ export default [
       text: "El backend de Deskify está construido con Spring Boot, siguiendo una arquitectura modular y segura. Implementa JWT (JSON Web Tokens) para la autenticación y autorización de usuarios, garantizando sesiones seguras y sin estado. La API RESTful gestiona funcionalidades como el registro, el inicio de sesión y la personalización del escritorio, manteniendo una comunicación fluida con el frontend. La persistencia de datos se gestiona con JPA y una base de datos PostgreSQL, garantizando la integridad y la escalabilidad. Todo el sistema está diseñado para ser robusto, eficiente y fácilmente ampliable, permitiendo futuras integraciones o mejoras sin comprometer la estabilidad.",
       tech: ["MySQL", "Spring JPA", "Spring Security", "SpringMVC", "Vercel"],
     },
+    featured: true
   },
   {
     slug: "bitten-apol",
@@ -62,7 +63,7 @@ export default [
     gitLink: "https://github.com/eloylozano/bitten-apol-Web",
     description:
       "BittenApol es una plataforma de comercio electrónico con un sólido panel de administración y un cliente web intuitivo. El panel de administración permite gestionar productos, usuarios, roles y pedidos, con rutas protegidas y una interfaz limpia y responsive. El cliente web facilita a los usuarios la navegación por los productos, la gestión del carrito, la finalización de la compra y la integración del inicio de sesión de Google.",
-    coverImage: "/images/projects/app_deskify.webp",
+    coverImage: "/images/projects/app_bittenapol.webp",
     gallery: [
       "/images/projects/app_bitten-apol.webp",
       "/images/projects/app/bittenapol/Picture1.png",
@@ -91,7 +92,7 @@ export default [
         "Inicio de sesión de Google integrado para mayor comodidad.",
         "Flujo de pago (en desarrollo).",
       ],
-      image: "/images/projects/app/deskify/mockup.png",
+      image: "/images/projects/app/bittenapol/mockup.png",
     },
 
     logo: "/images/projects/app/bittenapol/logo.png",
@@ -129,5 +130,7 @@ export default [
         "Google OAuth",
       ],
     },
+    
+    featured: false
   },
 ];

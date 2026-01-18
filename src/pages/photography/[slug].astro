@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import PhotoProjectPage from "../../components/PhotoProjectPage.astro";
 import photoProjects from "../../data/photoProjects.js";
-import Footer from "../../components/Footer.astro";
 
 export async function getStaticPaths() {
   return photoProjects.map((project) => ({
@@ -17,8 +16,16 @@ const project = photoProjects.find((p) => p.slug === slug);
 if (!project) {
   throw new Error(`No se encontró el proyecto para el slug: ${slug}`);
 }
+
+const featuredGalleries = ["me", "motor", "Architecture"];
+
+const noindex = !featuredGalleries.includes(slug);
 ---
 
-<Layout>
+<Layout
+  noindex={noindex}
+  title={`${project.title} | Fotografía – Eloy Lozano`}
+  description={project.description}
+>
   <PhotoProjectPage {...project} />
 </Layout>

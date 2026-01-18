@@ -134,7 +134,7 @@ const {
     class="relative inline-flex items-center justify-center w-fit mx-auto rounded border-2 border-[#daa032] bg-[#161512] p-1 transition duration-300 group hover:scale-101 active:shadow-[0_0_10px_2px_#daa032]"
   >
     <span
-      class="w-full h-full rounded-[6px] bg-[#0b0b0b] px-6 py-3 text-white text-base font-medium transition-all duration-300 group-hover:bg-[#111]"
+      class="w-full h-full rounded-md bg-[#0b0b0b] px-6 py-3 text-white text-base font-medium transition-all duration-300 group-hover:bg-[#111]"
     >
       Ver proyecto
     </span>
@@ -147,6 +147,11 @@ const {
 <section
   class="mx-auto px-4 lg:px-26 py-12 flex flex-col lg:flex-row justify-evenly gap-12 items-center"
 >
+<img
+  src={mainFeatures.image}
+  alt="Funciones"
+  class="rounded-md w-full max-w-md lg:max-w-100"
+/>
   <div class="w-full lg:w-1/2">
     <Subtitle text="Main functions" gold />
     <Text text={mainFeatures.text} class="mb-4" />
@@ -154,11 +159,6 @@ const {
       {mainFeatures.functions.map((fn: any) => <li>{fn}</li>)}
     </ul>
   </div>
-  <img
-    src={mainFeatures.image}
-    alt="Funciones"
-    class="rounded-md shadow-lg w-full max-w-md lg:max-w-[25rem]"
-  />
 </section>
 
 <section class="space-y-32 px-4 lg:px-26 my-32 w-full mx-auto">
@@ -172,7 +172,7 @@ const {
           } items-center justify-between gap-8`}
         >
           <div class="relative w-full md:w-5/6 max-w-full">
-            <div class="neon-box border border-[#daa032] absolute inset-0 translate-x-[20px] -translate-y-[30px] z-0 hidden lg:block" />
+            <div class="neon-box border border-[#daa032] absolute inset-0 translate-x-5 -translate-y-7.5 z-0 hidden lg:block" />
             <article class="testimonial-card lg:bg-[#0b0b0b]/60 text-white relative z-10 border-sm p-4 lg:pt-6 lg:pb-12 lg:px-16 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] w-full">
               <Subtitle
                 text={

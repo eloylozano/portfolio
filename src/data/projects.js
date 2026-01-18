@@ -91,7 +91,7 @@ export const projects = [
   {
     title: "Savia Club",
     category: "web",
-    img: "/images/projects/web_savia.png",
+    img: "/images/projects/web_savia.webp",
     projectLink: "/web/saviaclub",
     demoLink: "https://comercioslocales02.vercel.app/",
     gitLink: "#",
@@ -99,7 +99,7 @@ export const projects = [
   {
     title: "Restaurante",
     category: "web",
-    img: "/images/projects/web_gastronomia.png",
+    img: "/images/projects/web_gastronomia.webp",
     projectLink: "/web/gastronomia",
     demoLink: "https://comercioslocales.vercel.app/",
     gitLink: "#",

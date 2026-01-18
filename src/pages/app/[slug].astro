@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import AppProjectPage from "../../components/AppProjectPage.astro";
 import appProjects from "../../data/appProjects.js";
-import Footer from "../../components/Footer.astro";
 
 export async function getStaticPaths() {
   return appProjects.map((project) => ({
@@ -17,8 +16,14 @@ const project = appProjects.find((p) => p.slug === slug);
 if (!project) {
   throw new Error(`No se encontró el proyecto para el slug: ${slug}`);
 }
+
+const noindex = project.featured !== true;
 ---
 
-<Layout>
+<Layout
+  noindex={noindex}
+  title={`${project.title} | WebApps – Eloy Lozano`}
+  description={project.description}
+>
   <AppProjectPage {...project} />
 </Layout>
