@@ -30,6 +30,20 @@ export default {
       description: "De cada experiencia, una lección. De cada proyecto, una nueva visión. Esta es mi evolución.",
       cards: [
         {
+          position: "Desarrollador Full Stack",
+          company: "Dixitalia Software",
+          date: "Enero 2026 - Actualidad",
+          description: "Desarrollo de un CRM empresarial a medida.",
+          responsibilities: [
+            "Desarrollo Full Stack con Laravel y Angular",
+            "Gestión de base de datos y lógica de negocio",
+            "Mejora de procesos internos en CRM propio",
+            "Diseño e implementación de APIs REST"
+          ],
+          imgPath: "/images/experience/dixitalia.png",
+        },
+
+        {
           position: "Big Data & IA",
           company: "IES San Clemente",
           date: "Septiembre 2025 - Junio 2026",
