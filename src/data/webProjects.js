@@ -200,7 +200,7 @@ export const webProjects = [
     ],
     liveUrl: "https://concesionario-theta.vercel.app/",
   },
-  
+
   {
     slug: "saviaclub",
     title: "SaviaClub",
@@ -253,5 +253,56 @@ export const webProjects = [
       "/images/projects/web/gastronomia/about.webp",
     ],
     liveUrl: "https://comercioslocales.vercel.app/",
+  },
+  {
+    slug: "atelier",
+    title: "Ambar Atelier",
+    logo: "/images/projects/web/atelier/logo.webp",
+    description:
+      "Ecosistema digital premium orientado al sector del bienestar y estética de lujo, definido por una dirección de arte minimalista y una arquitectura visual sofisticada.",
+    summary:
+      "Desarrollo de una plataforma inmersiva que prioriza la conversión mediante el uso estratégico de espacios negativos, tipografías editoriales y una experiencia de usuario fluida. El proyecto destaca por su sistema de gestión de servicios y una galería interactiva optimizada para el rendimiento.",
+    client: "Estudio de Estética de Autor",
+    tools: ["Astro", "Tailwind CSS", "TypeScript", "Framer Motion"],
+    role: "Lead Frontend & Brand Experience",
+    steps: [
+      "Dirección de arte basada en estética 'Quiet Luxury' con paletas cromáticas orgánicas.",
+      "Desarrollo de una arquitectura de componentes escalable y reutilizable.",
+      "Ingeniería de interacciones: implementación de scroll cinético y cursores personalizados.",
+      "Optimización de Core Web Vitals para garantizar tiempos de carga ultrarrápidos en dispositivos móviles.",
+      "Integración de lógica de negocio para la gestión de reservas y selectores de servicios reactivos.",
+    ],
+    coverImage: "/images/projects/web/atelier/cover.png",
+    images: [
+      "/images/projects/web/atelier/gallery.png",
+      "/images/projects/web/atelier/history.png",
+      "/images/projects/web/atelier/services.png",
+    ],
+    liveUrl: "https://plantillapeluqueria.vercel.app/es/",
+  },
+  {
+    slug: "axesteel",
+    title: "Axe & Steel",
+    description:
+      "Landing de alta gama para Axe & Steel, una barbería de autor que fusiona la artesanía tradicional con la arquitectura visual moderna. El proyecto se articula bajo una dirección de arte 'Industrial-Luxury', donde el contraste y la precisión tipográfica son los protagonistas.",
+    summary:
+      "Construcción de una experiencia inmersiva 'dark-mode' enfocada en la exclusividad. Mediante el uso de micro-interacciones sutiles, una jerarquía editorial impecable y un sistema de reserva optimizado, se logró transformar una simple web de servicios en una extensión digital del taller físico.",
+    client: "Axe & Steel // Master Barber Studio",
+    tools: ["Astro", "Tailwind CSS", "TypeScript", "Lucide Icons"],
+    role: "Lead Frontend & Brand Experience",
+    steps: [
+      "Implementación de una paleta cromática basada en el acero, el cuero y la madera (Quiet Luxury Industrial).",
+      "Desarrollo con Astro para alcanzar un rendimiento de 100/100 en Core Web Vitals.",
+      "Creación de un sistema de cookies y navegación por protocolos que refuerza la identidad técnica de la marca.",
+      "Diseño de una tabla de servicios editorial ('The Ledger') y una sección de contacto tipo tarjeta de membresía premium.",
+      "Implementación de smooth scroll cinético y una navegación móvil optimizada para la interacción táctil de alta precisión.",
+    ],
+    coverImage: "/images/projects/web/axesteel/cover.png",
+    images: [
+      "/images/projects/web/axesteel/quote.png",
+      "/images/projects/web/axesteel/history.png",
+      "/images/projects/web/axesteel/price.png",
+    ],
+    liveUrl: "https://axe-steel.vercel.app/es/",
   },
 ];

@@ -231,111 +231,20 @@ export default [
     coverImage: "/images/projects/myself/banner.webp",
     photos: [
       {
-        title: "Equilibrio en lo natural",
+        title: "Foto de perfil Eloy Lozano en LinkedIn",
         description:
           "Rodeado de árboles, el cuerpo se convierte en una extensión del bosque. La postura tranquila contrasta con la densidad del entorno, y la luz que se filtra entre las ramas aporta un toque de serenidad. Es una escena donde la humanidad no irrumpe, sino que se funde con la naturaleza.",
-        image: "/images/projects/myself/eloy-lozano-barrios-estilo-minimalista.webp",
+        image: "/images/projects/myself/eloy-lozano-perfil-linkedin.webp",
         tech: {
           focal: "35mm",
-          aperture: "f/2.8",
-          iso: "200",
-          camera: "Canon EOS 200D",
-          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
-        },
-      },
-      {
-        title: "Mirada urbana",
-        description:
-          "Sobre el fondo cálido de una estructura moderna, el vestuario elegante y la pose introspectiva crean un contraste fuerte. Aquí, la ciudad se convierte en un marco para la expresión personal, donde el silencio del modelo dice más que las palabras.",
-        image: "/images/projects/myself/eloy-lozano-barrios-desarrollador-web.webp",
-        tech: {
-          focal: "50mm",
-          aperture: "f/2.2",
-          iso: "320",
-          camera: "Canon EOS 200D",
-          lens: "EF 50mm f/1.8 STM",
-        },
-      },
-      {
-        title: "Movimiento entre líneas",
-        description:
-          "Bajo una estructura arquitectónica limpia, el cuerpo juega con las líneas y las sombras. Una escena que captura la relación entre lo dinámico y lo estático, entre el movimiento humano y la geometría del concreto.",
-        image: "/images/projects/myself/eloy-lozano-fotografo-exterior.webp",
-        tech: {
-          focal: "35mm",
-          aperture: "f/3.5",
-          iso: "250",
-          camera: "Canon EOS 200D",
-          lens: "EF-S 18-55mm f/3.5-5.6 IS STM",
-        },
-      },
-      {
-        title: "Otoño interior",
-        description:
-          "La chaqueta oversize, la mirada de espaldas y el suelo cubierto de hojas configuran una escena melancólica. Todo parece detenido en un instante otoñal, donde el modelo se convierte en parte de un paisaje emocional más que físico.",
-        image: "/images/projects/myself/eloy-lozano-sesion-fotografia-bosque.webp",
-        tech: {
-          focal: "50mm",
-          aperture: "f/2",
+          aperture: "f/2.4",
           iso: "400",
           camera: "Canon EOS 200D",
-          lens: "EF 50mm f/1.8 STM",
-        },
-      },
-      {
-        title: "Reflejos de identidad",
-        description:
-          "Una imagen que juega con el espejo y las sombras. Las múltiples versiones del rostro crean un diálogo entre lo visible y lo oculto, lo proyectado y lo interior. Es un retrato que interpela más de lo que muestra.",
-        image: "/images/projects/myself/eloy-lozano-barrios-perfil-creativo.webp",
-        tech: {
-          focal: "50mm",
-          aperture: "f/1.8",
-          iso: "320",
-          camera: "Canon EOS 200D",
-          lens: "EF 50mm f/1.8 STM",
-        },
-      },
-      {
-        title: "Retrato de carácter",
-        description:
-          "La expresión firme y la iluminación suave hacen de esta imagen un estudio del rostro como territorio emocional. Cada pliegue, cada sombra, revela un matiz de identidad. La camisa blanca y el fondo neutro refuerzan la atemporalidad del retrato.",
-        image: "/images/projects/myself/eloy-lozano-barrios-retrato-profesional.webp",
-        tech: {
-          focal: "50mm",
-          aperture: "f/2.8",
-          iso: "100",
-          camera: "Canon EOS 200D",
-          lens: "EF 50mm f/1.8 STM",
-        },
-      },
-      {
-        title: "Minimalismo dramático",
-        description:
-          "Una perla en la oscuridad. La cadena brilla como único punto de luz sobre un fondo completamente negro. El rostro, apenas visible, insinúa más de lo que revela. Es una imagen contenida, de tensión estética, donde cada sombra tiene voz.",
-        image: "/images/projects/myself/eloy-lozano-barrios-identidad-visual.webp",
-        tech: {
-          focal: "50mm",
-          aperture: "f/1.8",
-          iso: "100",
-          camera: "Canon EOS 200D",
-          lens: "EF 50mm f/1.8 STM",
-        },
-      },
-      {
-        title: "Minimalismo dramático",
-        description:
-          "Una perla en la oscuridad. La cadena brilla como único punto de luz sobre un fondo completamente negro. El rostro, apenas visible, insinúa más de lo que revela. Es una imagen contenida, de tensión estética, donde cada sombra tiene voz.",
-        image: "/images/projects/myself/eloy-lozano-fotografo-mirada-urbana.webp",
-        tech: {
-          focal: "35mm",
-          aperture: "f/2.8",
-          iso: "100",
-          camera: "Canon EOS 200D",
           lens: "Sigma 35mm f/1.4 DSM DG DN ART",
         },
       },
       {
-        title: "Minimalismo dramático",
+        title: "Retrato artístico ejecutivo de Eloy Lozano",
         description:
           "Una perla en la oscuridad. La cadena brilla como único punto de luz sobre un fondo completamente negro. El rostro, apenas visible, insinúa más de lo que revela. Es una imagen contenida, de tensión estética, donde cada sombra tiene voz.",
         image: "/images/projects/myself/eloy-lozano-primer-plano-caracter.webp",
@@ -348,14 +257,118 @@ export default [
         },
       },
       {
-        title: "Minimalismo dramático",
+        title: "Retrato con filtro sepia de Eloy Lozano",
         description:
           "Una perla en la oscuridad. La cadena brilla como único punto de luz sobre un fondo completamente negro. El rostro, apenas visible, insinúa más de lo que revela. Es una imagen contenida, de tensión estética, donde cada sombra tiene voz.",
-        image: "/images/projects/myself/eloy-lozano-retrato-blanco-y-negro.webp",
+        image: "/images/projects/myself/eloy-lozano-retrato-sepia.webp",
         tech: {
           focal: "35mm",
           aperture: "f/2.8",
           iso: "400",
+          camera: "Canon EOS 200D",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
+        },
+      },
+      {
+        title: "Retrato profesional de Eloy Lozano",
+        description:
+          "La expresión firme y la iluminación suave hacen de esta imagen un estudio del rostro como territorio emocional. Cada pliegue, cada sombra, revela un matiz de identidad. La camisa blanca y el fondo neutro refuerzan la atemporalidad del retrato.",
+        image: "/images/projects/myself/eloy-lozano-barrios-retrato-profesional.webp",
+        tech: {
+          focal: "50mm",
+          aperture: "f/2.8",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "EF 50mm f/1.8 STM",
+        },
+      },
+      {
+        title: "Retrato de negocios de Eloy Lozano",
+        description:
+          "Sobre el fondo cálido de una estructura moderna, el vestuario elegante y la pose introspectiva crean un contraste fuerte. Aquí, la ciudad se convierte en un marco para la expresión personal, donde el silencio del modelo dice más que las palabras.",
+        image: "/images/projects/myself/eloy-lozano-barrios-desarrollador-web.webp",
+        tech: {
+          focal: "50mm",
+          aperture: "f/2.2",
+          iso: "320",
+          camera: "Canon EOS 200D",
+          lens: "EF 50mm f/1.8 STM",
+        },
+      },
+      {
+        title: "Fotografía de Eloy Lozano en Santiago de Compostela ",
+        description:
+          "Bajo una estructura arquitectónica limpia, el cuerpo juega con las líneas y las sombras. Una escena que captura la relación entre lo dinámico y lo estático, entre el movimiento humano y la geometría del concreto.",
+        image: "/images/projects/myself/eloy-lozano-fotografo-exterior.webp",
+        tech: {
+          focal: "35mm",
+          aperture: "f/3.5",
+          iso: "250",
+          camera: "Canon EOS 200D",
+          lens: "EF-S 18-55mm f/3.5-5.6 IS STM",
+        },
+      },
+      {
+        title: "Fotografía de Eloy Lozano en el bosque",
+        description:
+          "La chaqueta oversize, la mirada de espaldas y el suelo cubierto de hojas configuran una escena melancólica. Todo parece detenido en un instante otoñal, donde el modelo se convierte en parte de un paisaje emocional más que físico.",
+        image: "/images/projects/myself/eloy-lozano-sesion-fotografia-bosque.webp",
+        tech: {
+          focal: "50mm",
+          aperture: "f/2",
+          iso: "400",
+          camera: "Canon EOS 200D",
+          lens: "EF 50mm f/1.8 STM",
+        },
+      },
+      {
+        title: "Retrato artístico de Eloy Lozano reflejado en un fragmento de espejo",
+        description:
+          "Rodeado de árboles, el cuerpo se convierte en una extensión del bosque. La postura tranquila contrasta con la densidad del entorno, y la luz que se filtra entre las ramas aporta un toque de serenidad. Es una escena donde la humanidad no irrumpe, sino que se funde con la naturaleza.",
+        image: "/images/projects/myself/eloy-lozano-barrios-estilo-minimalista.webp",
+        tech: {
+          focal: "35mm",
+          aperture: "f/2.8",
+          iso: "200",
+          camera: "Canon EOS 200D",
+          lens: "Sigma 35mm f/1.4 DSM DG DN ART",
+        },
+      },
+      {
+        title: "Retrato artístico luz y sombra en blanco y negro de Eloy Lozano",
+        description:
+          "Una imagen que juega con el espejo y las sombras. Las múltiples versiones del rostro crean un diálogo entre lo visible y lo oculto, lo proyectado y lo interior. Es un retrato que interpela más de lo que muestra.",
+        image: "/images/projects/myself/eloy-lozano-barrios-perfil-creativo.webp",
+        tech: {
+          focal: "50mm",
+          aperture: "f/1.8",
+          iso: "320",
+          camera: "Canon EOS 200D",
+          lens: "EF 50mm f/1.8 STM",
+        },
+      },
+      {
+        title: "Retrato de identidad visual de Eloy Lozano",
+        description:
+          "Una perla en la oscuridad. La cadena brilla como único punto de luz sobre un fondo completamente negro. El rostro, apenas visible, insinúa más de lo que revela. Es una imagen contenida, de tensión estética, donde cada sombra tiene voz.",
+        image: "/images/projects/myself/eloy-lozano-barrios-identidad-visual.webp",
+        tech: {
+          focal: "50mm",
+          aperture: "f/1.8",
+          iso: "100",
+          camera: "Canon EOS 200D",
+          lens: "EF 50mm f/1.8 STM",
+        },
+      },
+      {
+        title: "Retrato de mirada urbana de Eloy Lozano",
+        description:
+          "Una perla en la oscuridad. La cadena brilla como único punto de luz sobre un fondo completamente negro. El rostro, apenas visible, insinúa más de lo que revela. Es una imagen contenida, de tensión estética, donde cada sombra tiene voz.",
+        image: "/images/projects/myself/eloy-lozano-fotografo-mirada-urbana.webp",
+        tech: {
+          focal: "35mm",
+          aperture: "f/2.8",
+          iso: "100",
           camera: "Canon EOS 200D",
           lens: "Sigma 35mm f/1.4 DSM DG DN ART",
         },

@@ -1,0 +1,50 @@
+# Eloy Lozano | Desarrollador Web & Fotógrafo
+
+> Perfil profesional: Desarrollador Frontend especializado en arquitecturas de alto rendimiento y fotografía técnica. Experto en transformar conceptos de lujo y bienestar en ecosistemas digitales inmersivos.
+
+## Proyectos Destacados (Featured)
+
+### 1. Deskify
+- **Rol:** Fullstack Developer
+- **Stack:** React, Vercel, App Engineering
+- **Highlights:** Plataforma de gestión de espacios de trabajo enfocada en UX y productividad.
+- **URL:** https://deskify-web.vercel.app
+
+
+### 2. Axe & Steel
+- **Rol:** Lead Frontend & Brand Experience
+- **Stack:** Astro, Tailwind CSS, TypeScript
+- **Highlights:** Dirección de arte 'Industrial-Luxury', 100/100 en Core Web Vitals, sistema de reservas reactivo.
+- **URL:** https://axe-steel.vercel.app/es/
+
+### 3. Ambar Atelier
+- **Rol:** Web Architect
+- **Stack:** Astro, Tailwind CSS
+- **Highlights:** Diseño minimalista para el sector boutique/estética, optimización de conversión.
+- **URL:** https://plantillapeluqueria.vercel.app/es/
+
+### 4. Savia Club & Restaurante
+- **Rol:** Frontend Developer
+- **Highlights:** Digitalización de comercios locales con interfaces gastronómicas visualmente ricas.
+- **URLs:** https://comercioslocales02.vercel.app/ | https://comercioslocales.vercel.app/
+
+### 5. Pawtopia
+- **Rol:** Web Developer
+- **Highlights:** E-commerce/Plataforma de bienestar animal con arquitectura escalable.
+- **URL:** https://pawtopia-nine.vercel.app/
+
+### 6. Myself (Photography Portfolio)
+- **Rol:** Photographer & Curator
+- **Highlights:** Trabajo de autor que demuestra el dominio de la composición y la luz, aplicado luego al diseño UI.
+
+## Otros Proyectos
+- Appfluence (Web App), Bitten Apol (App), Lens Legacy (Web), EcoVibe (Web).
+- Fotografía especializada: Arquitectura, Naturaleza, Motor y Plane Spotting.
+
+## Stack Tecnológico
+- **Frontend:** Astro (Experto), Tailwind CSS, TypeScript, React.
+- **Herramientas:** Figma, Git, Vercel, Adobe Suite.
+
+## Contacto
+- Web: https://eloylozano.es
+- Status: Disponible para proyectos de alto impacto visual y técnico.

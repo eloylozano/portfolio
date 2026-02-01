@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /photography/me
+Allow: /web/atelier
+Allow: /web/saviaclub
+Allow: /web/axesteel
+Allow: /web/gastronomia
+
+# Desactivar carpetas y páginas específicas
+Disallow: /web/cafeparados
+Disallow: /photography/nature
+Disallow: /photography/sunsets
+
+Sitemap: https://www.eloylozano.es/sitemap-index.xml

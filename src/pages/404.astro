@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/Title.astro";
+import { t } from "../i18n";
+
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
+
+const title = lang === "es" ? "Página no encontrada" : "Page not found";
+const sub =
+  lang === "es"
+    ? "Lo sentimos, el enlace que buscas no existe o ha sido movido."
+    : "Sorry, the link you are looking for does not exist or has been moved.";
+const back = lang === "es" ? "Volver al inicio" : "Back to home";
+---
+
+<Layout title="404 | Eloy Lozano">
+  <main
+    class="relative min-h-screen bg-[#161512] flex items-center justify-center px-6 overflow-hidden"
+  >
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_center,_#1d1c19_0%,_#161512_80%)] pointer-events-none"
+    >
+    </div>
+    <div class="absolute inset-0 noise pointer-events-none opacity-20"></div>
+
+    <div class="relative z-10 flex flex-col items-center text-center">
+      <div class="relative mb-2 flex items-center justify-center">
+        <span
+          class="absolute text-[150px] md:text-[430px] font-medium tracking-tighter bg-gradient-to-b from-[#daa032] to-transparent bg-clip-text text-transparent opacity-20 blur-sm select-none"
+        >
+          404
+        </span>
+
+        <div class="relative pt-12 md:pt-20">
+          <Title
+            text={title}
+            class="text-2xl md:text-3xl tracking-[0.3em] uppercase font-light"
+          />
+        </div>
+      </div>
+
+      <p
+        class="mt-8 max-w-sm text-white/50 text-xs md:text-sm tracking-widest leading-relaxed italic font-light"
+      >
+        {sub}
+      </p>
+
+      <a
+        href="/"
+        class="group relative mt-16 inline-flex items-center justify-center px-12 py-4 border border-white/5 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-[#daa032]/30"
+      >
+        <span
+          class="absolute inset-0 bg-[#daa032]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        ></span>
+
+        <span
+          class="relative text-[10px] uppercase tracking-[0.5em] font-light text-white group-hover:text-[#daa032] transition-colors duration-500"
+        >
+          {back}
+        </span>
+
+        <span
+          class="absolute top-0 left-0 w-1 h-[1px] bg-[#daa032] opacity-0 group-hover:opacity-100 transition-all duration-500"
+        ></span>
+        <span
+          class="absolute top-0 left-0 w-[1px] h-1 bg-[#daa032] opacity-0 group-hover:opacity-100 transition-all duration-500"
+        ></span>
+        <span
+          class="absolute bottom-0 right-0 w-1 h-[1px] bg-[#daa032] opacity-0 group-hover:opacity-100 transition-all duration-500"
+        ></span>
+        <span
+          class="absolute bottom-0 right-0 w-[1px] h-1 bg-[#daa032] opacity-0 group-hover:opacity-100 transition-all duration-500"
+        ></span>
+      </a>
+    </div>
+
+    <div
+      class="absolute bottom-10 text-[9px] tracking-[0.6em] text-white/10 uppercase select-none"
+    >
+      Eloy Lozano &bull; Est. 2024
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* Ruido sutil para texturizar el fondo */
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+</style>

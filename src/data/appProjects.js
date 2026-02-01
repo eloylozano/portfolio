@@ -16,7 +16,7 @@ export default [
       "/images/projects/app/deskify/Picture1.jpg",
     ],
     tech: ["Astro", "Svelte", "Spring", "MySQL"],
-
+    alt: "Portada de deskify",
     mainFeatures: {
       text: "Deskify es una aplicación web desarrollada para optimizar la gestión del soporte técnico en entornos empresariales. A través de un sistema de tickets intuitivo y personalizable, mejora la comunicación entre usuarios y agentes, centraliza la resolución de incidencias y proporciona un control más eficiente del flujo de trabajo. Está diseñada para escalar fácilmente, adaptarse a diferentes roles dentro de una organización y proporcionar herramientas útiles tanto a nivel operativo como analítico. Principales características de Deskify:",
       functions: [
@@ -79,6 +79,7 @@ export default [
       "AWS S3",
     ],
 
+    alt: "Portada de Bitten Apol",
     mainFeatures: {
       text: "BittenApol ofrece una solución completa para la gestión del comercio electrónico, con panel administrativo y cliente web integrados. Algunas funcionalidades destacadas incluyen:",
       functions: [

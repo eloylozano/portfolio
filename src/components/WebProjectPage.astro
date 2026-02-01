@@ -92,10 +92,10 @@ const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
     >
       {
         project.images.map((img) => (
-          <div class="aspect-[4/3] overflow-hidden rounded-md">
+          <div class="aspect-4/3 overflow-hidden rounded-md">
             <img
               src={img}
-              alt="Screenshot"
+              alt={`Portada de ${project.title}`}
               class="w-full h-full object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
             />
           </div>
@@ -140,7 +140,7 @@ const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
   let lightbox: HTMLElement | null = null;
   let lightboxImg: HTMLImageElement | null = null;
 
-  window.addEventListener("load", () => {
+  document.addEventListener("astro:page-load", () => {
     lightbox = document.getElementById("lightbox");
     lightboxImg = lightbox?.querySelector("img") ?? null;
     const closeBtn = document.getElementById("lightbox-close");

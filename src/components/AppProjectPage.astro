@@ -10,6 +10,7 @@ const {
   coverImage,
   gallery,
   logo,
+  alt,
   demoLink,
   figmaLink,
   gitLink,
@@ -34,7 +35,7 @@ const {
           <div class="swiper-slide">
             <img
               src={img}
-              alt="Slider image"
+              alt={alt}
               class="w-full h-full object-cover"
             />
           </div>
@@ -66,7 +67,7 @@ const {
       {
         demoLink && (
           <a href={demoLink} target="_blank" rel="noopener noreferrer">
-            <img src={logo} class="w-7 " alt="Logo" />
+            <img src={logo} class="w-7 " alt="Logo del proyecto" />
           </a>
         )
       }
@@ -149,7 +150,7 @@ const {
 >
 <img
   src={mainFeatures.image}
-  alt="Funciones"
+  alt="Funcionalidades"
   class="rounded-md w-full max-w-md lg:max-w-100"
 />
   <div class="w-full lg:w-1/2">

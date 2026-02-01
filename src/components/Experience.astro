@@ -4,20 +4,23 @@ import Text from "./Text.astro";
 import ExperienceCard from "./ExperienceCard.astro";
 import { t } from "../i18n";
 
-const lang =
-  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
-  "es";
-const cards = t(lang, "pages.exp.cards") || [];
+interface Experience {
+  position: string;
+  company: string;
+  date: string;
+  description: string;
+  responsibilities: string[];
+  imgPath: string;
+}
+
+const lang = Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] || "es";
+const cards = (t(lang, "pages.exp.cards") as Experience[]) || [];
 ---
 
-<section class="bg-[#161512] lg:px-26 px-6 pb-16 relative">
+<section class="bg-[#161512] lg:px-26 px-6 pb-16 relative overflow-x-hidden">
   <Title class="text-center mb-8" text={t(lang, "pages.exp.title")} />
-  <Text
-    class="text-center italic mb-20"
-    text={t(lang, "pages.exp.description")}
-  />
+  <Text class="text-center italic mb-20" text={t(lang, "pages.exp.description")} />
 
-  <!-- Línea central vertical -->
   <div class="line-vertical neon"></div>
 
   <div class="flex flex-col gap-12 lg:gap-22 relative">
@@ -25,24 +28,26 @@ const cards = t(lang, "pages.exp.cards") || [];
       cards.map((card, index) => (
         <div
           class={`experience-node ${index % 2 === 0 ? "right" : "left"} flex ${
-            index % 2 === 0 ? "justify-end" : "justify-start"
+            index % 2 === 0 ? "lg:justify-end" : "lg:justify-start"
           } relative w-full`}
-          key={index}
         >
-          <ExperienceCard
-            position={card.position}
-            company={card.company}
-            date={card.date}
-            description={card.description}
-            responsibilities={card.responsibilities}
-            imgPath={card.imgPath}
-            right={index % 2 !== 0}
-          />
+          <div class="card-animator w-full lg:w-auto">
+            <ExperienceCard
+              position={card.position}
+              company={card.company}
+              date={card.date}
+              description={card.description}
+              responsibilities={card.responsibilities}
+              imgPath={card.imgPath}
+              right={index % 2 !== 0}
+            />
+          </div>
         </div>
       ))
     }
   </div>
 </section>
+
 <style>
   .line-vertical {
     position: absolute;
@@ -53,18 +58,11 @@ const cards = t(lang, "pages.exp.cards") || [];
     width: 2px;
     background-color: #daa032;
     border-radius: 1px;
-    box-shadow:
-      0 0 6px #daa032,
-      0 0 20px #daa032,
-      inset 0 0 8px #daa032;
     z-index: 0;
   }
 
   .neon {
-    box-shadow:
-      0 0 6px #daa032,
-      0 0 30px #daa032,
-      inset 0 0 8px #daa032;
+    box-shadow: 0 0 6px #daa032, 0 0 30px #daa032, inset 0 0 8px #daa032;
   }
 
   .experience-node {
@@ -72,49 +70,83 @@ const cards = t(lang, "pages.exp.cards") || [];
     width: 100%;
   }
 
-  @media (max-width: 1550px) {
-    .experience-node.right::before,
-    .experience-node.left::before {
-      display: none;
-    }
+  /* --- ESTADO INICIAL ANIMACIÓN --- */
+  .card-animator {
+    opacity: 0;
+    transition: all 1s ease-out;
   }
+
+  /* --- MÓVIL (Tu estilo original) --- */
   @media (max-width: 767px) {
-    .line-vertical {
-      display: none;
-    }
-
-    .experience-node.right::before,
-    .experience-node.left::before {
-      display: none;
-    }
-
+    .line-vertical { display: none; }
     .experience-node {
       flex-direction: column !important;
       align-items: center !important;
     }
+    /* En móvil entrada suave hacia arriba */
+    .card-animator { transform: translateY(20px); }
   }
 
-  /* Decorativas ramas laterales */
-  .experience-node.right::before,
-  .experience-node.left::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 3rem;
-    height: 2px;
-    background: #daa032;
-    transform: translateY(-50%);
-    box-shadow:
-      0 0 6px #daa032,
-      0 0 10px #daa032;
-    z-index: 10;
+  /* --- DESKTOP (Efecto Z + Ramas con Degradado) --- */
+  @media (min-width: 768px) {
+    /* Entrada lateral */
+    .experience-node.right .card-animator { transform: translateX(100px); }
+    .experience-node.left .card-animator { transform: translateX(-100px); }
+
+    /* Ramas laterales con degradado */
+    .experience-node::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 4rem;
+      height: 2px;
+      transform: translateY(-50%);
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.5s ease-out 0.5s;
+    }
+
+    .experience-node.right::before {
+      left: 50%;
+      background: linear-gradient(to right, #daa032, transparent);
+    }
+
+    .experience-node.left::before {
+      right: 50%;
+      background: linear-gradient(to left, #daa032, transparent);
+    }
   }
 
-  .experience-node.right::before {
-    left: calc(50% + 1px);
+  /* --- CLASE REVEAL (Activada por JS) --- */
+  .reveal .card-animator {
+    opacity: 1;
+    transform: translate(0) !important;
   }
 
-  .experience-node.left::before {
-    right: calc(50% + 1px);
+  .reveal::before {
+    opacity: 1 !important;
+  }
+
+  /* Ocultar ramas si la pantalla es intermedia como tenías */
+  @media (max-width: 1550px) {
+    .experience-node::before { display: none; }
   }
 </style>
+
+<script>
+  function initExp() {
+    const nodes = document.querySelectorAll(".experience-node");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    nodes.forEach(n => observer.observe(n));
+  }
+
+  document.addEventListener("astro:page-load", initExp);
+  document.addEventListener("DOMContentLoaded", initExp);
+</script>
