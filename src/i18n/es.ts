@@ -180,6 +180,7 @@ export default {
         design: "Diseños Web",
         webApp: "Aplicaciones Web",
         photos: "Fotografía",
+        aiBigData: "IA & BigData",
       },
       buttons: {
         live: "Visitar web",

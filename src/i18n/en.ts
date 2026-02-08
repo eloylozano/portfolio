@@ -168,6 +168,7 @@ export default {
         design: "Web Designs",
         webApp: "Web Apps",
         photos: "Photography",
+        aiBigData: "BigData & AI",
       },
       comingSoon: "Soon",
       buttons: {

@@ -26,21 +26,31 @@ const sortedProjects = [...projects].sort((a, b) => {
     class="flex justify-center border-0 mx-auto font-medium mb-6 sm:mb-10 gap-4 sm:gap-8 lg:gap-26 px-4 sm:px-12 pb-2 text-xs sm:text-sm overflow-x-auto w-full max-w-full"
   >
     {
-      ["all", "web", "app", "photo"].map((filter) => (
+      /* Añadimos "ai" al array */
+      ["all", "web", "app", "ai", "photo"].map((filter) => (
         <button
           class="filter-btn relative text-[#e9eeef] hover:text-white cursor-pointer transition duration-200 whitespace-nowrap px-2 sm:px-0 group"
           data-filter={filter}
         >
           {t(
             lang,
-            `pages.projects.nav.${filter === "web" ? "design" : filter === "app" ? "webApp" : filter === "photo" ? "photos" : "all"}`
+            `pages.projects.nav.${
+              filter === "web"
+                ? "design"
+                : filter === "app"
+                  ? "webApp"
+                  : filter === "ai"
+                    ? "aiBigData"
+                    : filter === "photo"
+                      ? "photos"
+                      : "all"
+            }`
           )}
           <span class="active-indicator absolute left-1/2 -bottom-2 -translate-x-1/2 h-0.5 bg-[#daa032] transition-all duration-300 w-0 opacity-0 group-hover:w-1/2 group-hover:opacity-50" />
         </button>
       ))
     }
   </nav>
-
   <div class="px-2 sm:px-0">
     <div
       id="project-grid"
