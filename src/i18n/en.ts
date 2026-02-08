@@ -179,9 +179,11 @@ export default {
     },
     stack: {
       title: "My stack",
+      web: "Web",
       backend: "BackEnd",
       frontend: "FrontEnd",
       design: "Design",
+      ai: "AI",
       data: "Data",
     },
     recomendations: {
@@ -218,6 +220,9 @@ export default {
         message: {
           label: "Message",
           placeholder: "Let your message...",
+        },
+        check:{
+          text: 'I have read and agree that my data may be used exclusively to manage this contact.',
         },
         button: "Send",
       },

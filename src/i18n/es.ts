@@ -192,9 +192,11 @@ export default {
     stack: {
       title: "Mi stack",
       backend: "BackEnd",
+      web: "Web",
       frontend: "FrontEnd",
       design: "Diseño",
       data: "Datos",
+      ai: "IA",
     },
     recomendations: {
       title: "Recomendaciones",
@@ -230,6 +232,9 @@ export default {
         message: {
           label: "Mensaje",
           placeholder: "Déjame tu mensaje...",
+        },
+        check:{
+          text: 'He leído y acepto que mis datos se utilicen exclusivamente para gestionar este contacto.',
         },
         button: "Enviar",
       },

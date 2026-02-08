@@ -14,94 +14,111 @@ const lang =
   class="section bg-[#161512]/60 py-16 text-white"
 >
   <div
-    class="p-6 sm:p-10 md:p-16 lg:p-26 flex flex-col lg:flex-row gap-8 items-start lg:items-end justify-between bg-[#0b0b0b]/60"
+    class="container mx-auto max-w-6xl p-6 sm:p-10 md:p-16 flex flex-col lg:flex-row gap-12 items-start bg-[#0b0b0b]/80 border border-white/5  shadow-2xl"
   >
-    <div class="w-full lg:w-[52%]">
-      <Title
-        class="text-center lg:text-left"
-        text={t(lang, "pages.contact.title")}
-      />
-      <p class="mb-8 text-md text-justify">
-        {t(lang, "pages.contact.description.text01")}
-        <a
-          id="dynamic-mail"
-          class="cursor-pointer text-[#e9eeef]/60 underline hover:text-[#daa032] transition duration-300"
-        >
-          {t(lang, "en mi mail") || "en mi mail"}
-        </a>
-        {t(lang, "pages.contact.description.text02")}
-        <a
-          href="https://www.linkedin.com/in/eloylozano"
-          class="text-[#e9eeef]/60 underline hover:text-[#daa032] transition duration-300"
-        >
-          LinkedIn
-        </a>. <br />{t(lang, "pages.contact.description.text03")}
-      </p>
-      <img
-        src="/images/mockup.jpg"
-        alt="Iphone With my portfolio"
-        class="w-full rounded-md"
-      />
+    <div class="w-full lg:w-1/2 space-y-8">
+      <div>
+        <Title
+          class="text-left"
+          text={t(lang, "pages.contact.title")}
+        />
+        <p class="mt-6 text-gray-300 leading-relaxed text-lg">
+          {t(lang, "pages.contact.description.text01")}
+          <span id="dynamic-mail" class="cursor-pointer text-[#daa032] font-semibold hover:underline decoration-2 underline-offset-4 transition-all">
+            {t(lang, "mail") || "mail"}
+          </span>
+          {t(lang, "pages.contact.description.text02")}
+          <a
+            href="https://www.linkedin.com/in/eloylozano"
+            target="_blank"
+            class="text-[#daa032] font-semibold hover:underline decoration-2 underline-offset-4 transition-all"
+          >
+            LinkedIn
+          </a>.
+        </p>
+      </div>
+
+      <div class="relative group overflow-hidden rounded-lg border border-white/10 bg-black/40 p-1">
+        <div class="absolute inset-0 bg-gradient-to-tr from-[#daa032]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <img
+          src="/images/mockup.jpg" 
+          alt="Interface preview"
+          class="w-full h-auto rounded-xs grayscale-[50%] group-hover:grayscale-0 transition-all duration-500"
+        />
+        <div class="absolute bottom-4 left-4">
+           <span class="bg-black/80 backdrop-blur-md border border-[#daa032]/50 text-[#daa032] text-[10px] px-2 py-1 rounded uppercase tracking-widest font-bold">
+             AI Agent Coming Soon
+           </span>
+        </div>
+      </div>
     </div>
 
-    <div class="w-full lg:w-[45%]">
-      <form id="contact-form" class="rounded-md space-y-5">
-        <div>
-          <label for="name" class="block mb-2 text-sm"
-            >{t(lang, "pages.contact.form.name.label")}</label
-          >
+    <div class="w-full lg:w-1/2 bg-[#161512] p-8 rounded-lg border border-white/5 shadow-inner">
+      <form id="contact-form" class="space-y-5">
+        <div class="group">
+          <label for="name" class="block mb-2 text-xs font-bold uppercase tracking-widest text-gray-400 group-focus-within:text-[#daa032] transition-colors">
+            {t(lang, "pages.contact.form.name.label")}
+          </label>
           <input
             type="text"
             id="name"
             name="name"
             placeholder={t(lang, "pages.contact.form.name.placeholder")}
             required
-            class="w-full rounded border-2 border-[#daa032] bg-[#161512] px-3 py-2 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#daa032] focus:shadow-[0_0_10px_2px_#daa032]"
+            class="w-full rounded-xs border-2 border-white/10 bg-black/20 px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#daa032] focus:ring-1 focus:ring-[#daa032] transition-all"
           />
         </div>
 
-        <div>
-          <label for="email" class="block mb-2 text-sm"
-            >{t(lang, "pages.contact.form.email.label")}</label
-          >
+        <div class="group">
+          <label for="email" class="block mb-2 text-xs font-bold uppercase tracking-widest text-gray-400 group-focus-within:text-[#daa032] transition-colors">
+            {t(lang, "pages.contact.form.email.label")}
+          </label>
           <input
             type="email"
             id="email"
             name="email"
             placeholder={t(lang, "pages.contact.form.email.placeholder")}
             required
-            class="w-full rounded border-2 border-[#daa032] bg-[#161512] px-3 py-2 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#daa032] focus:shadow-[0_0_10px_2px_#daa032]"
+            class="w-full rounded-xs border-2 border-white/10 bg-black/20 px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#daa032] focus:ring-1 focus:ring-[#daa032] transition-all"
           />
         </div>
 
-        <div>
-          <label for="message" class="block mb-2 text-sm"
-            >{t(lang, "pages.contact.form.message.label")}</label
-          >
+        <div class="group">
+          <label for="message" class="block mb-2 text-xs font-bold uppercase tracking-widest text-gray-400 group-focus-within:text-[#daa032] transition-colors">
+            {t(lang, "pages.contact.form.message.label")}
+          </label>
           <textarea
             id="message"
             name="message"
             placeholder={t(lang, "pages.contact.form.message.placeholder")}
             required
-            class="w-full h-40 resize-none rounded border-2 border-[#daa032] bg-[#161512] px-3 py-2 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#daa032] focus:shadow-[0_0_10px_2px_#daa032]"
+            class="w-full h-32 resize-none rounded-xs border-2 border-white/10 bg-black/20 px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#daa032] focus:ring-1 focus:ring-[#daa032] transition-all"
           ></textarea>
+        </div>
+
+        <div class="flex items-start gap-3 py-2">
+          <input 
+            type="checkbox" 
+            id="privacy-check" 
+            required
+            class="mt-1 w-4 h-4 accent-[#daa032] cursor-pointer"
+          />
+          <label for="privacy-check" class="text-xs text-gray-400 cursor-pointer select-none">
+            {t(lang, "pages.contact.form.check.text")}
+          </label>
         </div>
 
         <button
           type="submit"
-          class="relative w-full inline-flex items-center justify-center rounded border-2 border-[#daa032] bg-[#161512] p-1 transition duration-300 group hover:scale-101 active:shadow-[0_0_10px_2px_#daa032]"
+          id="submit-btn"
+          class="relative w-full group overflow-hidden rounded-xs cursor-pointer border-2 border-[#daa032] bg-[#daa032] py-4 text-black font-bold uppercase tracking-[0.2em] text-sm transition-all hover:bg-transparent hover:text-[#daa032]"
         >
-          <span
-            class="w-full h-full rounded-md bg-[#0b0b0b] px-4 py-2 text-white text-base font-medium transition-all duration-300"
-          >
-            {t(lang, "pages.contact.form.button")}
-          </span>
+          <span class="relative z-10">{t(lang, "pages.contact.form.button")}</span>
         </button>
       </form>
     </div>
   </div>
 </section>
-
 <script>
   // Datos ofuscados para que los bots no los lean
   const u = "lozanobarrioseloy";
