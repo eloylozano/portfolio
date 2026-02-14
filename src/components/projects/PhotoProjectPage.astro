@@ -1,0 +1,193 @@
+---
+import Subtitle from "../ui/Subtitle.astro";
+import Text from "../ui/Text.astro";
+import Title from "../ui/Title.astro";
+import { t } from "../../i18n";
+
+const { title, description, coverImage, photos } = Astro.props;
+const lang = Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] || "es";
+---
+
+<section class="text-center my-12 max-w-6xl mx-auto px-4 fade-in-up" id="projects">
+  <Title text={title} />
+  <div class="max-w-6xl mx-auto mt-4">
+    <Text text={description} size="md" />
+  </div>
+</section>
+
+<section class="w-full p-6 lg:px-26 mb-12">
+  <h2 class="text-xl font-semibold text-[#daa032] mb-8 fade-in">
+    {t(lang, "projects_data.photography.gallery_title")}
+  </h2>
+  
+  <div id="gallery" class="columns-1 sm:columns-2 md:columns-4 gap-8 space-y-12">
+    {
+      photos.map((photo: any, index: number) => (
+        <div 
+          class="photo-item break-inside-avoid group perspective-1000"
+          style={`animation-delay: ${index * 0.15}s`} 
+        >
+          <div class="relative transition-all duration-500 ease-out transform-gpu group-hover:-translate-y-3">
+            
+            <div class="relative z-10 overflow-hidden rounded-t-sm border-x border-t border-white/10 shadow-2xl">
+              <img 
+                src={photo.image} 
+                alt={photo.title} 
+                class="w-full h-auto cursor-pointer transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-linear-to-tr from-white/10 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            </div>
+
+            <div class="relative z-20">
+              <div class="h-[3px] w-full bg-[#daa032] shadow-[0_-2px_15px_rgba(218,160,50,0.6)] transition-all duration-500 group-hover:shadow-[0_-2px_25px_rgba(218,160,50,0.8)]"></div>
+              
+              <div class="bg-linear-to-b from-[#141414] to-[#080808] p-5 border-x border-b border-white/5 rounded-b-md shadow-2xl relative overflow-hidden">
+                
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(218,160,50,0.08),transparent_70%)]"></div>
+
+                <div class="relative z-30">
+                  <div class="flex justify-between items-center mb-4">
+                    <div class="flex gap-1">
+                        <div class="w-1 h-1 bg-[#daa032]/40 rounded-full"></div>
+                        <div class="w-1 h-1 bg-[#daa032]/20 rounded-full"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="grid grid-cols-2 gap-x-4 gap-y-3 font-mono">
+                    <div class="flex flex-col border-l border-white/5 pl-2 transition-colors group-hover:border-[#daa032]/20">
+                      <span class="text-[10px] text-gray-500 uppercase tracking-wider">{t(lang, "projects_data.photography.tech_labels.focal")}</span>
+                      <span class="text-[14px] text-gray-200">{photo.tech.focal}</span>
+                    </div>
+                    <div class="flex flex-col border-l border-white/5 pl-2 transition-colors group-hover:border-[#daa032]/20">
+                      <span class="text-[10px] text-gray-500 uppercase tracking-wider">{t(lang, "projects_data.photography.tech_labels.aperture")}</span>
+                      <span class="text-[14px] text-gray-200">{photo.tech.aperture}</span>
+                    </div>
+                    <div class="flex flex-col border-l border-white/5 pl-2 transition-colors group-hover:border-[#daa032]/20">
+                      <span class="text-[10px] text-gray-500 uppercase tracking-wider">{t(lang, "projects_data.photography.tech_labels.iso")}</span>
+                      <span class="text-[14px] text-gray-200">{photo.tech.iso}</span>
+                    </div>
+                    <div class="flex flex-col border-l border-white/5 pl-2 transition-colors group-hover:border-[#daa032]/20">
+                      <span class="text-[10px] text-gray-500 uppercase tracking-wider">{t(lang, "projects_data.photography.tech_labels.camera")}</span>
+                      <span class="text-[14px] text-gray-200 truncate">{photo.tech.camera}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[80%] h-6 bg-[#daa032]/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" id="lightbox-close">&times;</span>
+  <img alt="Imagen ampliada" />
+</div>
+
+<style>
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  /* Animación de Cascada con ligera rotación 3D */
+  .photo-item {
+    opacity: 0;
+    transform: translateY(40px) rotateX(-10deg);
+    animation: revealEntry 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes revealEntry {
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Estilos Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+  }
+  .lightbox.visible { display: flex; }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 4px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+  }
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  function initLightbox() {
+    const lightbox = document.getElementById("lightbox") as HTMLDivElement | null;
+    const lightboxImg = lightbox?.querySelector("img") as HTMLImageElement | null;
+    const closeBtn = document.getElementById("lightbox-close") as HTMLSpanElement | null;
+    const gallery = document.getElementById("gallery") as HTMLDivElement | null;
+
+    if (!lightbox || !lightboxImg || !closeBtn || !gallery) return;
+
+    gallery.addEventListener("click", (e: MouseEvent) => {
+      const target = e.target as HTMLImageElement;
+      if (target.tagName === "IMG") {
+        lightboxImg.src = target.src;
+        lightboxImg.alt = target.alt;
+        lightbox.classList.add("visible");
+        document.body.style.overflow = "hidden";
+      }
+    });
+
+    const close = () => {
+      lightbox.classList.remove("visible");
+      document.body.style.overflow = "auto";
+    };
+
+    closeBtn.addEventListener("click", close);
+    lightbox.addEventListener("click", (e: MouseEvent) => {
+      if (e.target === lightbox) close();
+    });
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Escape" && lightbox.classList.contains("visible")) close();
+    });
+  }
+
+  document.addEventListener("astro:page-load", initLightbox);
+  if (!window.hasOwnProperty("astro")) {
+    window.addEventListener("load", initLightbox);
+  }
+</script>

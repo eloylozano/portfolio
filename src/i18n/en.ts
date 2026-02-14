@@ -1,4 +1,6 @@
 // en.ts
+
+import { projects_data } from './en/projects';
 export default {
   nav: {
     home: "Home",
@@ -163,6 +165,9 @@ export default {
     },
     projects: {
       title: "My projects",
+      visitWeb: "Visit Web",
+      viewProject: "View Project",
+      soon: "Coming Soon",
       nav: {
         all: "All",
         design: "Web Designs",
@@ -221,12 +226,13 @@ export default {
           label: "Message",
           placeholder: "Let your message...",
         },
-        check:{
+        check: {
           text: 'I have read and agree that my data may be used exclusively to manage this contact.',
         },
         button: "Send",
       },
     }
   },
+  projects_data: projects_data,
 };
 

@@ -1,7 +1,7 @@
 ---
-import Title from "./Title.astro";
-import { projects } from "../data/projects.js";
-import { t } from "../i18n";
+import Title from "../ui/Title.astro";
+import { projects } from "../../data/projects.js";
+import { t } from "../../i18n";
 
 const lang =
   Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
@@ -26,7 +26,6 @@ const sortedProjects = [...projects].sort((a, b) => {
     class="flex justify-center border-0 mx-auto font-medium mb-6 sm:mb-10 gap-4 sm:gap-8 lg:gap-26 px-4 sm:px-12 pb-2 text-xs sm:text-sm overflow-x-auto w-full max-w-full"
   >
     {
-      /* Añadimos "ai" al array */
       ["all", "web", "app", "ai", "photo"].map((filter) => (
         <button
           class="filter-btn relative text-[#e9eeef] hover:text-white cursor-pointer transition duration-200 whitespace-nowrap px-2 sm:px-0 group"
@@ -51,6 +50,7 @@ const sortedProjects = [...projects].sort((a, b) => {
       ))
     }
   </nav>
+
   <div class="px-2 sm:px-0">
     <div
       id="project-grid"
@@ -71,7 +71,7 @@ const sortedProjects = [...projects].sort((a, b) => {
               )}
               {project.soon && (
                 <span class="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 uppercase">
-                  {lang === "es" ? "Próximamente" : "Soon"}
+                  {t(lang, "pages.projects.soon")}
                 </span>
               )}
             </div>
@@ -102,14 +102,14 @@ const sortedProjects = [...projects].sort((a, b) => {
                         target="_blank"
                         class="flex items-center justify-center gap-2 px-4 py-2 bg-white text-black text-sm font-semibold hover:bg-gray-200 transition-colors uppercase tracking-widest"
                       >
-                        Visitar Web
+                        {t(lang, "pages.projects.visitWeb")}
                       </a>
                     )}
                     <a
                       href={project.projectLink}
                       class="px-4 py-2 bg-[#daa032] text-black text-sm font-semibold hover:bg-[#c18e2a] transition-colors uppercase tracking-widest"
                     >
-                      Ver proyecto
+                      {t(lang, "pages.projects.viewProject")}
                     </a>
                   </>
                 ) : (

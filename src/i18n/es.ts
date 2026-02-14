@@ -1,4 +1,5 @@
 // es.ts
+import { projects_data } from './es/projects';
 export default {
   nav: {
     home: "Inicio",
@@ -40,7 +41,7 @@ export default {
             "Mejora de procesos internos en CRM propio",
             "Diseño e implementación de APIs REST"
           ],
-          alt:"Logo de Dixitalia",
+          alt: "Logo de Dixitalia",
           imgPath: "/images/experience/dixitalia.png",
         },
 
@@ -56,7 +57,7 @@ export default {
             "Aplicaciones prácticas de IA y Big Data en empresas",
             "Transformación digital y uso estratégico de datos",
           ],
-          alt:"Logo de la Xunta",
+          alt: "Logo de la Xunta",
           imgPath: "/images/experience/logoxunta.png",
         },
         {
@@ -69,7 +70,7 @@ export default {
             "Supervisión de estación",
             "Atención al cliente",
           ],
-          alt:"Logo de Audasa",
+          alt: "Logo de Audasa",
           imgPath: "/images/experience/audasa.jpg",
         },
         {
@@ -79,7 +80,7 @@ export default {
           description:
             "Participación en proyectos de integración entre sistemas usando SAP Integration Suite (CPI). Diseño de iFlows, trabajo con APIs REST/SOAP, formato JSON/XML y scripting con Groovy.",
           responsibilities: [],
-          alt:"Logo de Deloitte",
+          alt: "Logo de Deloitte",
           imgPath: "/images/experience/deloitte.png",
         },
         {
@@ -92,7 +93,7 @@ export default {
             "Supervisión de estación",
             "Atención al cliente",
           ],
-          alt:"Logo de Audasa",
+          alt: "Logo de Audasa",
           imgPath: "/images/experience/audasa.jpg",
         },
         {
@@ -100,7 +101,7 @@ export default {
           company: "Liceo La Paz",
           date: "Septiembre 2023 - Marzo 2025",
           description: "",
-          alt:"Logo de Liceo La Paz",
+          alt: "Logo de Liceo La Paz",
           responsibilities: [
             "Desarrollo Full Stack con Spring, Symfony y React",
             "Manejo de bases de datos SQL y noSQL",
@@ -120,7 +121,7 @@ export default {
             "Supervisión de estación",
             "Atención al cliente",
           ],
-          alt:"Logo de Audasa",
+          alt: "Logo de Audasa",
           imgPath: "/images/experience/audasa.jpg",
         },
         // {
@@ -141,7 +142,7 @@ export default {
             "Supervisión de estación",
             "Atención al cliente",
           ],
-          alt:"Logo de Audasa",
+          alt: "Logo de Audasa",
           imgPath: "/images/experience/audasa.jpg",
         },
         {
@@ -154,7 +155,7 @@ export default {
             "Gestión de recursos con NextCloud",
             "Creación de informes y paneles en PowerBI",
           ],
-          alt:"Logo de Infonet",
+          alt: "Logo de Infonet",
           imgPath: "/images/experience/infonet.png",
         },
         {
@@ -167,14 +168,17 @@ export default {
             "Configuración de distintos CMS como Joomla!, WordPress, PrestaShop y Moodle",
             "Habilidades en administración y configuración de servidores",
           ],
-          
-          alt:"Logo de Liceo La Paz",
+
+          alt: "Logo de Liceo La Paz",
           imgPath: "/images/experience/liceolapaz.jpg",
         },
       ],
     },
     projects: {
       title: "Mis proyectos",
+      visitWeb: "Visitar Web",
+      viewProject: "Ver Proyecto",
+      soon: "Próximamente",
       nav: {
         all: "Todos",
         design: "Diseños Web",
@@ -233,11 +237,12 @@ export default {
           label: "Mensaje",
           placeholder: "Déjame tu mensaje...",
         },
-        check:{
+        check: {
           text: 'He leído y acepto que mis datos se utilicen exclusivamente para gestionar este contacto.',
         },
         button: "Enviar",
       },
     },
   },
-};
+  projects_data: projects_data,
+}

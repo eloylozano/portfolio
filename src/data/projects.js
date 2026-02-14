@@ -175,10 +175,9 @@ export const projects = [
     title: "ViaRisk",
     category: "ai",
     img: "/images/projects/ai_viarisk.webp",
-    // projectLink: "/web/ecovibe",
-    // demoLink: "https://eco-vibe.vercel.app/",
+    projectLink: "/ai/viarisk",
+    demoLink: "https://viarisk.vercel.app/",
     gitLink: "https://github.com/eloylozano/viarisk",
-    soon: true,
     featured:true,
   },
   {

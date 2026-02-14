@@ -1,8 +1,6 @@
 ---
+import { t } from "../../i18n";
 import Dropdown from "./Dropdown.astro";
-import Subtitle from "./Subtitle.astro";
-import Switch from "./Switch.astro";
-import { t } from "../i18n";
 
 const lang =
   Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
@@ -220,119 +218,107 @@ const navItems = [
 </style>
 
 <script>
-  const navbar = document.getElementById("navbar");
-  const mobileNav = document.getElementById("mobile-nav");
-  const indicator = document.getElementById("indicator");
-  const dropdown = document.getElementById("dropdown");
+  // Definimos una interfaz para el evento personalizado para que TypeScript sepa qué hay en 'detail'
+  interface SectionSelectedEvent extends Event {
+    detail: {
+      id: string;
+    };
+  }
 
-  const settingsBtn = document.getElementById("settings-btn");
-  const hamburgerBtn = document.getElementById("hamburger-btn");
+  function initNavbar(): void {
+    const navbar = document.getElementById("navbar");
+    const indicator = document.getElementById("indicator");
+    const mobileNav = document.getElementById("mobile-nav");
+    const dropdown = document.getElementById("dropdown");
+    const settingsBtn = document.getElementById("settings-btn");
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const dropdownCloseBtn = document.getElementById("dropdown-close-btn");
+    const mobileCloseBtn = document.getElementById("mobile-close-btn");
 
-  // Indicador en navbar de escritorio
-  if (navbar && indicator) {
-    const links = navbar.querySelectorAll("a");
+    // Early return si los elementos críticos no existen
+    if (!navbar || !indicator) return;
 
-    /**
-     * @param {HTMLElement} target
-     */
-    function moveIndicator(target) {
+    const links = navbar.querySelectorAll<HTMLAnchorElement>("a[data-link]");
+
+    // --- FUNCIÓN: Mover la cápsula (indicador) ---
+    function moveIndicator(target: HTMLElement): void {
+      if (!navbar || !indicator) return;
+
       const linkRect = target.getBoundingClientRect();
       const navRect = navbar.getBoundingClientRect();
+
       indicator.style.width = `${linkRect.width}px`;
       indicator.style.transform = `translateX(${linkRect.left - navRect.left}px)`;
     }
 
-    /**
-     * @param {HTMLElement} clickedLink
-     */
-    function setActiveLink(clickedLink) {
-      links.forEach((link) => link.classList.remove("active"));
-      clickedLink.classList.add("active");
-      moveIndicator(clickedLink);
+    // --- FUNCIÓN: Activar enlace ---
+    function setActiveLink(id: string | null): void {
+      if (!id) return;
+
+      const activeLink = Array.from(links).find(
+        (link) => link.getAttribute("data-link") === id
+      );
+
+      if (activeLink) {
+        links.forEach((link) => link.classList.remove("active"));
+        activeLink.classList.add("active");
+        moveIndicator(activeLink);
+      }
     }
 
-    // No preventDefault, dejamos que el scroll nativo funcione
+    // --- ESCUCHA DEL SCROLLSPY ---
+    // Casteamos el evento a SectionSelectedEvent o usamos 'any' si no queremos definir interfaces
+    window.addEventListener("section-selected", ((e: SectionSelectedEvent) => {
+      setActiveLink(e.detail.id);
+    }) as EventListener);
+
+    // Clicks manuales
     links.forEach((link) => {
       link.addEventListener("click", () => {
-        // El scroll nativo ya hace el scroll, aquí sólo actualizamos el indicador
-        setTimeout(() => {
-          setActiveLink(link);
-        }, 100); // Pequeña espera para que el scroll empiece
+        const id = link.getAttribute("data-link");
+        setActiveLink(id);
       });
     });
 
-    window.addEventListener("load", () => {
-      let hash = window.location.hash || links[0].getAttribute("href");
-      const activeLink =
-        Array.from(links).find((link) => link.getAttribute("href") === hash) ||
-        links[0];
-      setActiveLink(activeLink);
+    // --- LÓGICA DE MENÚS ---
+
+    settingsBtn?.addEventListener("click", () => {
+      dropdown?.classList.toggle("show");
     });
 
-    // Cuando cambia el hash (por click o navegación manual), actualiza el indicador
-    window.addEventListener("hashchange", () => {
-      let hash = window.location.hash;
-      const activeLink = Array.from(links).find(
-        (link) => link.getAttribute("href") === hash
-      );
-      if (activeLink) {
-        setActiveLink(activeLink);
-      }
+    dropdownCloseBtn?.addEventListener("click", () => {
+      dropdown?.classList.remove("show");
     });
+
+    const toggleMobileMenu = (show: boolean): void => {
+      if (!mobileNav) return;
+      mobileNav.classList.toggle("hidden", !show);
+      document.body.classList.toggle("menu-open", show);
+    };
+
+    hamburgerBtn?.addEventListener("click", () => toggleMobileMenu(true));
+    mobileCloseBtn?.addEventListener("click", () => toggleMobileMenu(false));
+
+    mobileNav?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => toggleMobileMenu(false));
+    });
+
+    // --- INICIALIZACIÓN Y RESIZE ---
+
+    const initialId = window.location.hash.replace("#", "") || "home";
+    setActiveLink(initialId);
 
     window.addEventListener("resize", () => {
-      const active = document.querySelector("a.active");
-      if (active instanceof HTMLElement) moveIndicator(active);
-    });
-  }
-
-  // Mostrar/ocultar dropdown (ajustes)
-  if (settingsBtn && dropdown) {
-    settingsBtn.addEventListener("click", () => {
-      dropdown.classList.toggle("show");
-    });
-  }
-
-  // Mostrar/ocultar menú móvil
-  if (hamburgerBtn && mobileNav) {
-    hamburgerBtn.addEventListener("click", () => {
-      mobileNav.classList.toggle("hidden");
-      // Bloqueo scroll al abrir menú móvil
-      if (!mobileNav.classList.contains("hidden")) {
-        document.body.classList.add("menu-open");
-      } else {
-        document.body.classList.remove("menu-open");
+      const active = navbar.querySelector("a.active");
+      if (active instanceof HTMLElement) {
+        moveIndicator(active);
       }
     });
   }
-  // Cerrar menú móvil al pulsar un enlace del menú
-  if (mobileNav) {
-    const mobileLinks = mobileNav.querySelectorAll("a");
-    mobileLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileNav.classList.add("hidden");
-        document.body.classList.remove("menu-open");
-      });
-    });
-  }
 
-  /** @type {HTMLElement | null} */
-  const dropdownCloseBtn = document.getElementById("dropdown-close-btn");
-  /** @type {HTMLElement | null} */
-  const mobileCloseBtn = document.getElementById("mobile-close-btn");
+  // Ejecución inicial
+  initNavbar();
 
-  // Cerrar dropdown al pulsar la X
-  if (dropdownCloseBtn && dropdown) {
-    dropdownCloseBtn.addEventListener("click", () => {
-      dropdown.classList.remove("show");
-    });
-  }
-
-  // Cerrar menú móvil al pulsar la X
-  if (mobileCloseBtn && mobileNav) {
-    mobileCloseBtn.addEventListener("click", () => {
-      mobileNav.classList.add("hidden");
-      document.body.classList.remove("menu-open");
-    });
-  }
+  // Reiniciar cuando Astro cambia de página (View Transitions)
+  document.addEventListener("astro:after-swap", initNavbar);
 </script>

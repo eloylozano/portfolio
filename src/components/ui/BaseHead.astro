@@ -1,0 +1,59 @@
+---
+// src/components/BaseHead.astro
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  canonicalURL: URL;
+  socialImageURL: URL;
+}
+
+const { title, description, noindex, canonicalURL, socialImageURL } = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
+
+<link rel="canonical" href={canonicalURL} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImageURL} />
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={socialImageURL} />
+
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-NP56HSBSPJ"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag("js", new Date());
+  gtag("config", "G-NP56HSBSPJ");
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Eloy Lozano",
+    "url": "https://www.eloylozano.es",
+    "jobTitle": "Desarrollador Web y Fotógrafo",
+    "sameAs": [
+      "https://www.linkedin.com/in/eloylozano",
+      "https://www.instagram.com/eloyloozano",
+      "https://github.com/eloylozano"
+    ]
+  }
+</script>

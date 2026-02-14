@@ -1,0 +1,87 @@
+---
+import Title from "../ui/Title.astro";
+import Text from "../ui/Text.astro";
+import { t } from "../../i18n";
+
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
+---
+
+<div class="relative flex flex-col lg:flex-row items-center py-10 lg:py-20 min-h-fit lg:min-h-screen">
+  
+  <div class="w-full lg:w-1/2 z-20">
+    <div
+      class="about-card relative p-6 lg:p-12 lg:ps-32 lg:pe-16"
+    >
+      <div class="hidden lg:block absolute inset-0 bg-[#0B0B0B]/40 backdrop-blur-md border-y border-r border-white/10 rounded-r-sm -z-10"></div>
+
+      <div class="relative">
+        <Title text={t(lang, "pages.about.title")} />
+        <div class="mt-6">
+          <Text
+            class="text-justify leading-relaxed text-gray-300 text-base lg:text-lg"
+            text={t(lang, "pages.about.description")}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="w-full lg:w-1/2 flex justify-center mt-20 lg:mt-0 relative about-visual min-h-87 lg:min-h-125"
+  >
+    <div
+      class="neon-box border rounded-sm border-[#daa032] h-55 w-42 absolute z-0 -translate-x-10 -translate-y-6 lg:h-100 lg:w-75 lg:-translate-x-20 lg:-translate-y-10"
+    >
+    </div>
+
+    <div
+      class="dark-box bg-[#0B0B0B] h-[220px] w-[170px] absolute z-1 translate-x-10 lg:h-[400px] lg:w-[300px] lg:translate-x-[80px]"
+    >
+    </div>
+
+    <img
+      src="/images/aboutme.png"
+      alt="Eloy Lozano retrato"
+      class="photo-main shadow-2xl h-[260px] lg:h-[480px] w-auto object-cover z-10 translate-y-4 lg:translate-y-10 rounded-sm"
+      loading="lazy"
+    />
+  </div>
+</div>
+
+<style>
+  /* Optimizamos las animaciones para que no pesen en el móvil */
+  @keyframes neonPulse {
+    0%, 100% { box-shadow: 0 0 5px #daa032, 0 0 20px rgba(218, 160, 50, 0.4); }
+    50% { box-shadow: 0 0 15px #daa032, 0 0 40px rgba(218, 160, 50, 0.6); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+    50% { transform: translate(var(--tw-translate-x), calc(var(--tw-translate-y) - 15px)); }
+  }
+
+  .neon-box { 
+    animation: neonPulse 3s ease-in-out infinite; 
+  }
+
+  /* Animación de flotación suave solo para la foto y el cuadro negro en conjunto */
+  .photo-main, .dark-box {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Limpiamos el overflow para evitar saltos de scroll */
+  .about-visual {
+    perspective: 1000px;
+    contain: layout;
+  }
+
+  /* Ajuste para que el texto no se pegue a los bordes en móviles muy pequeños */
+  @media (max-width: 640px) {
+    .about-card {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+</style>

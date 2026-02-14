@@ -65,31 +65,50 @@
 </style>
 
 <script>
-  window.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver(
-    (entries) => {
+  function setupScrollSpy() {
+    const sections = [
+      "home",
+      "about",
+      "projects",
+      "recommendations",
+      "contact",
+    ];
+    const navLines = document.querySelectorAll(".scroll-nav .line");
+
+    const observerOptions = {
+      root: null,
+      // El rootMargin crea una "línea de detección" invisible.
+      // Aquí estamos diciendo que detecte lo que pase por el centro de la pantalla.
+      rootMargin: "-20% 0px -79% 0px",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        // Dentro de tu IntersectionObserver en ScrollSpy.astro
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute("id");
-          const line = document.querySelector(`.scroll-nav [data-section="${id}"]`);
-          
-          document.querySelectorAll(".scroll-nav .line").forEach((el) => 
-            el.classList.remove("active")
+
+          navLines.forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("data-section") === id);
+          });
+
+          // CAMBIO AQUÍ: Nombre del evento "section-selected" y propiedad "id"
+          window.dispatchEvent(
+            new CustomEvent("section-selected", { detail: { id: id } })
           );
-          line?.classList.add("active");
         }
       });
-    },
-    {
-      threshold: 0.5, // 0.5 es más estable para secciones grandes
-      root: null,     // 'null' significa que observa el viewport global (el navegador)
-    }
-  );
+    }, observerOptions);
 
-  // Asegúrate de que los IDs coincidan exactamente con los de tus secciones
-  ["home", "about", "projects", "recommendations", "contact"].forEach((id) => {
-    const section = document.getElementById(id);
-    if (section) observer.observe(section);
-  });
-});
+    sections.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+  }
+
+  // Ejecutar al cargar
+  setupScrollSpy();
+  // Ejecutar tras navegación de Astro
+  document.addEventListener("astro:after-swap", setupScrollSpy);
 </script>

@@ -1,9 +1,9 @@
 ---
-import Title from "../components/Title.astro";
-import Text from "../components/Text.astro";
-import Subtitle from "../components/Subtitle.astro";
-import Paragraph from "../components/Text.astro";
-import { t } from "../i18n";
+
+import { t } from "../../i18n";
+import Subtitle from "../ui/Subtitle.astro";
+import Text from "../ui/Text.astro";
+import Title from "../ui/Title.astro";
 
 const lang =
   Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
@@ -34,7 +34,7 @@ const text = t(lang, "nav.seeProjects");
       <Subtitle as="h1" text={t(lang, "pages.home.work")} />
     </div>
     <div class="anim-item">
-      <Paragraph size="lg" text={t(lang, "pages.home.description")} />
+      <Text size="lg" text={t(lang, "pages.home.description")} />
     </div>
 
     <div

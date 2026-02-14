@@ -1,0 +1,27 @@
+---
+const {
+  text = "", // 1. Valor por defecto: cadena vacía
+  size = "md",
+  class: additionalClass = "",
+  noMargin = false,
+} = Astro.props;
+
+// 2. Verificamos que text sea un string antes de hacer split
+// Si no hay texto, devolvemos un array vacío
+const paragraphs = typeof text === 'string' ? text.split(/\n{1,2}/) : [];
+---
+
+{
+  paragraphs.length > 0 ? (
+    paragraphs.map((para: string) => (
+      <p
+        class={`tracking-wide text-[#e9eeef] font-lato
+        ${size === "lg" ? "text-lg md:text-xl leading-8" : "text-md leading-6"}
+        ${noMargin ? "" : "mt-4"}
+        ${additionalClass}`}
+      >
+        {para}
+      </p>
+    ))
+  ) : null
+}

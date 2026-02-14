@@ -1,0 +1,35 @@
+---
+// [slug].astro
+import Layout from "../../layouts/Layout.astro";
+import aiProjects from "../../data/aiProjects.js";
+import AiProjectsPage from "../../components/projects/AiProjectsPage.astro";
+import { t } from "../../i18n"; // IMPORTA LA FUNCIÓN T
+
+export async function getStaticPaths() {
+  return aiProjects.map((project) => ({
+    params: { slug: project.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const project = aiProjects.find((p) => p.slug === slug);
+
+const cookieHeader = Astro.request.headers.get("cookie") || "";
+const lang = cookieHeader.match(/preferredLang=([^;]+)/)?.[1] || "es";
+
+if (!project) {
+  throw new Error(`No se encontró el proyecto: ${slug}`);
+}
+
+// USAR TRADUCCIONES PARA EL SEO
+const translatedTitle = t(lang, `projects_data.${slug}.title`);
+const translatedDesc = t(lang, `projects_data.${slug}.description`);
+---
+
+<Layout
+  noindex={project.featured !== true}
+  title={`${translatedTitle} | WebApps – Eloy Lozano`}
+  description={translatedDesc}
+>
+  <AiProjectsPage {...project} />
+</Layout>

@@ -1,7 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import PhotoProjectPage from "../../components/PhotoProjectPage.astro";
+import PhotoProjectPage from "../../components/projects/PhotoProjectPage.astro";
 import photoProjects from "../../data/photoProjects.js";
+import { t } from "../../i18n"; // 1. Importamos la función de traducción
 
 export async function getStaticPaths() {
   return photoProjects.map((project) => ({
@@ -10,22 +11,33 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-
 const project = photoProjects.find((p) => p.slug === slug);
 
 if (!project) {
   throw new Error(`No se encontró el proyecto para el slug: ${slug}`);
 }
 
-const featuredGalleries = ["me", "motor", "Architecture"];
+// 2. Detectamos el idioma (vía cookie o como lo tengas configurado)
+const lang = Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] || "es";
 
+// 3. Obtenemos los textos traducidos usando la clave "projects_data"
+// Usamos el slug dinámicamente: projects_data.photography.sunsets.title, etc.
+const translatedTitle = t(lang, `projects_data.photography.${slug}.title`);
+const translatedDescription = t(lang, `projects_data.photography.${slug}.description`);
+
+const featuredGalleries = ["me", "motor", "Architecture"];
 const noindex = !featuredGalleries.includes(slug);
 ---
 
 <Layout
   noindex={noindex}
-  title={`${project.title} | Fotografía – Eloy Lozano`}
-  description={project.description}
+  title={`${translatedTitle} | Fotografía – Eloy Lozano`}
+  description={translatedDescription}
 >
-  <PhotoProjectPage {...project} />
+  {/* 4. Pasamos el proyecto pero sobrescribimos title y description con los traducidos */}
+  <PhotoProjectPage 
+    {...project} 
+    title={translatedTitle} 
+    description={translatedDescription} 
+  />
 </Layout>

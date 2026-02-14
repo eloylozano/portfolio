@@ -1,0 +1,83 @@
+---
+// src/components/ui/StackCard.astro
+const { src, alt } = Astro.props;
+---
+
+<div class="tech-item group pointer-events-none select-none">
+  <div class="icon-box relative">
+    <img 
+      src={`/images/icons/${src}`} 
+      alt={alt} 
+      loading="lazy"
+      draggable="false"
+      class="z-10"
+    />
+  </div>
+  <span class="tech-name">{alt}</span>
+</div>
+
+<style>
+  .tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .icon-box {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .tech-item img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    /* Filtro eliminado: ahora se ve el color original siempre */
+    transition: all 0.4s ease;
+  }
+
+  .tech-name {
+    font-size: 0.65rem;
+    color: #888; /* Un poco más claro para que sea legible */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    transition: all 0.4s ease;
+  }
+
+  /* Hover Effects */
+  :global(.scroller:not(.is-dragging)) .tech-item:hover {
+    transform: translateY(-8px);
+  }
+
+  :global(.scroller:not(.is-dragging)) .tech-item:hover .icon-box {
+    border-color: #daa032;
+    background: rgba(218, 160, 50, 0.1);
+    box-shadow: 0 15px 30px -10px rgba(218, 160, 50, 0.4);
+  }
+
+  :global(.scroller:not(.is-dragging)) .tech-item:hover img {
+    transform: scale(1.1);
+  }
+
+  :global(.scroller:not(.is-dragging)) .tech-item:hover .tech-name {
+    color: #daa032;
+  }
+
+  @media (max-width: 768px) {
+    .icon-box { width: 60px; height: 60px; }
+    .tech-item img { width: 35px; height: 35px; }
+  }
+</style>

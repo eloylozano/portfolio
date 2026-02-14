@@ -1,0 +1,214 @@
+---
+const lang = Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] || "es";
+
+const content = {
+  es: {
+    title: "Preferencias de Privacidad",
+    desc: "Gestiona cómo utilizamos las cookies para mejorar tu experiencia.",
+    save: "Guardar configuración",
+    acceptAll: "Aceptar todas",
+    rejectAll: "Rechazar todas",
+    groups: [
+      {
+        id: "essential",
+        name: "Esenciales",
+        desc: "Necesarias para el funcionamiento del sitio (idioma, sesión).",
+        fixed: true,
+      },
+      {
+        id: "analytics",
+        name: "Análisis y Estadísticas",
+        desc: "Nos ayudan a entender cómo interactúas con la web (Google Analytics G4).",
+        fixed: false,
+      },
+    ],
+  },
+  en: {
+    title: "Privacy Preferences",
+    desc: "Manage how we use cookies to improve your experience.",
+    save: "Save settings",
+    acceptAll: "Accept all",
+    rejectAll: "Reject all",
+    groups: [
+      {
+        id: "essential",
+        name: "Essential",
+        desc: "Necessary for the website to function (language, session).",
+        fixed: true,
+      },
+      {
+        id: "analytics",
+        name: "Analytics & Stats",
+        desc: "Help us understand how you interact with the site (Google Analytics G4).",
+        fixed: false,
+      },
+    ],
+  },
+  // AÑADIMOS ALEMÁN PARA EVITAR EL ERROR
+  de: {
+    title: "Datenschutzeinstellungen",
+    desc: "Verwalten Sie, wie wir Cookies verwenden, um Ihre Erfahrung zu verbessern.",
+    save: "Einstellungen speichern",
+    acceptAll: "Alle akzeptieren",
+    rejectAll: "Alle ablehnen",
+    groups: [
+      {
+        id: "essential",
+        name: "Essenziell",
+        desc: "Notwendig für die Funktion der Website (Sprache, Sitzung).",
+        fixed: true,
+      },
+      {
+        id: "analytics",
+        name: "Analyse & Statistik",
+        desc: "Helfen uns zu verstehen, wie Sie mit der Website interagieren (Google Analytics G4).",
+        fixed: false,
+      },
+    ],
+  },
+};
+
+// SOLUCIÓN DE SEGURIDAD: Si el idioma no existe en 'content', usamos 'es' por defecto
+const t = content[lang as keyof typeof content] || content.es;
+---
+
+<div
+  id="cookie-modal"
+  class="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300"
+>
+  <div
+    class="bg-[#1a1a1a] border border-white/10 w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl"
+  >
+    <div class="p-8">
+      <h2 class="text-[#daa032] text-2xl font-bold mb-2">{t.title}</h2>
+      <p class="text-gray-400 text-sm mb-8">{t.desc}</p>
+
+      <div class="space-y-6">
+        {
+          t.groups.map((group) => (
+            <div class="flex items-start justify-between gap-4 p-4 bg-white/5 rounded-2xl border border-white/5">
+              <div class="flex flex-col">
+                <span class="text-white font-medium">{group.name}</span>
+                <span class="text-xs text-gray-500 mt-1">{group.desc}</span>
+              </div>
+              {group.fixed ? (
+                <span class="text-[10px] bg-white/10 px-2 py-1 rounded text-white/40 uppercase font-bold">
+                  Siempre On
+                </span>
+              ) : (
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    id={`check-${group.id}`}
+                    class="sr-only peer"
+                    checked
+                  />
+                  <div class="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-gray-400 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#daa032] peer-checked:after:bg-black" />
+                </label>
+              )}
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-10 flex flex-col gap-3">
+        <button
+          id="save-cookies"
+          class="w-full bg-[#daa032] text-black cursor-pointer font-bold py-3 rounded-xl hover:bg-[#b8862a] transition-all uppercase text-sm tracking-widest"
+        >
+          {t.save}
+        </button>
+        <div class="flex gap-3">
+          <button
+            id="accept-all-cookies"
+            class="flex-1 text-white/60 cursor-pointer hover:text-white text-xs py-2 transition-colors uppercase tracking-tighter"
+          >
+            {t.acceptAll}
+          </button>
+          <button
+            id="reject-all-cookies"
+            class="flex-1 text-white/60 cursor-pointer hover:text-white text-xs py-2 transition-colors uppercase tracking-tighter"
+          >
+            {t.rejectAll}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function setupCookieModal() {
+    const modal = document.getElementById("cookie-modal");
+    const analyticsCheck = document.getElementById(
+      "check-analytics"
+    ) as HTMLInputElement;
+    const saveBtn = document.getElementById("save-cookies");
+    const acceptAllBtn = document.getElementById("accept-all-cookies");
+    const rejectAllBtn = document.getElementById("reject-all-cookies");
+
+    if (!modal) return; // Seguridad
+
+    const getCookie = (name: string) => {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop()?.split(";").shift();
+      return null;
+    };
+
+    const openModal = () => {
+      // Sincronizar check antes de abrir
+      const consent = getCookie("cookie-consent");
+      if (analyticsCheck) {
+        analyticsCheck.checked = consent === "accepted" || !consent;
+      }
+
+      modal.classList.remove("hidden");
+      // Forzamos un reflow para que la transición de opacidad funcione
+      void modal.offsetWidth;
+      modal.classList.remove("opacity-0");
+    };
+
+    const closeModal = () => {
+      modal.classList.add("opacity-0");
+      setTimeout(() => modal.classList.add("hidden"), 300);
+    };
+
+    // Handlers de botones
+    saveBtn?.addEventListener("click", () => {
+      const status = analyticsCheck?.checked ? "accepted" : "rejected";
+      document.cookie = `cookie-consent=${status}; path=/; max-age=31536000; SameSite=Lax`;
+      closeModal();
+      window.location.reload();
+    });
+
+    acceptAllBtn?.addEventListener("click", () => {
+      document.cookie =
+        "cookie-consent=accepted; path=/; max-age=31536000; SameSite=Lax";
+      closeModal();
+      window.location.reload();
+    });
+
+    rejectAllBtn?.addEventListener("click", () => {
+      document.cookie =
+        "cookie-consent=rejected; path=/; max-age=31536000; SameSite=Lax";
+      closeModal();
+      window.location.reload();
+    });
+
+    // Escuchar el evento del botón de ajustes
+    window.addEventListener("open-cookie-modal", openModal);
+
+    // --- COMPROBACIÓN AUTOMÁTICA ---
+    const consent = getCookie("cookie-consent");
+    if (!consent) {
+      // Si no hay cookie, abrimos tras un pequeño delay
+      setTimeout(openModal, 800);
+    }
+  }
+
+  // Correr al cargar la página
+  setupCookieModal();
+
+  // Correr cada vez que Astro cambie de página (View Transitions)
+  document.addEventListener("astro:after-swap", setupCookieModal);
+</script>

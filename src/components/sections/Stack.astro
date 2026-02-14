@@ -1,0 +1,170 @@
+---
+import Title from "../ui/Title.astro";
+import { t } from "../../i18n";
+import StackCard from "../shared/StackCard.astro";
+
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
+
+const row1 = [
+  { src: "angular.png", alt: "Angular" },
+  { src: "astro.png", alt: "Astro" },
+  { src: "react.png", alt: "React" },
+  { src: "svelte.png", alt: "Svelte" },
+  { src: "next.png", alt: "Next.js" },
+  { src: "vite.png", alt: "Vite" },
+  { src: "symfony.png", alt: "Symfony" },
+  { src: "spring.png", alt: "Spring" },
+];
+
+const row2 = [
+  { src: "python.png", alt: "Python" },
+  { src: "openai.png", alt: "OpenAI" },
+  { src: "ollama.png", alt: "Ollama" },
+  { src: "pytorch.png", alt: "PyTorch" },
+  { src: "tensorflow.png", alt: "TensorFlow" },
+  { src: "pandas.png", alt: "Pandas" },
+  { src: "numpy.png", alt: "NumPy" },
+  { src: "apache.png", alt: "Apache" },
+  { src: "spark.png", alt: "Spark" },
+  { src: "hive.png", alt: "Hive" },
+];
+
+const row3 = [
+  { src: "sqlserver.svg", alt: "SQL Server" },
+  { src: "postgreSQL.png", alt: "PostgreSQL" },
+  { src: "mySQL.png", alt: "MySQL" },
+  { src: "mongo.png", alt: "MongoDB" },
+  { src: "kafka.svg", alt: "Kafka" },
+  { src: "node.png", alt: "Node.js" },
+  { src: "php.png", alt: "PHP" },
+  { src: "java.png", alt: "Java" },
+  { src: "git.png", alt: "Git" },
+  { src: "figma.png", alt: "Figma" },
+  { src: "Photoshop.png", alt: "Photoshop" },
+  { src: "Premiere.png", alt: "Premiere" },
+  { src: "Lightroom.png", alt: "Lightroom" },
+  { src: "canva.png", alt: "Canva" },
+  { src: "Penpot.png", alt: "Penpot" },
+  { src: "pwbi.svg", alt: "Power BI" },
+];
+const allRows = [
+  { icons: row1, dir: "left", speed: "35s" },
+  { icons: row2, dir: "right", speed: "45s" },
+  { icons: row3, dir: "left", speed: "55s" },
+];
+---
+
+<section id="stack" class="py-24 overflow-hidden relative select-none">
+  <Title text={t(lang, "pages.stack.title")} class="text-center mb-20" />
+
+  <div
+    class="flex flex-col gap-4 cursor-grab active:cursor-grabbing"
+    id="stack-container"
+  >
+    {
+      allRows.map((row) => (
+        <div
+          class="scroller overflow-hidden"
+          data-direction={row.dir}
+          style={`--duration: ${row.speed}`}
+        >
+          <div class="scroller__inner flex gap-8 w-max">
+            {/* Triplicamos para un scroll infinito suave y drag sin límites */}
+            {[...row.icons, ...row.icons, ...row.icons].map((icon) => (
+              <StackCard src={icon.src} alt={icon.alt} />
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .scroller {
+    width: 100%;
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      white 15%,
+      white 85%,
+      transparent
+    );
+  }
+
+  .scroller__inner {
+    animation: scroll var(--duration) linear infinite;
+    will-change: transform;
+  }
+
+  .scroller[data-direction="right"] .scroller__inner {
+    animation-direction: reverse;
+  }
+
+  /* Al arrastrar, pausamos la animación CSS para que el JS tome el control del scrollLeft */
+  :global(.is-dragging) .scroller__inner {
+    animation-play-state: paused !important;
+  }
+
+  .scroller:hover .scroller__inner {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translateX(calc(-33.333% - 1.33rem));
+    }
+  }
+</style>
+
+<script>
+  function initStackDrag() {
+    const container = document.getElementById("stack-container");
+    const scrollers = document.querySelectorAll(".scroller");
+
+    if (!container) return;
+
+    let isDown = false;
+    let startX: number;
+    let scrollLefts: number[] = [];
+
+    const handleStart = (e: MouseEvent | TouchEvent) => {
+      isDown = true;
+      container.classList.add("is-dragging");
+      startX = "touches" in e ? e.touches[0].pageX : e.pageX;
+
+      // Guardamos la posición de scroll actual de cada fila
+      scrollLefts = Array.from(scrollers).map((s) => s.scrollLeft);
+    };
+
+    const handleEnd = () => {
+      isDown = false;
+      container.classList.remove("is-dragging");
+    };
+
+    const handleMove = (e: MouseEvent | TouchEvent) => {
+      if (!isDown) return;
+      e.preventDefault();
+
+      const x = "touches" in e ? e.touches[0].pageX : e.pageX;
+      const walk = (x - startX) * 1.5; // Ajusta la sensibilidad aquí
+
+      scrollers.forEach((scroller, i) => {
+        // Movimiento sincronizado: restamos el 'walk' al scrollLeft original
+        scroller.scrollLeft = scrollLefts[i] - walk;
+      });
+    };
+
+    container.addEventListener("mousedown", handleStart);
+    window.addEventListener("mouseup", handleEnd);
+    window.addEventListener("mousemove", handleMove);
+
+    container.addEventListener("touchstart", handleStart);
+    window.addEventListener("touchend", handleEnd);
+    window.addEventListener("touchmove", handleMove);
+  }
+
+  document.addEventListener("astro:page-load", initStackDrag);
+</script>

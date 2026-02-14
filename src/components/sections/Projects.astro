@@ -1,6 +1,11 @@
 ---
-import ProjectsGrid from "./ProjectsGrid.astro";
+import ProjectsGrid from "../shared/ProjectsGrid.astro";
 import Stack from "./Stack.astro";
+
+// 1. Detectamos el idioma una sola vez en el padre
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
 ---
 
 <section
@@ -9,7 +14,8 @@ import Stack from "./Stack.astro";
   aria-label="Projects section"
   class="bg-[#161512]"
 >
-  <ProjectsGrid />
+  {/* 2. Pasamos el lang como prop */}
+  <ProjectsGrid lang={lang} />
 </section>
 
 <section
@@ -18,7 +24,8 @@ import Stack from "./Stack.astro";
   aria-label="Stack section"
   class="bg-[#161512] py-24 lg:px-26"
 >
-  <Stack />
+  {/* 3. Pasamos el lang como prop */}
+  <Stack lang={lang} />
 </section>
 
 <style>

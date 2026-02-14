@@ -1,0 +1,77 @@
+---
+import { t } from "../../i18n";
+import RecommendationCard from "../shared/RecommendationCard.astro";
+import Title from "../ui/Title.astro";
+
+const lang = Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] || "es";
+---
+
+<section id="recommendations" class="py-32 px-6 relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-96 h-96 bg-[#daa032]/5 blur-[120px] rounded-full -mr-48 -mt-48"></div>
+  
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col items-center justify-center mb-20 gap-6 text-center">
+      <div class="max-w-2xl mx-auto">
+        <Title text={t(lang, "pages.recomendations.title")} class="text-center !mb-4" />
+        <p class="text-gray-400 text-lg">
+        </p>
+      </div>
+  
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+      <div class="md:col-span-7 lg:col-span-8">
+        <RecommendationCard
+          text={t(lang, "pages.recomendations.monica.text")}
+          author="Mónica P. Sueiro"
+          relationship={t(lang, "pages.recomendations.monica.relationship")}
+          class="reco-card opacity-0 translate-y-10"
+        />
+      </div>
+
+      <div class="md:col-span-5 lg:col-span-4">
+        <RecommendationCard
+          text={t(lang, "pages.recomendations.dani.text")}
+          author="Dani Sánchez"
+          relationship={t(lang, "pages.recomendations.dani.relationship")}
+          class="reco-card opacity-0 translate-y-10"
+        />
+      </div>
+
+      <div class="md:col-span-12 lg:col-start-3 lg:col-span-8">
+        <RecommendationCard
+          text={t(lang, "pages.recomendations.miguel.text")}
+          author="Miguel Iglesias"
+          relationship={t(lang, "pages.recomendations.miguel.relationship")}
+          class="reco-card opacity-0 translate-y-10"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupRecomendations() {
+    const cards = document.querySelectorAll(".reco-card");
+    
+    if (cards.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+          el.style.transition = "all 0.8s cubic-bezier(0.2, 1, 0.3, 1)";
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach((card) => observer.observe(card));
+  }
+
+  // Ejecutar en carga inicial y en cambios de página de Astro
+  document.addEventListener("DOMContentLoaded", setupRecomendations);
+  document.addEventListener("astro:page-load", setupRecomendations);
+</script>

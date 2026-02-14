@@ -1,53 +1,79 @@
 ---
-import { webProjects } from "../data/webProjects";
-import SmallTitle from "./SmallTitle.astro";
-import Text from "./Text.astro";
-import Title from "./Title.astro";
-// import Lightbox from "./PopUp.astro";
+import { webProjects } from "../../data/webProjects";
+import SmallTitle from "../ui/SmallTitle.astro";
+import Text from "../ui/Text.astro";
+import Title from "../ui/Title.astro";
+import { t } from "../../i18n";
 
-const slug = Astro.params.slug;
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
+const { slug } = Astro.params;
 
-const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
+// 1. Buscamos los metadatos técnicos (imágenes, links, tools)
+const projectData = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
+
+// 2. Buscamos los textos traducidos. 
+// IMPORTANTE: Como en tu export const projects_data pusiste "pawtopia" directo, 
+// no hace falta el prefijo 'web_projects_data'
+const projectI18n = t(lang, `projects_data.${projectData.slug}`);
+
+// 3. Fallbacks de seguridad para que el .map no rompa si no hay traducción
+const steps = projectI18n?.steps || [];
+const collaborators = projectData.collaborators || [];
 ---
 
 <section class="space-y-20 mt-12 p-6 lg:px-32 mx-auto">
   <header class="text-center space-y-4">
-    <Title text={project.title} />
-    <Text text={project.description} />
+    <Title text={projectI18n?.title || projectData.title} />
+    <Text text={projectI18n?.description} />
   </header>
 
   <div class="grid md:grid-cols-2 gap-10 items-start">
-    <!-- Imagen: aparece primero en móvil, segundo en desktop -->
     <div class="w-full rounded overflow-hidden shadow-md order-1 md:order-2">
       <img
-        src={project.coverImage}
-        alt={project.title}
+        src={projectData.coverImage}
+        alt={projectI18n?.title}
         class="rounded-md object-cover h-100 w-full"
       />
     </div>
 
-    <!-- Contenido textual: aparece después en móvil, primero en desktop -->
     <div class="order-2 md:order-1">
-      <SmallTitle text="Descripción del projecto" />
-      <Text text={project.summary} />
+      <SmallTitle
+        text={lang === "es"
+          ? "Descripción del proyecto"
+          : "Project Description"}
+      />
+      <Text text={projectI18n?.summary} />
+
       <div class="mt-4 text-xs text-gray-400 italic">
-        <Text text={`Cliente: ${project.client}`} noMargin />
-        <Text text={`Herramientas: ${project.tools.join(", ")}`} noMargin />
-        <Text text={`Rol: ${project.role}`} noMargin />
+        <Text
+          text={`${lang === "es" ? "Cliente" : "Client"}: ${projectI18n?.client || projectData.client}`}
+          noMargin
+        />
+        <Text
+          text={`${lang === "es" ? "Herramientas" : "Tools"}: ${projectData.tools.join(", ")}`}
+          noMargin
+        />
+        <Text
+          text={`${lang === "es" ? "Rol" : "Role"}: ${projectI18n?.role || projectData.role}`}
+          noMargin
+        />
       </div>
 
       {
-        project.collaborators && project.collaborators.length > 0 && (
-          <div class="mt-6 w-2/3">
-            <SmallTitle text="Collaborators" />
-            <ul class="space-y-2 pl-2 text-sm p-4 text-gray-300 flex justify-between">
-              {project.collaborators.map((person) => (
+        collaborators.length > 0 && (
+          <div class="mt-6 w-full lg:w-2/3">
+            <SmallTitle
+              text={lang === "es" ? "Colaboradores" : "Collaborators"}
+            />
+            <ul class="flex flex-wrap gap-4 mt-2 text-sm text-gray-300">
+              {collaborators.map((person) => (
                 <li>
                   <a
                     href={person.github}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-[#e9eeef] hover:underline"
+                    class="text-[#e9eeef] hover:underline hover:text-[#daa032] transition-colors"
                   >
                     {person.name}
                   </a>
@@ -59,16 +85,15 @@ const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
       }
 
       {
-        project.liveUrl && (
+        projectData.liveUrl && (
           <div class="text-center mt-10">
             <a
-              href={project.liveUrl}
+              href={projectData.liveUrl}
               target="_blank"
-              rel="nofollow noopener noreferrer"
-              class="relative inline-flex items-center justify-center w-fit mx-auto rounded border-2 border-[#daa032] bg-[#161512] p-1 transition duration-300 group hover:scale-101 active:shadow-[0_0_10px_2px_#daa032]"
+              class="relative inline-flex items-center justify-center w-fit mx-auto rounded border-2 border-[#daa032] bg-[#161512] p-1 transition duration-300 group hover:scale-101"
             >
               <span class="w-full h-full rounded-[6px] bg-[#0b0b0b] px-6 py-3 text-white text-base font-medium transition-all duration-300 group-hover:bg-[#111]">
-                IR A LA WEB
+                {lang === "es" ? "IR A LA WEB" : "VISIT WEBSITE"}
               </span>
             </a>
           </div>
@@ -78,34 +103,40 @@ const project = webProjects.find((p) => p.slug === slug) ?? webProjects[0];
   </div>
 
   <div>
-    <SmallTitle text="Design Process " class="mb-4" />
+    <SmallTitle
+      text={lang === "es" ? "Proceso de Diseño" : "Design Process"}
+      class="mb-4"
+    />
     <ul class="list-disc pl-6 space-y-2 text-gray-300 text-sm">
-      {project.steps.map((step) => <li>{step}</li>)}
+      {steps.map((step: string) => <li>{step}</li>)}
     </ul>
   </div>
 
   <div>
-    <h2 class="text-xl font-semibold text-[#daa032] mb-4">Gallery</h2>
+    <h2 class="text-xl font-semibold text-[#daa032] mb-4">
+      {lang === "es" ? "Galería" : "Gallery"}
+    </h2>
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
       id="gallery"
     >
       {
-        project.images.map((img) => (
-          <div class="aspect-4/3 overflow-hidden rounded-md">
+        projectData.images.map((img) => (
+          <div class="aspect-4/3 overflow-hidden rounded-md border border-white/10">
             <img
               src={img}
-              alt={`Portada de ${project.title}`}
-              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
+              alt="Gallery image"
+              class="w-full h-full object-cover hover:scale-105 transition-transform cursor-pointer"
             />
           </div>
         ))
       }
     </div>
   </div>
+
   <div class="lightbox" id="lightbox">
     <span class="close-btn" id="lightbox-close">&times;</span>
-    <img alt="Imagen ampliada" />
+    <img src="" alt="Zoomed view" />
   </div>
 </section>
 <style>

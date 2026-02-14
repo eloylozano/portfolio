@@ -4,12 +4,13 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.eloylozano.es', 
-  base: '/',
-  trailingSlash: 'ignore', 
+  site: 'https://www.eloylozano.es',
+  base: '/', 
+  output: 'server',
+  trailingSlash: 'ignore',
   integrations: [
     sitemap({
-      filter: (page) => 
+      filter: (page) =>
         page === 'https://www.eloylozano.es/' ||
         page === 'https://www.eloylozano.es/photography/me' ||
         page === 'https://www.eloylozano.es/web/atelier' ||
