@@ -35,12 +35,28 @@ const { title, description, noindex, canonicalURL, socialImageURL } = Astro.prop
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={socialImageURL} />
 
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-NP56HSBSPJ"></script>
 <script is:inline>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag("js", new Date());
-  gtag("config", "G-NP56HSBSPJ");
+  (function() {
+    const getCookie = (name) => {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(";").shift();
+      return null;
+    };
+
+    if (getCookie("cookie-consent-analytics") === "accepted") {
+      const gaId = 'G-NP56HSBSPJ';
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gaId);
+    }
+  })();
 </script>
 
 <script type="application/ld+json">

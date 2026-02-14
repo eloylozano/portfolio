@@ -12,9 +12,6 @@ import Footer from "../components/ui/Footer.astro";
 import Navbar from "../components/ui/Navbar.astro";
 import ScrollSpy from "../components/ui/ScrollSpy.astro";
 import CookieModal from "../components/ui/CookieModal.astro";
-
-// 1. Importamos el componente del ChatBot
-import ChatBot from "../components/ui/ChatBot.astro";
 import ChatInterface from "../components/ai/ChatInterface.astro";
 
 const {
@@ -28,6 +25,11 @@ const lang = Astro.cookies.get("preferredLang")?.value || "es";
 const siteUrl = "https://www.eloylozano.es";
 const canonicalURL = new URL(path, siteUrl);
 const socialImageURL = new URL("/images/aboutme.webp", siteUrl);
+
+// CONTROL DE PRIVACIDAD PARA EL CHAT
+// Leemos la cookie. Si es 'accepted', mostramos el chat.
+const aiConsent = Astro.cookies.get("cookie-consent-ai")?.value;
+const showChat = aiConsent === "accepted";
 ---
 
 <!doctype html>
@@ -41,9 +43,7 @@ const socialImageURL = new URL("/images/aboutme.webp", siteUrl);
       socialImageURL={socialImageURL}
     />
   </head>
-  <body
-    class="bg-[#161512] text-white selection:bg-[#daa032] selection:text-black"
-  >
+  <body class="bg-[#161512] text-white selection:bg-[#daa032] selection:text-black">
     <Navbar />
     {path === "/" && <ScrollSpy />}
     <CookieModal />
@@ -52,7 +52,8 @@ const socialImageURL = new URL("/images/aboutme.webp", siteUrl);
       <slot />
     </main>
 
-    <ChatInterface />
+    {/* Solo renderiza el chat si el usuario dio permiso */}
+    {showChat && <ChatInterface />}
 
     <Footer />
 

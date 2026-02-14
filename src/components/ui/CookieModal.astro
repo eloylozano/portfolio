@@ -1,5 +1,7 @@
 ---
-const lang = Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] || "es";
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
 
 const content = {
   es: {
@@ -18,7 +20,7 @@ const content = {
       {
         id: "ai",
         name: "Asistente IA (Alter-Ego)",
-        desc: "Habilita la comunicación con el asistente inteligente de Eloy.",
+        desc: "Habilita la comunicación. Las consultas se procesan de forma anónima para mejorar las respuestas del modelo.",
         fixed: false,
       },
       {
@@ -45,7 +47,7 @@ const content = {
       {
         id: "ai",
         name: "AI Assistant (Alter-Ego)",
-        desc: "Enables communication with Eloy's intelligent assistant.",
+        desc: "Enables communication. Inquiries are processed anonymously to improve the model's performance.",
         fixed: false,
       },
       {
@@ -72,7 +74,7 @@ const content = {
       {
         id: "ai",
         name: "KI-Assistent (Alter-Ego)",
-        desc: "Ermöglicht die Kommunikation mit Eloys intelligentem Assistenten.",
+        desc: "Ermöglicht Kommunikation. Anfragen werden anonym verarbeitet, um die Leistung des Modells zu verbessern.",
         fixed: false,
       },
       {
@@ -155,7 +157,9 @@ const t = content[lang as keyof typeof content] || content.es;
 <script>
   function setupCookieModal() {
     const modal = document.getElementById("cookie-modal");
-    const analyticsCheck = document.getElementById("check-analytics") as HTMLInputElement;
+    const analyticsCheck = document.getElementById(
+      "check-analytics"
+    ) as HTMLInputElement;
     const aiCheck = document.getElementById("check-ai") as HTMLInputElement; // Nuevo selector
     const saveBtn = document.getElementById("save-cookies");
     const acceptAllBtn = document.getElementById("accept-all-cookies");
@@ -174,7 +178,9 @@ const t = content[lang as keyof typeof content] || content.es;
       const analyticsConsent = getCookie("cookie-consent-analytics");
       const aiConsent = getCookie("cookie-consent-ai");
 
-      if (analyticsCheck) analyticsCheck.checked = analyticsConsent === "accepted" || !analyticsConsent;
+      if (analyticsCheck)
+        analyticsCheck.checked =
+          analyticsConsent === "accepted" || !analyticsConsent;
       if (aiCheck) aiCheck.checked = aiConsent === "accepted" || !aiConsent;
 
       modal.classList.remove("hidden");
@@ -191,27 +197,33 @@ const t = content[lang as keyof typeof content] || content.es;
     saveBtn?.addEventListener("click", () => {
       const aStatus = analyticsCheck?.checked ? "accepted" : "rejected";
       const aiStatus = aiCheck?.checked ? "accepted" : "rejected";
-      
+
       document.cookie = `cookie-consent-analytics=${aStatus}; path=/; max-age=31536000; SameSite=Lax`;
       document.cookie = `cookie-consent-ai=${aiStatus}; path=/; max-age=31536000; SameSite=Lax`;
       document.cookie = `cookie-consent-given=true; path=/; max-age=31536000; SameSite=Lax`; // Flag general
-      
+
       closeModal();
       window.location.reload();
     });
 
     acceptAllBtn?.addEventListener("click", () => {
-      document.cookie = "cookie-consent-analytics=accepted; path=/; max-age=31536000; SameSite=Lax";
-      document.cookie = "cookie-consent-ai=accepted; path=/; max-age=31536000; SameSite=Lax";
-      document.cookie = "cookie-consent-given=true; path=/; max-age=31536000; SameSite=Lax";
+      document.cookie =
+        "cookie-consent-analytics=accepted; path=/; max-age=31536000; SameSite=Lax";
+      document.cookie =
+        "cookie-consent-ai=accepted; path=/; max-age=31536000; SameSite=Lax";
+      document.cookie =
+        "cookie-consent-given=true; path=/; max-age=31536000; SameSite=Lax";
       closeModal();
       window.location.reload();
     });
 
     rejectAllBtn?.addEventListener("click", () => {
-      document.cookie = "cookie-consent-analytics=rejected; path=/; max-age=31536000; SameSite=Lax";
-      document.cookie = "cookie-consent-ai=rejected; path=/; max-age=31536000; SameSite=Lax";
-      document.cookie = "cookie-consent-given=true; path=/; max-age=31536000; SameSite=Lax";
+      document.cookie =
+        "cookie-consent-analytics=rejected; path=/; max-age=31536000; SameSite=Lax";
+      document.cookie =
+        "cookie-consent-ai=rejected; path=/; max-age=31536000; SameSite=Lax";
+      document.cookie =
+        "cookie-consent-given=true; path=/; max-age=31536000; SameSite=Lax";
       closeModal();
       window.location.reload();
     });
