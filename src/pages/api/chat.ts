@@ -1,6 +1,12 @@
 import type { APIRoute } from 'astro';
 import { eloyData, systemPrompt } from '../../data/ai-context';
+import { createClient } from '@supabase/supabase-js';
 
+// Inicializar cliente
+const supabase = createClient(
+  import.meta.env.SUPABASE_URL || '',
+  import.meta.env.SUPABASE_ANON_KEY || ''
+);
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
@@ -8,7 +14,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   try {
     const { message, language = 'es' } = await request.json();
-    const model = "gemini-2.5-flash"; 
+    const model = "gemini-2.5-flash-lite"; 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
     // MAPEADO DINÁMICO DESDE AI-CONTEXT
@@ -82,6 +88,22 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Lo siento, mi conexión ha fallado.";
+
+    // --- AÑADE ESTO AQUÍ ---
+    if (aiText !== "Lo siento, mi conexión ha fallado.") {
+      supabase
+        .from('chat_logs')
+        .insert([{ 
+          user_message: message, 
+          ai_response: aiText, 
+          language: language,
+          tokens_used: data.usageMetadata?.totalTokenCount || 0 
+        }])
+        .then(({ error }) => {
+          if (error) console.error("Error Supabase:", error.message);
+        });
+    }
+    // -----------------------
 
     return new Response(JSON.stringify({ text: aiText }), { status: 200 });
 
