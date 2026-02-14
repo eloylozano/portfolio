@@ -1,0 +1,144 @@
+---
+import ChatButton from './ChatButton.astro';
+import ChatWindow from './ChatWindow.astro';
+
+const cookies = Astro.request.headers.get("cookie") || "";
+const lang = cookies.match(/preferredLang=([^;]+)/)?.[1] || "es";
+const aiConsent = cookies.match(/cookie-consent-ai=([^;]+)/)?.[1];
+const showChat = aiConsent !== "rejected";
+---
+
+{showChat && (
+  /* CAMBIO CLAVE: 
+     - En móvil (default): No tiene bottom/right fijos que limiten el tamaño.
+     - En desktop (sm:): Se posiciona en la esquina.
+  */
+  <div id="chat-container" class="fixed inset-0 pointer-events-none sm:inset-auto sm:bottom-6 sm:right-6 z-[300]">
+    <div class="relative w-full h-full pointer-events-auto">
+      <ChatButton />
+      <ChatWindow lang={lang} />
+    </div>
+  </div>
+)}
+<script>
+  // Función para inicializar el chat solo si los elementos existen
+  function initChat() {
+    const windowChat = document.getElementById('chat-window') as HTMLElement;
+    if (!windowChat) return; // Si el usuario rechazó cookies, no hacemos nada
+
+    const toggle = document.getElementById('chat-toggle');
+    const header = document.getElementById('chat-header') as HTMLElement;
+    const close = document.getElementById('close-chat');
+    const input = document.getElementById('chat-input') as HTMLInputElement;
+    const sendBtn = document.getElementById('send-btn') as HTMLButtonElement;
+    const messagesContainer = document.getElementById('chat-messages');
+    const typingIndicator = document.getElementById('typing-indicator');
+
+    // --- LÓGICA DE INTERFAZ ---
+    const toggleChat = () => {
+      const isHidden = windowChat.classList.contains('hidden');
+      if (isHidden) {
+        windowChat.style.bottom = '100px';
+        windowChat.style.right = '24px';
+        windowChat.classList.remove('hidden');
+        setTimeout(() => windowChat.classList.remove('opacity-0'), 10);
+      } else {
+        windowChat.classList.add('opacity-0');
+        setTimeout(() => windowChat.classList.add('hidden'), 300);
+      }
+    };
+
+    toggle?.addEventListener('click', toggleChat);
+    close?.addEventListener('click', toggleChat);
+
+    // --- LÓGICA DE ARRASTRE ---
+    let isDragging = false;
+    let offsetX = 0, offsetY = 0;
+
+    const startDrag = (e: MouseEvent | TouchEvent) => {
+      isDragging = true;
+      const clientX = 'touches' in e ? (e as TouchEvent).touches[0].clientX : (e as MouseEvent).clientX;
+      const clientY = 'touches' in e ? (e as TouchEvent).touches[0].clientY : (e as MouseEvent).clientY;
+      const rect = windowChat.getBoundingClientRect();
+      offsetX = clientX - rect.left;
+      offsetY = clientY - rect.top;
+    };
+
+    const doDrag = (e: MouseEvent | TouchEvent) => {
+      if (!isDragging) return;
+      const clientX = 'touches' in e ? (e as TouchEvent).touches[0].clientX : (e as MouseEvent).clientX;
+      const clientY = 'touches' in e ? (e as TouchEvent).touches[0].clientY : (e as MouseEvent).clientY;
+      
+      windowChat.style.left = `${clientX - offsetX}px`;
+      windowChat.style.top = `${clientY - offsetY}px`;
+      windowChat.style.bottom = 'auto';
+      windowChat.style.right = 'auto';
+    };
+
+    header?.addEventListener('mousedown', startDrag);
+    header?.addEventListener('touchstart', startDrag);
+    document.addEventListener('mousemove', doDrag);
+    document.addEventListener('touchmove', doDrag);
+    document.addEventListener('mouseup', () => isDragging = false);
+    document.addEventListener('touchend', () => isDragging = false);
+
+    // --- LÓGICA DE MENSAJES ---
+    async function sendMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+
+      const currentLang = windowChat.dataset.lang || 'es';
+
+      appendMessage('user', text);
+      input.value = '';
+      sendBtn.disabled = true;
+      typingIndicator?.classList.remove('hidden');
+      messagesContainer?.scrollTo(0, messagesContainer.scrollHeight);
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          body: JSON.stringify({ 
+            message: text,
+            language: currentLang 
+          }),
+          headers: { 'Content-Type': 'application/json' }
+        });
+        const data = await res.json();
+        appendMessage('ai', data.text);
+      } catch (e) {
+        const errorMsg = currentLang === 'es' ? 'Error de conexión.' : 'Connection error.';
+        appendMessage('ai', errorMsg);
+      } finally {
+        typingIndicator?.classList.add('hidden');
+        sendBtn.disabled = false;
+      }
+    }
+
+    function appendMessage(role: 'user' | 'ai', text: string) {
+      const container = document.createElement('div');
+      container.className = role === 'user' ? 'user-bubble' : 'ai-bubble';
+      
+      const content = document.createElement('div');
+      content.className = role === 'user' ? 'user-msg-content' : 'ai-msg-content';
+      content.innerText = text;
+
+      container.appendChild(content);
+      messagesContainer?.appendChild(container);
+      
+      messagesContainer?.scrollTo({
+        top: messagesContainer.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+
+    sendBtn?.addEventListener('click', sendMessage);
+    input?.addEventListener('keypress', (e) => e.key === 'Enter' && sendMessage());
+  }
+
+  // Ejecutar inicialización
+  initChat();
+  
+  // Reinicializar si usas View Transitions de Astro
+  document.addEventListener("astro:after-swap", initChat);
+</script>

@@ -16,6 +16,12 @@ const content = {
         fixed: true,
       },
       {
+        id: "ai",
+        name: "Asistente IA (Alter-Ego)",
+        desc: "Habilita la comunicación con el asistente inteligente de Eloy.",
+        fixed: false,
+      },
+      {
         id: "analytics",
         name: "Análisis y Estadísticas",
         desc: "Nos ayudan a entender cómo interactúas con la web (Google Analytics G4).",
@@ -37,6 +43,12 @@ const content = {
         fixed: true,
       },
       {
+        id: "ai",
+        name: "AI Assistant (Alter-Ego)",
+        desc: "Enables communication with Eloy's intelligent assistant.",
+        fixed: false,
+      },
+      {
         id: "analytics",
         name: "Analytics & Stats",
         desc: "Help us understand how you interact with the site (Google Analytics G4).",
@@ -44,7 +56,6 @@ const content = {
       },
     ],
   },
-  // AÑADIMOS ALEMÁN PARA EVITAR EL ERROR
   de: {
     title: "Datenschutzeinstellungen",
     desc: "Verwalten Sie, wie wir Cookies verwenden, um Ihre Erfahrung zu verbessern.",
@@ -59,6 +70,12 @@ const content = {
         fixed: true,
       },
       {
+        id: "ai",
+        name: "KI-Assistent (Alter-Ego)",
+        desc: "Ermöglicht die Kommunikation mit Eloys intelligentem Assistenten.",
+        fixed: false,
+      },
+      {
         id: "analytics",
         name: "Analyse & Statistik",
         desc: "Helfen uns zu verstehen, wie Sie mit der Website interagieren (Google Analytics G4).",
@@ -68,7 +85,6 @@ const content = {
   },
 };
 
-// SOLUCIÓN DE SEGURIDAD: Si el idioma no existe en 'content', usamos 'es' por defecto
 const t = content[lang as keyof typeof content] || content.es;
 ---
 
@@ -139,14 +155,13 @@ const t = content[lang as keyof typeof content] || content.es;
 <script>
   function setupCookieModal() {
     const modal = document.getElementById("cookie-modal");
-    const analyticsCheck = document.getElementById(
-      "check-analytics"
-    ) as HTMLInputElement;
+    const analyticsCheck = document.getElementById("check-analytics") as HTMLInputElement;
+    const aiCheck = document.getElementById("check-ai") as HTMLInputElement; // Nuevo selector
     const saveBtn = document.getElementById("save-cookies");
     const acceptAllBtn = document.getElementById("accept-all-cookies");
     const rejectAllBtn = document.getElementById("reject-all-cookies");
 
-    if (!modal) return; // Seguridad
+    if (!modal) return;
 
     const getCookie = (name: string) => {
       const value = `; ${document.cookie}`;
@@ -156,14 +171,13 @@ const t = content[lang as keyof typeof content] || content.es;
     };
 
     const openModal = () => {
-      // Sincronizar check antes de abrir
-      const consent = getCookie("cookie-consent");
-      if (analyticsCheck) {
-        analyticsCheck.checked = consent === "accepted" || !consent;
-      }
+      const analyticsConsent = getCookie("cookie-consent-analytics");
+      const aiConsent = getCookie("cookie-consent-ai");
+
+      if (analyticsCheck) analyticsCheck.checked = analyticsConsent === "accepted" || !analyticsConsent;
+      if (aiCheck) aiCheck.checked = aiConsent === "accepted" || !aiConsent;
 
       modal.classList.remove("hidden");
-      // Forzamos un reflow para que la transición de opacidad funcione
       void modal.offsetWidth;
       modal.classList.remove("opacity-0");
     };
@@ -173,42 +187,43 @@ const t = content[lang as keyof typeof content] || content.es;
       setTimeout(() => modal.classList.add("hidden"), 300);
     };
 
-    // Handlers de botones
+    // Handler para guardar individualmente
     saveBtn?.addEventListener("click", () => {
-      const status = analyticsCheck?.checked ? "accepted" : "rejected";
-      document.cookie = `cookie-consent=${status}; path=/; max-age=31536000; SameSite=Lax`;
+      const aStatus = analyticsCheck?.checked ? "accepted" : "rejected";
+      const aiStatus = aiCheck?.checked ? "accepted" : "rejected";
+      
+      document.cookie = `cookie-consent-analytics=${aStatus}; path=/; max-age=31536000; SameSite=Lax`;
+      document.cookie = `cookie-consent-ai=${aiStatus}; path=/; max-age=31536000; SameSite=Lax`;
+      document.cookie = `cookie-consent-given=true; path=/; max-age=31536000; SameSite=Lax`; // Flag general
+      
       closeModal();
       window.location.reload();
     });
 
     acceptAllBtn?.addEventListener("click", () => {
-      document.cookie =
-        "cookie-consent=accepted; path=/; max-age=31536000; SameSite=Lax";
+      document.cookie = "cookie-consent-analytics=accepted; path=/; max-age=31536000; SameSite=Lax";
+      document.cookie = "cookie-consent-ai=accepted; path=/; max-age=31536000; SameSite=Lax";
+      document.cookie = "cookie-consent-given=true; path=/; max-age=31536000; SameSite=Lax";
       closeModal();
       window.location.reload();
     });
 
     rejectAllBtn?.addEventListener("click", () => {
-      document.cookie =
-        "cookie-consent=rejected; path=/; max-age=31536000; SameSite=Lax";
+      document.cookie = "cookie-consent-analytics=rejected; path=/; max-age=31536000; SameSite=Lax";
+      document.cookie = "cookie-consent-ai=rejected; path=/; max-age=31536000; SameSite=Lax";
+      document.cookie = "cookie-consent-given=true; path=/; max-age=31536000; SameSite=Lax";
       closeModal();
       window.location.reload();
     });
 
-    // Escuchar el evento del botón de ajustes
     window.addEventListener("open-cookie-modal", openModal);
 
-    // --- COMPROBACIÓN AUTOMÁTICA ---
-    const consent = getCookie("cookie-consent");
-    if (!consent) {
-      // Si no hay cookie, abrimos tras un pequeño delay
+    const consentGiven = getCookie("cookie-consent-given");
+    if (!consentGiven) {
       setTimeout(openModal, 800);
     }
   }
 
-  // Correr al cargar la página
   setupCookieModal();
-
-  // Correr cada vez que Astro cambie de página (View Transitions)
   document.addEventListener("astro:after-swap", setupCookieModal);
 </script>

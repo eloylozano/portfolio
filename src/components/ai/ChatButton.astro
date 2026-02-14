@@ -1,0 +1,103 @@
+---
+const cookies = Astro.request.headers.get("cookie") || "";
+const lang = cookies.match(/preferredLang=([^;]+)/)?.[1] || "es";
+
+const labels = {
+  es: "IA Alter Ego",
+  en: "Alter-Ego Ai",
+  de: "KI Alter-Ego"
+};
+
+const label = labels[lang] || labels.es;
+---
+
+<button 
+  id="chat-toggle" 
+  class="chat-trigger group"
+  aria-label="Abrir chat"
+>
+  <div class="md:hidden flex items-center justify-center w-full h-full">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
+    </svg>
+  </div>
+
+  <div class="hidden md:flex flex-col items-center gap-4 py-6">
+    <div class="pulse-dot"></div>
+    <span class="vertical-text text-[10px] uppercase tracking-[4px] font-bold">{label}</span>
+    <svg class="group-hover:-translate-y-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
+    </svg>
+  </div>
+</button>
+
+<style>
+  .chat-trigger {
+    background: #daa032;
+    color: black;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255,255,255,0.2);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    z-index: 301;
+    border: none;
+    position: fixed;
+    right: 0;
+  }
+
+  /* MÓVIL: Esquina inferior derecha */
+  @media (max-width: 767px) {
+    .chat-trigger {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      bottom: 24px;
+      right: 24px;
+    }
+  }
+
+  /* ESCRITORIO: Pestaña vertical en el borde derecho */
+  @media (min-width: 768px) {
+    .chat-trigger {
+      bottom: 100px; /* Aquí controlas la altura. Más bajo = número menor */
+      width: 45px;
+      border-radius: 15px 0 0 15px; /* Redondeado solo interior */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .chat-trigger:hover {
+      width: 55px; /* Se ensancha un poco al pasar el ratón */
+      background: #f2b33d;
+    }
+
+    .vertical-text {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg); /* Para que se lea de abajo hacia arriba */
+    }
+  }
+
+  /* Punto de actividad */
+  .pulse-dot {
+    width: 6px;
+    height: 6px;
+    background: black;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .pulse-dot::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+  }
+</style>
