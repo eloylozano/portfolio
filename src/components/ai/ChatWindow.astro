@@ -1,33 +1,28 @@
 ---
 // 1. Detectamos el idioma una sola vez desde la cookie del servidor
-const lang =
-  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
-  "es";
+const lang = Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] || "es";
 
 const translations = {
   es: {
-    assistant: "Asistente",
-    welcome:
-      "Bienvenido. Eloy no está aquí ahora mismo, pero estoy yo, su alter ego. Consúltame lo que quieras sobre su trabajo.",
+    assistant: "Alter-Ego",
+    user: "Tú",
+    welcome: "Bienvenido. Eloy no está aquí ahora mismo, pero estoy yo, su alter ego. Consúltame lo que quieras sobre su trabajo.",
     placeholder: "Escriba su consulta...",
     connection: "Conexión Segura Encriptada",
-    drag: "Mantener para mover",
   },
   en: {
-    assistant: "Assistant",
-    welcome:
-      "Welcome. Eloy isn't here right now, but I'm his alter ego. Ask me anything about his work.",
+    assistant: "Alter-Ego",
+    user: "You",
+    welcome: "Welcome. Eloy isn't here right now, but I'm his alter ego. Ask me anything about his work.",
     placeholder: "Type your inquiry...",
     connection: "Encrypted Secure Connection",
-    drag: "Hold to move",
   },
   de: {
-    assistant: "Assistent",
-    welcome:
-      "Willkommen. Eloy ist gerade nicht hier, aber ich bin sein Alter Ego. Fragen Sie mich gerne alles über seine Arbeit.",
+    assistant: "Alter-Ego",
+    user: "Du",
+    welcome: "Willkommen. Eloy ist gerade nicht hier, aber ich bin sein Alter Ego. Fragen Sie mich gerne alles über seine Arbeit.",
     placeholder: "Schreiben Sie Ihre Anfrage...",
     connection: "Verschlüsselte sichere Verbindung",
-    drag: "Zum Bewegen gedrückt halten",
   },
 };
 
@@ -37,198 +32,121 @@ const avatarSrc = "/images/projects/ai/alterego/profile.webp";
 
 <div
   id="chat-window"
-  class="hidden
-         /* Comportamiento Base (Móvil) */
-         fixed bottom-0 left-0 right-0 w-full h-[100dvh] z-[301]
-         rounded-t-[2rem]
-         
-         /* Comportamiento Escritorio (sm) */
-         sm:fixed sm:bottom-28 sm:right-8 sm:left-auto
-         sm:w-[420px] sm:h-[650px] sm:max-h-[85vh]
-         sm:rounded-[2.5rem]
-         
-         bg-black/95 backdrop-blur-3xl border-t sm:border border-white/10
-         flex flex-col overflow-hidden shadow-2xl
-         transition-all duration-500"
+  class="fixed bottom-0 left-0 right-0 w-full h-[100dvh] z-[301] rounded-t-[2rem] 
+         sm:bottom-28 sm:right-8 sm:left-auto sm:w-[420px] sm:h-[650px] sm:max-h-[85vh] sm:rounded-[2.5rem] 
+         bg-black/95 backdrop-blur-3xl border-t sm:border border-white/10 
+         flex flex-col overflow-hidden shadow-2xl 
+         transition-all duration-500 ease-in-out
+         opacity-0 pointer-events-none translate-y-10"
 >
-  <div
-    id="chat-header"
-    class="p-6 sm:p-8 pt-8 sm:pt-10 bg-gradient-to-b from-white/10 to-transparent flex justify-between items-center cursor-move select-none relative group"
-  >
-    <div
-      class="hidden sm:flex absolute top-4 left-1/2 -translate-x-1/2 flex-col items-center gap-1.5 w-full max-w-[250px] pointer-events-none"
-    >
-      <div class="relative w-16 h-1 bg-white/10 rounded-full overflow-hidden">
-        <div
-          class="absolute inset-0 bg-gradient-to-r from-transparent via-[#daa032]/60 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"
-        >
-        </div>
-      </div>
-    </div>
-
+  <div id="chat-header" class="p-6 sm:p-8 pt-8 sm:pt-10 bg-gradient-to-b from-white/10 to-transparent flex justify-between items-center cursor-move select-none relative group">
     <div class="flex items-center gap-3 sm:gap-5 relative z-10">
-      <div
-        class="relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center"
-      >
-        <img
-          src={avatarSrc}
-          alt="AI Avatar"
-          class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#daa032]/50 object-cover z-10"
-        />
-        <div
-          class="absolute inset-0 bg-[#daa032]/20 rounded-full animate-pulse"
-        >
-        </div>
+      <div class="relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
+        <img src={avatarSrc} alt="AI Avatar" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#daa032]/50 object-cover z-10" />
+        <div class="absolute inset-0 bg-[#daa032]/20 rounded-full animate-pulse"></div>
       </div>
       <div>
-        <h3
-          class="text-white font-light tracking-[2px] sm:tracking-[4px] text-xs sm:text-sm uppercase"
-        >
-          Eloy Alter-Ego
-        </h3>
-        <p
-          class="text-[8px] sm:text-[10px] text-[#daa032] tracking-[1px] sm:tracking-[2px] uppercase opacity-70"
-        >
-          Concierge Intelligence
-        </p>
+        <h3 class="text-white font-light tracking-[2px] text-xs sm:text-sm uppercase">Eloy Alter-Ego</h3>
+        <p class="text-[8px] sm:text-[10px] text-[#daa032] tracking-[1px] uppercase opacity-70">Concierge Intelligence</p>
       </div>
     </div>
-
-    <button
-      id="close-chat"
-      class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors group cursor-pointer relative z-20"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="white"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="opacity-40 group-hover:opacity-100"
-        ><line x1="18" y1="6" x2="6" y2="18"></line><line
-          x1="6"
-          y1="6"
-          x2="18"
-          y2="18"></line></svg
-      >
+    <button id="close-chat" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors group cursor-pointer relative z-20">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 group-hover:opacity-100"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
     </button>
   </div>
 
-  <div
-    id="chat-messages"
-    class="flex-1 overflow-y-auto px-5 sm:px-6 py-2 space-y-6 no-scrollbar scroll-smooth"
-  >
-    <div class="flex gap-3 ai-bubble">
-      <img
-        src={avatarSrc}
-        alt="Avatar"
-        class="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/10 mt-5 object-cover flex-shrink-0"
-      />
-      <div class="flex flex-col gap-1">
-        <span
-          class="text-[8px] sm:text-[9px] text-[#daa032] uppercase tracking-widest ml-1"
-          >{t.assistant}</span
-        >
-        <div class="ai-msg-content italic text-sm">
-          "{t.welcome}"
-        </div>
+  <div id="chat-messages" class="flex-1 overflow-y-auto px-5 py-4 space-y-6 no-scrollbar scroll-smooth flex flex-col">
+    <div class="ai-bubble">
+      <div class="flex items-center gap-2 mb-1.5 ml-1">
+        <img src={avatarSrc} class="w-4 h-4 rounded-full border border-[#daa032]/30 object-cover" />
+        <span class="text-[9px] text-[#daa032] uppercase tracking-[2px] opacity-70">{t.assistant}</span>
+      </div>
+      <div class="msg-content">
+        {t.welcome}
       </div>
     </div>
   </div>
 
   <div id="typing-indicator" class="hidden px-8 py-2">
     <div class="flex gap-1.5 items-center">
-      <div class="w-1 h-1 bg-[#daa032] rounded-full animate-bounce"></div>
-      <div
-        class="w-1 h-1 bg-[#daa032] rounded-full animate-bounce [animation-delay:0.2s]"
-      >
-      </div>
-      <div
-        class="w-1 h-1 bg-[#daa032] rounded-full animate-bounce [animation-delay:0.4s]"
-      >
-      </div>
+      <div class="w-1.5 h-1.5 bg-[#daa032] rounded-full animate-bounce"></div>
+      <div class="w-1.5 h-1.5 bg-[#daa032] rounded-full animate-bounce [animation-delay:0.2s]"></div>
+      <div class="w-1.5 h-1.5 bg-[#daa032] rounded-full animate-bounce [animation-delay:0.4s]"></div>
     </div>
   </div>
 
-  <div
-    class="p-4 sm:p-6 bg-gradient-to-t from-white/[0.05] to-transparent border-t border-white/5 pb-8 sm:pb-6"
-  >
+  <div class="p-4 sm:p-6 bg-gradient-to-t from-white/[0.05] to-transparent border-t border-white/5 pb-8 sm:pb-6">
     <div class="relative group">
-      <input
-        type="text"
-        id="chat-input"
-        placeholder={t.placeholder}
-        class="w-full bg-white/[0.03] border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3 sm:py-4 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-[#daa032]/40 transition-all pr-12"
-      />
-      <button
-        id="send-btn"
-        class="absolute right-1.5 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-lg sm:rounded-xl bg-[#daa032] shadow-[0_0_15px_rgba(218,160,50,0.2)] active:scale-95"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="black"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          ><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"
-          ></path></svg
-        >
+      <input type="text" id="chat-input" placeholder={t.placeholder} class="w-full bg-white/[0.03] border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3 sm:py-4 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-[#daa032]/40 transition-all pr-12" />
+      <button id="send-btn" class="absolute right-1.5 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-lg sm:rounded-xl bg-[#daa032] hover:bg-[#f3c36b] transition-all shadow-[0_0_15px_rgba(218,160,50,0.2)] active:scale-95">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
       </button>
     </div>
-    <p
-      class="text-[7px] sm:text-[8px] text-center mt-3 text-gray-500 uppercase tracking-[2px]"
-    >
-      {t.connection}
-    </p>
+    <p class="text-[7px] sm:text-[8px] text-center mt-3 text-gray-500 uppercase tracking-[2px]">{t.connection}</p>
   </div>
-
-  <style>
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    #chat-messages {
-      flex: 1 1 auto;
-      min-height: 0;
-      mask-image: linear-gradient(
-        to bottom,
-        transparent,
-        black 5%,
-        black 95%,
-        transparent
-      );
-    }
-
-    /* Ajuste de mensajes */
-    :global(.ai-msg-content),
-    :global(.user-msg-content) {
-      max-width: 100%;
-      line-height: 1.5;
-      word-wrap: break-word;
-    }
-
-    @keyframes shimmer {
-      0% {
-        transform: translateX(-100%);
-      }
-      100% {
-        transform: translateX(100%);
-      }
-    }
-
-    /* Evitar zoom automático en iOS al hacer focus en el input */
-    @media screen and (max-width: 768px) {
-      input[type="text"] {
-        font-size: 16px;
-      }
-    }
-  </style>
 </div>
+
+<style>
+  /* Clase de activación */
+  #chat-window.is-active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+
+  #chat-messages {
+    mask-image: linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
+  }
+
+  /* Mensajes del Usuario: Estilo Oro Pulido */
+  :global(.user-bubble) {
+    align-self: flex-end;
+    max-width: 85%;
+    margin-bottom: 1.5rem;
+    animation: fadeInRight 0.3s ease-out forwards;
+  }
+
+  :global(.user-bubble .msg-content) {
+    background: linear-gradient(135deg, #f3c36b 0%, #daa032 50%, #b8862a 100%);
+    color: #000000;
+    font-weight: 600;
+    padding: 0.85rem 1.1rem;
+    border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 25px -10px rgba(218, 160, 50, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Mensajes de la IA: Estilo Minimalista Oscuro */
+  :global(.ai-bubble) {
+    align-self: flex-start;
+    max-width: 85%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    animation: fadeInLeft 0.3s ease-out forwards;
+  }
+
+  :global(.ai-bubble .msg-content) {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    color: #f3f4f6;
+    padding: 0.85rem 1.1rem;
+    border-radius: 1.25rem 1.25rem 1.25rem 0.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(12px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-12px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+</style>

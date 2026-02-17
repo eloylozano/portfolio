@@ -9,22 +9,19 @@ const showChat = aiConsent !== "rejected";
 ---
 
 {showChat && (
-  /* CAMBIO CLAVE: 
-     - En móvil (default): No tiene bottom/right fijos que limiten el tamaño.
-     - En desktop (sm:): Se posiciona en la esquina.
-  */
-  <div id="chat-container" class="fixed inset-0 pointer-events-none sm:inset-auto sm:bottom-6 sm:right-6 z-[300]">
-    <div class="relative w-full h-full pointer-events-auto">
+  /* Eliminamos inset-0 para que el contenedor no bloquee nada */
+  <div id="chat-container" class="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-[300] pointer-events-none">
+    <div class="relative pointer-events-auto">
       <ChatButton />
       <ChatWindow lang={lang} />
     </div>
   </div>
 )}
+
 <script>
-  // Función para inicializar el chat solo si los elementos existen
   function initChat() {
     const windowChat = document.getElementById('chat-window') as HTMLElement;
-    if (!windowChat) return; // Si el usuario rechazó cookies, no hacemos nada
+    if (!windowChat) return;
 
     const toggle = document.getElementById('chat-toggle');
     const header = document.getElementById('chat-header') as HTMLElement;
@@ -34,28 +31,21 @@ const showChat = aiConsent !== "rejected";
     const messagesContainer = document.getElementById('chat-messages');
     const typingIndicator = document.getElementById('typing-indicator');
 
-    // --- LÓGICA DE INTERFAZ ---
+    // --- LÓGICA DE INTERFAZ (CORREGIDA) ---
     const toggleChat = () => {
-      const isHidden = windowChat.classList.contains('hidden');
-      if (isHidden) {
-        windowChat.style.bottom = '100px';
-        windowChat.style.right = '24px';
-        windowChat.classList.remove('hidden');
-        setTimeout(() => windowChat.classList.remove('opacity-0'), 10);
-      } else {
-        windowChat.classList.add('opacity-0');
-        setTimeout(() => windowChat.classList.add('hidden'), 300);
-      }
+      // Ahora usamos la clase is-active que configuramos en el CSS del ChatWindow
+      windowChat.classList.toggle('is-active');
     };
 
     toggle?.addEventListener('click', toggleChat);
     close?.addEventListener('click', toggleChat);
 
-    // --- LÓGICA DE ARRASTRE ---
+    // --- LÓGICA DE ARRASTRE (Solo Desktop) ---
     let isDragging = false;
     let offsetX = 0, offsetY = 0;
 
     const startDrag = (e: MouseEvent | TouchEvent) => {
+      if (window.innerWidth < 640) return; // No arrastrar en móvil
       isDragging = true;
       const clientX = 'touches' in e ? (e as TouchEvent).touches[0].clientX : (e as MouseEvent).clientX;
       const clientY = 'touches' in e ? (e as TouchEvent).touches[0].clientY : (e as MouseEvent).clientY;
@@ -82,33 +72,28 @@ const showChat = aiConsent !== "rejected";
     document.addEventListener('mouseup', () => isDragging = false);
     document.addEventListener('touchend', () => isDragging = false);
 
-    // --- LÓGICA DE MENSAJES ---
+    // --- LÓGICA DE MENSAJES (CON DISEÑO DORADO) ---
     async function sendMessage() {
       const text = input.value.trim();
       if (!text) return;
 
-      const currentLang = windowChat.dataset.lang || 'es';
+      const currentLang = document.documentElement.lang || 'es';
 
       appendMessage('user', text);
       input.value = '';
       sendBtn.disabled = true;
       typingIndicator?.classList.remove('hidden');
-      messagesContainer?.scrollTo(0, messagesContainer.scrollHeight);
-
+      
       try {
         const res = await fetch('/api/chat', {
           method: 'POST',
-          body: JSON.stringify({ 
-            message: text,
-            language: currentLang 
-          }),
+          body: JSON.stringify({ message: text, language: currentLang }),
           headers: { 'Content-Type': 'application/json' }
         });
         const data = await res.json();
         appendMessage('ai', data.text);
       } catch (e) {
-        const errorMsg = currentLang === 'es' ? 'Error de conexión.' : 'Connection error.';
-        appendMessage('ai', errorMsg);
+        appendMessage('ai', currentLang === 'es' ? 'Error de conexión.' : 'Connection error.');
       } finally {
         typingIndicator?.classList.add('hidden');
         sendBtn.disabled = false;
@@ -116,29 +101,37 @@ const showChat = aiConsent !== "rejected";
     }
 
     function appendMessage(role: 'user' | 'ai', text: string) {
-      const container = document.createElement('div');
-      container.className = role === 'user' ? 'user-bubble' : 'ai-bubble';
+      if (!messagesContainer) return;
       
-      const content = document.createElement('div');
-      content.className = role === 'user' ? 'user-msg-content' : 'ai-msg-content';
-      content.innerText = text;
+      const div = document.createElement('div');
+      div.className = role === 'user' ? 'user-bubble' : 'ai-bubble';
+      
+      // Estructura adaptada al nuevo diseño premium
+      if (role === 'user') {
+        div.innerHTML = `
+          <div class="flex flex-col items-end">
+            <span class="text-[9px] text-[#daa032] uppercase tracking-[2px] mb-1 mr-1 font-bold">Tú</span>
+            <div class="msg-content">${text}</div>
+          </div>
+        `;
+      } else {
+        div.innerHTML = `
+          <div class="flex items-center gap-2 mb-1.5 ml-1">
+            <img src="/images/projects/ai/alterego/profile.webp" class="w-4 h-4 rounded-full border border-[#daa032]/30 object-cover" />
+            <span class="text-[9px] text-[#daa032] uppercase tracking-[2px] opacity-70">Alter-Ego</span>
+          </div>
+          <div class="msg-content">${text}</div>
+        `;
+      }
 
-      container.appendChild(content);
-      messagesContainer?.appendChild(container);
-      
-      messagesContainer?.scrollTo({
-        top: messagesContainer.scrollHeight,
-        behavior: 'smooth'
-      });
+      messagesContainer.appendChild(div);
+      messagesContainer.scrollTo({ top: messagesContainer.scrollHeight, behavior: 'smooth' });
     }
 
     sendBtn?.addEventListener('click', sendMessage);
     input?.addEventListener('keypress', (e) => e.key === 'Enter' && sendMessage());
   }
 
-  // Ejecutar inicialización
   initChat();
-  
-  // Reinicializar si usas View Transitions de Astro
   document.addEventListener("astro:after-swap", initChat);
 </script>
