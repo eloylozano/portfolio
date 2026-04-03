@@ -32,7 +32,7 @@ export default {
         {
           position: "Full Stack Developer",
           company: "Dixitalia Software",
-          date: "Januar 2026 – Heute",
+          date: "Januar 2026 – Februar 2026",
           description: "Entwicklung eines maßgeschneiderten Business-CRM.",
           responsibilities: [
             "Full-Stack-Entwicklung mit Laravel und Angular",

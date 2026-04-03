@@ -18,7 +18,7 @@ const lang = Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)
 const cards = (t(lang, "pages.exp.cards") as Experience[]) || [];
 ---
 
-<section class="bg-[#161512] lg:px-26 px-6 pb-16 relative overflow-x-hidden">
+<section id="experience" class="bg-[#161512] lg:px-26 px-6 pb-16 relative overflow-x-hidden">
   <Title class="text-center mb-8" text={t(lang, "pages.exp.title")} />
   <Text class="text-center italic mb-20" text={t(lang, "pages.exp.description")} />
 

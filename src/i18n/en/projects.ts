@@ -21,6 +21,21 @@ export const projects_data = {
     }
   },
 
+  neuralledger: {
+    title: "Neural Ledger",
+    description: "NeuralLedger is not just a document manager; it represents the evolution of Intelligent Document Processing (IDP). The project was born to eliminate manual data entry by transforming PDF invoices into structured financial information using local LLMs. Powered by state-of-the-art language models, NeuralLedger analyzes, classifies, and audits invoices with total privacy. It is the convergence of generative AI and business management, designed to provide a clear, automated view of any company's financial health.",
+    tryModel: "Soon",
+    sections: {
+      model: "Neural Engine (LLM)",
+      dataset: "Extraction & Validation",
+      deployment: "Architecture & Stack"
+    },
+    content: {
+      model_text: "The brain of NeuralLedger is a local AI architecture orchestrated with Ollama, utilizing models such as Llama 3.2 or Mistral. Through advanced Prompt Engineering and strict JSON output schemas, the system ensures precise metadata extraction while sensitive data never leaves the client's server (GDPR compliant by design).",
+      dataset_text: "The system implements a processing pipeline combining PyMuPDF for text extraction and Pydantic V2 for financial schema validation. NeuralLedger identifies suppliers, breaks down line items, calculates taxes, and detects discrepancies in real-time, automatically populating a PostgreSQL relational database.",
+      deployment_text: "The platform features a high-performance frontend built with Svelte 5 and its new Runes system for optimal reactivity. The backend, developed in FastAPI (Python 3.12), communicates asynchronously with the AI engine. The entire ecosystem is containerized with Docker Compose, facilitating an agile, scalable, and fully private deployment."
+    }
+  },
 
   // ===========================================================================================================
   // APP PROJECTS
@@ -246,6 +261,34 @@ export const projects_data = {
       "Implementation of kinetic smooth scroll and mobile navigation optimized for high-precision touch interaction."
     ]
   },
+  "nomada": {
+    title: "Nömada Café",
+    description: "High-fidelity digital platform for Nömada Café Santiago, merging specialty coffee culture with a minimalist, organic, and high-performance visual experience.",
+    summary: "Development of a digital boutique designed to translate the physical atmosphere of the venue into a web environment. Through product-focused art direction, refined modular components, and speed-oriented architecture, we transformed Nömada's essence into a branding and loyalty tool with an impeccable editorial aesthetic.",
+    client: "Nömada Café // Specialty Coffee & Brunch",
+    role: "Lead Frontend & Brand Experience",
+    steps: [
+      "Implementation of an organic and earthy color palette inspired by coffee beans and natural materials to evoke warmth and authenticity.",
+      "Architecture built with Astro to guarantee instantaneous navigation, optimizing menu visualization on mobile devices under any network condition.",
+      "Development of a 'Dynamic Digital Menu' system that prioritizes readability and the visual impact of the gastronomic and specialty coffee offerings.",
+      "Integration of fluid navigation flows with a visual hierarchy that guides the user from the value proposition to the physical location of the space.",
+      "Adaptive responsive design with subtle micro-animations and progressive high-resolution image loading to maintain a 100/100 technical SEO score."
+    ]
+},
+  "clinicasegura": {
+    title: "Clínica Segura",
+    description: "High-performance digital platform for Clínica Segura, blending precision in physiotherapy and advanced osteopathy with a minimalist, professional visual language.",
+    summary: "Creation of an immersive digital experience designed to convey trust and wellness. Through flawless editorial hierarchy, precision-engineered modular components, and extreme performance optimization, we transformed the website into a digital extension of the clinical experience, focused on patient conversion and medical authority.",
+    client: "Clínica Segura // Advanced Physiotherapy & Osteopathy",
+    role: "Lead Frontend & Digital Experience",
+    steps: [
+      "Implementation of a 'Quiet Health' color palette, focused on reducing eye strain and increasing patient trust.",
+      "Built with Astro to ensure instant page load speeds and perfect SEO performance, achieving 100/100 Core Web Vitals.",
+      "Development of a modular component system ('Content Library') enabling the creation of scientific articles and health guides with a premium editorial aesthetic.",
+      "Integration of optimized patient conversion flows, from initial assessment to booking, with a focus on tactile usability.",
+      "Adaptive responsive design featuring subtle micro-interactions that guide the reading experience and reinforce the specialist's medical authority."
+    ]
+  },
 
   // ===========================================================================================================
   // PHOTOGRAPHY PROJECTS
@@ -271,7 +314,7 @@ export const projects_data = {
       title: "Architecture",
       description: "'Architecture' is a visual exploration of built space. Beyond walls and forms, this project seeks to capture the relationship between human beings and the structures they inhabit, traverse, or contemplate. Each image not only documents a place but also reveals an atmosphere: geometry, light, textures, emptiness, and the scale that either confronts or envelops us. It is a tribute to the spaces that, without uttering a word, define our trajectories."
     },
-    me: { 
+    me: {
       title: "Myself",
       description: "'Myself' is an introspective project where the body and expression become a visual language. It is not just about posing, but about inhabiting the scene—conveying a story without speaking. Each image is a reflection of identity, attitude, and presence; a dialogue between the environment and the self that traverses it. From the natural light of the forest to the drama of black and white, this series explores the human element as both an aesthetic and emotional medium."
     },

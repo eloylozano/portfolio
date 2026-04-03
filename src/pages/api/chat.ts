@@ -18,38 +18,25 @@ export const POST: APIRoute = async ({ request }) => {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
     // MAPEADO DINÁMICO DESDE AI-CONTEXT
-    // Esto extrae la info de tu objeto eloyData automáticamente
     const experienceString = eloyData.experience
-      .map(exp => `- ${exp.period}: ${exp.position} en ${exp.company}. ${exp.desc}`)
+      .map(exp => `- ${exp.position} en ${exp.company}`)
       .join('\n');
 
-    const projectsString = eloyData.projects
-      .map(p => `- ${p.name} (${p.category}): ${p.highlight}. Tech: ${p.tech.join(', ')}`)
-      .join('\n');
+      const fullDataContext = `
+      PERFIL: ${eloyData.profile.role}.
+      TRAYECTORIA: ${experienceString}
+      STACK: ${eloyData.stack.frontend.join(', ')}, ${eloyData.stack.backend.join(', ')}.
+      INTERESES: Fotografía, Motor, DIY Industrial, VoIP.
+    `;
 
-    const curiosidadesString = eloyData.curiosidades_inquietudes.join('\n- ');
-
-    const fullDataContext = `
-      FICHA TÉCNICA DETALLADA DE ELOY LOZANO:
-      
-      PERFIL Y FILOSOFÍA:
-      ${eloyData.profile.role}. ${eloyData.profile.philosophy}
-      
-      TRAYECTORIA Y ESTUDIOS:
-      ${experienceString}
-      
-      STACK TÉCNICO:
-      - Frontend: ${eloyData.stack.frontend.join(', ')}
-      - Backend: ${eloyData.stack.backend.join(', ')}
-      - Data/IA: ${eloyData.stack.data_ai.join(', ')}
-      
-      PROYECTOS DESTACADOS:
-      ${projectsString}
-      
-      INTERESES Y CURIOSIDADES:
-      - Fotografía: ${eloyData.interests.photography}
-      - Motor: ${eloyData.interests.motor}
-      - Inquietudes: ${curiosidadesString}
+    // Instrucciones de comportamiento para evitar respuestas largas y poco realistas
+    const behaviorRules = `
+      Eres el Alter-Ego de Eloy Lozano. 
+      REGLAS CRÍTICAS:
+      1. Si el usuario te saluda o hace una pregunta simple, responde de forma breve y humana (máximo 2 frases).
+      2. No resumas toda la carrera de Eloy a menos que te pregunten específicamente por su experiencia.
+      3. No uses listas de viñetas. Usa un tono conversacional, profesional e ingenioso.
+      4. Responde siempre en el idioma: ${language}.
     `;
 
     const response = await fetch(url, {
@@ -59,20 +46,20 @@ export const POST: APIRoute = async ({ request }) => {
         contents: [
           {
             role: "user",
-            parts: [{ text: `${systemPrompt}\n\nCONOCIMIENTO BASE DE ELOY:\n${fullDataContext}` }]
+            parts: [{ text: `${systemPrompt}\n${behaviorRules}\n\nCONTEXTO:\n${fullDataContext}` }]
           },
           {
             role: "model",
-            parts: [{ text: "Entendido. He procesado todo el historial, stack técnico y visión estratégica de Eloy Lozano. Responderé con precisión basándome en estos datos." }]
+            parts: [{ text: "Entendido. Soy el Alter-Ego de Eloy. Responderé con brevedad y personalidad." }]
           },
           {
             role: "user",
-            parts: [{ text: `Pregunta: ${message}. (Nota: Eloy tiene inquietudes variadas: desde servidores y VoIP hasta estrategia de negocio y DIY industrial. Elige la más relevante o resume varias de forma equilibrada en 2 frases).` }]
+            parts: [{ text: message }]
           }
         ],
         generationConfig: {
-          maxOutputTokens: 800,
-          temperature: 0.3, // Mantenemos fidelidad alta
+          maxOutputTokens: 800, // Límite físico para evitar parrafadas
+          temperature: 0.3,     // Mayor naturalidad
           topP: 0.95
         }
       })

@@ -162,4 +162,30 @@ export const webProjects = [
     ],
     liveUrl: "https://axe-steel.vercel.app/es/",
   },
+  
+  {
+    slug: "clinicasegura",
+    title: "Clínica Segura",
+    tools: ["Astro", "Tailwind CSS", "TypeScript", "Lucide Icons"],
+    coverImage: "/images/projects/web/clinicasegura/home.png",
+    images: [
+      "/images/projects/web/clinicasegura/blog.png",
+      "/images/projects/web/clinicasegura/team.png",
+      "/images/projects/web/clinicasegura/treatment.png",
+    ],
+    liveUrl: "https://template-clinica-seven.vercel.app/es/",
+  },
+  
+  {
+    slug: "nomada",
+    title: "Nömada Café",
+    tools: ["Astro", "Tailwind CSS", "TypeScript", "Lucide Icons"],
+    coverImage: "/images/projects/web_nomada.jpg",
+    images: [
+      "/images/projects/web/nomada/story.png",
+      "/images/projects/web/nomada/menu.png",
+      "/images/projects/web/nomada/gallery.png",
+    ],
+    liveUrl: "https://nomadacafesantiago.vercel.app/es/",
+  },
 ];

@@ -21,6 +21,23 @@ export const projects_data = {
     }
   },
 
+  neuralledger: {
+    title: "Neural Ledger",
+    description: "NeuralLedger no es solo un gestor de documentos; es la evolución del procesamiento inteligente de facturas (IDP). El proyecto nace para eliminar la entrada manual de datos, transformando documentos PDF en información financiera estructurada mediante el uso de LLMs locales. Utilizando modelos de lenguaje de última generación, NeuralLedger analiza, clasifica y audita facturas con total privacidad. Es la convergencia entre la inteligencia artificial generativa y la gestión empresarial, diseñada para ofrecer una visión clara y automatizada de la salud financiera de cualquier negocio.",
+    tryModel: "Soon",
+    sections: {
+      model: "Motor Neural (LLM)",
+      dataset: "Extracción y Validación",
+      deployment: "Arquitectura y Stack"
+    },
+    // Contenido detallado para las secciones
+    content: {
+      model_text: "El cerebro de NeuralLedger es una arquitectura de IA local orquestada con Ollama, utilizando modelos como Llama 3.2 o Mistral. Mediante técnicas avanzadas de Prompt Engineering y esquemas de salida JSON estrictos, el sistema garantiza una extracción de metadatos precisa sin que los datos sensibles salgan nunca del servidor del cliente (GDPR compliant).",
+      dataset_text: "El sistema implementa un pipeline de procesamiento que combina PyMuPDF para la extracción de texto y Pydantic V2 para la validación de esquemas financieros. NeuralLedger es capaz de identificar proveedores, desglosar líneas de detalle, calcular impuestos y detectar discrepancias en tiempo real, poblando automáticamente una base de datos relacional PostgreSQL.",
+      deployment_text: "La plataforma utiliza un frontend de alto rendimiento construido con Svelte 5 y su nuevo sistema de Runes para una reactividad óptima. El backend, desarrollado en FastAPI (Python 3.12), se comunica de forma asíncrona con el motor de IA. Todo el ecosistema está contenerizado con Docker Compose, facilitando un despliegue ágil, escalable y totalmente privado."
+    }
+  },
+
 
   // ===========================================================================================================
   // PROYECTOS DE APLICACIONES
@@ -247,6 +264,35 @@ export const projects_data = {
     ]
   },
 
+  "nomada": {
+    title: "Nömada Café",
+    description: "Plataforma digital de alta fidelidad para Nömada Café Santiago, fusionando la cultura del café de especialidad con una experiencia visual minimalista, orgánica y de alto rendimiento.",
+    summary: "Desarrollo de una boutique digital diseñada para trasladar la atmósfera física del local al entorno web. Mediante una dirección de arte enfocada en el producto, componentes modulares refinados y una arquitectura orientada a la velocidad, transformamos la carta y la esencia de Nömada en una herramienta de branding y fidelización con una estética editorial impecable.",
+    client: "Nömada Café // Specialty Coffee & Brunch",
+    role: "Lead Frontend & Brand Experience",
+    steps: [
+      "Implementación de una paleta cromática orgánica y terrosa, inspirada en el grano de café y materiales naturales para evocar calidez y autenticidad.",
+      "Arquitectura construida con Astro para garantizar una navegación instantánea, optimizando la visualización de la carta en dispositivos móviles bajo cualquier red.",
+      "Desarrollo de un sistema de 'Menú Digital Dinámico' que prioriza la legibilidad y el impacto visual de la oferta gastronómica y de especialidad.",
+      "Integración de flujos de navegación fluidos con una jerarquía visual que guía al usuario desde la propuesta de valor hasta la ubicación física del espacio.",
+      "Diseño adaptativo con micro-animaciones sutiles y carga progresiva de imágenes de alta resolución para mantener un SEO técnico de 100/100."
+    ]
+  },
+  "clinicasegura": {
+    title: "Clínica Segura",
+    description: "Plataforma digital de alto rendimiento para Clínica Segura, fusionando la precisión de la fisioterapia y osteopatía avanzada con un lenguaje visual minimalista y profesional.",
+    summary: "Desarrollo de una experiencia digital inmersiva diseñada para transmitir confianza y bienestar. Mediante una jerarquía editorial impecable, componentes modulares de alta precisión y una optimización extrema del rendimiento, transformamos el sitio web en una extensión digital de la experiencia clínica, enfocada en la conversión y la autoridad del paciente.",
+    client: "Clínica Segura // Fisioterapia & Osteopatía Avanzada",
+    role: "Lead Frontend & Digital Experience",
+    steps: [
+      "Implementación de una paleta de colores clínico-serena ('Quiet Health'), enfocada en la reducción de la fatiga visual y el aumento de la confianza.",
+      "Arquitectura construida con Astro para garantizar una velocidad de carga instantánea y un SEO técnico de 100/100 en Core Web Vitals.",
+      "Desarrollo de un sistema de componentes modulares ('Librería de Contenido') que permite crear artículos científicos y guías de salud con una estética de revista editorial.",
+      "Integración de flujos de conversión de pacientes optimizados, desde la valoración inicial hasta la reserva de cita con un diseño centrado en la usabilidad táctil.",
+      "Diseño responsive adaptativo con micro-interacciones sutiles que guían la lectura y refuerzan la autoridad médica del especialista."
+    ]
+  },
+
   // ===========================================================================================================
   // PROYECTOS DE FOTOGRAFÍA
   // ===========================================================================================================
@@ -271,7 +317,7 @@ export const projects_data = {
       title: "Arquitectura",
       description: "'Arquitectura' es una exploración visual del espacio construido. Más allá de muros y formas, este proyecto busca capturar la relación entre el ser humano y las estructuras que habita, recorre o contempla. Cada imagen no solo documenta un lugar, sino que revela una atmósfera: geometría, luz, texturas, vacío y la escala que nos confronta o nos envuelve. Es un tributo a los espacios que, sin articular palabra, definen nuestras trayectorias."
     },
-    me: { 
+    me: {
       title: "Mismo",
       description: "'Mismo' es un proyecto introspectivo donde el cuerpo y la expresión se convierten en lenguaje visual. No se trata solo de posar, sino de habitar la escena; de transmitir una historia sin hablar. Cada imagen es un reflejo de identidad, actitud y presencia; un diálogo entre el entorno y el yo que lo recorre. Desde la luz natural del bosque hasta el drama del blanco y negro, esta serie explora el elemento humano como medio tanto estético como emocional."
     },

@@ -1,6 +1,11 @@
 ---
-import AboutMe from "../shared/AboutMe.astro";
 import Experience from "./Experience.astro";
+import ProjectsGrid from "../shared/ProjectsGrid.astro";
+import AboutMe from "../shared/AboutMe.astro";
+
+const lang =
+  Astro.request.headers.get("cookie")?.match(/preferredLang=([^;]+)/)?.[1] ||
+  "es";
 ---
 
 <section
@@ -10,6 +15,16 @@ import Experience from "./Experience.astro";
   class="bg-[#161512] py-24 transition-colors duration-300"
 >
   <AboutMe />
+</section>
+
+<section
+  id="projects"
+  data-section="projects"
+  aria-label="Projects section"
+  class="bg-[#161512]"
+>
+  {/* 2. Pasamos el lang como prop */}
+  <ProjectsGrid lang={lang} />
 </section>
 
 <section

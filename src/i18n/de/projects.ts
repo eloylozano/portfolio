@@ -20,7 +20,21 @@ export const projects_data = {
       deployment_text: "Die Bereitstellung erfolgt über eine moderne Infrastruktur, die Skalierbarkeit garantiert. Das Modell wird über eine REST-API bereitgestellt, die schnelle Abfragen ermöglicht und die Integration in interaktive Dashboards und Frühwarnsysteme erleichtert."
     }
   },
-
+  neuralledger: {
+    title: "Neural Ledger",
+    description: "NeuralLedger ist nicht nur ein Dokumentenmanager; es ist die Weiterentwicklung der intelligenten Rechnungsverarbeitung (IDP). Das Projekt entstand mit dem Ziel, die manuelle Dateneingabe zu eliminieren, indem PDF-Rechnungen mithilfe lokaler LLMs in strukturierte Finanzinformationen umgewandelt werden. Unterstützt durch modernste Sprachmodelle analysiert, klassifiziert und prüft NeuralLedger Rechnungen unter Wahrung voller Privatsphäre. Es ist die Symbiose aus generativer KI und Unternehmensführung, entwickelt für einen klaren und automatisierten Überblick über die finanzielle Gesundheit eines Unternehmens.",
+    tryModel: "Soon",
+    sections: {
+      model: "Neural Engine (LLM)",
+      dataset: "Extraktion & Validierung",
+      deployment: "Architektur & Stack"
+    },
+    content: {
+      model_text: "Das Herzstück von NeuralLedger ist eine lokale KI-Architektur, die mit Ollama orchestriert wird und Modelle wie Llama 3.2 oder Mistral nutzt. Durch fortschrittliches Prompt-Engineering und strikte JSON-Ausgabeschemata garantiert das System eine präzise Metadaten-Extraktion, wobei sensible Daten den Server des Kunden niemals verlassen (DSGVO-konform durch Design).",
+      dataset_text: "Das System implementiert eine Verarbeitungspipeline, die PyMuPDF für die Textextraktion und Pydantic V2 für die Validierung von Finanzschemata kombiniert. NeuralLedger identifiziert Lieferanten, schlüsselt Rechnungspositionen auf, berechnet Steuern und erkennt Unstimmigkeiten in Echtzeit, während eine relationale PostgreSQL-Datenbank automatisch befüllt wird.",
+      deployment_text: "Die Plattform nutzt ein Hochleistungs-Frontend, das mit Svelte 5 und dem neuen Runes-System für optimale Reaktivität erstellt wurde. Das Backend, entwickelt mit FastAPI (Python 3.12), kommuniziert asynchron mit der KI-Engine. Das gesamte Ökosystem ist mit Docker Compose containerisiert, was eine agile, skalierbare und vollständig private Bereitstellung ermöglicht."
+    }
+  },
 
   // ===========================================================================================================
   // ANWENDUNGSPROJEKTE
@@ -246,7 +260,34 @@ export const projects_data = {
       "Implementierung von kinetischem Smooth-Scroll"
     ]
   },
-
+  "nomada": {
+    title: "Nömada Café",
+    description: "High-Fidelity-Digitalplattform für Nömada Café Santiago, die Specialty-Coffee-Kultur mit einem minimalistischen, organischen und leistungsstarken visuellen Erlebnis verbindet.",
+    summary: "Entwicklung einer digitalen Boutique, die darauf ausgelegt ist, die physische Atmosphäre des Lokals in eine Web-Umgebung zu übertragen. Durch produktfokussierte Art Direction, raffinierte modulare Komponenten und eine geschwindigkeitsorientierte Architektur haben wir die Essenz von Nömada in ein Branding- und Kundenbindungs-Tool mit tadelloser redaktioneller Ästhetik verwandelt.",
+    client: "Nömada Café // Specialty Coffee & Brunch",
+    role: "Lead Frontend & Brand Experience",
+    steps: [
+      "Implementierung einer organischen und erdigen Farppalette, inspiriert von Kaffeebohnen und natürlichen Materialien, um Wärme und Authentizität zu vermitteln.",
+      "Mit Astro erstellte Architektur zur Gewährleistung einer sofortigen Navigation, optimiert für die Menüdarstellung auf mobilen Endgeräten unter allen Netzwerkbedingungen.",
+      "Entwicklung eines 'Dynamischen Digitalen Menü'-Systems, das die Lesbarkeit und die visuelle Wirkung des gastronomischen Angebots und der Kaffeespezialitäten priorisiert.",
+      "Integration flüssiger Navigationsabläufe mit einer visuellen Hierarchie, die den Nutzer vom Wertversprechen bis zum physischen Standort des Cafés führt.",
+      "Adaptives Responsive Design mit subtilen Mikro-Animationen und progressiver Hochauflösungs-Bildladung, um einen technischen SEO-Score von 100/100 zu halten."
+    ]
+  },
+  "clinicasegura": {
+    title: "Clínica Segura",
+    description: "Hochleistungs-Digitalplattform für Clínica Segura, die Präzision in der Physiotherapie und fortgeschrittenen Osteopathie mit einer minimalistischen, professionellen Bildsprache vereint.",
+    summary: "Entwicklung einer immersiven digitalen Erfahrung, die darauf ausgelegt ist, Vertrauen und Wohlbefinden zu vermitteln. Durch eine makellose redaktionelle Hierarchie, präzise modulare Komponenten und extreme Performance-Optimierung haben wir die Website in eine digitale Erweiterung der klinischen Erfahrung verwandelt, die auf Patientenkonversion und medizinische Autorität fokussiert ist.",
+    client: "Clínica Segura // Fortgeschrittene Physiotherapie & Osteopathie",
+    role: "Lead Frontend & Digital Experience",
+    steps: [
+      "Implementierung einer 'Quiet Health'-Farbpalette, die darauf ausgerichtet ist, die Augen zu schonen und das Patientenvertrauen zu stärken.",
+      "Entwickelt mit Astro, um sofortige Ladezeiten und eine perfekte SEO-Performance zu gewährleisten und 100/100 Core Web Vitals zu erreichen.",
+      "Entwicklung eines modularen Komponentensystems ('Content Library'), das die Erstellung wissenschaftlicher Artikel und Gesundheitsleitfäden mit einer erstklassigen redaktionellen Ästhetik ermöglicht.",
+      "Integration optimierter Patienten-Konversionspfade, von der ersten Einschätzung bis zur Terminbuchung, mit Fokus auf haptische Benutzerfreundlichkeit.",
+      "Adaptives responsives Design mit subtilen Mikro-Interaktionen, die den Lesefluss leiten und die medizinische Autorität des Spezialisten unterstreichen."
+    ]
+  },
   // ===========================================================================================================
   // FOTOGRAFIE-PROJEKTE
   // ===========================================================================================================
@@ -271,7 +312,7 @@ export const projects_data = {
       title: "Architektur",
       description: "Eine visuelle Erkundung des gebauten Raums. Dieses Projekt sucht die Beziehung zwischen dem Menschen und den Strukturen einzufangen, die ihn umgeben. Ein Tribut an Geometrie und Licht."
     },
-    me: { 
+    me: {
       title: "Ich selbst",
       description: "Ein introspektives Projekt, in dem Körper und Ausdruck zur visuellen Sprache werden. Es geht darum, eine Geschichte ohne Worte zu vermitteln und die Identität im Raum zu erkunden."
     },

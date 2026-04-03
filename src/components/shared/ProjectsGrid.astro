@@ -8,43 +8,33 @@ const lang =
   "es";
 
 const sortedProjects = [...projects].sort((a, b) => {
+  // Primero: Si uno es "web" (diseño) y el otro no
+  if (a.category === "web" && b.category !== "web") return -1;
+  if (a.category !== "web" && b.category === "web") return 1;
+
+  // Segundo: Dentro de la misma jerarquía, priorizar destacados (featured)
   if (a.featured && !b.featured) return -1;
   if (!a.featured && b.featured) return 1;
+
   return 0;
 });
 ---
+<article class="bg-[#161512] my-8 sm:py-12 lg:my-16 text-white px-4 sm:px-8 lg:px-26 scroll-container">
+  <Title class="text-center mb-6 sm:mb-8" text={t(lang, "pages.projects.title")} />
 
-<article
-  class="bg-[#161512] my-8 sm:py-12 lg:my-16 text-white px-4 sm:px-8 lg:px-26 scroll-container"
->
-  <Title
-    class="text-center mb-6 sm:mb-8"
-    text={t(lang, "pages.projects.title")}
-  />
-
-  <nav
-    class="flex justify-center border-0 mx-auto font-medium mb-6 sm:mb-10 gap-4 sm:gap-8 lg:gap-26 px-4 sm:px-12 pb-2 text-xs sm:text-sm overflow-x-auto w-full max-w-full"
-  >
+  <nav class="flex justify-center border-0 mx-auto font-medium mb-6 sm:mb-10 gap-4 sm:gap-8 lg:gap-26 px-4 sm:px-12 pb-2 text-xs sm:text-sm overflow-x-auto w-full max-w-full">
     {
       ["all", "web", "app", "ai", "photo"].map((filter) => (
         <button
           class="filter-btn relative text-[#e9eeef] hover:text-white cursor-pointer transition duration-200 whitespace-nowrap px-2 sm:px-0 group"
           data-filter={filter}
         >
-          {t(
-            lang,
-            `pages.projects.nav.${
-              filter === "web"
-                ? "design"
-                : filter === "app"
-                  ? "webApp"
-                  : filter === "ai"
-                    ? "aiBigData"
-                    : filter === "photo"
-                      ? "photos"
-                      : "all"
-            }`
-          )}
+          {t(lang, `pages.projects.nav.${
+              filter === "web" ? "design" : 
+              filter === "app" ? "webApp" : 
+              filter === "ai" ? "aiBigData" : 
+              filter === "photo" ? "photos" : "all"
+          }`)}
           <span class="active-indicator absolute left-1/2 -bottom-2 -translate-x-1/2 h-0.5 bg-[#daa032] transition-all duration-300 w-0 opacity-0 group-hover:w-1/2 group-hover:opacity-50" />
         </button>
       ))
@@ -52,74 +42,35 @@ const sortedProjects = [...projects].sort((a, b) => {
   </nav>
 
   <div class="px-2 sm:px-0">
-    <div
-      id="project-grid"
-      class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-4 space-y-3 sm:space-y-4"
-    >
-      {
-        sortedProjects.map((project, i) => (
+    <div id="project-grid" class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-4 space-y-3 sm:space-y-4">
+      {sortedProjects.map((project, i) => (
           <div
             class="project-item break-inside-avoid group relative h-full overflow-hidden shadow-lg transition-all duration-500 opacity-0"
             data-category={project.category}
-            style={`animation-delay: ${i * 0.1}s`}
           >
+            {/* ... Resto de tu código de la card (Img, links, etc) ... */}
             <div class="absolute top-3 left-3 z-10 flex flex-col gap-2">
-              {project.new && (
-                <span class="bg-[#daa032] text-black text-[10px] font-bold px-2 py-0.5 uppercase">
-                  New
-                </span>
-              )}
-              {project.soon && (
-                <span class="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 uppercase">
-                  {t(lang, "pages.projects.soon")}
-                </span>
-              )}
+              {project.new && <span class="bg-[#daa032] text-black text-[10px] font-bold px-2 py-0.5 uppercase">New</span>}
+              {project.soon && <span class="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 uppercase">{t(lang, "pages.projects.soon")}</span>}
             </div>
-
-            <a
-              href={project.soon ? "#" : project.projectLink}
-              class={project.soon ? "cursor-default" : ""}
-            >
-              <img
-                src={project.img}
-                alt={project.title}
-                class="w-full h-auto max-h-70 sm:max-h-80 md:max-h-90 lg:max-h-105 object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
-              />
+            <a href={project.soon ? "#" : project.projectLink} class={project.soon ? "cursor-default" : ""}>
+              <img src={project.img} alt={project.title} class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
             </a>
-
-            <div class="absolute inset-0 bg-black/90 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col justify-center items-center p-6 text-center">
-              <h3 class="text-lg font-bold mb-4">
-                {project.title}{" "}
-                {project.featured && <span class="text-[#daa032]">★</span>}
-              </h3>
+            <div class="absolute inset-0 bg-black/90 translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex flex-col justify-center items-center p-6 text-center">
+              <h3 class="text-lg font-bold mb-4">{project.title} {project.featured && <span class="text-[#daa032]">★</span>}</h3>
               <div class="flex flex-col gap-3 w-full">
                 {!project.soon ? (
                   <>
                     {project.category !== "photo" && (
-                      <a
-                        href={project.demoLink}
-                        target="_blank"
-                        class="flex items-center justify-center gap-2 px-4 py-2 bg-white text-black text-sm font-semibold hover:bg-gray-200 transition-colors uppercase tracking-widest"
-                      >
-                        {t(lang, "pages.projects.visitWeb")}
-                      </a>
+                      <a href={project.demoLink} target="_blank" class="px-4 py-2 bg-white text-black text-sm font-semibold hover:bg-gray-200 transition-colors uppercase tracking-widest">{t(lang, "pages.projects.visitWeb")}</a>
                     )}
-                    <a
-                      href={project.projectLink}
-                      class="px-4 py-2 bg-[#daa032] text-black text-sm font-semibold hover:bg-[#c18e2a] transition-colors uppercase tracking-widest"
-                    >
-                      {t(lang, "pages.projects.viewProject")}
-                    </a>
+                    <a href={project.projectLink} class="px-4 py-2 bg-[#daa032] text-black text-sm font-semibold hover:bg-[#c18e2a] transition-colors uppercase tracking-widest">{t(lang, "pages.projects.viewProject")}</a>
                   </>
-                ) : (
-                  <span class="italic text-gray-400">...</span>
-                )}
+                ) : <span class="italic text-gray-400">...</span>}
               </div>
             </div>
           </div>
-        ))
-      }
+      ))}
     </div>
   </div>
 </article>
@@ -162,8 +113,8 @@ const sortedProjects = [...projects].sort((a, b) => {
   function initFilters() {
     const buttons = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
     const items = document.querySelectorAll<HTMLElement>(".project-item");
+    const STORAGE_KEY = "last_project_filter";
 
-    // Función para aplicar el efecto de cascada
     const applyStagger = (filterValue: string) => {
       let visibleIndex = 0;
       items.forEach((item) => {
@@ -172,7 +123,6 @@ const sortedProjects = [...projects].sort((a, b) => {
 
         if (shouldShow) {
           item.classList.remove("hidden");
-          // Pequeño delay para que no aparezcan todos a la vez
           item.style.animationDelay = `${visibleIndex * 0.08}s`;
           item.classList.remove("reveal");
           void item.offsetWidth; // Force reflow
@@ -180,25 +130,38 @@ const sortedProjects = [...projects].sort((a, b) => {
           visibleIndex++;
         } else {
           item.classList.add("hidden");
+          item.classList.remove("reveal");
         }
       });
     };
 
-    // Inicialización
-    const allBtn = document.querySelector<HTMLButtonElement>(
-      '[data-filter="all"]'
-    );
-    if (allBtn) allBtn.classList.add("active");
-    applyStagger("all");
+    // --- LÓGICA DE INICIALIZACIÓN PRIORITARIA ---
+    // 1. Intentamos leer la persistencia.
+    // 2. Si es la primera vez (null), forzamos "web" (Diseños).
+    const savedFilter = localStorage.getItem(STORAGE_KEY) || "web"; 
+    
+    const activeBtn = 
+      document.querySelector<HTMLButtonElement>(`[data-filter="${savedFilter}"]`) || 
+      document.querySelector<HTMLButtonElement>('[data-filter="web"]');
+
+    if (activeBtn) {
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      activeBtn.classList.add("active");
+      applyStagger(savedFilter);
+    }
 
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
         if (button.classList.contains("active")) return;
 
+        const filter = button.getAttribute("data-filter") || "all";
+
+        // Guardar la elección para que la próxima vez que vuelva sea su favorita
+        localStorage.setItem(STORAGE_KEY, filter);
+
         buttons.forEach((btn) => btn.classList.remove("active"));
         button.classList.add("active");
 
-        const filter = button.getAttribute("data-filter") || "all";
         applyStagger(filter);
       });
     });
