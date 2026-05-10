@@ -201,10 +201,10 @@ export const projects = [
     title: "Kaira WalletMind",
     category: "ai",
     img: "/images/projects/ai_kaira.webp",
-    // projectLink: "/web/ecovibe",
+    projectLink: "/ai/kairawallet",
     // demoLink: "https://eco-vibe.vercel.app/",
-    // gitLink: "https://github.com/eloylozano/viarisk",
-    soon: true,
+    // gitLink: "https://github.com/eloylozano/kairawallet",
+    new: true,
     featured: true,
   },
   {

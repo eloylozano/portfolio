@@ -38,6 +38,22 @@ export const projects_data = {
     }
   },
 
+  kairawallet: {
+    title: "Kaira Wallet",
+    description: "Kaira Wallet es una plataforma de gestión patrimonial inteligente diseñada para centralizar la salud financiera y automatizar el camino hacia la libertad financiera. A diferencia de los gestores tradicionales, Kaira integra analítica predictiva y una arquitectura reactiva de última generación para transformar transacciones crudas en decisiones estratégicas de inversión, ofreciendo una visión clara del crecimiento neto y la proyección de objetivos a largo plazo.",
+    tryModel: "Live / Beta",
+    sections: {
+      model: "Motor de Estrategia e IA",
+      dataset: "Gestión de Datos y Patrimonio Propio",
+      deployment: "Arquitectura y Stack Moderno"
+    },
+    // Contenido detallado para las secciones
+    content: {
+      model_text: "El núcleo de Kaira es un motor de proyecciones financieras que utiliza algoritmos de interés compuesto y análisis de tendencias. Implementa una lógica de 'Libertad Financiera' (Estrategia Kaira) que calcula en tiempo real meses estimados para alcanzar metas de ahorro y sugiere ajustes de esfuerzo mensual mediante el procesamiento de hábitos históricos de gasto e inversión.",
+      dataset_text: "La aplicación gestiona un flujo complejo de datos financieros normalizados, integrando categorías dinámicas, seguimiento de activos (Equity) y reglas de inversión personalizadas. Utiliza Pydantic V2 para la validación de esquemas financieros y un sistema de auditoría interna para garantizar que cada movimiento afecte con precisión al balance neto y a los indicadores de liquidez (Cash Ratio).",
+      deployment_text: "Construida con un frontend de vanguardia en Svelte 5, aprovechando el sistema de 'Runes' para una reactividad ultra-eficiente en dashboards financieros complejos. El backend se apoya en FastAPI (Python 3.12) con una base de datos PostgreSQL, garantizando comunicaciones asíncronas de alto rendimiento. El diseño visual se basa en una interfaz 'Glassmorphism' personalizada mediante Tailwind CSS para una experiencia de usuario premium."
+    }
+  },
 
   // ===========================================================================================================
   // PROYECTOS DE APLICACIONES

@@ -36,6 +36,21 @@ export const projects_data = {
       deployment_text: "The platform features a high-performance frontend built with Svelte 5 and its new Runes system for optimal reactivity. The backend, developed in FastAPI (Python 3.12), communicates asynchronously with the AI engine. The entire ecosystem is containerized with Docker Compose, facilitating an agile, scalable, and fully private deployment."
     }
   },
+  kairawallet: {
+    title: "Kaira Wallet",
+    description: "Kaira Wallet is a smart wealth management platform designed to centralize financial health and automate the path to financial independence. Unlike traditional managers, Kaira integrates predictive analytics and a next-generation reactive architecture to transform raw transactions into strategic investment decisions, providing a clear view of net growth and long-term goal projections.",
+    tryModel: "Live / Beta",
+    sections: {
+      model: "Strategy & AI Engine",
+      dataset: "Data & Wealth Management",
+      deployment: "Architecture & Modern Stack"
+    },
+    content: {
+      model_text: "At its core, Kaira features a financial projection engine using compound interest algorithms and trend analysis. It implements a 'Financial Freedom' logic (Kaira Strategy) that calculates real-time estimated months to reach savings goals and suggests monthly effort adjustments by processing historical spending and investment habits.",
+      dataset_text: "The application manages a complex flow of normalized financial data, integrating dynamic categories, asset tracking (Equity), and custom investment rules. It utilizes Pydantic V2 for financial schema validation and an internal auditing system to ensure every movement accurately impacts the net balance and liquidity indicators (Cash Ratio).",
+      deployment_text: "Built with a cutting-edge Svelte 5 frontend, leveraging the 'Runes' system for ultra-efficient reactivity in complex financial dashboards. The backend is powered by FastAPI (Python 3.12) with a PostgreSQL database, ensuring high-performance asynchronous communications. The visual design is based on a custom 'Glassmorphism' interface using Tailwind CSS for a premium user experience."
+    }
+  },
 
   // ===========================================================================================================
   // APP PROJECTS

@@ -36,6 +36,22 @@ export const projects_data = {
     }
   },
 
+  kairawallet: {
+    title: "Kaira Wallet",
+    description: "Kaira Wallet ist eine intelligente Plattform für die Vermögensverwaltung, die darauf ausgelegt ist, die finanzielle Gesundheit zu zentralisieren und den Weg zur finanziellen Freiheit zu automatisieren. Im Gegensatz zu herkömmlichen Managern integriert Kaira prädiktive Analysen und eine reaktive Architektur der nächsten Generation, um Rohdaten in strategische Investitionsentscheidungen zu verwandeln und ein klares Bild des Nettowachstums und der langfristigen Zielprojektionen zu vermitteln.",
+    tryModel: "Live / Beta",
+    sections: {
+      model: "Strategie- & KI-Engine",
+      dataset: "Daten- & Vermögensverwaltung",
+      deployment: "Architektur & Moderner Stack"
+    },
+    content: {
+      model_text: "Das Herzstück von Kaira ist eine Finanzprojektions-Engine, die Zinseszins-Algorithmen und Trendanalysen nutzt. Sie implementiert eine 'Financial Freedom'-Logik (Kaira-Strategie), die in Echtzeit die geschätzten Monate bis zum Erreichen von Sparzielen berechnet und monatliche Anpassungen vorschlägt, indem sie historische Ausgaben- und Investitionsgewohnheiten verarbeitet.",
+      dataset_text: "Die Anwendung verwaltet einen komplexen Fluss normalisierter Finanzdaten und integriert dynamische Kategorien, Asset-Tracking (Equity) und individuelle Investmentregeln. Sie verwendet Pydantic V2 zur Validierung von Finanzschemata und ein internes Auditsystem, um sicherzustellen, dass jede Bewegung die Nettobilanz und die Liquiditätskennzahlen (Cash Ratio) präzise beeinflusst.",
+      deployment_text: "Entwickelt mit einem hochmodernen Svelte 5 Frontend, das das 'Runes'-System für eine hocheffiziente Reaktivität in komplexen Finanz-Dashboards nutzt. Das Backend basiert auf FastAPI (Python 3.12) mit einer PostgreSQL-Datenbank, was eine leistungsstarke asynchrone Kommunikation garantiert. Das visuelle Design basiert auf einer maßgeschneiderten 'Glassmorphism'-Benutzeroberfläche mit Tailwind CSS für eine erstklassige Benutzererfahrung."
+    }
+  },
+
   // ===========================================================================================================
   // ANWENDUNGSPROJEKTE
   // ===========================================================================================================
