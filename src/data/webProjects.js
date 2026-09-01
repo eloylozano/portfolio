@@ -162,7 +162,18 @@ export const webProjects = [
     ],
     liveUrl: "https://axe-steel.vercel.app/es/",
   },
-  
+  {
+    slug: "neboasdegea",
+    title: "Neboas de Gea",
+    tools: ["Astro", "Tailwind CSS", "TypeScript", "Lucide Icons"],
+    coverImage: "/images/projects/web/neboasdegea/home.png",
+    images: [
+      "/images/projects/web/neboasdegea/history.png",
+      "/images/projects/web/neboasdegea/dogs.png",
+      "/images/projects/web/neboasdegea/cares.png",
+    ],
+    liveUrl: "https://neboasdegea.vercel.app/es/",
+  },
   {
     slug: "clinicasegura",
     title: "Clínica Segura",
@@ -175,7 +186,7 @@ export const webProjects = [
     ],
     liveUrl: "https://template-clinica-seven.vercel.app/es/",
   },
-  
+
   {
     slug: "nomada",
     title: "Nömada Café",

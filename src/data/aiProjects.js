@@ -86,7 +86,7 @@ export default [
     slug: "kairawallet",
     title: "Kaira Wallet Mind",
     // demoLink: "https://neuralledger.vercel.app", // O tu dominio si lo despliegas
-    // gitLink: "https://github.com/eloylozano/kairawallet",
+    gitLink: "https://github.com/eloylozano/kaira_wallet/tree/v1",
 
     coverImage: "/images/projects/ai_kaira.webp",
     gallery: [

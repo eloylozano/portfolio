@@ -294,6 +294,20 @@ export const projects_data = {
       "Diseño adaptativo con micro-animaciones sutiles y carga progresiva de imágenes de alta resolución para mantener un SEO técnico de 100/100."
     ]
   },
+  "neboasdegea": {
+    "title": "Néboas de Gea",
+    "description": "Plataforma digital de alta fidelidad para Néboas de Gea, un criadero exclusivo de Pomeranias en Galicia que fusiona la excelencia canina con una dirección de arte minimalista, natural y de alto rendimiento.",
+    "summary": "Desarrollo de una experiencia web inmersiva diseñada para proyectar la máxima confianza, ética y profesionalidad del criadero. Mediante una cuidada jerarquía editorial, optimización fotográfica avanzada y una arquitectura orientada a la velocidad, transformamos la presentación de los ejemplares en un escaparate digital sofisticado que prioriza la transparencia y la autoridad de la marca.",
+    "client": "Néboas de Gea // Criadero de Pomeranias",
+    "role": "Lead Frontend & Brand Experience",
+    "steps": [
+      "Dirección de arte basada en tonos orgánicos, suaves y neblinosos, inspirados en la naturaleza gallega y la elegancia natural.",
+      "Arquitectura construida con Astro para garantizar una velocidad de carga instantánea y una navegación fluida en cualquier dispositivo.",
+      "Desarrollo de una galería interactiva de alta fidelidad optimizada para la carga progresiva de imágenes de alta resolución sin penalizar el rendimiento.",
+      "Integración de flujos de información estructurados que guían al usuario desde la filosofía de cría responsable hasta los formularios de contacto.",
+      "Optimización SEO técnica y Core Web Vitals (100/100) para maximizar la visibilidad orgánica y el posicionamiento del negocio."
+    ]
+  },
   "clinicasegura": {
     title: "Clínica Segura",
     description: "Plataforma digital de alto rendimiento para Clínica Segura, fusionando la precisión de la fisioterapia y osteopatía avanzada con un lenguaje visual minimalista y profesional.",

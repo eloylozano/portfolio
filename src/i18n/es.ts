@@ -31,6 +31,47 @@ export default {
       description: "De cada experiencia, una lección. De cada proyecto, una nueva visión. Esta es mi evolución.",
       cards: [
         {
+          position: "Curso de Especialización en DevOps",
+          company: "IES San Clemente",
+          date: "Septiembre 2026 - Junio 2027",
+          description: "Despliegue en contenedores y metodología DevOps.",
+          responsibilities: [
+            "Arquitecturas Cloud y On-premise con contenedores",
+            "Diseño de pipelines CI/CD",
+            "Automatización y monitorización de sistemas",
+            "Ciberseguridad y estándares de calidad"
+          ],
+          alt: "Logo de la Xunta",
+          imgPath: "/images/experience/logoxunta.png",
+        },
+        {
+          position: "Técnico de Soporte 24x7",
+          company: "Dinahosting",
+          date: "Septiembre 2026 - Actualidad",
+          description: "Soporte técnico a clientes de hosting y dominios.",
+          responsibilities: [
+            "Atención al cliente por teléfono, email y chat",
+            "Resolución de incidencias técnicas en servidores",
+            "Administración básica de Linux, Apache y Postfix",
+            "Soporte en protocolos de red y CMS (WordPress, PrestaShop)",
+          ],
+          alt: "Logo de Dinahosting",
+          imgPath: "/images/experience/dinahosting.jpg",
+        },
+        {
+          position: "Técnico de CAU 24x7",
+          company: "Audasa",
+          date: "Junio - Septiembre 2026",
+          description: "Técnico de CAU en la AP-9",
+          responsibilities: [
+            "Control de incidencias",
+            "Supervisión de estación",
+            "Atención al cliente",
+          ],
+          alt: "Logo de Audasa",
+          imgPath: "/images/experience/audasa.jpg",
+        },
+        {
           position: "Desarrollador Full Stack",
           company: "Dixitalia Software",
           date: "Enero 2026 - Febrero 2026",
@@ -46,7 +87,7 @@ export default {
         },
 
         {
-          position: "Big Data & IA",
+          position: "Curso de Especialización IA & Big Data",
           company: "IES San Clemente",
           date: "Septiembre 2025 - Junio 2026",
           description: "",
@@ -61,7 +102,7 @@ export default {
           imgPath: "/images/experience/logoxunta.png",
         },
         {
-          position: "Técnico de CAU",
+          position: "Técnico de CAU 24x7",
           company: "Audasa",
           date: "Julio - Septiembre 2025",
           description: "Técnico de CAU en la AP-9",
@@ -84,7 +125,7 @@ export default {
           imgPath: "/images/experience/deloitte.png",
         },
         {
-          position: "Técnico de CAU",
+          position: "Técnico de CAU 24x7",
           company: "Audasa",
           date: "Abril 2025",
           description: "Técnico de CAU en la AP-9",
@@ -112,7 +153,7 @@ export default {
           imgPath: "/images/experience/liceolapaz.jpg",
         },
         {
-          position: "Técnico de CAU",
+          position: "Técnico de CAU 24x7",
           company: "Audasa",
           date: "Junio - Agosto 2024",
           description: "Técnico de CAU en la AP-9",

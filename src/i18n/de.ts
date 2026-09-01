@@ -28,127 +28,169 @@ export default {
     exp: {
       title: "Meine Laufbahn",
       description: "Aus jeder Erfahrung eine Lektion. Aus jedem Projekt eine neue Sichtweise. Das ist meine Entwicklung.",
-      cards: [
-        {
-          position: "Full Stack Developer",
-          company: "Dixitalia Software",
-          date: "Januar 2026 – Februar 2026",
-          description: "Entwicklung eines maßgeschneiderten Business-CRM.",
-          responsibilities: [
-            "Full-Stack-Entwicklung mit Laravel und Angular",
-            "Datenbankverwaltung und Geschäftslogik",
-            "Verbesserung interner Prozesse im firmeneigenen CRM",
-            "Design und Implementierung von REST-APIs",
-          ],
-          imgPath: "/images/experience/dixitalia.png",
-        },
-        {
-          position: "Big Data & IA",
-          company: "IES San Clemente",
-          date: "September 2025 - Juni 2026",
-          description: "",
-          responsibilities: [
-            "KI-Modelle, Algorithmen und Programmierung",
-            "Big-Data-Systeme",
-            "Management und Administration automatisierter Systeme",
-            "Praktische Anwendungen von KI und Big Data in Unternehmen",
-            "Digitale Transformation und strategische Datennutzung",
-          ],
-          imgPath: "/images/experience/logoxunta.png",
-        },
-        {
-          position: "Mautkassierer",
-          company: "Audasa",
-          date: "Juli – September 2025",
-          description: "Mautkassierer auf der Autobahn AP-9",
-          responsibilities: [
-            "Kassenführung",
-            "Stationsaufsicht",
-            "Kundenbetreuung",
-          ],
-          imgPath: "/images/experience/audasa.jpg",
-        },
-        {
-          position: "SAP-Integrationsentwickler",
-          company: "Deloitte",
-          date: "April 2025 – Juni 2025",
-          description:
-            "Mitarbeit an Integrationsprojekten zwischen Systemen mit SAP Integration Suite (CPI). Design von iFlows, Arbeit mit REST/SOAP APIs, JSON/XML-Formatierung und Groovy-Scripting.",
-          responsibilities: [],
-          imgPath: "/images/experience/deloitte.png",
-        },
-        {
-          position: "Mautkassierer",
-          company: "Audasa",
-          date: "April 2025",
-          description: "Mautkassierer auf der Autobahn AP-9",
-          responsibilities: [
-            "Kassenführung",
-            "Stationsaufsicht",
-            "Kundenbetreuung",
-          ],
-          imgPath: "/images/experience/audasa.jpg",
-        },
-        {
-          position: "Webanwendungsentwicklung",
-          company: "Liceo La Paz",
-          date: "September 2023 – März 2025",
-          description: "",
-          responsibilities: [
-            "Full-Stack-Entwicklung mit Spring, Symfony und React",
-            "Umgang mit SQL- und NoSQL-Datenbanken",
-            "Erfahrung mit Versionskontrolle (Git)",
-            "Kenntnisse in UI/UX, Barrierefreiheit und SEO",
-            "Verwendung von Docker für Entwicklungsumgebungen",
-          ],
-          imgPath: "/images/experience/liceolapaz.jpg",
-        },
-        {
-          position: "Mautkassierer",
-          company: "Audasa",
-          date: "Juni – August 2024",
-          description: "Mautkassierer auf der Autobahn AP-9",
-          responsibilities: [
-            "Kassenführung",
-            "Stationsaufsicht",
-            "Kundenbetreuung",
-          ],
-          imgPath: "/images/experience/audasa.jpg",
-        },
-        {
-          position: "Produktionsassistent",
-          company: "Bambú Producciones",
-          date: "Juni – September 2024",
-          description:
-            'Produktionsassistent für die Netflix-Dokumentarserie: "Der Fall Asunta"',
-          responsibilities: [],
-          imgPath: "/images/experience/bambu.webp",
-        },
-        {
-          position: "Mautkassierer",
-          company: "Audasa",
-          date: "Juli – September 2023",
-          description: "Mautkassierer auf der Autobahn AP-9",
-          responsibilities: [
-            "Kassenführung",
-            "Stationsaufsicht",
-            "Kundenbetreuung",
-          ],
-          imgPath: "/images/experience/audasa.jpg",
-        },
-        {
-          position: "Mikrocomputer-Systeme und Netzwerke",
-          company: "Liceo La Paz",
-          date: "September 2021 – März 2023",
-          description: "",
-          responsibilities: [
-            "Installation und Verwaltung von Computersystemen",
-            "Konfiguration von CMS wie Joomla!, WordPress, PrestaShop und Moodle",
-            "Fähigkeiten in Servermanagement und -konfiguration",
-          ],
-          imgPath: "/images/experience/liceolapaz.jpg",
-        },
-      ],
+      cards:
+        [
+          {
+            position: "DevOps-Spezialisierungskurs",
+            company: "IES San Clemente",
+            date: "September 2026 - Juni 2027",
+            description: "Container-Bereitstellung und DevOps-Methodik.",
+            responsibilities: [
+              "Cloud- und On-Premise-Architekturen mit Containern",
+              "Design von CI/CD-Pipelines",
+              "Systemautomatisierung und -überwachung",
+              "Cybersicherheit und Qualitätsstandards"
+            ],
+            alt: "Logo der Xunta",
+            imgPath: "/images/experience/logoxunta.png"
+          },
+          {
+            position: "24/7 Support-Techniker",
+            company: "Dinahosting",
+            date: "September 2026 - Heute",
+            description: "Technischer Support für Hosting- und Domain-Kunden.",
+            responsibilities: [
+              "Kundenbetreuung per Telefon, E-Mail und Chat",
+              "Lösung technischer Störungen auf Servern",
+              "Grundlegende Administration von Linux, Apache und Postfix",
+              "Unterstützung für Netzwerkprotokolle und CMS (WordPress, PrestaShop)"
+            ],
+            alt: "Logo von Dinahosting",
+            imgPath: "/images/experience/dinahosting.jpg"
+          },
+          {
+            position: "24/7 IT-Helpdesk-Techniker",
+            company: "Audasa",
+            date: "Juni - September 2026",
+            description: "IT-Helpdesk-Techniker auf der Autobahn AP-9",
+            responsibilities: [
+              "Vorfallsverwaltung",
+              "Überwachung der Station",
+              "Kundenbetreuung"
+            ],
+            alt: "Logo von Audasa",
+            imgPath: "/images/experience/audasa.jpg"
+          },
+          {
+            position: "Full Stack Developer",
+            company: "Dixitalia Software",
+            date: "Januar 2026 – Februar 2026",
+            description: "Entwicklung eines maßgeschneiderten Business-CRM.",
+            responsibilities: [
+              "Full-Stack-Entwicklung mit Laravel und Angular",
+              "Datenbankverwaltung und Geschäftslogik",
+              "Verbesserung interner Prozesse im firmeneigenen CRM",
+              "Design und Implementierung von REST-APIs",
+            ],
+            imgPath: "/images/experience/dixitalia.png",
+          },
+          {
+            position: "Big Data & IA",
+            company: "IES San Clemente",
+            date: "September 2025 - Juni 2026",
+            description: "",
+            responsibilities: [
+              "KI-Modelle, Algorithmen und Programmierung",
+              "Big-Data-Systeme",
+              "Management und Administration automatisierter Systeme",
+              "Praktische Anwendungen von KI und Big Data in Unternehmen",
+              "Digitale Transformation und strategische Datennutzung",
+            ],
+            imgPath: "/images/experience/logoxunta.png",
+          },
+          {
+            position: "Mautkassierer",
+            company: "Audasa",
+            date: "Juli – September 2025",
+            description: "Mautkassierer auf der Autobahn AP-9",
+            responsibilities: [
+              "Kassenführung",
+              "Stationsaufsicht",
+              "Kundenbetreuung",
+            ],
+            imgPath: "/images/experience/audasa.jpg",
+          },
+          {
+            position: "SAP-Integrationsentwickler",
+            company: "Deloitte",
+            date: "April 2025 – Juni 2025",
+            description:
+              "Mitarbeit an Integrationsprojekten zwischen Systemen mit SAP Integration Suite (CPI). Design von iFlows, Arbeit mit REST/SOAP APIs, JSON/XML-Formatierung und Groovy-Scripting.",
+            responsibilities: [],
+            imgPath: "/images/experience/deloitte.png",
+          },
+          {
+            position: "Mautkassierer",
+            company: "Audasa",
+            date: "April 2025",
+            description: "Mautkassierer auf der Autobahn AP-9",
+            responsibilities: [
+              "Kassenführung",
+              "Stationsaufsicht",
+              "Kundenbetreuung",
+            ],
+            imgPath: "/images/experience/audasa.jpg",
+          },
+          {
+            position: "Webanwendungsentwicklung",
+            company: "Liceo La Paz",
+            date: "September 2023 – März 2025",
+            description: "",
+            responsibilities: [
+              "Full-Stack-Entwicklung mit Spring, Symfony und React",
+              "Umgang mit SQL- und NoSQL-Datenbanken",
+              "Erfahrung mit Versionskontrolle (Git)",
+              "Kenntnisse in UI/UX, Barrierefreiheit und SEO",
+              "Verwendung von Docker für Entwicklungsumgebungen",
+            ],
+            imgPath: "/images/experience/liceolapaz.jpg",
+          },
+          {
+            position: "Mautkassierer",
+            company: "Audasa",
+            date: "Juni – August 2024",
+            description: "Mautkassierer auf der Autobahn AP-9",
+            responsibilities: [
+              "Kassenführung",
+              "Stationsaufsicht",
+              "Kundenbetreuung",
+            ],
+            imgPath: "/images/experience/audasa.jpg",
+          },
+          {
+            position: "Produktionsassistent",
+            company: "Bambú Producciones",
+            date: "Juni – September 2024",
+            description:
+              'Produktionsassistent für die Netflix-Dokumentarserie: "Der Fall Asunta"',
+            responsibilities: [],
+            imgPath: "/images/experience/bambu.webp",
+          },
+          {
+            position: "Mautkassierer",
+            company: "Audasa",
+            date: "Juli – September 2023",
+            description: "Mautkassierer auf der Autobahn AP-9",
+            responsibilities: [
+              "Kassenführung",
+              "Stationsaufsicht",
+              "Kundenbetreuung",
+            ],
+            imgPath: "/images/experience/audasa.jpg",
+          },
+          {
+            position: "Mikrocomputer-Systeme und Netzwerke",
+            company: "Liceo La Paz",
+            date: "September 2021 – März 2023",
+            description: "",
+            responsibilities: [
+              "Installation und Verwaltung von Computersystemen",
+              "Konfiguration von CMS wie Joomla!, WordPress, PrestaShop und Moodle",
+              "Fähigkeiten in Servermanagement und -konfiguration",
+            ],
+            imgPath: "/images/experience/liceolapaz.jpg",
+          },
+        ],
     },
     projects: {
       title: "Meine Projekte",

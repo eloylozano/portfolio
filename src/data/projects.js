@@ -22,17 +22,16 @@ export const projects = [
     projectLink: "/app/deskify",
     demoLink: "https://deskify-web.vercel.app",
     gitLink: "https://github.com/eloylozano/deskify",
-    featured: true,
   },
-  {
-    title: "Eventura",
-    category: "app",
-    img: "/images/projects/app_eventura.webp",
-    projectLink: "",
-    demoLink: "",
-    gitLink: "",
-    soon: true,
-  },
+  // {
+  //   title: "Eventura",
+  //   category: "app",
+  //   img: "/images/projects/app_eventura.webp",
+  //   projectLink: "",
+  //   demoLink: "",
+  //   gitLink: "",
+  //   soon: true,
+  // },
   // {
   //   title: "Lens Legacy",
   //   category: "web",
@@ -97,7 +96,6 @@ export const projects = [
     projectLink: "/web/saviaclub",
     demoLink: "https://comercioslocales02.vercel.app/",
     gitLink: "#",
-    featured: true,
   },
   {
     title: "Restaurante",
@@ -106,7 +104,6 @@ export const projects = [
     projectLink: "/web/gastronomia",
     demoLink: "https://comercioslocales.vercel.app/",
     gitLink: "#",
-    featured: true,
   },
   {
     title: "Sunset",
@@ -124,7 +121,6 @@ export const projects = [
     demoLink: "https://plantillapeluqueria.vercel.app/es/",
     gitLink: "#",
     featured: true,
-    new: true,
   },
   {
     title: "Axe & Steel",
@@ -133,8 +129,6 @@ export const projects = [
     projectLink: "/web/axesteel",
     demoLink: "https://axe-steel.vercel.app/es/",
     gitLink: "#",
-    featured: true,
-    new: true,
   },
   // {
   //   title: "Café Para Dos",
@@ -203,7 +197,7 @@ export const projects = [
     img: "/images/projects/ai_kaira.webp",
     projectLink: "/ai/kairawallet",
     // demoLink: "https://eco-vibe.vercel.app/",
-    // gitLink: "https://github.com/eloylozano/kairawallet",
+    gitLink: "https://github.com/eloylozano/kaira_wallet/tree/v1",
     new: true,
     featured: true,
   },
@@ -214,7 +208,15 @@ export const projects = [
     projectLink: "/web/nomada",
     demoLink: "https://nomadacafesantiago.vercel.app/es/",
     // gitLink: "https://github.com/eloylozano/viarisk",
-    new: true,
+  },
+
+  {
+    title: "Néboas de Gea",
+    category: "web",
+    img: "/images/projects/web_neboasdegea.png",
+    projectLink: "/web/neboasdegea",
+    demoLink: "https://neboasdegea.vercel.app/es/",
+    // gitLink: "https://github.com/eloylozano/viarisk",
   },
   {
     title: "Clínica Segura",
@@ -223,8 +225,6 @@ export const projects = [
     projectLink: "/web/clinicasegura",
     demoLink: "https://template-clinica-seven.vercel.app/es/",
     // gitLink: "https://github.com/eloylozano/viarisk",
-    new: true,
-    featured: true,
   },
 
 ];
