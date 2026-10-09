@@ -199,4 +199,30 @@ export const webProjects = [
     ],
     liveUrl: "https://nomadacafesantiago.vercel.app/es/",
   },
+  
+  {
+    slug: "begona",
+    title: "Begoña Microblading",
+    tools: ["Astro", "Tailwind CSS", "TypeScript", "Lucide Icons"],
+    coverImage: "/images/projects/web/begona/cover.png",
+    images: [
+      "/images/projects/web/begona/about.png",
+      "/images/projects/web/begona/services.png",
+      "/images/projects/web/begona/gallery.png",
+    ],
+    liveUrl: "https://begona.vercel.app/es/",
+  },
+  
+  {
+    slug: "trastienda",
+    title: "Trastienda del 7",
+    tools: ["Astro", "Tailwind CSS", "TypeScript", "Lucide Icons"],
+    coverImage: "/images/projects/web/trastienda/cover.png",
+    images: [
+      "/images/projects/web/trastienda/menu.png",
+      "/images/projects/web/trastienda/tapas.png",
+      "/images/projects/web/trastienda/carta.png",
+    ],
+    liveUrl: "https://trastiendadel7.vercel.app/es/",
+  },
 ];

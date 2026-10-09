@@ -322,7 +322,34 @@ export const projects_data = {
       "Diseño responsive adaptativo con micro-interacciones sutiles que guían la lectura y refuerzan la autoridad médica del especialista."
     ]
   },
-
+  "trastienda": {
+    "title": "Trastienda del 7",
+    "description": "Plataforma digital interactiva y carta de alta velocidad para Trastienda del 7, fusionando la experiencia gastronómica con un lenguaje visual editorial, sofisticado y de rápida navegación.",
+    "summary": "Desarrollo de una carta digital y experiencia web inmersiva diseñada para dinamizar la interacción del comensal. Mediante una jerarquía tipográfica cuidada, renderizado ultrarrápido y un diseño pensado para dispositivos móviles, transformamos la propuesta culinaria del local en una herramienta digital ágil que potencia la reserva e interacciones en mesa.",
+    "client": "Trastienda del 7",
+    "role": "Lead Frontend & Digital Experience",
+    "steps": [
+      "Implementación de una paleta cromática sofisticada con estética gastronómica ('Warm Hospitality'), optimizada para destacar la presentación visual de cada plato.",
+      "Arquitectura construida con Astro para garantizar una carga instantánea de la carta digital en entornos móviles sin consumo excesivo de datos.",
+      "Diseño de una interfaz interactiva de menú/carta optimizada para usabilidad táctil, facilitando la navegación fluida entre categorías y especialidades.",
+      "Integración de componentes dinámicos para la consulta rápida de alérgenos, maridajes y recomendaciones del chef con micro-interacciones sutiles.",
+      "Optimización de SEO local y posicionamiento orgánico enfocado a la captación de reservas y visitas de clientes en zona."
+    ]
+  },
+  "begona": {
+    "title": "Begoña Microblading",
+    "description": "Plataforma digital de belleza y estética avanzada para Begoña Microblading, combinando elegancia, claridad en los tratamientos y un diseño minimalista enfocado en la captación de clientes.",
+    "summary": "Desarrollo de una experiencia web de alta gama diseñada para transmitir precisión, higiene y distinción. A través de una estructura visual impecable y una narrativa orientada a los resultados antes/después, convertimos el sitio en un escaparate digital que genera confianza desde el primer impacto e impulsa la reserva de citas.",
+    "client": "Begoña Microblading",
+    "role": "Lead Frontend & Digital Experience",
+    "steps": [
+      "Diseño de una identidad visual 'Nude & Beauty' con tonos neutros y sofisticados, orientada a la reducción del ruido visual y al resalte de trabajos de micropigmentación.",
+      "Arquitectura desarrollada con Astro para obtener el máximo rendimiento de carga y un SEO técnico impecable en Core Web Vitals.",
+      "Desarrollo de galerías interactivas para la muestra de casos de éxito y transformaciones, optimizadas para carga diferida (lazy loading).",
+      "Integración de embudos de conversión directos orientados al contacto rápido por WhatsApp y agenda de valoraciones previas.",
+      "Enfoque 'Mobile-First' adaptativo con micro-interacciones sutiles que aportan fluidez a la consulta de tratamientos y cuidados posteriores."
+    ]
+  },
   // ===========================================================================================================
   // PROYECTOS DE FOTOGRAFÍA
   // ===========================================================================================================

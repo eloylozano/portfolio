@@ -47,7 +47,7 @@ export default {
             imgPath: "/images/experience/logoxunta.png"
           },
           {
-            position: "24/7 Support Technician",
+            position: "24/7 L2 Support Technician",
             company: "Dinahosting",
             date: "September 2026 - Present",
             description: "Technical support for hosting and domain customers.",

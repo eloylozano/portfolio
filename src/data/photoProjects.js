@@ -195,8 +195,7 @@ export default [
       {
         title: "Foto de perfil Eloy Lozano en LinkedIn",
         image: "/images/projects/myself/eloy-lozano-perfil-linkedin.webp",
-        tech: {
-          focal: "35mm",
+        tech: {          focal: "35mm",
           aperture: "f/2.4",
           iso: "400",
           camera: "Canon EOS 200D",

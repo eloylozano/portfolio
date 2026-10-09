@@ -1,83 +1,81 @@
 ---
-// src/components/ui/StackCard.astro
-const { src, alt } = Astro.props;
+interface Skill {
+  name: string;
+  icon: string;
+}
+
+interface Props {
+  categoryTitle: string;
+  skills: Skill[];
+  class?: string;
+}
+
+const { categoryTitle, skills, class: className = "" } = Astro.props;
 ---
 
-<div class="tech-item group pointer-events-none select-none">
-  <div class="icon-box relative">
-    <img 
-      src={`/images/icons/${src}`} 
-      alt={alt} 
-      loading="lazy"
-      draggable="false"
-      class="z-10"
-    />
+<article class={`relative group perspective-1000 ${className}`}>
+  <!-- Fondo neón dorado desplazado -->
+  <div
+    class="neon-box absolute z-0 inset-0 border border-[#daa032] rounded-md translate-x-4 -translate-y-4 transition-all duration-500 ease-out group-hover:translate-x-2 group-hover:-translate-y-2 group-hover:opacity-80"
+  ></div>
+
+  <!-- Tarjeta principal -->
+  <div
+    class="stack-card-inner relative z-10 bg-gradient-to-br from-[#121212] to-[#080808] text-white p-8 border border-white/10 rounded-sm h-full flex flex-col justify-between transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-[-4px] group-hover:translate-y-[4px] group-hover:border-[#daa032]/40 shadow-2xl"
+  >
+    <div>
+      <h3 class="font-bold text-[#daa032]/80 tracking-widest text-sm uppercase mb-6 pb-3 border-b border-white/10">
+        {categoryTitle}
+      </h3>
+
+      <div class="flex flex-wrap gap-3">
+        {skills.map((skill) => (
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-sm bg-white/[0.03] border border-white/5 hover:border-[#daa032]/40 transition-all duration-300 group/badge">
+            <img 
+              src={`https://cdn.simpleicons.org/${skill.icon}/ffffff`} 
+              alt={skill.name} 
+              class="w-4 h-4 opacity-70 group-hover/badge:opacity-100 transition-opacity"
+              loading="lazy"
+            />
+            <span class="text-sm font-medium text-gray-200 tracking-tight">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
   </div>
-  <span class="tech-name">{alt}</span>
-</div>
+</article>
 
 <style>
-  .tech-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  @keyframes neonPulse {
+    0%, 100% {
+      box-shadow:
+        0 0 5px #daa032,
+        0 0 15px rgba(218, 160, 50, 0.4),
+        inset 0 0 5px rgba(218, 160, 50, 0.2);
+    }
+    50% {
+      box-shadow:
+        0 0 10px #daa032,
+        0 0 35px rgba(218, 160, 50, 0.6),
+        inset 0 0 10px rgba(218, 160, 50, 0.4);
+    }
   }
 
-  .icon-box {
-    width: 80px;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(4px);
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  .neon-box {
+    animation: neonPulse 4s ease-in-out infinite;
   }
 
-  .tech-item img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-    /* Filtro eliminado: ahora se ve el color original siempre */
-    transition: all 0.4s ease;
+  .perspective-1000 {
+    perspective: 1000px;
   }
 
-  .tech-name {
-    font-size: 0.65rem;
-    color: #888; /* Un poco más claro para que sea legible */
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-    transition: all 0.4s ease;
-  }
-
-  /* Hover Effects */
-  :global(.scroller:not(.is-dragging)) .tech-item:hover {
-    transform: translateY(-8px);
-  }
-
-  :global(.scroller:not(.is-dragging)) .tech-item:hover .icon-box {
-    border-color: #daa032;
-    background: rgba(218, 160, 50, 0.1);
-    box-shadow: 0 15px 30px -10px rgba(218, 160, 50, 0.4);
-  }
-
-  :global(.scroller:not(.is-dragging)) .tech-item:hover img {
-    transform: scale(1.1);
-  }
-
-  :global(.scroller:not(.is-dragging)) .tech-item:hover .tech-name {
-    color: #daa032;
-  }
-
-  @media (max-width: 768px) {
-    .icon-box { width: 60px; height: 60px; }
-    .tech-item img { width: 35px; height: 35px; }
+  .stack-card-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
+    border-radius: inherit;
   }
 </style>

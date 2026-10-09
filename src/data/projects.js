@@ -1,12 +1,12 @@
 export const projects = [
-  {
-    title: "Appfluence",
-    category: "web",
-    img: "/images/projects/web_appfluence.webp",
-    projectLink: "/web/appfluence",
-    demoLink: "https://danisanchezdev.github.io/P5_Podcast/html/index.html",
-    gitLink: "https://github.com/eloylozano/AppFluence",
-  },
+  // {
+  //   title: "Appfluence",
+  //   category: "web",
+  //   img: "/images/projects/web_appfluence.webp",
+  //   projectLink: "/web/appfluence",
+  //   demoLink: "https://danisanchezdev.github.io/P5_Podcast/html/index.html",
+  //   gitLink: "https://github.com/eloylozano/AppFluence",
+  // },
   {
     title: "Bitten Apol",
     category: "app",
@@ -73,14 +73,14 @@ export const projects = [
     gitLink: "#",
     featured: true,
   },
-  {
-    title: "Pawtopia",
-    category: "web",
-    img: "/images/projects/web_pawtopia.webp",
-    projectLink: "/web/pawtopia",
-    demoLink: "https://pawtopia-nine.vercel.app/",
-    gitLink: "https://github.com/eloylozano/PawTopia",
-  },
+  // {
+  //   title: "Pawtopia",
+  //   category: "web",
+  //   img: "/images/projects/web_pawtopia.webp",
+  //   projectLink: "/web/pawtopia",
+  //   demoLink: "https://pawtopia-nine.vercel.app/",
+  //   gitLink: "https://github.com/eloylozano/PawTopia",
+  // },
   {
     title: "Plane Spotting",
     category: "photo",
@@ -208,16 +208,34 @@ export const projects = [
     projectLink: "/web/nomada",
     demoLink: "https://nomadacafesantiago.vercel.app/es/",
     // gitLink: "https://github.com/eloylozano/viarisk",
+    featured: true,
   },
-
   {
-    title: "Néboas de Gea",
+    title: "Trastienda del 7",
     category: "web",
-    img: "/images/projects/web_neboasdegea.png",
-    projectLink: "/web/neboasdegea",
-    demoLink: "https://neboasdegea.vercel.app/es/",
+    img: "/images/projects/web_trastienda.png",
+    projectLink: "/web/trastienda",
+    demoLink: "https://trastiendadel7.vercel.app/es/",
     // gitLink: "https://github.com/eloylozano/viarisk",
+    featured: true,
   },
+  {
+    title: "Begoña Microblading",
+    category: "web",
+    img: "/images/projects/web_begona.png",
+    projectLink: "/web/begona",
+    demoLink: "https://begona.vercel.app/es/",
+    // gitLink: "https://github.com/eloylozano/viarisk",
+    featured: true,
+  },
+  // {
+  //   title: "Néboas de Gea",
+  //   category: "web",
+  //   img: "/images/projects/web_neboasdegea.png",
+  //   projectLink: "/web/neboasdegea",
+  //   demoLink: "https://neboasdegea.vercel.app/es/",
+  //   // gitLink: "https://github.com/eloylozano/viarisk",
+  // },
   {
     title: "Clínica Segura",
     category: "web",
@@ -225,6 +243,7 @@ export const projects = [
     projectLink: "/web/clinicasegura",
     demoLink: "https://template-clinica-seven.vercel.app/es/",
     // gitLink: "https://github.com/eloylozano/viarisk",
+    featured: true,
   },
 
 ];
